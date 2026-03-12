@@ -2,10 +2,20 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Shaobin Zhuang # the website title (if blank, full name will be used instead)
+# 1. 基础信息
+title: 你的名字 # 例如：Shaobin Zhuang (或者你的常用名)
 first_name: Shaobin
 middle_name:
 last_name: Zhuang
+email: hahahahaha@sjtu.edu.cn
+description: > # 这一段会显示在网页标签上和搜索引擎里
+  PhD Student | Video & Image Generation; Unified MLLM.
+
+# 2. 社交链接与学术主页 (找到 Social 相关的部分)
+github_username: zhuangshaobin
+scholar_userid: PGaDirMAAAAJ
+# 微信的配置比较特别，通常需要你把微信二维码图片保存到 assets/img/ 文件夹下，例如命名为 wechat_qr.png
+wechat_qr: wechat_qr.png
 contact_note: >
   Email: hahahahaha@sjtu.edu.cn
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
