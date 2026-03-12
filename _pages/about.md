@@ -9,8 +9,8 @@ profile:
   image: prof_pic.jpg # 我们在下一步会替换这张照片
   image_circular: false # 如果你喜欢圆头像，把这里改成 true
   more_info: >
-    <p>Rongke Consulting Center</p>
-    <p>Beijing, China</p>
+    <p><strong>Shaobin Zhuang</strong></p>
+    <p>Email: hahahahaha@sjtu.edu.cn</p>
 
 news: true  # 显示最新动态
 latest_posts: false # 如果你不打算写博客，可以关掉
