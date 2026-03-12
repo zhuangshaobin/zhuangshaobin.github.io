@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 专注于视频&图像生成和生成理解统一模型的三年级博士生。
+subtitle: Focus on video & image generation and unified MLLM.
 
 profile:
   align: right
