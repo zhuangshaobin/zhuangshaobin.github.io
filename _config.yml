@@ -15,7 +15,7 @@ description: > # 这一段会显示在网页标签上和搜索引擎里
 github_username: zhuangshaobin
 scholar_userid: PGaDirMAAAAJ
 # 微信的配置比较特别，通常需要你把微信二维码图片保存到 assets/img/ 文件夹下，例如命名为 wechat_qr.png
-wechat_qr: wechat_qr.png
+wechat_qr: assets/img/wechat_qr.png
 contact_note: >
   Email: hahahahaha@sjtu.edu.cn
 footer_text: >
