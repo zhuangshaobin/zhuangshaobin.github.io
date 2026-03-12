@@ -18,9 +18,11 @@ selected_papers: true # 自动显示你精选的 Publication
 social: true  # 显示联系方式图标
 ---
 
-Hi! I am a third-year PhD student at Shanghai Jiao Tong University. My research mainly focuses on **video & image generation and unified MLLM**. Currently, I am also working as intern at TikTok, ByteDance. 
+Hi! I am a third-year PhD student of Shanghai Jiao Tong University advised by Prof. [Yali Wang](https://scholar.google.com/citations?user=hD948dkAAAAJ&hl=zh-CN&oi=ao). Before that, I received my Bachelor degree from Xiamen University. I also interned at Shanghai AI Lab, Tencent WeChat and Bytedance TikTok.
 
-My goal is to create more efficient, high-fidelity and smart visual models. 
+I have board interest in computer vision, natural language processing and deep learning. Recently, my research mainly focuses on **interective video generation and unified generation and understanding model**.
+
+<span style="color: red;">I expect to graduate in Summer 2028 and am actively seeking intern opportunities. Feel free to contact me via <i class="fas fa-envelope"></i> Email: hahahahaha@sjtu.edu.cn and <i class="fab fa-weixin"></i> Wechat:15260330756.</span>
 
 <span class="easter-egg" title="Fun fact: Coding Everyday!">Be patient, be per firm.</span>
 
