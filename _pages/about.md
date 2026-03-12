@@ -24,7 +24,7 @@ I have board interest in computer vision, natural language processing and deep l
 
 <span style="color: red;">I expect to graduate in Summer 2028 and am actively seeking intern opportunities. Feel free to contact me via <i class="fas fa-envelope"></i> Email: hahahahaha@sjtu.edu.cn and <i class="fab fa-weixin"></i> Wechat:15260330756.</span>
 
-<span class="easter-egg" title="Fun fact: Coding Everyday!">Be patient, be per firm.</span>
+<span class="easter-egg" title="Fun fact: Coding Everyday!">Be patient, be persistent.</span>
 
 <script>
   console.log("%c 🕵️‍♂️ Welcome to my homepage！", "color: #4caf50; font-size: 20px; font-weight: bold;");
