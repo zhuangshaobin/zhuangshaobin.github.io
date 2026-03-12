@@ -511,14 +511,14 @@ ninja.data = [{
         title: 'CV',
         section: 'Socials',
         handler: () => {
-          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+          window.open("/assets/pdf/shaobin_CV.pdf", "_blank");
         },
       },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%79%6F%75@%65%78%61%6D%70%6C%65.%63%6F%6D", "_blank");
+          window.open("mailto:%68%61%68%61%68%61%68%61%68%61@%73%6A%74%75.%65%64%75.%63%6E", "_blank");
         },
       },{
         id: 'social-inspire',
