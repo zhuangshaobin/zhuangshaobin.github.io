@@ -22,7 +22,7 @@ Hi! I am a third-year PhD student of Shanghai Jiao Tong University advised by Pr
 
 I have board interest in computer vision, natural language processing and deep learning. Recently, my research mainly focuses on **interective video generation and unified generation and understanding model**.
 
-<span style="color: red;">I expect to graduate in Summer 2028 and am actively seeking intern opportunities. Feel free to contact me via <strong>Email: hahahahaha@sjtu.edu.cn<\strong> and  <strong>Wechat:15260330756<\strong>.</span>
+<span style="color: red;">I expect to graduate in Summer 2028 and am actively seeking intern opportunities. Feel free to contact me via <strong>Email: hahahahaha@sjtu.edu.cn</strong> and  <strong>Wechat:15260330756</strong>.</span>
 
 <span class="easter-egg" title="Fun fact: Coding Everyday!">Be patient, be persistent.</span>
 
