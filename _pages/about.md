@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg # 我们在下一步会替换这张照片
   image_circular: false # 如果你喜欢圆头像，把这里改成 true
   more_info: >
-    <p><strong>Shaobin Zhuang</strong></p>
+    <p>**Shaobin Zhuang**</p>
     <p>Email: hahahahaha@sjtu.edu.cn</p>
 
 news: true  # 显示最新动态
