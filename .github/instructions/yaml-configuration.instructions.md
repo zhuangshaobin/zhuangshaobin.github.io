@@ -76,7 +76,7 @@ Defines social media links and contact information displayed on the site.
 
 ```yaml
 cv_pdf: /assets/pdf/shaobin_CV.pdf
-email: you@example.com
+email: hahahahaha@sjtu.edu.cn
 scholar_userid: qc6CJjYAAAAJ
 github_username: username
 linkedin_username: username
