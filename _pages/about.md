@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 专注于视频和图像生成式超分的四年级博士生。
+subtitle: 专注于视频&图像生成和生成理解统一模型的三年级博士生。
 
 profile:
   align: right
@@ -22,7 +22,7 @@ Hi! I am a fourth-year PhD student. My research mainly focuses on **video and im
 
 My goal is to push the boundaries of single-step generation and create more efficient, high-fidelity visual models. 
 
-<span class="easter-egg" title="Fun fact: 我特特别喜欢洗衣服，几乎每天都洗！这也算是一种给大脑清零的放松方式吧😆">When I am not running experiments or pushing code, you can probably find me assembling Lego sets to decompress.</span>
+<span class="easter-egg" title="Fun fact: 我特别特别喜欢洗衣服，几乎每天都洗！这也算是一种给大脑清零的放松方式吧😆">When I am not running experiments or pushing code, you can probably find me assembling Lego sets to decompress.</span>
 
 <script>
   console.log("%c 🕵️‍♂️ 欢迎来到我的主页！", "color: #4caf50; font-size: 20px; font-weight: bold;");
