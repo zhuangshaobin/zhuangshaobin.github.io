@@ -26,7 +26,7 @@ cv:
 
     Experience:
       - company: TikTok, ByteDance
-        position: Intern
+        position: Research Scientist Intern
         location: Shanghai, China
         logo: logo/bytedance.png
         start_date: Sep. 2025
@@ -34,7 +34,7 @@ cv:
         summary: "Unified Multimodal Large Language Model."
 
       - company: WeChat, Tencent
-        position: Intern
+        position: Research Scientist Intern
         location: Shenzhen, China
         logo: logo/tencent.png
         start_date: Jul. 2024
@@ -42,7 +42,7 @@ cv:
         summary: "Visual Generative Pre-Training; Generative Understanding Unified Model; Video Editing."
 
       - company: OpenGVLab, Shanghai AI Lab
-        position: Intern
+        position: Research Scientist Intern
         location: Shanghai, China
         logo: logo/shlab.png
         start_date: Apr. 2023
