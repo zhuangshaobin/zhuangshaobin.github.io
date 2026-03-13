@@ -40,10 +40,10 @@
                 <tr>
                   <td>
                     <p class="location">
-                      {% if content.logo %}
-                        <img src="{{ content.logo | relative_url }}" alt="logo" style="width: 35px; height: 35px; object-fit: contain; margin-top: 5px;">
+                      {% if entry.logo %}
+                        <img src="{{ entry.logo | relative_url }}" alt="logo" style="width: 35px; height: 35px; object-fit: contain; margin-top: 5px; margin-right: 5px;">
                       {% else %}
-                        <i class="fa-solid fa-graduation-cap iconlocation"></i>
+                        <i class="fa-solid fa-briefcase iconlocation"></i>
                       {% endif %}
                       {{ location }}
                     </p>
