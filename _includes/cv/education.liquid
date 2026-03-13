@@ -42,7 +42,11 @@
                 <tr>
                   <td>
                     <p class="location">
-                      <i class="fa-solid fa-location-dot iconlocation"></i>
+                      {% if content.logo %}
+                        <img src="{{ content.logo | prepend: '/assets/img/' | relative_url }}" alt="logo" style="width: 35px; height: 35px; object-fit: contain; margin-top: 5px;">
+                      {% else %}
+                        <i class="fa-solid fa-graduation-cap iconlocation"></i>
+                      {% endif %}
                       {{ location }}
                     </p>
                   </td>
