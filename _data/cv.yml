@@ -11,8 +11,8 @@ cv:
         logo: /assets/img/logo/sjtu.png
         area: Information and Communication Engineering
         studyType: Ph.D.
-        start_date: 2023
-        end_date: 2028 (Expected)
+        start_date: Sep. 2023
+        end_date: Jun. 2028
         summary: "Advised by Prof. Yali Wang."
 
       - institution: Xiamen University
@@ -20,8 +20,8 @@ cv:
         logo: /assets/img/logo/xmu.png
         area: Automation
         studyType: B.S.
-        start_date: 2019
-        end_date: 2023
+        start_date: Sep. 2019
+        end_date: Jun. 2023
         summary: "GPA: 3.80/4.00, Rank: 2/91"
 
     Experience:
