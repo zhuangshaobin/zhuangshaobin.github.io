@@ -53,5 +53,5 @@ cv:
     Publications:
 
     Service:
-      - company: Conference Reviewer
-        summary: "CVPR, ICCV, ECCV, AAAI, ICLR, ICML, NeurIPS, BMVC, SIGGRAPH"
+     - label: Conference Reviewer
+       details: "CVPR, ICCV, ECCV, AAAI, ICLR, ICML, NeurIPS, BMVC, SIGGRAPH"
