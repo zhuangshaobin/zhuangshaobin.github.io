@@ -7,7 +7,7 @@ cv:
   sections:
     Education:
       - institution: Shanghai Jiao Tong University (SJTU)
-        location: Shanghai, China
+        # location: Shanghai, China
         logo: /assets/img/logo/sjtu.png
         area: Information and Communication Engineering
         studyType: Ph.D.
@@ -16,7 +16,7 @@ cv:
         summary: "Advised by Prof. Yali Wang."
 
       - institution: Xiamen University
-        location: Xiamen, China
+        # location: Xiamen, China
         logo: /assets/img/logo/xmu.png
         area: Automation
         studyType: B.S.
@@ -27,7 +27,7 @@ cv:
     Experience:
       - company: TikTok, ByteDance
         position: Research Scientist Intern
-        location: Shanghai, China
+        # location: Shanghai, China
         logo: /assets/img/logo/bytedance.png
         start_date: Sep. 2025
         end_date: Present
@@ -35,7 +35,7 @@ cv:
 
       - company: WeChat, Tencent
         position: Research Scientist Intern
-        location: Shenzhen, China
+        # location: Shenzhen, China
         logo: /assets/img/logo/tencent.png
         start_date: Jul. 2024
         end_date: Sep. 2025
@@ -43,7 +43,7 @@ cv:
 
       - company: OpenGVLab, Shanghai AI Lab
         position: Research Scientist Intern
-        location: Shanghai, China
+        # location: Shanghai, China
         logo: /assets/img/logo/shlab.png
         start_date: Apr. 2023
         end_date: Jul. 2024
