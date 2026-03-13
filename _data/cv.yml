@@ -8,6 +8,7 @@ cv:
     Education:
       - institution: Shanghai Jiao Tong University (SJTU)
         location: Shanghai, China
+        logo: logo/sjtu.png
         area: Information and Communication Engineering
         studyType: Ph.D.
         start_date: 2023
@@ -16,6 +17,7 @@ cv:
 
       - institution: Xiamen University
         location: Xiamen, China
+        logo: logo/xmu.png
         area: Automation
         studyType: B.S.
         start_date: 2019
@@ -26,6 +28,7 @@ cv:
       - company: TikTok, ByteDance
         position: Intern
         location: Shanghai, China
+        logo: logo/bytedance.png
         start_date: Sep. 2025
         end_date: Present
         summary: "Unified Multimodal Large Language Model."
@@ -33,6 +36,7 @@ cv:
       - company: WeChat, Tencent
         position: Intern
         location: Shenzhen, China
+        logo: logo/tencent.png
         start_date: Jul. 2024
         end_date: Sep. 2025
         summary: "Visual Generative Pre-Training; Generative Understanding Unified Model; Video Editing."
@@ -40,6 +44,7 @@ cv:
       - company: OpenGVLab, Shanghai AI Lab
         position: Intern
         location: Shanghai, China
+        logo: logo/shlab.png
         start_date: Apr. 2023
         end_date: Jul. 2024
         summary: "Long Video Generation; General Image/Video Generation Model; Image/Video Generation Model Fine-Tuning."
