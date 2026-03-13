@@ -49,9 +49,10 @@ cv:
         end_date: Jul. 2024
         summary: "Long Video Generation; General Image/Video Generation Model; Image/Video Generation Model Fine-Tuning."
 
+
+    Publications:
+
     Service:
       - company: Conference Reviewer
         position: Reviewer
-        summary: "CVPR, ICCV, ECCV, AAAI, ICLR, ICML, NeurIPS, BMVC"
-
-    Publications:
+        summary: "CVPR, ICCV, ECCV, AAAI, ICLR, ICML, NeurIPS, BMVC, SIGGRAPH"
