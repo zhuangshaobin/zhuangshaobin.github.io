@@ -33,10 +33,3 @@ I have board interest in computer vision, natural language processing and deep l
   console.log("%c 🕵️‍♂️ Welcome to my homepage！", "color: #4caf50; font-size: 20px; font-weight: bold;");
   console.log("Take good care of your hair!");
 </script>
-
-<div style="text-align: center; margin-top: 50px;">
-  <h4 style="margin-bottom: 20px; font-weight: bold;">Visitors</h4>
-  
-  <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=x7GEHW3MGYocu2eHPr-o5IJGanZX_3YGF59UX-Bw4F0"></script>
-  
-</div>
