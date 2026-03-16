@@ -28,8 +28,3 @@ I have board interest in computer vision, natural language processing and deep l
   console.log("%c 🕵️‍♂️ Welcome to my homepage！", "color: #4caf50; font-size: 20px; font-weight: bold;");
   console.log("Take good care of your hair!");
 </script>
-
-<script>
-  console.log("%c 🕵️‍♂️ Welcome to my homepage！", "color: #4caf50; font-size: 20px; font-weight: bold;");
-  console.log("Take good care of your hair!");
-</script>
