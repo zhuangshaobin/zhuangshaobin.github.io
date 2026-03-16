@@ -1,14 +1,13 @@
+# 展示你的 GitHub 账号全局统计信息（星星数、提交数等）
 github_users:
-  - torvalds
-  - alshedivat
+  - zhuangshaobin
 
+# 仓库卡片描述的最大行数
 repo_description_lines_max: 2
 
+# 在下方列出你想在主页展示的重点仓库（网页会自动抓取 star 数和介绍）
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - zhuangshaobin/Video-GPT
+  - zhuangshaobin/WeTok
+  - Vchitect/Vlogger
+  - shallowdream204/BitDance
