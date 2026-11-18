@@ -307,23 +307,24 @@ const features = {
     number: "02",
     heading: "Two roles. Joint attention.",
     description:
-      "Understanding reads text and clean images. Generation reconstructs the target, with its own image and timestep residual inputs. Joint attention connects the branches.",
-    alt: "Understanding and generation use separate branches connected through joint attention. Only generation has dedicated image and timestep residual inputs.",
+      "Understanding reads text and clean images. Generation reconstructs the target through its own image and timestep residual pathways. Joint attention connects the branches.",
+    alt: "Understanding and generation are connected through joint attention. Image residual and timestep residual pathways are contained inside Generation.",
     svg:
       diagramStart +
       small(42, 42, "CONTEXT") +
       small(425, 42, "TARGET") +
       box(42, 60, 286, 44, "Text + clean images", "#f8fcf5", "#b7cdb5", 15) +
       box(425, 60, 286, 44, "Noise image + timestep", "#f8fcf5", "#b7cdb5", 15) +
-      line(185, 109, 185, 145) +
-      line(568, 109, 568, 145) +
-      box(42, 155, 286, 103, "Understanding", "#f8fcf5", "#96bca0", 22) +
-      box(425, 155, 286, 103, "Generation", "#b6e9be", "#6cba84", 22) +
-      line(338, 205, 414, 205, "#51705c", true) +
-      small(320, 285, "Joint attention") +
-      box(425, 313, 137, 48, "Image residual", "#d2f2d7", "#88c59a", 14) +
-      box(576, 313, 135, 48, "Time residual", "#d2f2d7", "#88c59a", 14) +
-      `<path d="M493 308 V263 M643 308 V263" stroke="#0db16e" stroke-width="2" marker-end="url(#arrow)"/>` +
+      line(185, 111, 185, 145) +
+      line(568, 111, 568, 145) +
+      box(42, 155, 286, 105, "Understanding", "#f8fcf5", "#96bca0", 22) +
+      '<g id="generation-branch"><rect x="425" y="155" width="286" height="207" rx="15" fill="#e6f4e5" stroke="#88b996" stroke-width="2"/><text x="568" y="191" text-anchor="middle" font-size="22" font-weight="600">Generation</text><path d="M443 207 H693" stroke="#a9cdb0"/>' +
+      box(443, 224, 250, 48, "Image residual", "#cef0d5", "#a9cdb0", 16) +
+      box(443, 292, 250, 48, "Timestep residual", "#cef0d5", "#a9cdb0", 16) +
+      "</g>" +
+      line(339, 197, 413, 197) +
+      line(413, 220, 339, 220) +
+      '<text x="376" y="278" text-anchor="middle" font-size="13">Joint</text><text x="376" y="295" text-anchor="middle" font-size="13">attention</text>' +
       small(42, 341, "A-MoT / Asymmetrical branches") +
       diagramEnd,
   },

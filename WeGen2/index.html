@@ -2124,14 +2124,14 @@
             controls
             playsinline
             preload="none"
-            poster="assets/film-poster.webp?v=20261118e"
+            poster="assets/film-poster-v2.webp"
             width="1920"
             height="1080"
             aria-label="WeGen2 showcase and model introduction"
           >
-            <source src="assets/wegen2-film-720.mp4" type="video/mp4" />
-            <track kind="captions" src="assets/film-captions.vtt" srclang="en" label="English descriptions" />
-            Your browser does not support embedded video. <a href="assets/wegen2-film.mp4?v=20261118d">Download the film</a>.
+            <source src="assets/wegen2-film-v2-720.mp4" type="video/mp4" />
+            <track kind="captions" src="assets/film-captions-v2.vtt" srclang="en" label="English descriptions" />
+            Your browser does not support embedded video. <a href="assets/wegen2-film-v2.mp4">Download the film</a>.
           </video>
           <div class="film-start" hidden>
             <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
@@ -2155,7 +2155,7 @@
                 <option value="360">360p</option>
               </select></label
             >
-            <a href="assets/wegen2-film.mp4?v=20261118d" download>Download 1080p ↗</a><a href="film-transcript.html">Visual transcript ↗</a>
+            <a href="assets/wegen2-film-v2.mp4" download>Download 1080p ↗</a><a href="film-transcript.html?v=film2">Visual transcript ↗</a>
           </div>
         </div>
         <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
@@ -2974,12 +2974,6 @@ next_image.save("paper-world-night.png")</code></pre>
           "sizes": "(max-width: 760px) 90vw, 33vw",
           "full": "assets/night-market.webp"
         },
-        "opera-guide.webp": {
-          "src": "assets/previews/opera-guide-640.webp",
-          "srcset": "assets/previews/opera-guide-640.webp 640w, assets/previews/opera-guide-960.webp 960w, assets/previews/opera-guide-1280.webp 1280w",
-          "sizes": "(max-width: 760px) 92vw, 56vw",
-          "full": "assets/opera-guide.webp"
-        },
         "paper-night.webp": {
           "src": "assets/previews/paper-night-480.webp",
           "srcset": "assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w",
@@ -3110,14 +3104,15 @@ next_image.save("paper-world-night.png")</code></pre>
     </script>
     <script type="application/json" id="film-config-data">
       {
-        "mediaPath": "assets/film-hls-v1/",
+        "mediaPath": "assets/film-hls-v2/",
         "mirrors": [
-          "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/e17662ea4e33775e71959fb8191c99b5d5886219/WeGen2/assets/film-hls-v1/",
-          "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@e17662ea4e33775e71959fb8191c99b5d5886219/WeGen2/assets/film-hls-v1/"
+          "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/479d133d5b7e6fe436b1a4ee283f89ec37d4c41e/WeGen2/assets/film-hls-v2/",
+          "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@479d133d5b7e6fe436b1a4ee283f89ec37d4c41e/WeGen2/assets/film-hls-v2/"
         ],
         "library": "player/hls.light-1.7.4.min.js",
         "libraryFallback": "https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js",
-        "libraryIntegrity": "sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz"
+        "libraryIntegrity": "sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz",
+        "mp4Sources": { "480": "assets/wegen2-film-v2-480.mp4", "720": "assets/wegen2-film-v2-720.mp4", "1080": "assets/wegen2-film-v2.mp4" }
       }
     </script>
     <!-- INLINE_DATA_END -->
@@ -3432,23 +3427,24 @@ next_image.save("paper-world-night.png")</code></pre>
           number: "02",
           heading: "Two roles. Joint attention.",
           description:
-            "Understanding reads text and clean images. Generation reconstructs the target, with its own image and timestep residual inputs. Joint attention connects the branches.",
-          alt: "Understanding and generation use separate branches connected through joint attention. Only generation has dedicated image and timestep residual inputs.",
+            "Understanding reads text and clean images. Generation reconstructs the target through its own image and timestep residual pathways. Joint attention connects the branches.",
+          alt: "Understanding and generation are connected through joint attention. Image residual and timestep residual pathways are contained inside Generation.",
           svg:
             diagramStart +
             small(42, 42, "CONTEXT") +
             small(425, 42, "TARGET") +
             box(42, 60, 286, 44, "Text + clean images", "#f8fcf5", "#b7cdb5", 15) +
             box(425, 60, 286, 44, "Noise image + timestep", "#f8fcf5", "#b7cdb5", 15) +
-            line(185, 109, 185, 145) +
-            line(568, 109, 568, 145) +
-            box(42, 155, 286, 103, "Understanding", "#f8fcf5", "#96bca0", 22) +
-            box(425, 155, 286, 103, "Generation", "#b6e9be", "#6cba84", 22) +
-            line(338, 205, 414, 205, "#51705c", true) +
-            small(320, 285, "Joint attention") +
-            box(425, 313, 137, 48, "Image residual", "#d2f2d7", "#88c59a", 14) +
-            box(576, 313, 135, 48, "Time residual", "#d2f2d7", "#88c59a", 14) +
-            `<path d="M493 308 V263 M643 308 V263" stroke="#0db16e" stroke-width="2" marker-end="url(#arrow)"/>` +
+            line(185, 111, 185, 145) +
+            line(568, 111, 568, 145) +
+            box(42, 155, 286, 105, "Understanding", "#f8fcf5", "#96bca0", 22) +
+            '<g id="generation-branch"><rect x="425" y="155" width="286" height="207" rx="15" fill="#e6f4e5" stroke="#88b996" stroke-width="2"/><text x="568" y="191" text-anchor="middle" font-size="22" font-weight="600">Generation</text><path d="M443 207 H693" stroke="#a9cdb0"/>' +
+            box(443, 224, 250, 48, "Image residual", "#cef0d5", "#a9cdb0", 16) +
+            box(443, 292, 250, 48, "Timestep residual", "#cef0d5", "#a9cdb0", 16) +
+            "</g>" +
+            line(339, 197, 413, 197) +
+            line(413, 220, 339, 220) +
+            '<text x="376" y="278" text-anchor="middle" font-size="13">Joint</text><text x="376" y="295" text-anchor="middle" font-size="13">attention</text>' +
             small(42, 341, "A-MoT / Asymmetrical branches") +
             diagramEnd,
         },
@@ -3680,7 +3676,7 @@ next_image.save("paper-world-night.png")</code></pre>
             }
             load(context, settings, callbacks) {
               this.context = context;
-              const marker = "/film-hls-v1/";
+              const marker = "/" + config.mediaPath.split("/").filter(Boolean).pop() + "/";
               const position = context.url.indexOf(marker);
               const relative = position >= 0 ? context.url.slice(position + marker.length) : null;
               const order = relative === null ? [0] : [preferredOrigin, ...origins.map((_, i) => i).filter((i) => i !== preferredOrigin)];
@@ -3778,7 +3774,7 @@ next_image.save("paper-world-night.png")</code></pre>
           pendingSeek = position;
           const height = quality.value === "1080" ? 1080 : quality.value === "720" ? 720 : 480;
           updateQuality(height);
-          video.src = `assets/wegen2-film${height === 1080 ? "" : "-" + height}.mp4`;
+          video.src = config.mp4Sources[String(height)];
           video.load();
           if (wantedPlayback) playNative();
         }

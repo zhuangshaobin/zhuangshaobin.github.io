@@ -113,7 +113,7 @@
       }
       load(context, settings, callbacks) {
         this.context = context;
-        const marker = "/film-hls-v1/";
+        const marker = "/" + config.mediaPath.split("/").filter(Boolean).pop() + "/";
         const position = context.url.indexOf(marker);
         const relative = position >= 0 ? context.url.slice(position + marker.length) : null;
         const order = relative === null ? [0] : [preferredOrigin, ...origins.map((_, i) => i).filter((i) => i !== preferredOrigin)];
@@ -211,7 +211,7 @@
     pendingSeek = position;
     const height = quality.value === "1080" ? 1080 : quality.value === "720" ? 720 : 480;
     updateQuality(height);
-    video.src = `assets/wegen2-film${height === 1080 ? "" : "-" + height}.mp4`;
+    video.src = config.mp4Sources[String(height)];
     video.load();
     if (wantedPlayback) playNative();
   }

@@ -77,12 +77,6 @@
     "sizes": "(max-width: 760px) 90vw, 33vw",
     "full": "assets/night-market.webp"
   },
-  "opera-guide.webp": {
-    "src": "assets/previews/opera-guide-640.webp",
-    "srcset": "assets/previews/opera-guide-640.webp 640w, assets/previews/opera-guide-960.webp 960w, assets/previews/opera-guide-1280.webp 1280w",
-    "sizes": "(max-width: 760px) 92vw, 56vw",
-    "full": "assets/opera-guide.webp"
-  },
   "paper-night.webp": {
     "src": "assets/previews/paper-night-480.webp",
     "srcset": "assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w",
