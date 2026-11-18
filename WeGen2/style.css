@@ -1980,3 +1980,9 @@ footer > a:last-child {
     justify-content: flex-start;
   }
 }
+
+.film-playback-status {
+  margin: 12px 0 0;
+  color: var(--muted, #527063);
+  font-size: 13px;
+}

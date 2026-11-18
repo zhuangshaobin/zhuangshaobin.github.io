@@ -1,0 +1,10 @@
+{
+  "mediaPath": "assets/film-hls-v1/",
+  "mirrors": [
+    "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/e17662ea4e33775e71959fb8191c99b5d5886219/WeGen2/assets/film-hls-v1/",
+    "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@e17662ea4e33775e71959fb8191c99b5d5886219/WeGen2/assets/film-hls-v1/"
+  ],
+  "library": "player/hls.light-1.7.4.min.js",
+  "libraryFallback": "https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js",
+  "libraryIntegrity": "sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz"
+}

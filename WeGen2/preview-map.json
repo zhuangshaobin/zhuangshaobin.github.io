@@ -202,5 +202,11 @@
     "srcset": "assets/previews/tryon-ref-08-240.webp 240w",
     "sizes": "(max-width: 760px) 20vw, 140px",
     "full": "assets/tryon-ref-08.webp"
+  },
+  "changan-night.webp": {
+    "src": "assets/previews/changan-night-640.webp",
+    "srcset": "assets/previews/changan-night-640.webp 640w, assets/previews/changan-night-960.webp 960w, assets/previews/changan-night-1024.webp 1024w",
+    "sizes": "(max-width: 760px) 92vw, 56vw",
+    "full": "assets/changan-night.webp"
   }
 }
