@@ -146,112 +146,45 @@ dialog.addEventListener("click", (e) => {
 dialog.addEventListener("close", () => previousFocus?.focus({ preventScroll: true }));
 
 const film = document.querySelector(".showcase-film");
-const filmSource = film.querySelector("source").src;
 const filmStart = document.querySelector(".film-start");
 const filmStartButton = document.querySelector("#film-start-button");
 const filmStatus = document.querySelector("#film-load-status");
-let filmObjectURL = null,
-  filmReady = false,
-  filmPending = null;
-// Local Blob playback permits arbitrary seeking even if hosting ignores Range requests.
+let pendingFilmSeek = null;
+// Let the browser request only the MP4 ranges needed for playback and seeking.
 film.controls = false;
 filmStart.hidden = false;
-function prepareFilm() {
-  if (filmReady) return Promise.resolve();
-  if (filmPending) return filmPending;
-  filmPending = (async () => {
-    filmStartButton.disabled = true;
-    filmStartButton.querySelector(".film-start-label").textContent = "Loading film";
-    filmStatus.textContent = "Preparing the video for smooth playback and seeking…";
-    filmStart.setAttribute("aria-busy", "true");
-    try {
-      const response = await fetch(filmSource);
-      if (!response.ok) throw new Error("Video download failed");
-      const total = Number(response.headers.get("Content-Length"));
-      let blob;
-      if (response.body) {
-        const reader = response.body.getReader();
-        const chunks = [];
-        let received = 0,
-          lastPercent = -1;
-        while (true) {
-          const { value, done } = await reader.read();
-          if (done) break;
-          chunks.push(value);
-          received += value.length;
-          const percent = total > 0 ? Math.min(100, Math.floor((received / total) * 100)) : null;
-          if (percent !== null && Math.floor(percent / 10) !== lastPercent) {
-            lastPercent = Math.floor(percent / 10);
-            filmStatus.textContent = `Loading film · ${percent}%`;
-          }
-        }
-        blob = new Blob(chunks, { type: "video/mp4" });
-      } else {
-        blob = new Blob([await response.arrayBuffer()], { type: "video/mp4" });
-      }
-      if (!blob.size) throw new Error("Empty video");
-      filmObjectURL = URL.createObjectURL(blob);
-      await new Promise((resolve, reject) => {
-        const cleanup = () => {
-          film.removeEventListener("loadedmetadata", loaded);
-          film.removeEventListener("error", failed);
-        };
-        const loaded = () => {
-          cleanup();
-          resolve();
-        };
-        const failed = () => {
-          cleanup();
-          reject(new Error("Video could not be opened"));
-        };
-        film.addEventListener("loadedmetadata", loaded, { once: true });
-        film.addEventListener("error", failed, { once: true });
-        film.src = filmObjectURL;
-        film.load();
-      });
-      filmReady = true;
-      film.controls = true;
-      filmStart.hidden = true;
-      filmStatus.textContent = "";
-    } catch (error) {
-      if (filmObjectURL) {
-        URL.revokeObjectURL(filmObjectURL);
-        filmObjectURL = null;
-      }
-      filmStart.hidden = false;
-      filmStartButton.querySelector(".film-start-label").textContent = "Try again";
-      filmStatus.textContent = "The video could not load. Try again or use Download film below.";
-      throw error;
-    } finally {
-      filmStartButton.disabled = false;
-      filmStart.removeAttribute("aria-busy");
-    }
-  })().finally(() => {
-    filmPending = null;
-  });
-  return filmPending;
+function applyFilmSeek() {
+  if (pendingFilmSeek === null || !Number.isFinite(film.duration)) return;
+  film.currentTime = Math.min(pendingFilmSeek, Math.max(0, film.duration - 0.05));
+  pendingFilmSeek = null;
 }
-async function playFilm(start) {
-  try {
-    await prepareFilm();
-    if (start !== undefined) film.currentTime = Math.min(start, Math.max(0, film.duration - 0.05));
-    try {
-      await film.play();
-    } catch {
-      filmStart.hidden = false;
-      filmStartButton.querySelector(".film-start-label").textContent = "Play film";
-      filmStatus.textContent = "Ready to play.";
-      filmStartButton.focus();
-    }
-  } catch {
-    /* The visible retry control reports the loading error. */
-  }
+function showFilmRetry(message) {
+  filmStart.hidden = false;
+  filmStartButton.querySelector(".film-start-label").textContent = "Play film";
+  filmStatus.textContent = message;
+}
+film.addEventListener("loadedmetadata", applyFilmSeek);
+film.addEventListener("playing", () => {
+  filmStart.hidden = true;
+  filmStatus.textContent = "";
+});
+film.addEventListener("error", () => {
+  showFilmRetry("The video could not load. Try again or use Download film below.");
+});
+function playFilm(start) {
+  if (Number.isFinite(start)) pendingFilmSeek = Math.max(0, start);
+  if (film.error) film.load();
+  applyFilmSeek();
+  film.controls = true;
+  filmStart.hidden = true;
+  filmStatus.textContent = "";
+  // Invoke play in the click handler, retaining the browser's user activation.
+  film.play().catch((error) => {
+    if (error.name !== "AbortError") showFilmRetry("Tap to play, or use Download film below.");
+  });
 }
 filmStartButton.addEventListener("click", () => playFilm());
 for (const button of document.querySelectorAll("[data-seek]")) button.addEventListener("click", () => playFilm(Number(button.dataset.seek)));
-window.addEventListener("pagehide", (event) => {
-  if (!event.persisted && filmObjectURL) URL.revokeObjectURL(filmObjectURL);
-});
 
 const stage = document.querySelector(".reference-stage");
 const output = document.querySelector("#tryon-result");
