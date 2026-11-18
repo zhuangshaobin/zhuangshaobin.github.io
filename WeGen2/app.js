@@ -1,4 +1,18 @@
 "use strict";
+const imagePreviews = JSON.parse(document.querySelector("#preview-data").textContent);
+function setPreview(image, filename, sizes) {
+  const preview = imagePreviews[filename];
+  image.dataset.full = `assets/${filename}`;
+  image.decoding = "async";
+  if (preview) {
+    image.sizes = sizes || preview.sizes;
+    image.srcset = preview.srcset;
+    image.src = preview.src;
+  } else {
+    image.removeAttribute("srcset");
+    image.src = `assets/${filename}`;
+  }
+}
 
 const range = document.querySelector("#comparison-range");
 const comparison = document.querySelector(".comparison");
@@ -87,9 +101,9 @@ function selectEdit(tab, focus = false) {
   comparison.style.aspectRatio = edit.ratio || "3 / 2";
   const before = comparison.querySelector(".comparison-before");
   const after = comparison.querySelector(".comparison-base");
-  before.src = `assets/${edit.before}`;
+  setPreview(before, edit.before, "92vw");
   before.alt = edit.inputAlt;
-  after.src = `assets/${edit.after}`;
+  setPreview(after, edit.after, "92vw");
   after.alt = edit.outputAlt;
   document.querySelector("#edit-description").textContent = edit.description;
   document.querySelector("#edit-panel").setAttribute("aria-labelledby", tab.id);
@@ -115,13 +129,28 @@ selectEdit(tabs[0]);
 
 const dialog = document.querySelector(".image-dialog");
 let previousFocus;
+let fullImageRequest = 0;
 function showImage(image) {
   previousFocus = document.activeElement;
-  dialog.querySelector("img").src = image.currentSrc || image.src;
-  dialog.querySelector("img").alt = image.alt || "WeGen2 image";
-  dialog.querySelector("p").textContent = image.alt || "WeGen2 image";
+  const request = ++fullImageRequest;
+  const target = dialog.querySelector("img");
+  const caption = dialog.querySelector("p");
+  const full = image.dataset?.full || image.src;
+  target.src = image.currentSrc || image.src;
+  target.alt = image.alt || "WeGen2 image";
+  caption.textContent = image.alt || "WeGen2 image";
+  dialog.querySelector(".dialog-original").href = full;
   dialog.showModal();
+  if (full && full !== target.src) {
+    const original = new Image();
+    original.decoding = "async";
+    original.onload = () => {
+      if (request === fullImageRequest && dialog.open) target.src = original.src;
+    };
+    original.src = full;
+  }
 }
+
 for (const image of document.querySelectorAll("img[data-zoom]")) {
   image.tabIndex = 0;
   image.setAttribute("role", "button");
@@ -136,21 +165,31 @@ for (const image of document.querySelectorAll("img[data-zoom]")) {
 }
 for (const button of document.querySelectorAll("[data-open-image]"))
   button.addEventListener("click", () => {
-    const existing = document.querySelector(`img[src="assets/${button.dataset.openImage}"]`);
+    const existing = [...document.querySelectorAll("img[data-full]")].find(
+      (image) => image.dataset.full.split("?")[0] === `assets/${button.dataset.openImage}`.split("?")[0]
+    );
     showImage(existing || { src: `assets/${button.dataset.openImage}`, alt: "Full WeGen2 generation" });
   });
 dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (e) => {
   if (e.target === dialog) dialog.close();
 });
-dialog.addEventListener("close", () => previousFocus?.focus({ preventScroll: true }));
+dialog.addEventListener("close", () => {
+  fullImageRequest++;
+  previousFocus?.focus({ preventScroll: true });
+});
 
 const film = document.querySelector(".showcase-film");
 const filmStart = document.querySelector(".film-start");
 const filmStartButton = document.querySelector("#film-start-button");
 const filmStatus = document.querySelector("#film-load-status");
+const filmQuality = document.querySelector("#film-quality");
+const filmSources = { 480: "assets/wegen2-film-480.mp4", 720: "assets/wegen2-film-720.mp4", 1080: "assets/wegen2-film.mp4?v=20261118d" };
 let pendingFilmSeek = null;
-// Let the browser request only the MP4 ranges needed for playback and seeking.
+let activeQuality = "720";
+let bufferingTimer = null;
+let filmStarted = false;
+film.dataset.quality = activeQuality;
 film.controls = false;
 filmStart.hidden = false;
 function applyFilmSeek() {
@@ -163,28 +202,68 @@ function showFilmRetry(message) {
   filmStartButton.querySelector(".film-start-label").textContent = "Play film";
   filmStatus.textContent = message;
 }
+function startNativePlayback() {
+  film.play().catch((error) => {
+    if (error.name !== "AbortError") showFilmRetry("Tap to play, or use Download 1080p below.");
+  });
+}
+function changeFilmQuality(quality, resume = !film.paused, position = film.currentTime) {
+  if (quality === activeQuality) return;
+  clearTimeout(bufferingTimer);
+  pendingFilmSeek = Number.isFinite(position) ? position : 0;
+  activeQuality = quality;
+  film.dataset.quality = quality;
+  filmQuality.options[0].textContent = filmQuality.value === "auto" ? `Auto (${quality}p)` : "Auto";
+  film.src = filmSources[quality];
+  film.load();
+  if (resume) startNativePlayback();
+}
+function automaticQuality() {
+  const connection = navigator.connection;
+  return connection?.saveData || (connection?.downlink && connection.downlink < 1) ? "480" : "720";
+}
 film.addEventListener("loadedmetadata", applyFilmSeek);
 film.addEventListener("playing", () => {
+  clearTimeout(bufferingTimer);
   filmStart.hidden = true;
   filmStatus.textContent = "";
 });
+film.addEventListener("waiting", () => {
+  clearTimeout(bufferingTimer);
+  if (filmQuality.value === "auto" && activeQuality === "720") {
+    bufferingTimer = setTimeout(() => {
+      if (!film.paused && film.readyState < 3 && filmQuality.value === "auto" && activeQuality === "720")
+        changeFilmQuality("480", true, pendingFilmSeek ?? film.currentTime);
+    }, 2200);
+  }
+});
+film.addEventListener("pause", () => clearTimeout(bufferingTimer));
 film.addEventListener("error", () => {
-  showFilmRetry("The video could not load. Try again or use Download film below.");
+  if (filmQuality.value === "auto" && activeQuality === "720") changeFilmQuality("480", filmStarted, pendingFilmSeek ?? film.currentTime);
+  else showFilmRetry("The video could not load. Try again or use Download 1080p below.");
 });
 function playFilm(start) {
+  if (!filmStarted && filmQuality.value === "auto") changeFilmQuality(automaticQuality(), false, start ?? 0);
+  filmStarted = true;
   if (Number.isFinite(start)) pendingFilmSeek = Math.max(0, start);
   if (film.error) film.load();
   applyFilmSeek();
   film.controls = true;
   filmStart.hidden = true;
   filmStatus.textContent = "";
-  // Invoke play in the click handler, retaining the browser's user activation.
-  film.play().catch((error) => {
-    if (error.name !== "AbortError") showFilmRetry("Tap to play, or use Download film below.");
-  });
+  startNativePlayback();
 }
 filmStartButton.addEventListener("click", () => playFilm());
+filmQuality.addEventListener("change", () => changeFilmQuality(filmQuality.value === "auto" ? automaticQuality() : filmQuality.value));
 for (const button of document.querySelectorAll("[data-seek]")) button.addEventListener("click", () => playFilm(Number(button.dataset.seek)));
+// An offscreen showcase should not compete with the gallery the visitor is reading.
+if ("IntersectionObserver" in window)
+  new IntersectionObserver(
+    (entries) => {
+      if (!entries[0].isIntersecting && filmStarted && !document.pictureInPictureElement) film.pause();
+    },
+    { threshold: 0 }
+  ).observe(film);
 
 const stage = document.querySelector(".reference-stage");
 const output = document.querySelector("#tryon-result");
@@ -262,8 +341,7 @@ function selectReference(id) {
 }
 referenceButtons.forEach((b) => b.addEventListener("click", () => selectReference(Number(b.dataset.reference))));
 document.querySelector("#clear-reference").addEventListener("click", () => selectReference(null));
-fetch("reference-map.json")
-  .then((r) => r.json())
+Promise.resolve(JSON.parse(document.querySelector("#reference-data").textContent))
   .then((items) => {
     referenceItems = items;
   })
@@ -416,8 +494,7 @@ const icons = {
   weights: '<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
   paper: '<path d="M6 2h8l4 4v16H6zM14 2v5h4M9 11h6M9 15h6"/>',
 };
-fetch("links.json")
-  .then((r) => r.json())
+Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
   .then((links) => {
     const container = document.querySelector("#resource-links");
     for (const [key, label] of [
@@ -447,17 +524,4 @@ fetch("links.json")
     container.hidden = !container.children.length;
   })
   .catch(() => {});
-if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  document.body.classList.add("motion-ready");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries)
-        if (e.isIntersecting) {
-          e.target.classList.add("in-view");
-          observer.unobserve(e.target);
-        }
-    },
-    { threshold: 0.04, rootMargin: "0px 0px 80px 0px" }
-  );
-  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-}
+// Sections remain visible without animation or script-dependent reveal states.

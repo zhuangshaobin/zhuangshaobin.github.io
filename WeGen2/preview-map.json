@@ -1,0 +1,206 @@
+{
+  "architecture-input.webp": {
+    "src": "assets/previews/architecture-input-480.webp",
+    "srcset": "assets/previews/architecture-input-480.webp 480w, assets/previews/architecture-input-900.webp 900w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/architecture-input.webp"
+  },
+  "architecture-output.webp": {
+    "src": "assets/previews/architecture-output-480.webp",
+    "srcset": "assets/previews/architecture-output-480.webp 480w, assets/previews/architecture-output-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/architecture-output.webp"
+  },
+  "atrium-winter.webp": {
+    "src": "assets/previews/atrium-winter-480.webp",
+    "srcset": "assets/previews/atrium-winter-480.webp 480w, assets/previews/atrium-winter-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/atrium-winter.webp"
+  },
+  "atrium.webp": {
+    "src": "assets/previews/atrium-480.webp",
+    "srcset": "assets/previews/atrium-480.webp 480w, assets/previews/atrium-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/atrium.webp"
+  },
+  "chat-input.webp": {
+    "src": "assets/previews/chat-input-480.webp",
+    "srcset": "assets/previews/chat-input-480.webp 480w, assets/previews/chat-input-768.webp 768w",
+    "sizes": "(max-width: 760px) 70vw, 30vw",
+    "full": "assets/chat-input.webp"
+  },
+  "chat-reply.webp": {
+    "src": "assets/previews/chat-reply-480.webp",
+    "srcset": "assets/previews/chat-reply-480.webp 480w, assets/previews/chat-reply-768.webp 768w",
+    "sizes": "(max-width: 760px) 70vw, 30vw",
+    "full": "assets/chat-reply.webp"
+  },
+  "chat-revision.webp": {
+    "src": "assets/previews/chat-revision-480.webp",
+    "srcset": "assets/previews/chat-revision-480.webp 480w, assets/previews/chat-revision-768.webp 768w",
+    "sizes": "(max-width: 760px) 70vw, 30vw",
+    "full": "assets/chat-revision.webp"
+  },
+  "comic-sheet.webp": {
+    "src": "assets/previews/comic-sheet-960.webp",
+    "srcset": "assets/previews/comic-sheet-960.webp 960w, assets/previews/comic-sheet-1440.webp 1440w, assets/previews/comic-sheet-1920.webp 1920w",
+    "sizes": "92vw",
+    "full": "assets/comic-sheet.webp"
+  },
+  "glass-city.webp": {
+    "src": "assets/previews/glass-city-480.webp",
+    "srcset": "assets/previews/glass-city-480.webp 480w, assets/previews/glass-city-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/glass-city.webp"
+  },
+  "glass-reef.webp": {
+    "src": "assets/previews/glass-reef-480.webp",
+    "srcset": "assets/previews/glass-reef-480.webp 480w, assets/previews/glass-reef-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/glass-reef.webp"
+  },
+  "landscape-input.webp": {
+    "src": "assets/previews/landscape-input-480.webp",
+    "srcset": "assets/previews/landscape-input-480.webp 480w, assets/previews/landscape-input-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/landscape-input.webp"
+  },
+  "landscape-output.webp": {
+    "src": "assets/previews/landscape-output-480.webp",
+    "srcset": "assets/previews/landscape-output-480.webp 480w, assets/previews/landscape-output-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/landscape-output.webp"
+  },
+  "night-market.webp": {
+    "src": "assets/previews/night-market-480.webp",
+    "srcset": "assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 33vw",
+    "full": "assets/night-market.webp"
+  },
+  "opera-guide.webp": {
+    "src": "assets/previews/opera-guide-640.webp",
+    "srcset": "assets/previews/opera-guide-640.webp 640w, assets/previews/opera-guide-960.webp 960w, assets/previews/opera-guide-1280.webp 1280w",
+    "sizes": "(max-width: 760px) 92vw, 56vw",
+    "full": "assets/opera-guide.webp"
+  },
+  "paper-night.webp": {
+    "src": "assets/previews/paper-night-480.webp",
+    "srcset": "assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/paper-night.webp"
+  },
+  "paper-world.webp": {
+    "src": "assets/previews/paper-world-480.webp",
+    "srcset": "assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 33vw",
+    "full": "assets/paper-world.webp"
+  },
+  "poster.webp": {
+    "src": "assets/previews/poster-480.webp",
+    "srcset": "assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w",
+    "sizes": "(max-width: 760px) 90vw, 33vw",
+    "full": "assets/poster.webp"
+  },
+  "rain-portrait.webp": {
+    "src": "assets/previews/rain-portrait-480.webp",
+    "srcset": "assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w",
+    "sizes": "(max-width: 760px) 90vw, 33vw",
+    "full": "assets/rain-portrait.webp"
+  },
+  "reading-guide.webp": {
+    "src": "assets/previews/reading-guide-320.webp",
+    "srcset": "assets/previews/reading-guide-320.webp 320w",
+    "sizes": "138px",
+    "full": "assets/reading-guide.webp"
+  },
+  "robot-00.webp": {
+    "src": "assets/previews/robot-00-400.webp",
+    "srcset": "assets/previews/robot-00-400.webp 400w, assets/previews/robot-00-640.webp 640w",
+    "sizes": "(max-width: 760px) 60vw, 240px",
+    "full": "assets/robot-00.webp"
+  },
+  "robot-01.webp": {
+    "src": "assets/previews/robot-01-400.webp",
+    "srcset": "assets/previews/robot-01-400.webp 400w, assets/previews/robot-01-640.webp 640w",
+    "sizes": "(max-width: 760px) 60vw, 240px",
+    "full": "assets/robot-01.webp"
+  },
+  "robot-02.webp": {
+    "src": "assets/previews/robot-02-400.webp",
+    "srcset": "assets/previews/robot-02-400.webp 400w, assets/previews/robot-02-640.webp 640w",
+    "sizes": "(max-width: 760px) 60vw, 240px",
+    "full": "assets/robot-02.webp"
+  },
+  "robot-03.webp": {
+    "src": "assets/previews/robot-03-400.webp",
+    "srcset": "assets/previews/robot-03-400.webp 400w, assets/previews/robot-03-640.webp 640w",
+    "sizes": "(max-width: 760px) 60vw, 240px",
+    "full": "assets/robot-03.webp"
+  },
+  "robot-04.webp": {
+    "src": "assets/previews/robot-04-400.webp",
+    "srcset": "assets/previews/robot-04-400.webp 400w, assets/previews/robot-04-640.webp 640w",
+    "sizes": "(max-width: 760px) 60vw, 240px",
+    "full": "assets/robot-04.webp"
+  },
+  "tryon-output.webp": {
+    "src": "assets/previews/tryon-output-480.webp",
+    "srcset": "assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/tryon-output.webp"
+  },
+  "tryon-person.webp": {
+    "src": "assets/previews/tryon-person-480.webp",
+    "srcset": "assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/tryon-person.webp"
+  },
+  "tryon-ref-01.webp": {
+    "src": "assets/previews/tryon-ref-01-240.webp",
+    "srcset": "assets/previews/tryon-ref-01-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-01.webp"
+  },
+  "tryon-ref-02.webp": {
+    "src": "assets/previews/tryon-ref-02-240.webp",
+    "srcset": "assets/previews/tryon-ref-02-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-02.webp"
+  },
+  "tryon-ref-03.webp": {
+    "src": "assets/previews/tryon-ref-03-240.webp",
+    "srcset": "assets/previews/tryon-ref-03-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-03.webp"
+  },
+  "tryon-ref-04.webp": {
+    "src": "assets/previews/tryon-ref-04-240.webp",
+    "srcset": "assets/previews/tryon-ref-04-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-04.webp"
+  },
+  "tryon-ref-05.webp": {
+    "src": "assets/previews/tryon-ref-05-240.webp",
+    "srcset": "assets/previews/tryon-ref-05-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-05.webp"
+  },
+  "tryon-ref-06.webp": {
+    "src": "assets/previews/tryon-ref-06-240.webp",
+    "srcset": "assets/previews/tryon-ref-06-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-06.webp"
+  },
+  "tryon-ref-07.webp": {
+    "src": "assets/previews/tryon-ref-07-240.webp",
+    "srcset": "assets/previews/tryon-ref-07-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-07.webp"
+  },
+  "tryon-ref-08.webp": {
+    "src": "assets/previews/tryon-ref-08-240.webp",
+    "srcset": "assets/previews/tryon-ref-08-240.webp 240w",
+    "sizes": "(max-width: 760px) 20vw, 140px",
+    "full": "assets/tryon-ref-08.webp"
+  }
+}
