@@ -202,5 +202,11 @@
     "srcset": "assets/previews/changan-night-640.webp 640w, assets/previews/changan-night-960.webp 960w, assets/previews/changan-night-1024.webp 1024w",
     "sizes": "(max-width: 760px) 92vw, 56vw",
     "full": "assets/changan-night.webp"
+  },
+  "creation-studio.webp": {
+    "src": "assets/previews/creation-studio-640.webp",
+    "srcset": "assets/previews/creation-studio-640.webp 640w, assets/previews/creation-studio-960.webp 960w, assets/previews/creation-studio-1024.webp 1024w",
+    "sizes": "(max-width: 760px) 92vw, 56vw",
+    "full": "assets/creation-studio.webp"
   }
 }

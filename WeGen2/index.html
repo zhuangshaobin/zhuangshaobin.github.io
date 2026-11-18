@@ -2129,9 +2129,9 @@
             height="1080"
             aria-label="WeGen2 showcase and model introduction"
           >
-            <source src="assets/wegen2-film-v3-720.mp4" type="video/mp4" />
-            <track kind="captions" src="assets/film-captions-v3.vtt" srclang="en" label="English descriptions" />
-            Your browser does not support embedded video. <a href="assets/wegen2-film-v3.mp4">Download the film</a>.
+            <source src="assets/wegen2-film-v4-720.mp4" type="video/mp4" />
+            <track kind="captions" src="assets/film-captions-v4.vtt" srclang="en" label="English descriptions" />
+            Your browser does not support embedded video. <a href="assets/wegen2-film-v4.mp4">Download the film</a>.
           </video>
           <div class="film-start" hidden>
             <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
@@ -2155,7 +2155,7 @@
                 <option value="360">360p</option>
               </select></label
             >
-            <a href="assets/wegen2-film-v3.mp4" download>Download 1080p ↗</a><a href="film-transcript.html?v=film3">Visual transcript ↗</a>
+            <a href="assets/wegen2-film-v4.mp4" download>Download 1080p ↗</a><a href="film-transcript.html?v=film4">Visual transcript ↗</a>
           </div>
         </div>
         <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
@@ -2241,11 +2241,11 @@
             <p class="eyebrow">Words belong in the picture.</p>
             <h2 id="words-title">More to see.<br /><em>More to read.</em></h2>
             <p>
-              Illustration and explanatory text share the same canvas. A Chang’an night-tour poster combines four richly detailed scenes with Chinese
-              headlines and descriptive passages.
+              A WeGen2 creation-studio poster brings imagined landscapes, architectural spaces, and fashion scenes together with Chinese headlines and
+              descriptive text.
             </p>
             <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
-            <button class="text-link" type="button" data-open-image="changan-night.webp">
+            <button class="text-link" type="button" data-open-image="creation-studio.webp">
               Explore the full image <span aria-hidden="true">↗</span>
             </button>
             <div class="word-detail">
@@ -2267,19 +2267,19 @@
           </div>
           <figure class="dense-figure">
             <img
-              alt="A Chang’an night-tour poster with four detailed scenes, Chinese headlines, and descriptive passages generated together."
-              data-full="assets/changan-night.webp"
+              alt="A WeGen2 creation-studio poster with six miniature scenes and Chinese text about generation, editing, and composition."
+              data-full="assets/creation-studio.webp"
               data-zoom=""
               decoding="async"
               fetchpriority="low"
               height="1024"
               loading="lazy"
               sizes="(max-width: 760px) 92vw, 56vw"
-              src="assets/previews/changan-night-640.webp"
+              src="assets/previews/creation-studio-640.webp"
               srcset="
-                assets/previews/changan-night-640.webp   640w,
-                assets/previews/changan-night-960.webp   960w,
-                assets/previews/changan-night-1024.webp 1024w
+                assets/previews/creation-studio-640.webp   640w,
+                assets/previews/creation-studio-960.webp   960w,
+                assets/previews/creation-studio-1024.webp 1024w
               "
               width="1024"
             />
@@ -3099,20 +3099,26 @@ next_image.save("paper-world-night.png")</code></pre>
           "srcset": "assets/previews/changan-night-640.webp 640w, assets/previews/changan-night-960.webp 960w, assets/previews/changan-night-1024.webp 1024w",
           "sizes": "(max-width: 760px) 92vw, 56vw",
           "full": "assets/changan-night.webp"
+        },
+        "creation-studio.webp": {
+          "src": "assets/previews/creation-studio-640.webp",
+          "srcset": "assets/previews/creation-studio-640.webp 640w, assets/previews/creation-studio-960.webp 960w, assets/previews/creation-studio-1024.webp 1024w",
+          "sizes": "(max-width: 760px) 92vw, 56vw",
+          "full": "assets/creation-studio.webp"
         }
       }
     </script>
     <script type="application/json" id="film-config-data">
       {
-        "mediaPath": "assets/film-hls-v3/",
+        "mediaPath": "assets/film-hls-v4/",
         "mirrors": [
-          "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/f35f83e63a82edf2495553f7791bd4314c74552b/WeGen2/assets/film-hls-v3/",
-          "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@f35f83e63a82edf2495553f7791bd4314c74552b/WeGen2/assets/film-hls-v3/"
+          "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/7ace7f8f134db1300f5a1ac621b51b58e0cfdd58/WeGen2/assets/film-hls-v4/",
+          "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@7ace7f8f134db1300f5a1ac621b51b58e0cfdd58/WeGen2/assets/film-hls-v4/"
         ],
         "library": "player/hls.light-1.7.4.min.js",
         "libraryFallback": "https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js",
         "libraryIntegrity": "sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz",
-        "mp4Sources": { "480": "assets/wegen2-film-v3-480.mp4", "720": "assets/wegen2-film-v3-720.mp4", "1080": "assets/wegen2-film-v3.mp4" }
+        "mp4Sources": { "480": "assets/wegen2-film-v4-480.mp4", "720": "assets/wegen2-film-v4-720.mp4", "1080": "assets/wegen2-film-v4.mp4" }
       }
     </script>
     <!-- INLINE_DATA_END -->
