@@ -389,7 +389,8 @@ p {
 }
 .film-chapters {
   display: flex;
-  gap: 27px;
+  flex-wrap: wrap;
+  gap: 14px 27px;
 }
 .film-chapters button {
   background: transparent;
@@ -1336,7 +1337,7 @@ footer > a:last-child {
     flex-direction: column;
   }
   .film-chapters {
-    gap: 28px;
+    gap: 12px 22px;
   }
   .film-chapters button {
     font-size: 9px;

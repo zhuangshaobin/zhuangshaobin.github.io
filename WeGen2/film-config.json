@@ -1,15 +1,15 @@
 {
-  "mediaPath": "assets/film-hls-v4/",
+  "mediaPath": "assets/film-hls-v5/",
   "mirrors": [
-    "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/7ace7f8f134db1300f5a1ac621b51b58e0cfdd58/WeGen2/assets/film-hls-v4/",
-    "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@7ace7f8f134db1300f5a1ac621b51b58e0cfdd58/WeGen2/assets/film-hls-v4/"
+    "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/a6d6b0c3648f7a2d58151fb88a2169be96f3efdf/WeGen2/assets/film-hls-v5/",
+    "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@a6d6b0c3648f7a2d58151fb88a2169be96f3efdf/WeGen2/assets/film-hls-v5/"
   ],
   "library": "player/hls.light-1.7.4.min.js",
   "libraryFallback": "https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js",
   "libraryIntegrity": "sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz",
   "mp4Sources": {
-    "480": "assets/wegen2-film-v4-480.mp4",
-    "720": "assets/wegen2-film-v4-720.mp4",
-    "1080": "assets/wegen2-film-v4.mp4"
+    "480": "assets/wegen2-film-v5-480.mp4",
+    "720": "assets/wegen2-film-v5-720.mp4",
+    "1080": "assets/wegen2-film-v5.mp4"
   }
 }
