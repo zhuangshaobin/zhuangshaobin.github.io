@@ -17,14 +17,1999 @@
     <meta name="theme-color" content="#f8f9f3" />
     <meta name="robots" content="noindex,nofollow" />
     <link rel="icon" type="image/svg+xml" href="assets/wegen2-mark.svg?v=20261118b" />
-    <link rel="stylesheet" href="style.css?v=20261118b" />
-    <script src="app.js?v=20261118c" defer></script>
+    <!-- INLINE_STYLE_START -->
+<style>
+:root {
+  --paper: #f8f9f3;
+  --white: #fff;
+  --ink: #073f32;
+  --body: #426153;
+  --muted: #6b7f72;
+  --green: #0db16e;
+  --mint: #dff4e5;
+  --line: #d9e5d8;
+  --dark: #083a2d;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius: 22px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  color: inherit;
+}
+button,
+a,
+summary {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+[data-zoom]:focus-visible {
+  outline: 3px solid #d79532;
+  outline-offset: 5px;
+}
+figure,
+p,
+h1,
+h2,
+h3,
+dl,
+dd {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+figure {
+  min-width: 0;
+}
+[hidden] {
+  display: none !important;
+}
+.wrap {
+  width: min(1320px, calc(100% - 112px));
+  margin-inline: auto;
+}
+.section {
+  padding-block: 106px;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--green);
+}
+h2 {
+  font-size: clamp(38px, 4.2vw, 64px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+}
+h2 em {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+p {
+  line-height: 1.75;
+}
+.small-copy {
+  font-size: 12px !important;
+  color: var(--muted);
+}
+.fine-print {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.text-link {
+  padding: 0 0 6px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  font-size: 13px;
+  line-height: 1.6;
+  display: inline-flex;
+  gap: 25px;
+  align-items: center;
+}
+.text-link:hover {
+  color: var(--green);
+}
+.skip-link {
+  position: absolute;
+  left: 20px;
+  top: -80px;
+  padding: 14px;
+  background: var(--ink);
+  color: white;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 20px;
+}
+.site-header {
+  height: 88px;
+  padding-inline: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+.site-header nav {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  font-size: 13px;
+}
+.site-header nav a:not(.nav-pill):hover {
+  color: var(--green);
+}
+.nav-pill {
+  padding: 12px 19px;
+  border: 1px solid #bbd7c5;
+  border-radius: 30px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-pill:hover {
+  background: var(--mint);
+}
+.hero {
+  margin: 0 18px;
+  position: relative;
+  height: min(790px, calc(100svh - 110px));
+  min-height: 610px;
+  isolation: isolate;
+  border-radius: 28px;
+  overflow: hidden;
+  color: white;
+  background: #102a21;
+}
+.hero-art,
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 46%;
+}
+.hero-shade {
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 20, 13, 0.5), transparent 35%, rgba(0, 21, 14, 0.12) 55%, rgba(0, 20, 13, 0.8));
+}
+.hero-topline {
+  position: absolute;
+  top: 38px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.hero-topline p {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+.hero-zoom {
+  border: 1px solid #ffffff75;
+  background: #ffffff10;
+  color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px 17px;
+  font-size: 11px;
+  backdrop-filter: blur(8px);
+}
+.hero-zoom:hover {
+  background: #ffffff30;
+}
+.hero-bottom {
+  position: absolute;
+  bottom: 22px;
+  left: 36px;
+  right: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+.hero-kicker {
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  margin: 0 0 5px 5px;
+}
+.hero h1 {
+  font-size: clamp(120px, 17.5vw, 260px);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.93;
+  margin-left: -8px;
+}
+.hero h1 span {
+  color: #acffc9;
+}
+.play-orbit {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 13px;
+  margin-bottom: 25px;
+  white-space: nowrap;
+}
+.play-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #ffffffb0;
+  border-radius: 50%;
+  font-size: 32px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.play-orbit:hover .play-icon {
+  background: var(--green);
+  border-color: var(--green);
+  transform: scale(1.07);
+}
+.play-orbit small {
+  display: block;
+  margin-top: 7px;
+  font-size: 10px;
+  color: #d2e4d8;
+}
+.hero-caption {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted);
+  padding-top: 14px;
+  line-height: 1.6;
+}
+.intro {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 100px;
+  padding-top: 100px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+.intro h2 {
+  margin: 19px 0 25px;
+}
+.intro-copy > p:last-child {
+  font-size: 16px;
+  color: var(--body);
+  max-width: 540px;
+}
+.model-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 31px 34px;
+}
+.model-stats > div {
+  border-top: 1px solid var(--line);
+  padding-top: 19px;
+}
+.model-stats dt {
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+}
+.model-stats dt span {
+  font-size: 42px;
+  letter-spacing: -0.05em;
+}
+.model-stats dd {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 13px;
+  line-height: 1.6;
+}
+.model-stats .stat-word {
+  font-size: 37px;
+  font-family: var(--serif);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 54px;
+  margin-bottom: 38px;
+}
+.section-heading h2 {
+  margin-top: 18px;
+}
+.section-heading > p {
+  font-size: 14px;
+  max-width: 340px;
+  color: var(--body);
+  line-height: 1.8;
+}
+.section-heading > div {
+  min-width: 0;
+}
+.film-section {
+  padding-bottom: 20px;
+}
+.film-shell {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--dark);
+}
+.showcase-film {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  display: block;
+}
+.film-under {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-top: 21px;
+  padding-bottom: 14px;
+}
+.film-chapters {
+  display: flex;
+  gap: 27px;
+}
+.film-chapters button {
+  background: transparent;
+  border: 0;
+  padding: 5px 0;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+}
+.film-chapters button span {
+  font-size: 13px;
+  color: var(--ink);
+}
+.film-chapters button:hover span {
+  color: var(--green);
+}
+.film-downloads {
+  display: flex;
+  gap: 25px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.film-downloads a:hover {
+  color: var(--green);
+}
+.creation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 30px 16px;
+}
+.creation-grid .poster {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.creation-grid .portrait {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+.creation-grid .paper-world {
+  grid-column: 3;
+  grid-row: 1;
+}
+.creation-grid .market {
+  grid-column: 3;
+  grid-row: 2;
+}
+.creation-grid img {
+  width: 100%;
+  border-radius: 14px;
+  transition: filter 0.2s;
+}
+.creation-grid img:hover {
+  filter: brightness(1.03);
+}
+[data-zoom] {
+  cursor: zoom-in;
+}
+.creation-grid figcaption {
+  padding: 15px 2px 0;
+}
+.creation-grid figcaption span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.01em;
+}
+.creation-grid figcaption strong {
+  display: block;
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.word-section {
+  background: #e8f1e4;
+  border-radius: 60px 60px 0 0;
+  margin-top: 15px;
+}
+.word-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 75px;
+  align-items: center;
+}
+.word-copy h2 {
+  margin: 19px 0 25px;
+}
+.word-copy > p:not(.eyebrow) {
+  max-width: 370px;
+  font-size: 15px;
+  color: var(--body);
+}
+.word-copy .small-copy {
+  margin-top: 17px;
+}
+.word-copy > .text-link {
+  margin-top: 28px;
+}
+.dense-figure img {
+  width: 100%;
+  border-radius: 20px;
+}
+.dense-figure figcaption {
+  padding: 14px 2px 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.word-detail {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 42px;
+  padding-top: 28px;
+  border-top: 1px solid #c6d9c6;
+}
+.word-detail img {
+  width: 138px;
+  border-radius: 8px;
+}
+.word-detail p {
+  font-size: 12px;
+  color: var(--body);
+}
+.reference-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.reference-inputs {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 24px;
+  align-items: center;
+}
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+.reference-card {
+  padding: 0;
+  background: #fff;
+  border: 1px solid #dce4d9;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+  position: relative;
+  z-index: 2;
+}
+.reference-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+}
+.reference-card > span {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 9px;
+  padding: 9px 7px;
+  border-top: 1px solid #eef1e9;
+  color: var(--body);
+  line-height: 1.2;
+}
+.reference-card > span b {
+  font-weight: 500;
+  font-size: 8px;
+  color: var(--muted);
+}
+.reference-card[aria-pressed="true"] {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px #0db16e55;
+}
+.reference-card:hover {
+  border-color: var(--green);
+}
+.source-person img,
+.reference-result img {
+  width: 100%;
+  border-radius: 14px;
+}
+.source-person figcaption,
+.reference-result figcaption {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+.reference-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+.reference-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.reference-controls p {
+  font-size: 12px;
+  color: var(--body);
+  min-height: 24px;
+  max-width: 800px;
+}
+.reference-controls .text-link {
+  font-size: 11px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.editing-section {
+  background: #edf3e8;
+}
+.edit-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.edit-tabs button {
+  border: 1px solid #bfcebd;
+  border-radius: 30px;
+  padding: 11px 20px;
+  background: transparent;
+  font-size: 12px;
+}
+.edit-tabs button[aria-selected="true"] {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+.edit-tabs button:hover {
+  border-color: var(--ink);
+}
+.comparison {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #dbe6d7;
+  aspect-ratio: 2/1;
+}
+.comparison img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.comparison-before {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+}
+.comparison-divider {
+  position: absolute;
+  left: var(--split);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: white;
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+.comparison-divider > span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: var(--ink);
+  font-size: 25px;
+  box-shadow: 0 3px 15px #0002;
+}
+.comparison-label {
+  position: absolute;
+  top: 22px;
+  background: #f8f9f3ed;
+  border: 1px solid #ffffff80;
+  border-radius: 30px;
+  padding: 8px 14px;
+  font-size: 11px;
+}
+.before-label {
+  left: 22px;
+}
+.after-label {
+  right: 22px;
+}
+.comparison-control {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 22px;
+  font-size: 12px;
+  color: var(--body);
+}
+.comparison-control input {
+  width: 100%;
+  max-width: 550px;
+  accent-color: var(--green);
+  min-height: 32px;
+  cursor: ew-resize;
+}
+.comparison-control label {
+  min-width: 140px;
+}
+.comparison-control > span {
+  min-width: 55px;
+  font-variant-numeric: tabular-nums;
+}
+.chat-sequence {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1070px;
+  margin: auto;
+}
+.chat-sequence img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.chat-sequence figcaption {
+  margin-top: 16px;
+  font-size: 13px;
+}
+.chat-sequence figcaption b {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--green);
+  margin-right: 14px;
+}
+.stories-section {
+  background: #0b4634;
+  color: #f2f8ee;
+  border-radius: 60px 60px 0 0;
+}
+.stories-section .eyebrow {
+  color: #a8edc0;
+}
+.stories-section .section-heading > p {
+  color: #c0d8c8;
+}
+.comic-sheet img {
+  width: 100%;
+  border-radius: 10px;
+}
+.comic-sheet figcaption {
+  font-size: 12px;
+  color: #b9d0c1;
+  padding-top: 15px;
+}
+.sequence-details {
+  margin-top: 42px;
+  border-top: 1px solid #52745f;
+  padding-top: 25px;
+}
+.sequence-details summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.sequence-details summary::-webkit-details-marker {
+  display: none;
+}
+.sequence-details summary span {
+  font-size: 25px;
+  line-height: 1;
+}
+.sequence-details[open] summary span {
+  transform: rotate(45deg);
+}
+.robot-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 28px;
+}
+.robot-grid img {
+  width: 100%;
+  border-radius: 8px;
+}
+.robot-grid figcaption {
+  font-size: 10px;
+  color: #c5d8ca;
+  margin-top: 9px;
+}
+.sequence-details .fine-print {
+  color: #b9d0c1;
+  margin-top: 15px;
+}
+.method-section {
+  background: #e6f0e1;
+}
+.method-switcher {
+  display: flex;
+  border-bottom: 1px solid #bfd1bd;
+  gap: 38px;
+  margin: 52px 0 0;
+}
+.method-switcher button {
+  padding: 0 0 20px;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: -2px;
+}
+.method-switcher button[aria-selected="true"] {
+  border-bottom-color: var(--green);
+  color: var(--ink);
+  font-weight: 600;
+}
+.model-stage {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 48px;
+  align-items: center;
+  min-height: 430px;
+  margin-top: 32px;
+}
+.method-counter {
+  display: block;
+  color: #8bb69a;
+  font-size: 69px;
+  font-family: var(--serif);
+  line-height: 1;
+}
+.method-copy h3 {
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: -0.035em;
+  margin: 20px 0 18px;
+}
+.method-copy p {
+  font-size: 14px;
+  color: var(--body);
+  max-width: 360px;
+}
+.model-diagram {
+  width: 100%;
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+}
+.model-diagram svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.foundation-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding-top: 27px;
+  border-top: 1px solid #bfd1bd;
+  margin-top: 26px;
+}
+.foundation-note p {
+  font-family: var(--serif);
+  font-size: 22px;
+}
+.foundation-note span {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.results-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+}
+.results-copy h2 {
+  margin: 18px 0 28px;
+}
+.results-copy > p:not(.eyebrow) {
+  font-size: 15px;
+  color: var(--body);
+  margin-top: 20px;
+  max-width: 400px;
+}
+.benchmark-figure {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+.benchmark-figure img {
+  width: 100%;
+}
+.benchmark-figure figcaption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 13px;
+}
+.inference-section {
+  background: #eaf2e6;
+  border-radius: 60px 60px 0 0;
+}
+.resource-links {
+  display: flex;
+  gap: 23px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 13px;
+}
+.resource-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #bccfbc;
+}
+.resource-icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.code-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 68px;
+  align-items: center;
+}
+.code-card {
+  background: var(--ink);
+  color: #e4f0dc;
+  border: 1px solid #2a5845;
+  border-radius: 16px;
+  overflow: hidden;
+  min-width: 0;
+}
+.code-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 24px;
+  border-bottom: 1px solid #3d6652;
+  font-size: 11px;
+  color: #c0d6c3;
+}
+.copy-code {
+  background: transparent;
+  color: #e4f0dc;
+  border: 1px solid #698b74;
+  border-radius: 30px;
+  padding: 7px 16px;
+  font-size: 11px;
+}
+.code-card pre {
+  padding: 24px;
+  margin: 0;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.85;
+}
+.code-card code {
+  font-family: Consolas, "Liberation Mono", monospace;
+}
+.inference-copy h3 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin-bottom: 17px;
+}
+.inference-copy p {
+  font-size: 14px;
+  color: var(--body);
+}
+.inference-copy dl {
+  margin: 27px 0;
+}
+.inference-copy dl > div {
+  padding: 13px 0;
+  border-top: 1px solid #c8d8c3;
+}
+.inference-copy dt {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.inference-copy dd {
+  font-size: 13px;
+  margin-top: 7px;
+  line-height: 1.6;
+}
+.inference-copy .release-note {
+  font-size: 11px;
+  margin-top: 22px;
+}
+#copy-status {
+  font-size: 12px;
+  color: var(--green);
+  min-height: 22px;
+  margin-top: 15px;
+}
+.authors-section {
+  text-align: center;
+}
+.authors-section h2 {
+  font-size: 57px;
+  margin-top: 15px;
+}
+.paper-title {
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.5;
+  margin: 18px auto 30px;
+  max-width: 800px;
+}
+.authors {
+  font-size: 14px;
+  line-height: 2.5;
+  max-width: 940px;
+  margin: auto;
+}
+.authors sup {
+  font-size: 9px;
+  color: var(--green);
+}
+.affiliations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 11px;
+  margin-top: 25px;
+}
+.contribution-note {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 20px;
+  line-height: 1.9;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  padding-block: 25px 35px;
+}
+footer .wordmark {
+  font-size: 21px;
+}
+footer p,
+footer > a:last-child {
+  font-size: 10px;
+  color: var(--muted);
+}
+.image-dialog {
+  border: 0;
+  background: #073f32f7;
+  color: white;
+  max-width: 96vw;
+  width: fit-content;
+  max-height: 96vh;
+  padding: 52px 18px 18px;
+  border-radius: 18px;
+}
+.image-dialog::backdrop {
+  background: #06281fe8;
+  backdrop-filter: blur(6px);
+}
+.image-dialog img {
+  max-width: 90vw;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: auto;
+}
+.image-dialog p {
+  font-size: 12px;
+  max-width: 950px;
+  text-align: center;
+  margin: 15px auto 0;
+}
+.dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  color: white;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 23px;
+  line-height: 1;
+}
+@media (min-width: 1700px) {
+  .hero {
+    max-width: 1800px;
+    margin-inline: auto;
+  }
+  .hero h1 {
+    font-size: 270px;
+  }
+}
+@media (max-width: 1100px) {
+  .wrap {
+    width: calc(100% - 64px);
+  }
+  .site-header {
+    padding-inline: 32px;
+  }
+  .intro {
+    gap: 50px;
+  }
+  .hero {
+    min-height: 540px;
+  }
+  .hero h1 {
+    font-size: 18vw;
+  }
+  .hero-topline {
+    top: 28px;
+    left: 28px;
+    right: 28px;
+  }
+  .hero-bottom {
+    left: 28px;
+    right: 28px;
+  }
+  .play-orbit small {
+    display: none;
+  }
+  .play-icon {
+    width: 52px;
+    height: 52px;
+  }
+  .word-layout {
+    gap: 38px;
+  }
+  .reference-stage {
+    gap: 55px;
+  }
+  .reference-inputs {
+    gap: 16px;
+  }
+  .reference-card > span {
+    font-size: 8px;
+    gap: 5px;
+    padding: 7px 5px;
+  }
+  .code-layout {
+    gap: 40px;
+  }
+  .model-stage {
+    gap: 32px;
+  }
+  .results-section {
+    gap: 35px;
+  }
+  .section {
+    padding-block: 80px;
+  }
+  .section-heading {
+    gap: 32px;
+  }
+  .section-heading > p {
+    max-width: 290px;
+  }
+  .model-stats dt {
+    font-size: 60px;
+  }
+  .method-copy h3 {
+    font-size: 26px;
+  }
+  .foundation-note {
+    align-items: flex-start;
+  }
+  .foundation-note span {
+    max-width: 360px;
+  }
+}
+@media (max-width: 760px) {
+  .wrap {
+    width: calc(100% - 40px);
+  }
+  .site-header {
+    height: 76px;
+    padding-inline: 20px;
+  }
+  .site-header nav {
+    gap: 20px;
+    font-size: 11px;
+  }
+  .site-header nav a[href="#capabilities"] {
+    display: none;
+  }
+  .nav-pill {
+    padding: 9px 14px;
+    gap: 15px;
+  }
+  .wordmark {
+    font-size: 23px;
+    gap: 8px;
+  }
+  .wordmark img {
+    width: 31px;
+    height: 31px;
+  }
+  .hero {
+    margin-inline: 10px;
+    border-radius: 20px;
+    min-height: 560px;
+    height: calc(90svh - 95px);
+    max-height: 720px;
+  }
+  .hero-art img {
+    object-position: 50% 42%;
+  }
+  .hero-topline {
+    top: 23px;
+    left: 22px;
+    right: 22px;
+  }
+  .hero-topline p {
+    font-size: 12px;
+  }
+  .hero-zoom {
+    font-size: 10px;
+    padding: 9px 12px;
+    gap: 12px;
+  }
+  .hero-bottom {
+    left: 22px;
+    right: 22px;
+    bottom: 24px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: 24vw;
+    letter-spacing: -0.075em;
+    margin-left: -3px;
+  }
+  .hero-kicker {
+    font-size: 12px;
+    margin-left: 2px;
+    margin-bottom: 8px;
+  }
+  .play-orbit {
+    margin: 23px 0 0;
+    gap: 13px;
+    font-size: 12px;
+  }
+  .play-orbit small {
+    display: block;
+    font-size: 9px;
+  }
+  .play-icon {
+    width: 43px;
+    height: 43px;
+    font-size: 25px;
+  }
+  .hero-caption {
+    font-size: 9px;
+    gap: 15px;
+  }
+  .hero-caption span:last-child {
+    text-align: right;
+    max-width: 200px;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 65px;
+  }
+  .intro-copy > p:last-child {
+    font-size: 15px;
+  }
+  .intro h2 {
+    font-size: 49px;
+  }
+  .model-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .model-stats dt {
+    font-size: 47px;
+  }
+  .model-stats dt span {
+    font-size: 28px;
+  }
+  .model-stats .stat-word {
+    font-size: 25px;
+  }
+  .model-stats dd {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+  .section {
+    padding-block: 62px;
+  }
+  .section-heading {
+    display: block;
+    margin-bottom: 27px;
+  }
+  .section-heading h2 {
+    font-size: 43px;
+  }
+  .section-heading > p {
+    margin-top: 22px;
+    max-width: 450px;
+    font-size: 13px;
+  }
+  .film-section {
+    padding-bottom: 10px;
+  }
+  .film-shell {
+    border-radius: 14px;
+  }
+  .film-under {
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+  }
+  .film-chapters {
+    gap: 28px;
+  }
+  .film-chapters button {
+    font-size: 9px;
+  }
+  .film-chapters button span {
+    font-size: 12px;
+  }
+  .film-downloads {
+    font-size: 10px;
+  }
+  .fine-print {
+    font-size: 10px;
+  }
+  .creation-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 10px;
+  }
+  .creation-grid .poster {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .creation-grid .portrait {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .creation-grid .paper-world {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .creation-grid .market {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .creation-grid img {
+    border-radius: 10px;
+  }
+  .creation-grid figcaption {
+    padding-top: 11px;
+  }
+  .creation-grid figcaption span {
+    font-size: 9px;
+  }
+  .creation-grid figcaption strong {
+    font-size: 13px;
+  }
+  .word-section,
+  .stories-section,
+  .inference-section {
+    border-radius: 32px 32px 0 0;
+  }
+  .word-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .word-copy h2 {
+    font-size: 45px;
+  }
+  .word-copy > p:not(.eyebrow) {
+    max-width: 560px;
+    font-size: 14px;
+  }
+  .word-detail {
+    display: none;
+  }
+  .dense-figure img {
+    border-radius: 14px;
+  }
+  .reference-stage {
+    gap: 25px;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .reference-inputs {
+    display: block;
+  }
+  .source-person {
+    width: 75%;
+    margin: 0 auto 20px;
+  }
+  .source-person figcaption {
+    font-size: 10px;
+    margin-top: 9px;
+  }
+  .reference-card > span {
+    font-size: 8px;
+    line-height: 1.35;
+  }
+  .reference-result {
+    position: sticky;
+    top: 20px;
+  }
+  .reference-result figcaption {
+    font-size: 10px;
+  }
+  .reference-grid {
+    gap: 7px;
+  }
+  .reference-controls {
+    gap: 15px;
+  }
+  .reference-controls p {
+    font-size: 11px;
+  }
+  .reference-controls .text-link {
+    font-size: 10px;
+  }
+  .edit-tabs {
+    gap: 6px;
+  }
+  .edit-tabs button {
+    font-size: 10px;
+    padding: 9px 13px;
+  }
+  .comparison {
+    border-radius: 12px;
+  }
+  .comparison-label {
+    top: 12px;
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+  .before-label {
+    left: 12px;
+  }
+  .after-label {
+    right: 12px;
+  }
+  .comparison-divider > span {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+  .comparison-control {
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    font-size: 11px;
+  }
+  .comparison-control label {
+    width: 100%;
+  }
+  .comparison-control input {
+    max-width: none;
+    width: calc(100% - 75px);
+  }
+  .chat-sequence {
+    gap: 10px;
+  }
+  .chat-sequence img {
+    border-radius: 10px;
+  }
+  .chat-sequence figcaption {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .chat-sequence figcaption b {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .comic-sheet img {
+    border-radius: 7px;
+  }
+  .comic-sheet figcaption {
+    font-size: 10px;
+  }
+  .sequence-details summary {
+    font-size: 14px;
+  }
+  .robot-grid {
+    overflow-x: auto;
+    display: flex;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  .robot-grid figure {
+    flex: 0 0 70%;
+    scroll-snap-align: start;
+  }
+  .method-switcher {
+    gap: 23px;
+    margin-top: 35px;
+  }
+  .method-switcher button {
+    font-size: 11px;
+    padding-bottom: 16px;
+  }
+  .model-stage {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 25px;
+    margin-top: 27px;
+  }
+  .method-counter {
+    display: none;
+  }
+  .method-copy h3 {
+    font-size: 27px;
+    margin: 0 0 15px;
+  }
+  .method-copy p {
+    font-size: 13px;
+    max-width: 550px;
+  }
+  .model-diagram {
+    min-height: 0;
+  }
+  .foundation-note {
+    display: block;
+    margin-top: 25px;
+  }
+  .foundation-note p {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .foundation-note span {
+    font-size: 10px;
+  }
+  .results-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .results-copy h2 {
+    font-size: 43px;
+  }
+  .results-copy > p:not(.eyebrow) {
+    max-width: 550px;
+    font-size: 14px;
+  }
+  .benchmark-figure {
+    padding: 12px;
+  }
+  .code-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .resource-links {
+    margin-top: 25px;
+    font-size: 12px;
+  }
+  .code-card pre {
+    font-size: 11px;
+    padding: 20px;
+  }
+  .code-heading {
+    padding: 16px 20px;
+  }
+  .inference-copy h3 {
+    font-size: 27px;
+  }
+  .authors-section h2 {
+    font-size: 45px;
+  }
+  .paper-title {
+    font-size: 21px;
+  }
+  .authors {
+    font-size: 12px;
+  }
+  .affiliations {
+    display: block;
+    line-height: 1.9;
+  }
+  .affiliations span {
+    display: block;
+  }
+  .contribution-note {
+    font-size: 9px;
+  }
+  footer {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  footer p {
+    order: 3;
+    width: 100%;
+  }
+  footer .wordmark {
+    font-size: 20px;
+  }
+  .image-dialog {
+    border-radius: 10px;
+  }
+  .image-dialog p {
+    font-size: 10px;
+  }
+  .image-dialog img {
+    max-height: 75vh;
+  }
+}
+@media (max-width: 420px) {
+  .site-header nav {
+    gap: 15px;
+  }
+  .site-header nav a[href="#method"] {
+    display: none;
+  }
+  .hero {
+    min-height: 525px;
+  }
+  .hero-zoom {
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+    font-size: 0;
+    gap: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+  }
+  .hero-zoom span {
+    font-size: 17px;
+  }
+  .hero-topline p {
+    font-size: 11px;
+  }
+  .model-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .model-stats dt {
+    font-size: 55px;
+  }
+  .model-stats .stat-word {
+    font-size: 28px;
+  }
+  .model-stats dd {
+    font-size: 10px;
+  }
+  .section-heading h2 {
+    font-size: 39px;
+  }
+  .reference-stage {
+    gap: 14px;
+  }
+  .reference-card > span {
+    font-size: 7px;
+    padding: 6px 4px;
+  }
+  .reference-card > span b {
+    display: none;
+  }
+  .reference-controls {
+    display: block;
+  }
+  .reference-controls .text-link {
+    margin-top: 15px;
+  }
+  .chat-sequence {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    gap: 13px;
+    padding-bottom: 12px;
+  }
+  .chat-sequence figure {
+    flex: 0 0 79%;
+    scroll-snap-align: start;
+  }
+  .chat-sequence figcaption b {
+    display: inline;
+  }
+  .method-switcher {
+    gap: 16px;
+  }
+  .method-switcher button {
+    font-size: 10px;
+  }
+  .code-card pre {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .motion-ready .reveal:not(.in-view) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: 19vw;
+    letter-spacing: -0.065em;
+  }
+  .reference-result {
+    position: static;
+  }
+  .wordmark img {
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 360px) {
+  .site-header {
+    padding-inline: 16px;
+  }
+  .site-header .wordmark {
+    font-size: 21px;
+    gap: 7px;
+  }
+  .site-header nav a[href="#film"] {
+    display: none;
+  }
+}
+
+.eyebrow {
+  color: #087b4e;
+}
+.stories-section .eyebrow {
+  color: #a8edc0;
+}
+.text-link:hover,
+.resource-links a:hover {
+  color: #087b4e;
+}
+
+/* The comparison surface itself is the draggable control. */
+.comparison-drag {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+.comparison:focus-within {
+  outline: 3px solid #0b8555;
+  outline-offset: 5px;
+}
+.comparison-divider {
+  width: 3px;
+}
+.comparison-divider > span {
+  box-shadow: 0 2px 18px #073f3240;
+}
+.film-shell {
+  position: relative;
+}
+.film-start {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(transparent, #05291b55);
+  padding: 24px;
+}
+.film-start button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ffffffa0;
+  border-radius: 50px;
+  background: #073f32e8;
+  color: #fff;
+  padding: 17px 28px;
+  font-size: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 30px #0003;
+}
+.film-start button > span:first-child {
+  font-size: 30px;
+  line-height: 1;
+}
+.film-start button:disabled {
+  cursor: wait;
+}
+.film-start p {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 17px;
+  text-shadow: 0 1px 8px #000;
+  max-width: 420px;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .film-start {
+    padding: 14px;
+  }
+  .film-start button {
+    font-size: 13px;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  .film-start button > span:first-child {
+    font-size: 24px;
+  }
+  .film-start p {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+}
+
+/* The opening is vector artwork, so no photographic background needs loading. */
+.hero.brand-hero {
+  height: clamp(420px, 44vw, 640px);
+  min-height: 0;
+  margin: 0 24px;
+  padding: 46px 56px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2e9;
+  color: var(--ink);
+  border: 1px solid #e1e4d9;
+  border-radius: 24px;
+}
+.brand-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #567564;
+  position: absolute;
+  top: 38px;
+  left: 46px;
+}
+.brand-hero #hero-title {
+  width: min(880px, 83%);
+  padding: 0;
+  margin: 10px 0 0;
+  line-height: 0;
+  font-size: 0;
+}
+.hero-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.brand-line {
+  margin: 26px 0 0;
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+}
+.brand-line em {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.brand-footer {
+  position: absolute;
+  left: 46px;
+  right: 46px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #d4dccd;
+  padding-top: 20px;
+}
+.brand-footer p {
+  font-size: 12px;
+  color: #536c5d;
+}
+.brand-play {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+}
+.brand-play span {
+  font-size: 23px;
+  color: #0b8555;
+}
+.film-downloads {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+}
+.film-quality {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.film-quality select {
+  color: var(--ink);
+  font: inherit;
+  background: transparent;
+  border: 1px solid #b7cdb5;
+  border-radius: 6px;
+  padding: 5px 6px;
+}
+.dialog-original {
+  display: block;
+  width: max-content;
+  margin: 14px auto 0;
+  font-size: 13px;
+  text-decoration: underline;
+}
+@media (max-width: 760px) {
+  .hero.brand-hero {
+    margin: 0 14px;
+    height: 355px;
+    border-radius: 18px;
+    padding: 42px 20px 72px;
+  }
+  .brand-eyebrow {
+    top: 24px;
+    left: 24px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+  .brand-hero #hero-title {
+    width: 100%;
+    margin-top: 12px;
+  }
+  .brand-line {
+    font-size: 25px;
+    margin-top: 22px;
+  }
+  .brand-footer {
+    left: 24px;
+    right: 24px;
+    bottom: 19px;
+    padding-top: 15px;
+    gap: 15px;
+  }
+  .brand-footer p {
+    max-width: 140px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .brand-play {
+    font-size: 11px;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .film-downloads {
+    justify-content: flex-start;
+  }
+}
+
+</style>
+<!-- INLINE_STYLE_END -->
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="wordmark" href="#main" aria-label="WeGen2 home"
-        ><img src="assets/wegen2-mark.svg?v=20261118b" width="38" height="38" alt="" /><span>WeGen2</span></a
+        ><img alt="" decoding="async" height="38" src="assets/wegen2-mark.svg?v=20261118b" width="38" /><span>WeGen2</span></a
       >
       <nav aria-label="Main navigation">
         <a href="#capabilities">Explore</a><a href="#film">Film</a><a href="#method">The model</a
@@ -32,35 +2017,66 @@
       </nav>
     </header>
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-art">
-          <img
-            class="hero-source"
-            src="assets/atrium.webp"
-            width="1536"
-            height="768"
-            fetchpriority="high"
-            alt="An intricate mountain city enclosed within a glass sphere inside a museum atrium, generated by WeGen2."
-          />
-        </div>
-        <div class="hero-shade"></div>
-        <div class="hero-topline">
-          <p>Native Pixel-Space<br />Multimodal Creation</p>
-          <button type="button" class="hero-zoom" data-open-image="atrium.webp" aria-label="View the full generated image">
-            View the image <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-        <div class="hero-bottom">
-          <div>
-            <p class="hero-kicker">From an idea to an entire world.</p>
-            <h1 id="hero-title">WeGen<span>2</span></h1>
-          </div>
-          <a class="play-orbit" href="#film"
-            ><span class="play-icon" aria-hidden="true">▷</span><span>Watch the film<br /><small>Creation, then the model behind it</small></span></a
+      <section class="hero brand-hero" aria-labelledby="hero-title">
+        <p class="brand-eyebrow">Unified multimodal creation</p>
+        <h1 id="hero-title" aria-label="WeGen2">
+          <svg
+            class="hero-wordmark"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 520 128"
+            width="520"
+            height="128"
+            role="img"
+            aria-labelledby="wg2-light-title wg2-light-desc"
           >
+            <title id="wg2-light-title">WeGen2</title>
+            <desc id="wg2-light-desc">WeGen2 wordmark with an original four-leaf pixel mark; all lettering is vector outlines.</desc>
+            <defs>
+              <mask id="wg2-light-aperture" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
+                <rect width="128" height="128" fill="white" />
+                <rect x="52" y="52" width="24" height="24" rx="7.5" fill="black" />
+              </mask>
+            </defs>
+            <g id="wg2-light-petals" mask="url(#wg2-light-aperture)">
+              <path id="wg2-light-leaf-nw" d="M14 14H52C71 14 82 25 82 44V64H44C25 64 14 53 14 34Z" transform="rotate(0 64 64)" fill="#0DB16E" />
+              <path id="wg2-light-leaf-se" d="M14 14H52C71 14 82 25 82 44V64H44C25 64 14 53 14 34Z" transform="rotate(180 64 64)" fill="#073F32" />
+              <path id="wg2-light-leaf-ne" d="M14 14H52C71 14 82 25 82 44V64H44C25 64 14 53 14 34Z" transform="rotate(90 64 64)" fill="#49D38B" />
+              <path id="wg2-light-leaf-sw" d="M14 14H52C71 14 82 25 82 44V64H44C25 64 14 53 14 34Z" transform="rotate(270 64 64)" fill="#A8EDC0" />
+            </g>
+            <g id="wg2-light-wordmark">
+              <path
+                d="M147.2 34.400000000000006H160.136L171.4 81.04L184.424 34.400000000000006H196.744L209.856 81.04L221.12 34.400000000000006H234.05599999999998L216.632 96.0H203.168L190.584 54.288000000000004L178.088 96.0H164.624Z"
+                fill="#073F32"
+              />
+              <path
+                d="M234.07437499999997 72.416Q234.07437499999997 65.64 237.24237499999998 60.096000000000004Q240.410375 54.552 245.95437499999997 51.34Q251.49837499999998 48.128 258.186375 48.128Q269.450375 48.128 275.390375 54.596000000000004Q281.330375 61.064 281.330375 72.328Q281.330375 74.70400000000001 281.066375 77.256L245.602375 77.432Q246.834375 81.656 250.57437499999997 83.944Q254.31437499999998 86.232 258.010375 86.232Q266.10637499999996 86.232 270.330375 81.128L279.39437499999997 87.112Q276.402375 92.216 270.946375 94.72399999999999Q265.490375 97.232 258.010375 97.232Q251.322375 97.232 245.822375 93.976Q240.322375 90.72 237.198375 85.044Q234.07437499999997 79.368 234.07437499999997 72.416ZM258.186375 59.128Q254.138375 59.128 250.442375 61.504000000000005Q246.746375 63.88 245.954375 67.664H270.242375Q269.186375 63.616 265.754375 61.372Q262.32237499999997 59.128 258.186375 59.128Z"
+                fill="#073F32"
+              />
+              <path
+                d="M346.383375 66.256Q346.383375 75.49600000000001 342.819375 82.492Q339.25537499999996 89.488 332.65537499999994 93.36Q326.05537499999997 97.232 317.167375 97.232Q308.455375 97.232 301.371375 92.92Q294.287375 88.608 290.283375 81.26Q286.27937499999996 73.912 286.27937499999996 65.2Q286.27937499999996 56.488 290.283375 49.14Q294.287375 41.792 301.371375 37.480000000000004Q308.455375 33.168000000000006 317.167375 33.168000000000006Q325.08737499999995 33.168000000000006 331.59937499999995 36.644000000000005Q338.11137499999995 40.120000000000005 342.335375 46.28L333.00737499999997 53.232Q328.167375 45.048 317.167375 45.048Q311.62337499999995 45.048 307.48737499999993 47.776Q303.35137499999996 50.504000000000005 301.19537499999996 55.124Q299.03937499999995 59.744 299.03937499999995 65.2Q299.03937499999995 70.656 301.19537499999996 75.27600000000001Q303.35137499999996 79.896 307.48737499999993 82.624Q311.62337499999995 85.352 317.167375 85.352Q323.06337499999995 85.352 327.06737499999997 82.272Q331.071375 79.19200000000001 332.91937499999995 74.0H316.903375V62.56H346.383375Z"
+                fill="#073F32"
+              />
+              <path
+                d="M351.24 72.416Q351.24 65.64 354.408 60.096000000000004Q357.576 54.552 363.12 51.34Q368.66400000000004 48.128 375.35200000000003 48.128Q386.61600000000004 48.128 392.55600000000004 54.596000000000004Q398.49600000000004 61.064 398.49600000000004 72.328Q398.49600000000004 74.70400000000001 398.232 77.256L362.76800000000003 77.432Q364.0 81.656 367.74 83.944Q371.48 86.232 375.17600000000004 86.232Q383.27200000000005 86.232 387.49600000000004 81.128L396.56 87.112Q393.56800000000004 92.216 388.112 94.72399999999999Q382.656 97.232 375.17600000000004 97.232Q368.488 97.232 362.988 93.976Q357.488 90.72 354.36400000000003 85.044Q351.24 79.368 351.24 72.416ZM375.35200000000003 59.128Q371.30400000000003 59.128 367.60800000000006 61.504000000000005Q363.91200000000003 63.88 363.12 67.664H387.408Q386.35200000000003 63.616 382.92 61.372Q379.488 59.128 375.35200000000003 59.128Z"
+                fill="#073F32"
+              />
+              <path
+                d="M417.173 49.36V54.816Q421.749 48.128 430.901 48.128Q436.093 48.128 440.053 50.504000000000005Q444.01300000000003 52.88 446.169 57.06Q448.325 61.24 448.325 66.256V96.0H436.445V70.304Q436.445 65.288 434.06899999999996 62.604Q431.693 59.92 427.38100000000003 59.92Q423.15700000000004 59.92 420.341 62.648Q417.52500000000003 65.376 417.52500000000003 70.392V96.0H405.64500000000004V49.36Z"
+                fill="#073F32"
+              />
+              <path
+                d="M474.829875 65.288Q478.173875 61.768 480.021875 58.82Q481.869875 55.872 481.869875 52.968Q481.869875 49.272000000000006 479.62587499999995 47.028000000000006Q477.381875 44.784000000000006 473.861875 44.784000000000006Q470.429875 44.784000000000006 467.789875 46.764Q465.149875 48.744 463.565875 52.176L453.357875 46.192Q456.261875 39.856 461.717875 36.512Q467.173875 33.168000000000006 473.685875 33.168000000000006Q479.053875 33.168000000000006 483.717875 35.5Q488.381875 37.832 491.19787499999995 42.232Q494.013875 46.632000000000005 494.013875 52.528000000000006Q494.013875 57.808 491.373875 62.56Q488.733875 67.312 483.981875 72.24000000000001L472.013875 84.56H494.981875V96.0H453.797875V87.2Z"
+                fill="#0DB16E"
+              />
+            </g>
+          </svg>
+        </h1>
+        <p class="brand-line">One model. <em>Many worlds.</em></p>
+        <div class="brand-footer">
+          <p>Native pixels. Multimodal context.</p>
+          <a class="brand-play" href="#film"><span aria-hidden="true">▷</span> Watch the film</a>
         </div>
       </section>
-      <div class="hero-caption wrap"><span>A world within a world.</span><span>Generated by WeGen2 · Selected visual demonstration</span></div>
       <section class="intro wrap reveal" aria-labelledby="intro-title">
         <div class="intro-copy">
           <p class="eyebrow">One model. Many ways to create.</p>
@@ -102,13 +2118,13 @@
             class="showcase-film"
             controls
             playsinline
-            preload="metadata"
+            preload="none"
             poster="assets/film-poster.webp?v=20261118e"
             width="1920"
             height="1080"
             aria-label="WeGen2 showcase and model introduction"
           >
-            <source src="assets/wegen2-film.mp4?v=20261118d" type="video/mp4" />
+            <source src="assets/wegen2-film-720.mp4" type="video/mp4" />
             <track kind="captions" src="assets/film-captions.vtt" srclang="en" label="English descriptions" />
             Your browser does not support embedded video. <a href="assets/wegen2-film.mp4?v=20261118d">Download the film</a>.
           </video>
@@ -123,7 +2139,16 @@
             ><button type="button" data-seek="63">03 <span>The model</span></button>
           </div>
           <div class="film-downloads">
-            <a href="assets/wegen2-film.mp4?v=20261118d" download>Download film ↗</a><a href="film-transcript.html">Visual transcript ↗</a>
+            <label class="film-quality"
+              >Quality
+              <select id="film-quality" aria-label="Video quality">
+                <option value="auto">Auto</option>
+                <option value="720">720p</option>
+                <option value="1080">1080p</option>
+                <option value="480">480p</option>
+              </select></label
+            >
+            <a href="assets/wegen2-film.mp4?v=20261118d" download>Download 1080p ↗</a><a href="film-transcript.html">Visual transcript ↗</a>
           </div>
         </div>
         <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
@@ -139,45 +2164,65 @@
         <div class="creation-grid">
           <figure class="poster">
             <img
-              src="assets/poster.webp"
-              width="832"
+              alt="The Lantern Wood, a fantasy film poster generated with integrated English lettering."
+              data-full="assets/poster.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="1216"
               loading="lazy"
-              data-zoom
-              alt="The Lantern Wood, a fantasy film poster generated with integrated English lettering."
+              sizes="(max-width: 760px) 90vw, 33vw"
+              src="assets/previews/poster-480.webp"
+              srcset="assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w"
+              width="832"
             />
             <figcaption><span>Illustration &amp; typography</span><strong>The Lantern Wood</strong></figcaption>
           </figure>
           <figure class="portrait">
             <img
-              src="assets/rain-portrait.webp"
-              width="768"
+              alt="A photographic portrait with an orange umbrella, rain reflections, flowers and a red tram."
+              data-full="assets/rain-portrait.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="1152"
               loading="lazy"
-              data-zoom
-              alt="A photographic portrait with an orange umbrella, rain reflections, flowers and a red tram."
+              sizes="(max-width: 760px) 90vw, 33vw"
+              src="assets/previews/rain-portrait-480.webp"
+              srcset="assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w"
+              width="768"
             />
             <figcaption><span>Photographic detail</span><strong>A moment in the rain</strong></figcaption>
           </figure>
           <figure class="paper-world">
             <img
-              src="assets/paper-world.webp"
-              width="1536"
+              alt="A paper mountain city with a red train on a curved viaduct."
+              data-full="assets/paper-world.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="768"
               loading="lazy"
-              data-zoom
-              alt="A paper mountain city with a red train on a curved viaduct."
+              sizes="(max-width: 760px) 90vw, 33vw"
+              src="assets/previews/paper-world-480.webp"
+              srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
+              width="1536"
             />
             <figcaption><span>Material &amp; craft</span><strong>A world made of paper</strong></figcaption>
           </figure>
           <figure class="market">
             <img
-              src="assets/night-market.webp"
-              width="1152"
+              alt="An intricate oil painting of a lantern-lit night market, stone bridges and glass pavilions."
+              data-full="assets/night-market.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="768"
               loading="lazy"
-              data-zoom
-              alt="An intricate oil painting of a lantern-lit night market, stone bridges and glass pavilions."
+              sizes="(max-width: 760px) 90vw, 33vw"
+              src="assets/previews/night-market-480.webp"
+              srcset="assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w"
+              width="1152"
             />
             <figcaption><span>Painterly scenes</span><strong>Light after dark</strong></figcaption>
           </figure>
@@ -198,24 +2243,38 @@
             </button>
             <div class="word-detail">
               <img
-                src="assets/reading-guide.webp"
-                width="1024"
+                alt="A Chinese illustrated reading guide generated from one text prompt."
+                data-full="assets/reading-guide.webp"
+                data-zoom=""
+                decoding="async"
+                fetchpriority="low"
                 height="1024"
                 loading="lazy"
-                data-zoom
-                alt="A Chinese illustrated reading guide generated from one text prompt."
+                sizes="138px"
+                src="assets/previews/reading-guide-320.webp"
+                srcset="assets/previews/reading-guide-320.webp 320w"
+                width="1024"
               />
               <p>And another voice:<br />a text-to-image reading guide.</p>
             </div>
           </div>
           <figure class="dense-figure">
             <img
-              src="assets/opera-guide.webp?v=20261118d"
-              width="1280"
+              alt="An underwater opera poster with four detailed scenes, Chinese headlines, and descriptive passages generated together."
+              data-full="assets/opera-guide.webp?v=20261118d"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="1280"
               loading="lazy"
-              data-zoom
-              alt="An underwater opera poster with four detailed scenes, Chinese headlines, and descriptive passages generated together."
+              sizes="(max-width: 760px) 92vw, 56vw"
+              src="assets/previews/opera-guide-640.webp"
+              srcset="
+                assets/previews/opera-guide-640.webp   640w,
+                assets/previews/opera-guide-960.webp   960w,
+                assets/previews/opera-guide-1280.webp 1280w
+              "
+              width="1280"
             />
             <figcaption>Chinese text &amp; illustrated information design</figcaption>
           </figure>
@@ -233,60 +2292,142 @@
           <div class="reference-inputs">
             <figure class="source-person">
               <img
-                src="assets/tryon-person.webp"
-                width="832"
+                alt="Source person before the reference-guided outfit edit"
+                data-full="assets/tryon-person.webp"
+                data-zoom=""
+                decoding="async"
+                fetchpriority="low"
                 height="1248"
                 loading="lazy"
-                data-zoom
-                alt="Source person before the reference-guided outfit edit"
+                sizes="(max-width: 760px) 90vw, 70vw"
+                src="assets/previews/tryon-person-480.webp"
+                srcset="assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w"
+                width="832"
               />
               <figcaption>The starting point</figcaption>
             </figure>
             <div class="reference-grid">
               <button class="reference-card" type="button" data-reference="1" aria-pressed="false">
-                <img src="assets/tryon-ref-01.webp" width="800" height="600" loading="lazy" alt="Reference 1: Ivory blazer" /><span
-                  ><b>01</b> Ivory blazer</span
-                ></button
+                <img
+                  alt="Reference 1: Ivory blazer"
+                  data-full="assets/tryon-ref-01.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-01-240.webp"
+                  srcset="assets/previews/tryon-ref-01-240.webp 240w"
+                  width="800"
+                /><span><b>01</b> Ivory blazer</span></button
               ><button class="reference-card" type="button" data-reference="2" aria-pressed="false">
-                <img src="assets/tryon-ref-02.webp" width="800" height="600" loading="lazy" alt="Reference 2: White T-shirt" /><span
-                  ><b>02</b> White T-shirt</span
-                ></button
+                <img
+                  alt="Reference 2: White T-shirt"
+                  data-full="assets/tryon-ref-02.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-02-240.webp"
+                  srcset="assets/previews/tryon-ref-02-240.webp 240w"
+                  width="800"
+                /><span><b>02</b> White T-shirt</span></button
               ><button class="reference-card" type="button" data-reference="3" aria-pressed="false">
-                <img src="assets/tryon-ref-03.webp" width="800" height="600" loading="lazy" alt="Reference 3: Blue jeans" /><span
-                  ><b>03</b> Blue jeans</span
-                ></button
+                <img
+                  alt="Reference 3: Blue jeans"
+                  data-full="assets/tryon-ref-03.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-03-240.webp"
+                  srcset="assets/previews/tryon-ref-03-240.webp 240w"
+                  width="800"
+                /><span><b>03</b> Blue jeans</span></button
               ><button class="reference-card" type="button" data-reference="4" aria-pressed="false">
-                <img src="assets/tryon-ref-04.webp" width="800" height="600" loading="lazy" alt="Reference 4: White sneakers" /><span
-                  ><b>04</b> White sneakers</span
-                ></button
+                <img
+                  alt="Reference 4: White sneakers"
+                  data-full="assets/tryon-ref-04.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-04-240.webp"
+                  srcset="assets/previews/tryon-ref-04-240.webp 240w"
+                  width="800"
+                /><span><b>04</b> White sneakers</span></button
               ><button class="reference-card" type="button" data-reference="5" aria-pressed="false">
-                <img src="assets/tryon-ref-05.webp" width="800" height="600" loading="lazy" alt="Reference 5: Burgundy bag" /><span
-                  ><b>05</b> Burgundy bag</span
-                ></button
+                <img
+                  alt="Reference 5: Burgundy bag"
+                  data-full="assets/tryon-ref-05.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-05-240.webp"
+                  srcset="assets/previews/tryon-ref-05-240.webp 240w"
+                  width="800"
+                /><span><b>05</b> Burgundy bag</span></button
               ><button class="reference-card" type="button" data-reference="6" aria-pressed="false">
-                <img src="assets/tryon-ref-06.webp" width="800" height="600" loading="lazy" alt="Reference 6: Black belt" /><span
-                  ><b>06</b> Black belt</span
-                ></button
+                <img
+                  alt="Reference 6: Black belt"
+                  data-full="assets/tryon-ref-06.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-06-240.webp"
+                  srcset="assets/previews/tryon-ref-06-240.webp 240w"
+                  width="800"
+                /><span><b>06</b> Black belt</span></button
               ><button class="reference-card" type="button" data-reference="7" aria-pressed="false">
-                <img src="assets/tryon-ref-07.webp" width="800" height="600" loading="lazy" alt="Reference 7: Dark glasses" /><span
-                  ><b>07</b> Dark glasses</span
-                ></button
+                <img
+                  alt="Reference 7: Dark glasses"
+                  data-full="assets/tryon-ref-07.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-07-240.webp"
+                  srcset="assets/previews/tryon-ref-07-240.webp 240w"
+                  width="800"
+                /><span><b>07</b> Dark glasses</span></button
               ><button class="reference-card" type="button" data-reference="8" aria-pressed="false">
-                <img src="assets/tryon-ref-08.webp" width="800" height="600" loading="lazy" alt="Reference 8: Fine necklace" /><span
-                  ><b>08</b> Fine necklace</span
-                >
+                <img
+                  alt="Reference 8: Fine necklace"
+                  data-full="assets/tryon-ref-08.webp"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="600"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 20vw, 140px"
+                  src="assets/previews/tryon-ref-08-240.webp"
+                  srcset="assets/previews/tryon-ref-08-240.webp 240w"
+                  width="800"
+                /><span><b>08</b> Fine necklace</span>
               </button>
             </div>
           </div>
           <figure class="reference-result">
             <img
-              id="tryon-result"
-              src="assets/tryon-output.webp"
-              width="1024"
-              height="1536"
-              loading="lazy"
-              data-zoom
               alt="WeGen2 outfit composition guided by the person and eight visual references"
+              data-full="assets/tryon-output.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1536"
+              id="tryon-result"
+              loading="lazy"
+              sizes="(max-width: 760px) 90vw, 70vw"
+              src="assets/previews/tryon-output-480.webp"
+              srcset="assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w"
+              width="1024"
             />
             <figcaption>WeGen2 output</figcaption>
           </figure>
@@ -316,19 +2457,29 @@
           <div id="edit-panel" role="tabpanel">
             <div class="comparison" style="--split: 50%">
               <img
-                class="comparison-base"
-                src="assets/paper-night.webp"
-                width="1536"
-                height="768"
-                loading="lazy"
                 alt="The paper world edited into a moonlit scene"
-              /><img
-                class="comparison-before"
-                src="assets/paper-world.webp"
-                width="1536"
+                class="comparison-base"
+                data-full="assets/paper-night.webp"
+                decoding="async"
+                fetchpriority="low"
                 height="768"
                 loading="lazy"
+                sizes="(max-width: 760px) 90vw, 70vw"
+                src="assets/previews/paper-night-480.webp"
+                srcset="assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w"
+                width="1536"
+              /><img
                 alt="The original paper city in daylight"
+                class="comparison-before"
+                data-full="assets/paper-world.webp"
+                decoding="async"
+                fetchpriority="low"
+                height="768"
+                loading="lazy"
+                sizes="(max-width: 760px) 90vw, 33vw"
+                src="assets/previews/paper-world-480.webp"
+                srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
+                width="1536"
               /><span class="comparison-label before-label">Source</span><span class="comparison-label after-label">Edited</span>
               <div class="comparison-divider" aria-hidden="true"><span>↔</span></div>
               <input
@@ -355,28 +2506,50 @@
         </div>
         <div class="chat-sequence">
           <figure>
-            <img src="assets/chat-input.webp" width="768" height="1280" loading="lazy" data-zoom alt="Fictional chat interface before the edits" />
+            <img
+              alt="Fictional chat interface before the edits"
+              data-full="assets/chat-input.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1280"
+              loading="lazy"
+              sizes="(max-width: 760px) 70vw, 30vw"
+              src="assets/previews/chat-input-480.webp"
+              srcset="assets/previews/chat-input-480.webp 480w, assets/previews/chat-input-768.webp 768w"
+              width="768"
+            />
             <figcaption><b>01</b> Starting context</figcaption>
           </figure>
           <figure>
             <img
-              src="assets/chat-reply.webp"
-              width="768"
+              alt="Chat interface edited to include a reply and a penguin sticker"
+              data-full="assets/chat-reply.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="1280"
               loading="lazy"
-              data-zoom
-              alt="Chat interface edited to include a reply and a penguin sticker"
+              sizes="(max-width: 760px) 70vw, 30vw"
+              src="assets/previews/chat-reply-480.webp"
+              srcset="assets/previews/chat-reply-480.webp 480w, assets/previews/chat-reply-768.webp 768w"
+              width="768"
             />
             <figcaption><b>02</b> Add a reply</figcaption>
           </figure>
           <figure>
             <img
-              src="assets/chat-revision.webp"
-              width="768"
+              alt="A subsequent edit revises the fictional messages"
+              data-full="assets/chat-revision.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="1280"
               loading="lazy"
-              data-zoom
-              alt="A subsequent edit revises the fictional messages"
+              sizes="(max-width: 760px) 70vw, 30vw"
+              src="assets/previews/chat-revision-480.webp"
+              srcset="assets/previews/chat-revision-480.webp 480w, assets/previews/chat-revision-768.webp 768w"
+              width="768"
             />
             <figcaption><b>03</b> Revise the messages</figcaption>
           </figure>
@@ -395,12 +2568,21 @@
           </div>
           <figure class="comic-sheet">
             <img
-              src="assets/comic-sheet.webp"
-              width="3072"
+              alt="An eight-panel cake-making comic arranged as four columns and two rows"
+              data-full="assets/comic-sheet.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
               height="1536"
               loading="lazy"
-              data-zoom
-              alt="An eight-panel cake-making comic arranged as four columns and two rows"
+              sizes="92vw"
+              src="assets/previews/comic-sheet-960.webp"
+              srcset="
+                assets/previews/comic-sheet-960.webp   960w,
+                assets/previews/comic-sheet-1440.webp 1440w,
+                assets/previews/comic-sheet-1920.webp 1920w
+              "
+              width="3072"
             />
             <figcaption id="comic-caption">Eight-panel illustrated story · Panels generated sequentially</figcaption>
           </figure>
@@ -408,23 +2590,83 @@
             <summary>Explore another sequence <span aria-hidden="true">＋</span></summary>
             <div class="robot-grid">
               <figure>
-                <img src="assets/robot-00.webp" width="1280" height="1024" loading="lazy" data-zoom alt="Robot café scene, image-edit state 1" />
+                <img
+                  alt="Robot café scene, image-edit state 1"
+                  data-full="assets/robot-00.webp"
+                  data-zoom=""
+                  decoding="async"
+                  fetchpriority="low"
+                  height="1024"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 60vw, 240px"
+                  src="assets/previews/robot-00-400.webp"
+                  srcset="assets/previews/robot-00-400.webp 400w, assets/previews/robot-00-640.webp 640w"
+                  width="1280"
+                />
                 <figcaption>Source</figcaption>
               </figure>
               <figure>
-                <img src="assets/robot-01.webp" width="1280" height="1024" loading="lazy" data-zoom alt="Robot café scene, image-edit state 2" />
+                <img
+                  alt="Robot café scene, image-edit state 2"
+                  data-full="assets/robot-01.webp"
+                  data-zoom=""
+                  decoding="async"
+                  fetchpriority="low"
+                  height="1024"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 60vw, 240px"
+                  src="assets/previews/robot-01-400.webp"
+                  srcset="assets/previews/robot-01-400.webp 400w, assets/previews/robot-01-640.webp 640w"
+                  width="1280"
+                />
                 <figcaption>Edit 1</figcaption>
               </figure>
               <figure>
-                <img src="assets/robot-02.webp" width="1280" height="1024" loading="lazy" data-zoom alt="Robot café scene, image-edit state 3" />
+                <img
+                  alt="Robot café scene, image-edit state 3"
+                  data-full="assets/robot-02.webp"
+                  data-zoom=""
+                  decoding="async"
+                  fetchpriority="low"
+                  height="1024"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 60vw, 240px"
+                  src="assets/previews/robot-02-400.webp"
+                  srcset="assets/previews/robot-02-400.webp 400w, assets/previews/robot-02-640.webp 640w"
+                  width="1280"
+                />
                 <figcaption>Edit 2</figcaption>
               </figure>
               <figure>
-                <img src="assets/robot-03.webp" width="1280" height="1024" loading="lazy" data-zoom alt="Robot café scene, image-edit state 4" />
+                <img
+                  alt="Robot café scene, image-edit state 4"
+                  data-full="assets/robot-03.webp"
+                  data-zoom=""
+                  decoding="async"
+                  fetchpriority="low"
+                  height="1024"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 60vw, 240px"
+                  src="assets/previews/robot-03-400.webp"
+                  srcset="assets/previews/robot-03-400.webp 400w, assets/previews/robot-03-640.webp 640w"
+                  width="1280"
+                />
                 <figcaption>Edit 3</figcaption>
               </figure>
               <figure>
-                <img src="assets/robot-04.webp" width="1280" height="1024" loading="lazy" data-zoom alt="Robot café scene, image-edit state 5" />
+                <img
+                  alt="Robot café scene, image-edit state 5"
+                  data-full="assets/robot-04.webp"
+                  data-zoom=""
+                  decoding="async"
+                  fetchpriority="low"
+                  height="1024"
+                  loading="lazy"
+                  sizes="(max-width: 760px) 60vw, 240px"
+                  src="assets/previews/robot-04-400.webp"
+                  srcset="assets/previews/robot-04-400.webp 400w, assets/previews/robot-04-640.webp 640w"
+                  width="1280"
+                />
                 <figcaption>Edit 4</figcaption>
               </figure>
             </div>
@@ -478,7 +2720,7 @@
           </p>
         </div>
         <figure class="benchmark-figure">
-          <img src="assets/benchmarks.svg" loading="lazy" data-zoom alt="Circular benchmark overview from the WeGen2 report" />
+          <img alt="Circular benchmark overview from the WeGen2 report" data-zoom="" decoding="async" loading="lazy" src="assets/benchmarks.svg" />
           <figcaption>Generation · Editing · Composition</figcaption>
         </figure>
       </section>
@@ -556,14 +2798,554 @@ next_image.save("paper-world-night.png")</code></pre>
       </section>
 
       <dialog class="image-dialog" aria-label="Full image">
-        <button class="dialog-close" type="button" aria-label="Close full image">×</button><img alt="" />
+        <button class="dialog-close" type="button" aria-label="Close full image">×</button><img alt="" decoding="async" />
         <p></p>
+        <a class="dialog-original" target="_blank" rel="noopener">Open original ↗</a>
       </dialog>
     </main>
     <footer class="wrap">
-      <a class="wordmark" href="#main"><img src="assets/wegen2-mark.svg?v=20261118b" width="30" height="30" alt="" /><span>WeGen2</span></a>
+      <a class="wordmark" href="#main"
+        ><img alt="" decoding="async" height="30" src="assets/wegen2-mark.svg?v=20261118b" width="30" /><span>WeGen2</span></a
+      >
       <p>Native pixels. Multimodal context. Visual creation.</p>
       <a href="#main">Back to top ↑</a>
     </footer>
+    <!-- INLINE_DATA_START -->
+<script type="application/json" id="reference-data">[{"id":1,"label":"Off-white blazer","enabled":true,"bbox":[0.292969,0.192708,0.724609,0.533854],"anchor":[0.329102,0.486328],"referenceCrop":[0.0725,0.2,0.3125,0.56]},{"id":2,"label":"White T-shirt","enabled":true,"bbox":[0.418945,0.21224,0.545898,0.407552],"anchor":[0.425781,0.327474],"referenceCrop":[0.075,0.213333,0.30375,0.531667]},{"id":3,"label":"Blue jeans","enabled":true,"bbox":[0.345703,0.419922,0.634766,0.923177],"anchor":[0.384766,0.679688],"referenceCrop":[0.1275,0.298333,0.26875,0.651667]},{"id":4,"label":"White sneakers","enabled":true,"bbox":[0.433594,0.835286,0.59082,0.983073],"anchor":[0.438477,0.95638],"referenceCrop":[0.1275,0.405,0.60875,0.766667]},{"id":5,"label":"Burgundy bag","enabled":true,"bbox":[0.53418,0.391927,0.770508,0.518229],"anchor":[0.538086,0.46224],"referenceCrop":[0.14,0.193333,0.4975,0.753333]},{"id":6,"label":"Black belt","enabled":true,"bbox":[0.422852,0.39974,0.543945,0.430339],"anchor":[0.424805,0.416667],"referenceCrop":[0.065,0.31,0.31,0.5]},{"id":7,"label":"Black sunglasses","enabled":false,"bbox":[0.430664,0.042318,0.556641,0.073568],"anchor":[0.43457,0.059245],"referenceCrop":[0.1425,0.365,0.5,0.576667]},{"id":8,"label":"Gold-tone necklace","enabled":true,"bbox":[0.439453,0.205078,0.541992,0.251302],"anchor":[0.485352,0.246745],"referenceCrop":[0.235,0.21,0.38375,0.468333]}]</script>
+<script type="application/json" id="links-data">{"paper":null,"github":"https://github.com/zhuangshaobin/WeGen2","weights":"https://huggingface.co/GrayShine/WeGen2","project":"https://zhuangshaobin.github.io/WeGen2/"}</script>
+<script type="application/json" id="preview-data">{"architecture-input.webp":{"src":"assets/previews/architecture-input-480.webp","srcset":"assets/previews/architecture-input-480.webp 480w, assets/previews/architecture-input-900.webp 900w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-input.webp"},"architecture-output.webp":{"src":"assets/previews/architecture-output-480.webp","srcset":"assets/previews/architecture-output-480.webp 480w, assets/previews/architecture-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-output.webp"},"atrium-winter.webp":{"src":"assets/previews/atrium-winter-480.webp","srcset":"assets/previews/atrium-winter-480.webp 480w, assets/previews/atrium-winter-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium-winter.webp"},"atrium.webp":{"src":"assets/previews/atrium-480.webp","srcset":"assets/previews/atrium-480.webp 480w, assets/previews/atrium-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium.webp"},"chat-input.webp":{"src":"assets/previews/chat-input-480.webp","srcset":"assets/previews/chat-input-480.webp 480w, assets/previews/chat-input-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-input.webp"},"chat-reply.webp":{"src":"assets/previews/chat-reply-480.webp","srcset":"assets/previews/chat-reply-480.webp 480w, assets/previews/chat-reply-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-reply.webp"},"chat-revision.webp":{"src":"assets/previews/chat-revision-480.webp","srcset":"assets/previews/chat-revision-480.webp 480w, assets/previews/chat-revision-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-revision.webp"},"comic-sheet.webp":{"src":"assets/previews/comic-sheet-960.webp","srcset":"assets/previews/comic-sheet-960.webp 960w, assets/previews/comic-sheet-1440.webp 1440w, assets/previews/comic-sheet-1920.webp 1920w","sizes":"92vw","full":"assets/comic-sheet.webp"},"glass-city.webp":{"src":"assets/previews/glass-city-480.webp","srcset":"assets/previews/glass-city-480.webp 480w, assets/previews/glass-city-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-city.webp"},"glass-reef.webp":{"src":"assets/previews/glass-reef-480.webp","srcset":"assets/previews/glass-reef-480.webp 480w, assets/previews/glass-reef-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-reef.webp"},"landscape-input.webp":{"src":"assets/previews/landscape-input-480.webp","srcset":"assets/previews/landscape-input-480.webp 480w, assets/previews/landscape-input-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-input.webp"},"landscape-output.webp":{"src":"assets/previews/landscape-output-480.webp","srcset":"assets/previews/landscape-output-480.webp 480w, assets/previews/landscape-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-output.webp"},"night-market.webp":{"src":"assets/previews/night-market-480.webp","srcset":"assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/night-market.webp"},"opera-guide.webp":{"src":"assets/previews/opera-guide-640.webp","srcset":"assets/previews/opera-guide-640.webp 640w, assets/previews/opera-guide-960.webp 960w, assets/previews/opera-guide-1280.webp 1280w","sizes":"(max-width: 760px) 92vw, 56vw","full":"assets/opera-guide.webp"},"paper-night.webp":{"src":"assets/previews/paper-night-480.webp","srcset":"assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/paper-night.webp"},"paper-world.webp":{"src":"assets/previews/paper-world-480.webp","srcset":"assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/paper-world.webp"},"poster.webp":{"src":"assets/previews/poster-480.webp","srcset":"assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/poster.webp"},"rain-portrait.webp":{"src":"assets/previews/rain-portrait-480.webp","srcset":"assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/rain-portrait.webp"},"reading-guide.webp":{"src":"assets/previews/reading-guide-320.webp","srcset":"assets/previews/reading-guide-320.webp 320w","sizes":"138px","full":"assets/reading-guide.webp"},"robot-00.webp":{"src":"assets/previews/robot-00-400.webp","srcset":"assets/previews/robot-00-400.webp 400w, assets/previews/robot-00-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-00.webp"},"robot-01.webp":{"src":"assets/previews/robot-01-400.webp","srcset":"assets/previews/robot-01-400.webp 400w, assets/previews/robot-01-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-01.webp"},"robot-02.webp":{"src":"assets/previews/robot-02-400.webp","srcset":"assets/previews/robot-02-400.webp 400w, assets/previews/robot-02-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-02.webp"},"robot-03.webp":{"src":"assets/previews/robot-03-400.webp","srcset":"assets/previews/robot-03-400.webp 400w, assets/previews/robot-03-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-03.webp"},"robot-04.webp":{"src":"assets/previews/robot-04-400.webp","srcset":"assets/previews/robot-04-400.webp 400w, assets/previews/robot-04-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-04.webp"},"tryon-output.webp":{"src":"assets/previews/tryon-output-480.webp","srcset":"assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-output.webp"},"tryon-person.webp":{"src":"assets/previews/tryon-person-480.webp","srcset":"assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-person.webp"},"tryon-ref-01.webp":{"src":"assets/previews/tryon-ref-01-240.webp","srcset":"assets/previews/tryon-ref-01-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-01.webp"},"tryon-ref-02.webp":{"src":"assets/previews/tryon-ref-02-240.webp","srcset":"assets/previews/tryon-ref-02-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-02.webp"},"tryon-ref-03.webp":{"src":"assets/previews/tryon-ref-03-240.webp","srcset":"assets/previews/tryon-ref-03-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-03.webp"},"tryon-ref-04.webp":{"src":"assets/previews/tryon-ref-04-240.webp","srcset":"assets/previews/tryon-ref-04-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-04.webp"},"tryon-ref-05.webp":{"src":"assets/previews/tryon-ref-05-240.webp","srcset":"assets/previews/tryon-ref-05-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-05.webp"},"tryon-ref-06.webp":{"src":"assets/previews/tryon-ref-06-240.webp","srcset":"assets/previews/tryon-ref-06-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-06.webp"},"tryon-ref-07.webp":{"src":"assets/previews/tryon-ref-07-240.webp","srcset":"assets/previews/tryon-ref-07-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-07.webp"},"tryon-ref-08.webp":{"src":"assets/previews/tryon-ref-08-240.webp","srcset":"assets/previews/tryon-ref-08-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-08.webp"}}</script>
+<!-- INLINE_DATA_END -->
+    <!-- INLINE_APP_START -->
+<script>
+"use strict";
+const imagePreviews = JSON.parse(document.querySelector("#preview-data").textContent);
+function setPreview(image, filename, sizes) {
+  const preview = imagePreviews[filename];
+  image.dataset.full = `assets/${filename}`;
+  image.decoding = "async";
+  if (preview) {
+    image.sizes = sizes || preview.sizes;
+    image.srcset = preview.srcset;
+    image.src = preview.src;
+  } else {
+    image.removeAttribute("srcset");
+    image.src = `assets/${filename}`;
+  }
+}
+
+const range = document.querySelector("#comparison-range");
+const comparison = document.querySelector(".comparison");
+function updateComparison() {
+  const split = Number(range.value);
+  comparison.style.setProperty("--split", `${split}%`);
+  range.setAttribute("aria-valuetext", `${split} percent source visible`);
+}
+range.addEventListener("input", updateComparison);
+let comparisonPointer = null;
+function moveDivider(clientX) {
+  const bounds = comparison.getBoundingClientRect();
+  range.value = String(Math.round(Math.max(0, Math.min(100, ((clientX - bounds.left) / bounds.width) * 100))));
+  updateComparison();
+}
+range.addEventListener("pointerdown", (event) => {
+  if (event.pointerType === "mouse" && event.button !== 0) return;
+  event.preventDefault();
+  comparisonPointer = event.pointerId;
+  range.setPointerCapture(event.pointerId);
+  range.focus({ preventScroll: true });
+  moveDivider(event.clientX);
+});
+range.addEventListener("pointermove", (event) => {
+  if (event.pointerId === comparisonPointer) moveDivider(event.clientX);
+});
+function finishComparisonDrag(event) {
+  if (event.pointerId !== comparisonPointer) return;
+  comparisonPointer = null;
+  if (range.hasPointerCapture(event.pointerId)) range.releasePointerCapture(event.pointerId);
+}
+range.addEventListener("pointerup", finishComparisonDrag);
+range.addEventListener("pointercancel", finishComparisonDrag);
+updateComparison();
+
+const edits = {
+  paper: {
+    before: "paper-world.webp",
+    after: "paper-night.webp",
+    ratio: "2 / 1",
+    inputAlt: "A miniature paper mountain city and red train in warm studio light",
+    outputAlt: "The paper mountain city edited into a moonlit scene with illuminated windows",
+    description:
+      "Reimagine the paper city at night. A reference image guides the architecture, train, and handcrafted material as the lighting changes.",
+  },
+  season: {
+    before: "atrium.webp",
+    after: "atrium-winter.webp",
+    ratio: "2 / 1",
+    inputAlt: "A miniature green mountain city inside a transparent sphere in a museum atrium",
+    outputAlt: "The miniature city transformed into a snow-covered winter scene",
+    description: "Turn a miniature mountain city into a winter scene, using the original atrium image as visual context.",
+  },
+  landscape: {
+    before: "landscape-input.webp",
+    after: "landscape-output.webp",
+    inputAlt: "A landscape with mountains, water, and architecture",
+    outputAlt: "The landscape translated into a monochrome Chinese ink painting",
+    description: "Turn a landscape into an ink painting while retaining its scene. Move the slider to explore the transformation.",
+  },
+  architecture: {
+    before: "architecture-input.webp",
+    after: "architecture-output.webp",
+    inputAlt: "A rough black-and-white architectural floor-plan sketch",
+    outputAlt: "A photorealistic concept rendering of a modern multi-level home with greenery",
+    description:
+      "Turn a black-and-white sketch into a photorealistic architectural concept. This is a visual interpretation, not a dimensionally verified reconstruction.",
+  },
+  reef: {
+    before: "glass-city.webp",
+    after: "glass-reef.webp",
+    ratio: "1 / 1",
+    inputAlt: "A glass elephant sculpture containing a miniature city and railway",
+    outputAlt: "The glass elephant containing an underwater coral garden with fish and sea turtles",
+    description:
+      "Replace the miniature city inside a glass elephant with a coral reef, using the sculpture, reflections, and viewpoint as visual context.",
+  },
+};
+const tabs = [...document.querySelectorAll("[data-edit]")];
+function selectEdit(tab, focus = false) {
+  for (const item of tabs) {
+    item.setAttribute("aria-selected", String(item === tab));
+    item.tabIndex = item === tab ? 0 : -1;
+  }
+  const edit = edits[tab.dataset.edit];
+  comparison.style.aspectRatio = edit.ratio || "3 / 2";
+  const before = comparison.querySelector(".comparison-before");
+  const after = comparison.querySelector(".comparison-base");
+  setPreview(before, edit.before, "92vw");
+  before.alt = edit.inputAlt;
+  setPreview(after, edit.after, "92vw");
+  after.alt = edit.outputAlt;
+  document.querySelector("#edit-description").textContent = edit.description;
+  document.querySelector("#edit-panel").setAttribute("aria-labelledby", tab.id);
+  range.value = 50;
+  updateComparison();
+  if (focus) tab.focus();
+}
+tabs.forEach((tab, index) => {
+  tab.id = `edit-tab-${tab.dataset.edit}`;
+  tab.addEventListener("click", () => selectEdit(tab));
+  tab.addEventListener("keydown", (event) => {
+    let next;
+    if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+    if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+    if (event.key === "Home") next = 0;
+    if (event.key === "End") next = tabs.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    selectEdit(tabs[next], true);
+  });
+});
+selectEdit(tabs[0]);
+
+const dialog = document.querySelector(".image-dialog");
+let previousFocus;
+let fullImageRequest = 0;
+function showImage(image) {
+  previousFocus = document.activeElement;
+  const request = ++fullImageRequest;
+  const target = dialog.querySelector("img");
+  const caption = dialog.querySelector("p");
+  const full = image.dataset?.full || image.src;
+  target.src = image.currentSrc || image.src;
+  target.alt = image.alt || "WeGen2 image";
+  caption.textContent = image.alt || "WeGen2 image";
+  dialog.querySelector(".dialog-original").href = full;
+  dialog.showModal();
+  if (full && full !== target.src) {
+    const original = new Image();
+    original.decoding = "async";
+    original.onload = () => {
+      if (request === fullImageRequest && dialog.open) target.src = original.src;
+    };
+    original.src = full;
+  }
+}
+
+for (const image of document.querySelectorAll("img[data-zoom]")) {
+  image.tabIndex = 0;
+  image.setAttribute("role", "button");
+  image.setAttribute("aria-label", `View full image: ${image.alt}`);
+  image.addEventListener("click", () => showImage(image));
+  image.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      showImage(image);
+    }
+  });
+}
+for (const button of document.querySelectorAll("[data-open-image]"))
+  button.addEventListener("click", () => {
+    const existing = [...document.querySelectorAll("img[data-full]")].find(
+      (image) => image.dataset.full.split("?")[0] === `assets/${button.dataset.openImage}`.split("?")[0]
+    );
+    showImage(existing || { src: `assets/${button.dataset.openImage}`, alt: "Full WeGen2 generation" });
+  });
+dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (e) => {
+  if (e.target === dialog) dialog.close();
+});
+dialog.addEventListener("close", () => {
+  fullImageRequest++;
+  previousFocus?.focus({ preventScroll: true });
+});
+
+const film = document.querySelector(".showcase-film");
+const filmStart = document.querySelector(".film-start");
+const filmStartButton = document.querySelector("#film-start-button");
+const filmStatus = document.querySelector("#film-load-status");
+const filmQuality = document.querySelector("#film-quality");
+const filmSources = { 480: "assets/wegen2-film-480.mp4", 720: "assets/wegen2-film-720.mp4", 1080: "assets/wegen2-film.mp4?v=20261118d" };
+let pendingFilmSeek = null;
+let activeQuality = "720";
+let bufferingTimer = null;
+let filmStarted = false;
+film.dataset.quality = activeQuality;
+film.controls = false;
+filmStart.hidden = false;
+function applyFilmSeek() {
+  if (pendingFilmSeek === null || !Number.isFinite(film.duration)) return;
+  film.currentTime = Math.min(pendingFilmSeek, Math.max(0, film.duration - 0.05));
+  pendingFilmSeek = null;
+}
+function showFilmRetry(message) {
+  filmStart.hidden = false;
+  filmStartButton.querySelector(".film-start-label").textContent = "Play film";
+  filmStatus.textContent = message;
+}
+function startNativePlayback() {
+  film.play().catch((error) => {
+    if (error.name !== "AbortError") showFilmRetry("Tap to play, or use Download 1080p below.");
+  });
+}
+function changeFilmQuality(quality, resume = !film.paused, position = film.currentTime) {
+  if (quality === activeQuality) return;
+  clearTimeout(bufferingTimer);
+  pendingFilmSeek = Number.isFinite(position) ? position : 0;
+  activeQuality = quality;
+  film.dataset.quality = quality;
+  filmQuality.options[0].textContent = filmQuality.value === "auto" ? `Auto (${quality}p)` : "Auto";
+  film.src = filmSources[quality];
+  film.load();
+  if (resume) startNativePlayback();
+}
+function automaticQuality() {
+  const connection = navigator.connection;
+  return connection?.saveData || (connection?.downlink && connection.downlink < 1) ? "480" : "720";
+}
+film.addEventListener("loadedmetadata", applyFilmSeek);
+film.addEventListener("playing", () => {
+  clearTimeout(bufferingTimer);
+  filmStart.hidden = true;
+  filmStatus.textContent = "";
+});
+film.addEventListener("waiting", () => {
+  clearTimeout(bufferingTimer);
+  if (filmQuality.value === "auto" && activeQuality === "720") {
+    bufferingTimer = setTimeout(() => {
+      if (!film.paused && film.readyState < 3 && filmQuality.value === "auto" && activeQuality === "720")
+        changeFilmQuality("480", true, pendingFilmSeek ?? film.currentTime);
+    }, 2200);
+  }
+});
+film.addEventListener("pause", () => clearTimeout(bufferingTimer));
+film.addEventListener("error", () => {
+  if (filmQuality.value === "auto" && activeQuality === "720") changeFilmQuality("480", filmStarted, pendingFilmSeek ?? film.currentTime);
+  else showFilmRetry("The video could not load. Try again or use Download 1080p below.");
+});
+function playFilm(start) {
+  if (!filmStarted && filmQuality.value === "auto") changeFilmQuality(automaticQuality(), false, start ?? 0);
+  filmStarted = true;
+  if (Number.isFinite(start)) pendingFilmSeek = Math.max(0, start);
+  if (film.error) film.load();
+  applyFilmSeek();
+  film.controls = true;
+  filmStart.hidden = true;
+  filmStatus.textContent = "";
+  startNativePlayback();
+}
+filmStartButton.addEventListener("click", () => playFilm());
+filmQuality.addEventListener("change", () => changeFilmQuality(filmQuality.value === "auto" ? automaticQuality() : filmQuality.value));
+for (const button of document.querySelectorAll("[data-seek]")) button.addEventListener("click", () => playFilm(Number(button.dataset.seek)));
+// An offscreen showcase should not compete with the gallery the visitor is reading.
+if ("IntersectionObserver" in window)
+  new IntersectionObserver(
+    (entries) => {
+      if (!entries[0].isIntersecting && filmStarted && !document.pictureInPictureElement) film.pause();
+    },
+    { threshold: 0 }
+  ).observe(film);
+
+const stage = document.querySelector(".reference-stage");
+const output = document.querySelector("#tryon-result");
+const lineCanvas = document.querySelector("#reference-lines");
+const referenceStatus = document.querySelector("#reference-status");
+const referenceButtons = [...document.querySelectorAll("[data-reference]")];
+let referenceItems = [],
+  activeReference = null;
+function svgNode(name, attrs) {
+  const el = document.createElementNS("http://www.w3.org/2000/svg", name);
+  for (const [key, val] of Object.entries(attrs)) el.setAttribute(key, val);
+  return el;
+}
+function drawReference() {
+  lineCanvas.replaceChildren();
+  if (!activeReference) return;
+  const item = referenceItems.find((i) => i.id === activeReference);
+  if (!item?.enabled) return;
+  const parent = stage.getBoundingClientRect(),
+    im = output.getBoundingClientRect();
+  const button = referenceButtons.find((b) => Number(b.dataset.reference) === item.id).getBoundingClientRect();
+  lineCanvas.setAttribute("viewBox", `0 0 ${parent.width} ${parent.height}`);
+  const [x0, y0, x1, y1] = item.bbox;
+  const bx = im.left - parent.left + x0 * im.width,
+    by = im.top - parent.top + y0 * im.height,
+    bw = (x1 - x0) * im.width,
+    bh = (y1 - y0) * im.height;
+  const startX = button.right - parent.left,
+    startY = button.top - parent.top + button.height / 2;
+  const endX = im.left - parent.left + item.anchor[0] * im.width,
+    endY = im.top - parent.top + item.anchor[1] * im.height;
+  const middle = (startX + endX) / 2;
+  const path = `M${startX},${startY} C${middle},${startY} ${middle},${endY} ${endX},${endY}`;
+  lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#ffffffdd", "stroke-width": 5, "stroke-linecap": "round" }));
+  lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#0db16e", "stroke-width": 2.2, "stroke-linecap": "round" }));
+  lineCanvas.append(
+    svgNode("rect", {
+      x: bx - 3,
+      y: by - 3,
+      width: bw + 6,
+      height: bh + 6,
+      rx: Math.min(15, bh / 3),
+      fill: "#0db16e0a",
+      stroke: "#ffffffdf",
+      "stroke-width": 5,
+    })
+  );
+  lineCanvas.append(
+    svgNode("rect", {
+      x: bx - 3,
+      y: by - 3,
+      width: bw + 6,
+      height: bh + 6,
+      rx: Math.min(15, bh / 3),
+      fill: "none",
+      stroke: "#0db16e",
+      "stroke-width": 2.2,
+    })
+  );
+  lineCanvas.append(svgNode("circle", { cx: endX, cy: endY, r: 4, fill: "#0db16e", stroke: "white", "stroke-width": 2 }));
+}
+function selectReference(id) {
+  activeReference = id;
+  referenceButtons.forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.reference) === id)));
+  const item = referenceItems.find((i) => i.id === id);
+  if (!item) {
+    referenceStatus.textContent = "Select a reference to explore the outfit.";
+    lineCanvas.replaceChildren();
+    return;
+  }
+  referenceStatus.textContent = item.enabled
+    ? `${String(id).padStart(2, "0")} / ${item.label} — visible correspondence in the generated outfit.`
+    : "07 / Dark glasses — shown as a reference; the generated frame shape differs.";
+  drawReference();
+}
+referenceButtons.forEach((b) => b.addEventListener("click", () => selectReference(Number(b.dataset.reference))));
+document.querySelector("#clear-reference").addEventListener("click", () => selectReference(null));
+Promise.resolve(JSON.parse(document.querySelector("#reference-data").textContent))
+  .then((items) => {
+    referenceItems = items;
+  })
+  .catch(() => {
+    referenceStatus.textContent = "Reference images guide the generated outfit.";
+  });
+new ResizeObserver(drawReference).observe(stage);
+output.addEventListener("load", drawReference);
+
+const diagramStart =
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g font-family="Arial,Helvetica,sans-serif" fill="#073f32">';
+const diagramEnd = "</g></svg>";
+const box = (x, y, w, h, label, fill = "#f8fcf5", stroke = "#b7cdb5", size = 17) =>
+  `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="15" fill="${fill}" stroke="${stroke}"/><text x="${x + w / 2}" y="${y + h / 2 + 6}" text-anchor="middle" font-size="${size}">${label}</text>`;
+const line = (x1, y1, x2, y2, color = "#51705c", both = false) =>
+  `<path d="M${x1} ${y1} L${x2} ${y2}" fill="none" stroke="${color}" stroke-width="2" marker-end="url(#arrow)" ${both ? 'marker-start="url(#arrow)"' : ""}/>`;
+const small = (x, y, text) => `<text x="${x}" y="${y}" font-size="13" fill="#637b67">${text}</text>`;
+function pixelGrid(x, y) {
+  let str = "";
+  for (let r = 0; r < 5; r++)
+    for (let c = 0; c < 5; c++)
+      str += `<rect x="${x + c * 18}" y="${y + r * 18}" width="15" height="15" rx="2" fill="${["#0db16e", "#56bc80", "#b5e3af", "#285f42", "#e7c99b"][(r * 3 + c) % 5]}"/>`;
+  return str;
+}
+const features = {
+  pixels: {
+    number: "01",
+    heading: "Directly in image space.",
+    description:
+      "Learned patch modules connect RGB images and the backbone. No separate pretrained vision encoder or latent autoencoder is used at inference.",
+    alt: "RGB image patches are connected directly to the multimodal backbone through learned input and output modules.",
+    svg:
+      diagramStart +
+      small(34, 68, "RGB INPUT") +
+      pixelGrid(34, 91) +
+      line(128, 134, 180, 134) +
+      box(188, 103, 158, 62, "Patchify") +
+      line(352, 134, 403, 134) +
+      box(410, 78, 300, 112, "Multimodal backbone", "#d4efcf", "#87bd91", 22) +
+      `<path d="M560 195 V251 H350" fill="none" stroke="#51705c" stroke-width="2" marker-end="url(#arrow)"/>` +
+      box(188, 220, 158, 62, "Unpatchify") +
+      line(183, 251, 129, 251) +
+      pixelGrid(34, 213) +
+      small(34, 335, "RGB OUTPUT") +
+      small(410, 335, "Learned modules. Native pixels.") +
+      diagramEnd,
+  },
+  mot: {
+    number: "02",
+    heading: "Two roles. Joint attention.",
+    description:
+      "Understanding reads text and clean images. Generation reconstructs the target, with its own image and timestep residual inputs. Joint attention connects the branches.",
+    alt: "Understanding and generation use separate branches connected through joint attention. Only generation has dedicated image and timestep residual inputs.",
+    svg:
+      diagramStart +
+      small(42, 42, "CONTEXT") +
+      small(425, 42, "TARGET") +
+      box(42, 60, 286, 44, "Text + clean images", "#f8fcf5", "#b7cdb5", 15) +
+      box(425, 60, 286, 44, "Noise image + timestep", "#f8fcf5", "#b7cdb5", 15) +
+      line(185, 109, 185, 145) +
+      line(568, 109, 568, 145) +
+      box(42, 155, 286, 103, "Understanding", "#f8fcf5", "#96bca0", 22) +
+      box(425, 155, 286, 103, "Generation", "#b6e9be", "#6cba84", 22) +
+      line(338, 205, 414, 205, "#51705c", true) +
+      small(320, 285, "Joint attention") +
+      box(425, 313, 137, 48, "Image residual", "#d2f2d7", "#88c59a", 14) +
+      box(576, 313, 135, 48, "Time residual", "#d2f2d7", "#88c59a", 14) +
+      `<path d="M493 308 V263 M643 308 V263" stroke="#0db16e" stroke-width="2" marker-end="url(#arrow)"/>` +
+      small(42, 341, "A-MoT / Asymmetrical branches") +
+      diagramEnd,
+  },
+  moe: {
+    number: "03",
+    heading: "Shared knowledge. Routed expertise.",
+    description:
+      "Every token receives the shared expert’s output. A router also selects specialized experts for that token, and their contributions are combined.",
+    alt: "Every token uses a shared expert and a router-selected subset of experts. Their outputs are combined.",
+    svg:
+      diagramStart +
+      box(28, 170, 116, 54, "Token") +
+      `<path d="M148 197 H190 V92 H232 M190 197 V293 H232" fill="none" stroke="#51705c" stroke-width="2" marker-end="url(#arrow)"/>` +
+      box(239, 63, 198, 59, "Shared expert", "#b6e9be", "#6cba84", 19) +
+      small(275, 145, "Always active") +
+      box(239, 263, 116, 59, "Router", "#f8fcf5", "#b7cdb5", 18) +
+      line(360, 292, 403, 292) +
+      box(412, 231, 56, 45, "1", "#b6e9be", "#6cba84", 15) +
+      box(479, 231, 56, 45, "2", "#edf2e8", "#c4d2c0", 15) +
+      box(546, 231, 56, 45, "3", "#b6e9be", "#6cba84", 15) +
+      box(412, 288, 56, 45, "4", "#edf2e8", "#c4d2c0", 15) +
+      box(479, 288, 56, 45, "5", "#b6e9be", "#6cba84", 15) +
+      box(546, 288, 56, 45, "6", "#edf2e8", "#c4d2c0", 15) +
+      small(410, 365, "Illustrative expert selection") +
+      `<path d="M442 93 H657 V174 M610 281 H657 V216" fill="none" stroke="#51705c" stroke-width="2" marker-end="url(#arrow)"/><circle cx="657" cy="196" r="22" fill="#f8fcf5" stroke="#8dbb98"/><text x="657" y="203" text-anchor="middle" font-size="24">+</text>` +
+      line(684, 196, 730, 196) +
+      diagramEnd,
+  },
+};
+const methodTabs = [...document.querySelectorAll("[data-method]")];
+function setMethod(key, focus = false) {
+  const f = features[key];
+  document.querySelector("#method-panel").setAttribute("aria-labelledby", `method-tab-${key}`);
+  methodTabs.forEach((b) => {
+    b.setAttribute("aria-selected", String(b.dataset.method === key));
+    b.tabIndex = b.dataset.method === key ? 0 : -1;
+    if (focus && b.dataset.method === key) b.focus();
+  });
+  document.querySelector("#method-number").textContent = f.number;
+  document.querySelector("#method-heading").textContent = f.heading;
+  document.querySelector("#method-description").textContent = f.description;
+  const d = document.querySelector("#model-diagram");
+  d.innerHTML = f.svg;
+  d.setAttribute("aria-label", f.alt);
+}
+methodTabs.forEach((b, i) => {
+  b.id = `method-tab-${b.dataset.method}`;
+  b.setAttribute("aria-controls", "method-panel");
+  b.addEventListener("click", () => setMethod(b.dataset.method));
+  b.addEventListener("keydown", (e) => {
+    let n;
+    if (e.key === "ArrowRight") n = (i + 1) % methodTabs.length;
+    if (e.key === "ArrowLeft") n = (i + methodTabs.length - 1) % methodTabs.length;
+    if (n !== undefined) {
+      e.preventDefault();
+      setMethod(methodTabs[n].dataset.method, true);
+    }
+  });
+});
+setMethod("pixels");
+
+const copyButton = document.querySelector(".copy-code");
+copyButton.addEventListener("click", async () => {
+  const code = document.querySelector(".code-card code").textContent;
+  const status = document.querySelector("#copy-status");
+  try {
+    await navigator.clipboard.writeText(code);
+    status.textContent = "Python example copied.";
+    copyButton.textContent = "Copied";
+    setTimeout(() => (copyButton.textContent = "Copy"), 1800);
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(document.querySelector(".code-card code"));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    status.textContent = "Code selected. Use your device’s copy command.";
+  }
+});
+const icons = {
+  github: '<path d="m8 5-6 7 6 7m8-14 6 7-6 7m-3-17-2 20"/>',
+  weights: '<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
+  paper: '<path d="M6 2h8l4 4v16H6zM14 2v5h4M9 11h6M9 15h6"/>',
+};
+Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
+  .then((links) => {
+    const container = document.querySelector("#resource-links");
+    for (const [key, label] of [
+      ["paper", "Paper"],
+      ["github", "Code"],
+      ["weights", "Weights"],
+    ]) {
+      if (!links[key]) continue;
+      let url;
+      try {
+        url = new URL(links[key]);
+      } catch {
+        continue;
+      }
+      if (url.protocol !== "https:") continue;
+      const a = document.createElement("a");
+      a.href = url.href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.innerHTML = `<svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true">${icons[key]}</svg><span>${label}</span>`;
+      container.append(a);
+      document.querySelectorAll(`[data-resource="${key}"]`).forEach((el) => {
+        el.href = url.href;
+        el.hidden = false;
+      });
+    }
+    container.hidden = !container.children.length;
+  })
+  .catch(() => {});
+// Sections remain visible without animation or script-dependent reveal states.
+
+</script>
+<!-- INLINE_APP_END -->
   </body>
 </html>
