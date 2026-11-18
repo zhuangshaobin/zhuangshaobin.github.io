@@ -18,7 +18,7 @@
     <meta name="robots" content="noindex,nofollow" />
     <link rel="icon" type="image/svg+xml" href="assets/wegen2-mark.svg?v=20261118b" />
     <link rel="stylesheet" href="style.css?v=20261118b" />
-    <script src="app.js?v=20261118b" defer></script>
+    <script src="app.js?v=20261118c" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -102,7 +102,7 @@
             class="showcase-film"
             controls
             playsinline
-            preload="none"
+            preload="metadata"
             poster="assets/film-poster.webp"
             width="1920"
             height="1080"
@@ -497,7 +497,7 @@
               <pre><code>from wegen2 import WeGen2Pipeline
 
 pipe = WeGen2Pipeline.from_pretrained(
-    "./weights/WeGen2", devices="mlu:0,mlu:1"
+    "./weights/WeGen2", devices="cuda:0,cuda:1"
 )
 
 session = pipe.session()
@@ -520,14 +520,17 @@ next_image.save("paper-world-night.png")</code></pre>
                   <dd>61B parameters · BF16</dd>
                 </div>
                 <div>
-                  <dt>Validated inference</dt>
-                  <dd>2 × MLU590 · 80 GiB each</dd>
+                  <dt>H20 planning estimate</dt>
+                  <dd>2 × NVIDIA H20 · 96 GB each</dd>
                 </div>
                 <div>
-                  <dt>NVIDIA</dt>
-                  <dd>CUDA path included; hardware validation pending</dd>
+                  <dt>Estimated weight memory</dt>
+                  <dd>57.9 / 56.6 GiB across two H20 GPUs</dd>
                 </div>
               </dl>
+              <p class="fine-print">
+                Weights only; runtime memory is additional. Checkpoint-based estimates, not H20 measurements. H20 latency has not been measured.
+              </p>
               <a data-resource="github" class="text-link" href="https://github.com/zhuangshaobin/WeGen2">Read the inference guide ↗</a>
               <p class="fine-print release-note">Code in private preview. Weights and final licensing forthcoming.</p>
             </div>
