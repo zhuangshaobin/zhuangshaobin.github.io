@@ -17,12 +17,13 @@ replaceBlock(
     ["reference", "reference-map.json"],
     ["links", "links.json"],
     ["preview", "preview-map.json"],
+    ["film-config", "film-config.json"],
   ]
     .map(
       ([id, file]) => `<script type="application/json" id="${id}-data">${JSON.stringify(JSON.parse(read(file))).replaceAll("<", "\\u003c")}</script>`
     )
     .join("\n")
 );
-replaceBlock("APP", `<script>\n${read("app.js")}\n</script>`);
+replaceBlock("APP", `<script>\n${read("app.js") + "\n" + read("film-player.js")}\n</script>`);
 writeFileSync(join(root, "index.html"), html);
 console.log("Prepared standalone WeGen2 HTML");

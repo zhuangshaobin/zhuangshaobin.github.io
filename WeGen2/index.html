@@ -2002,6 +2002,12 @@ footer > a:last-child {
   }
 }
 
+.film-playback-status {
+  margin: 12px 0 0;
+  color: var(--muted, #527063);
+  font-size: 13px;
+}
+
 </style>
 <!-- INLINE_STYLE_END -->
   </head>
@@ -2133,6 +2139,7 @@ footer > a:last-child {
             <p id="film-load-status" role="status" aria-live="polite"></p>
           </div>
         </div>
+        <p class="film-playback-status" role="status" aria-live="polite" hidden></p>
         <div class="film-under">
           <div class="film-chapters" aria-label="Film chapters">
             <button type="button" data-seek="0">01 <span>Create</span></button><button type="button" data-seek="29">02 <span>Compose</span></button
@@ -2146,6 +2153,7 @@ footer > a:last-child {
                 <option value="720">720p</option>
                 <option value="1080">1080p</option>
                 <option value="480">480p</option>
+                <option value="360">360p</option>
               </select></label
             >
             <a href="assets/wegen2-film.mp4?v=20261118d" download>Download 1080p ↗</a><a href="film-transcript.html">Visual transcript ↗</a>
@@ -2234,11 +2242,11 @@ footer > a:last-child {
             <p class="eyebrow">Words belong in the picture.</p>
             <h2 id="words-title">More to see.<br /><em>More to read.</em></h2>
             <p>
-              Illustration and explanatory text share the same canvas. An underwater opera poster combines four richly detailed scenes with Chinese
+              Illustration and explanatory text share the same canvas. A Chang’an night-tour poster combines four richly detailed scenes with Chinese
               headlines and descriptive passages.
             </p>
             <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
-            <button class="text-link" type="button" data-open-image="opera-guide.webp?v=20261118d">
+            <button class="text-link" type="button" data-open-image="changan-night.webp">
               Explore the full image <span aria-hidden="true">↗</span>
             </button>
             <div class="word-detail">
@@ -2260,21 +2268,21 @@ footer > a:last-child {
           </div>
           <figure class="dense-figure">
             <img
-              alt="An underwater opera poster with four detailed scenes, Chinese headlines, and descriptive passages generated together."
-              data-full="assets/opera-guide.webp?v=20261118d"
+              alt="A Chang’an night-tour poster with four detailed scenes, Chinese headlines, and descriptive passages generated together."
+              data-full="assets/changan-night.webp"
               data-zoom=""
               decoding="async"
               fetchpriority="low"
-              height="1280"
+              height="1024"
               loading="lazy"
               sizes="(max-width: 760px) 92vw, 56vw"
-              src="assets/previews/opera-guide-640.webp"
+              src="assets/previews/changan-night-640.webp"
               srcset="
-                assets/previews/opera-guide-640.webp   640w,
-                assets/previews/opera-guide-960.webp   960w,
-                assets/previews/opera-guide-1280.webp 1280w
+                assets/previews/changan-night-640.webp   640w,
+                assets/previews/changan-night-960.webp   960w,
+                assets/previews/changan-night-1024.webp 1024w
               "
-              width="1280"
+              width="1024"
             />
             <figcaption>Chinese text &amp; illustrated information design</figcaption>
           </figure>
@@ -2813,7 +2821,8 @@ next_image.save("paper-world-night.png")</code></pre>
     <!-- INLINE_DATA_START -->
 <script type="application/json" id="reference-data">[{"id":1,"label":"Off-white blazer","enabled":true,"bbox":[0.292969,0.192708,0.724609,0.533854],"anchor":[0.329102,0.486328],"referenceCrop":[0.0725,0.2,0.3125,0.56]},{"id":2,"label":"White T-shirt","enabled":true,"bbox":[0.418945,0.21224,0.545898,0.407552],"anchor":[0.425781,0.327474],"referenceCrop":[0.075,0.213333,0.30375,0.531667]},{"id":3,"label":"Blue jeans","enabled":true,"bbox":[0.345703,0.419922,0.634766,0.923177],"anchor":[0.384766,0.679688],"referenceCrop":[0.1275,0.298333,0.26875,0.651667]},{"id":4,"label":"White sneakers","enabled":true,"bbox":[0.433594,0.835286,0.59082,0.983073],"anchor":[0.438477,0.95638],"referenceCrop":[0.1275,0.405,0.60875,0.766667]},{"id":5,"label":"Burgundy bag","enabled":true,"bbox":[0.53418,0.391927,0.770508,0.518229],"anchor":[0.538086,0.46224],"referenceCrop":[0.14,0.193333,0.4975,0.753333]},{"id":6,"label":"Black belt","enabled":true,"bbox":[0.422852,0.39974,0.543945,0.430339],"anchor":[0.424805,0.416667],"referenceCrop":[0.065,0.31,0.31,0.5]},{"id":7,"label":"Black sunglasses","enabled":false,"bbox":[0.430664,0.042318,0.556641,0.073568],"anchor":[0.43457,0.059245],"referenceCrop":[0.1425,0.365,0.5,0.576667]},{"id":8,"label":"Gold-tone necklace","enabled":true,"bbox":[0.439453,0.205078,0.541992,0.251302],"anchor":[0.485352,0.246745],"referenceCrop":[0.235,0.21,0.38375,0.468333]}]</script>
 <script type="application/json" id="links-data">{"paper":null,"github":"https://github.com/zhuangshaobin/WeGen2","weights":"https://huggingface.co/GrayShine/WeGen2","project":"https://zhuangshaobin.github.io/WeGen2/"}</script>
-<script type="application/json" id="preview-data">{"architecture-input.webp":{"src":"assets/previews/architecture-input-480.webp","srcset":"assets/previews/architecture-input-480.webp 480w, assets/previews/architecture-input-900.webp 900w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-input.webp"},"architecture-output.webp":{"src":"assets/previews/architecture-output-480.webp","srcset":"assets/previews/architecture-output-480.webp 480w, assets/previews/architecture-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-output.webp"},"atrium-winter.webp":{"src":"assets/previews/atrium-winter-480.webp","srcset":"assets/previews/atrium-winter-480.webp 480w, assets/previews/atrium-winter-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium-winter.webp"},"atrium.webp":{"src":"assets/previews/atrium-480.webp","srcset":"assets/previews/atrium-480.webp 480w, assets/previews/atrium-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium.webp"},"chat-input.webp":{"src":"assets/previews/chat-input-480.webp","srcset":"assets/previews/chat-input-480.webp 480w, assets/previews/chat-input-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-input.webp"},"chat-reply.webp":{"src":"assets/previews/chat-reply-480.webp","srcset":"assets/previews/chat-reply-480.webp 480w, assets/previews/chat-reply-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-reply.webp"},"chat-revision.webp":{"src":"assets/previews/chat-revision-480.webp","srcset":"assets/previews/chat-revision-480.webp 480w, assets/previews/chat-revision-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-revision.webp"},"comic-sheet.webp":{"src":"assets/previews/comic-sheet-960.webp","srcset":"assets/previews/comic-sheet-960.webp 960w, assets/previews/comic-sheet-1440.webp 1440w, assets/previews/comic-sheet-1920.webp 1920w","sizes":"92vw","full":"assets/comic-sheet.webp"},"glass-city.webp":{"src":"assets/previews/glass-city-480.webp","srcset":"assets/previews/glass-city-480.webp 480w, assets/previews/glass-city-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-city.webp"},"glass-reef.webp":{"src":"assets/previews/glass-reef-480.webp","srcset":"assets/previews/glass-reef-480.webp 480w, assets/previews/glass-reef-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-reef.webp"},"landscape-input.webp":{"src":"assets/previews/landscape-input-480.webp","srcset":"assets/previews/landscape-input-480.webp 480w, assets/previews/landscape-input-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-input.webp"},"landscape-output.webp":{"src":"assets/previews/landscape-output-480.webp","srcset":"assets/previews/landscape-output-480.webp 480w, assets/previews/landscape-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-output.webp"},"night-market.webp":{"src":"assets/previews/night-market-480.webp","srcset":"assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/night-market.webp"},"opera-guide.webp":{"src":"assets/previews/opera-guide-640.webp","srcset":"assets/previews/opera-guide-640.webp 640w, assets/previews/opera-guide-960.webp 960w, assets/previews/opera-guide-1280.webp 1280w","sizes":"(max-width: 760px) 92vw, 56vw","full":"assets/opera-guide.webp"},"paper-night.webp":{"src":"assets/previews/paper-night-480.webp","srcset":"assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/paper-night.webp"},"paper-world.webp":{"src":"assets/previews/paper-world-480.webp","srcset":"assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/paper-world.webp"},"poster.webp":{"src":"assets/previews/poster-480.webp","srcset":"assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/poster.webp"},"rain-portrait.webp":{"src":"assets/previews/rain-portrait-480.webp","srcset":"assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/rain-portrait.webp"},"reading-guide.webp":{"src":"assets/previews/reading-guide-320.webp","srcset":"assets/previews/reading-guide-320.webp 320w","sizes":"138px","full":"assets/reading-guide.webp"},"robot-00.webp":{"src":"assets/previews/robot-00-400.webp","srcset":"assets/previews/robot-00-400.webp 400w, assets/previews/robot-00-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-00.webp"},"robot-01.webp":{"src":"assets/previews/robot-01-400.webp","srcset":"assets/previews/robot-01-400.webp 400w, assets/previews/robot-01-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-01.webp"},"robot-02.webp":{"src":"assets/previews/robot-02-400.webp","srcset":"assets/previews/robot-02-400.webp 400w, assets/previews/robot-02-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-02.webp"},"robot-03.webp":{"src":"assets/previews/robot-03-400.webp","srcset":"assets/previews/robot-03-400.webp 400w, assets/previews/robot-03-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-03.webp"},"robot-04.webp":{"src":"assets/previews/robot-04-400.webp","srcset":"assets/previews/robot-04-400.webp 400w, assets/previews/robot-04-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-04.webp"},"tryon-output.webp":{"src":"assets/previews/tryon-output-480.webp","srcset":"assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-output.webp"},"tryon-person.webp":{"src":"assets/previews/tryon-person-480.webp","srcset":"assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-person.webp"},"tryon-ref-01.webp":{"src":"assets/previews/tryon-ref-01-240.webp","srcset":"assets/previews/tryon-ref-01-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-01.webp"},"tryon-ref-02.webp":{"src":"assets/previews/tryon-ref-02-240.webp","srcset":"assets/previews/tryon-ref-02-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-02.webp"},"tryon-ref-03.webp":{"src":"assets/previews/tryon-ref-03-240.webp","srcset":"assets/previews/tryon-ref-03-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-03.webp"},"tryon-ref-04.webp":{"src":"assets/previews/tryon-ref-04-240.webp","srcset":"assets/previews/tryon-ref-04-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-04.webp"},"tryon-ref-05.webp":{"src":"assets/previews/tryon-ref-05-240.webp","srcset":"assets/previews/tryon-ref-05-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-05.webp"},"tryon-ref-06.webp":{"src":"assets/previews/tryon-ref-06-240.webp","srcset":"assets/previews/tryon-ref-06-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-06.webp"},"tryon-ref-07.webp":{"src":"assets/previews/tryon-ref-07-240.webp","srcset":"assets/previews/tryon-ref-07-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-07.webp"},"tryon-ref-08.webp":{"src":"assets/previews/tryon-ref-08-240.webp","srcset":"assets/previews/tryon-ref-08-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-08.webp"}}</script>
+<script type="application/json" id="preview-data">{"architecture-input.webp":{"src":"assets/previews/architecture-input-480.webp","srcset":"assets/previews/architecture-input-480.webp 480w, assets/previews/architecture-input-900.webp 900w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-input.webp"},"architecture-output.webp":{"src":"assets/previews/architecture-output-480.webp","srcset":"assets/previews/architecture-output-480.webp 480w, assets/previews/architecture-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-output.webp"},"atrium-winter.webp":{"src":"assets/previews/atrium-winter-480.webp","srcset":"assets/previews/atrium-winter-480.webp 480w, assets/previews/atrium-winter-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium-winter.webp"},"atrium.webp":{"src":"assets/previews/atrium-480.webp","srcset":"assets/previews/atrium-480.webp 480w, assets/previews/atrium-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium.webp"},"chat-input.webp":{"src":"assets/previews/chat-input-480.webp","srcset":"assets/previews/chat-input-480.webp 480w, assets/previews/chat-input-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-input.webp"},"chat-reply.webp":{"src":"assets/previews/chat-reply-480.webp","srcset":"assets/previews/chat-reply-480.webp 480w, assets/previews/chat-reply-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-reply.webp"},"chat-revision.webp":{"src":"assets/previews/chat-revision-480.webp","srcset":"assets/previews/chat-revision-480.webp 480w, assets/previews/chat-revision-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-revision.webp"},"comic-sheet.webp":{"src":"assets/previews/comic-sheet-960.webp","srcset":"assets/previews/comic-sheet-960.webp 960w, assets/previews/comic-sheet-1440.webp 1440w, assets/previews/comic-sheet-1920.webp 1920w","sizes":"92vw","full":"assets/comic-sheet.webp"},"glass-city.webp":{"src":"assets/previews/glass-city-480.webp","srcset":"assets/previews/glass-city-480.webp 480w, assets/previews/glass-city-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-city.webp"},"glass-reef.webp":{"src":"assets/previews/glass-reef-480.webp","srcset":"assets/previews/glass-reef-480.webp 480w, assets/previews/glass-reef-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-reef.webp"},"landscape-input.webp":{"src":"assets/previews/landscape-input-480.webp","srcset":"assets/previews/landscape-input-480.webp 480w, assets/previews/landscape-input-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-input.webp"},"landscape-output.webp":{"src":"assets/previews/landscape-output-480.webp","srcset":"assets/previews/landscape-output-480.webp 480w, assets/previews/landscape-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-output.webp"},"night-market.webp":{"src":"assets/previews/night-market-480.webp","srcset":"assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/night-market.webp"},"opera-guide.webp":{"src":"assets/previews/opera-guide-640.webp","srcset":"assets/previews/opera-guide-640.webp 640w, assets/previews/opera-guide-960.webp 960w, assets/previews/opera-guide-1280.webp 1280w","sizes":"(max-width: 760px) 92vw, 56vw","full":"assets/opera-guide.webp"},"paper-night.webp":{"src":"assets/previews/paper-night-480.webp","srcset":"assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/paper-night.webp"},"paper-world.webp":{"src":"assets/previews/paper-world-480.webp","srcset":"assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/paper-world.webp"},"poster.webp":{"src":"assets/previews/poster-480.webp","srcset":"assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/poster.webp"},"rain-portrait.webp":{"src":"assets/previews/rain-portrait-480.webp","srcset":"assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/rain-portrait.webp"},"reading-guide.webp":{"src":"assets/previews/reading-guide-320.webp","srcset":"assets/previews/reading-guide-320.webp 320w","sizes":"138px","full":"assets/reading-guide.webp"},"robot-00.webp":{"src":"assets/previews/robot-00-400.webp","srcset":"assets/previews/robot-00-400.webp 400w, assets/previews/robot-00-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-00.webp"},"robot-01.webp":{"src":"assets/previews/robot-01-400.webp","srcset":"assets/previews/robot-01-400.webp 400w, assets/previews/robot-01-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-01.webp"},"robot-02.webp":{"src":"assets/previews/robot-02-400.webp","srcset":"assets/previews/robot-02-400.webp 400w, assets/previews/robot-02-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-02.webp"},"robot-03.webp":{"src":"assets/previews/robot-03-400.webp","srcset":"assets/previews/robot-03-400.webp 400w, assets/previews/robot-03-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-03.webp"},"robot-04.webp":{"src":"assets/previews/robot-04-400.webp","srcset":"assets/previews/robot-04-400.webp 400w, assets/previews/robot-04-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-04.webp"},"tryon-output.webp":{"src":"assets/previews/tryon-output-480.webp","srcset":"assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-output.webp"},"tryon-person.webp":{"src":"assets/previews/tryon-person-480.webp","srcset":"assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-person.webp"},"tryon-ref-01.webp":{"src":"assets/previews/tryon-ref-01-240.webp","srcset":"assets/previews/tryon-ref-01-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-01.webp"},"tryon-ref-02.webp":{"src":"assets/previews/tryon-ref-02-240.webp","srcset":"assets/previews/tryon-ref-02-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-02.webp"},"tryon-ref-03.webp":{"src":"assets/previews/tryon-ref-03-240.webp","srcset":"assets/previews/tryon-ref-03-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-03.webp"},"tryon-ref-04.webp":{"src":"assets/previews/tryon-ref-04-240.webp","srcset":"assets/previews/tryon-ref-04-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-04.webp"},"tryon-ref-05.webp":{"src":"assets/previews/tryon-ref-05-240.webp","srcset":"assets/previews/tryon-ref-05-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-05.webp"},"tryon-ref-06.webp":{"src":"assets/previews/tryon-ref-06-240.webp","srcset":"assets/previews/tryon-ref-06-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-06.webp"},"tryon-ref-07.webp":{"src":"assets/previews/tryon-ref-07-240.webp","srcset":"assets/previews/tryon-ref-07-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-07.webp"},"tryon-ref-08.webp":{"src":"assets/previews/tryon-ref-08-240.webp","srcset":"assets/previews/tryon-ref-08-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-08.webp"},"changan-night.webp":{"src":"assets/previews/changan-night-640.webp","srcset":"assets/previews/changan-night-640.webp 640w, assets/previews/changan-night-960.webp 960w, assets/previews/changan-night-1024.webp 1024w","sizes":"(max-width: 760px) 92vw, 56vw","full":"assets/changan-night.webp"}}</script>
+<script type="application/json" id="film-config-data">{"mediaPath":"assets/film-hls-v1/","mirrors":["https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/e17662ea4e33775e71959fb8191c99b5d5886219/WeGen2/assets/film-hls-v1/","https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@e17662ea4e33775e71959fb8191c99b5d5886219/WeGen2/assets/film-hls-v1/"],"library":"player/hls.light-1.7.4.min.js","libraryFallback":"https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js","libraryIntegrity":"sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz"}</script>
 <!-- INLINE_DATA_END -->
     <!-- INLINE_APP_START -->
 <script>
@@ -2997,92 +3006,6 @@ dialog.addEventListener("close", () => {
   fullImageRequest++;
   previousFocus?.focus({ preventScroll: true });
 });
-
-const film = document.querySelector(".showcase-film");
-const filmStart = document.querySelector(".film-start");
-const filmStartButton = document.querySelector("#film-start-button");
-const filmStatus = document.querySelector("#film-load-status");
-const filmQuality = document.querySelector("#film-quality");
-const filmSources = { 480: "assets/wegen2-film-480.mp4", 720: "assets/wegen2-film-720.mp4", 1080: "assets/wegen2-film.mp4?v=20261118d" };
-let pendingFilmSeek = null;
-let activeQuality = "720";
-let bufferingTimer = null;
-let filmStarted = false;
-film.dataset.quality = activeQuality;
-film.controls = false;
-filmStart.hidden = false;
-function applyFilmSeek() {
-  if (pendingFilmSeek === null || !Number.isFinite(film.duration)) return;
-  film.currentTime = Math.min(pendingFilmSeek, Math.max(0, film.duration - 0.05));
-  pendingFilmSeek = null;
-}
-function showFilmRetry(message) {
-  filmStart.hidden = false;
-  filmStartButton.querySelector(".film-start-label").textContent = "Play film";
-  filmStatus.textContent = message;
-}
-function startNativePlayback() {
-  film.play().catch((error) => {
-    if (error.name !== "AbortError") showFilmRetry("Tap to play, or use Download 1080p below.");
-  });
-}
-function changeFilmQuality(quality, resume = !film.paused, position = film.currentTime) {
-  if (quality === activeQuality) return;
-  clearTimeout(bufferingTimer);
-  pendingFilmSeek = Number.isFinite(position) ? position : 0;
-  activeQuality = quality;
-  film.dataset.quality = quality;
-  filmQuality.options[0].textContent = filmQuality.value === "auto" ? `Auto (${quality}p)` : "Auto";
-  film.src = filmSources[quality];
-  film.load();
-  if (resume) startNativePlayback();
-}
-function automaticQuality() {
-  const connection = navigator.connection;
-  return connection?.saveData || (connection?.downlink && connection.downlink < 1) ? "480" : "720";
-}
-film.addEventListener("loadedmetadata", applyFilmSeek);
-film.addEventListener("playing", () => {
-  clearTimeout(bufferingTimer);
-  filmStart.hidden = true;
-  filmStatus.textContent = "";
-});
-film.addEventListener("waiting", () => {
-  clearTimeout(bufferingTimer);
-  if (filmQuality.value === "auto" && activeQuality === "720") {
-    bufferingTimer = setTimeout(() => {
-      if (!film.paused && film.readyState < 3 && filmQuality.value === "auto" && activeQuality === "720")
-        changeFilmQuality("480", true, pendingFilmSeek ?? film.currentTime);
-    }, 2200);
-  }
-});
-film.addEventListener("pause", () => clearTimeout(bufferingTimer));
-film.addEventListener("error", () => {
-  if (filmQuality.value === "auto" && activeQuality === "720") changeFilmQuality("480", filmStarted, pendingFilmSeek ?? film.currentTime);
-  else showFilmRetry("The video could not load. Try again or use Download 1080p below.");
-});
-function playFilm(start) {
-  if (!filmStarted && filmQuality.value === "auto") changeFilmQuality(automaticQuality(), false, start ?? 0);
-  filmStarted = true;
-  if (Number.isFinite(start)) pendingFilmSeek = Math.max(0, start);
-  if (film.error) film.load();
-  applyFilmSeek();
-  film.controls = true;
-  filmStart.hidden = true;
-  filmStatus.textContent = "";
-  startNativePlayback();
-}
-filmStartButton.addEventListener("click", () => playFilm());
-filmQuality.addEventListener("change", () => changeFilmQuality(filmQuality.value === "auto" ? automaticQuality() : filmQuality.value));
-for (const button of document.querySelectorAll("[data-seek]")) button.addEventListener("click", () => playFilm(Number(button.dataset.seek)));
-// An offscreen showcase should not compete with the gallery the visitor is reading.
-if ("IntersectionObserver" in window)
-  new IntersectionObserver(
-    (entries) => {
-      if (!entries[0].isIntersecting && filmStarted && !document.pictureInPictureElement) film.pause();
-    },
-    { threshold: 0 }
-  ).observe(film);
 
 const stage = document.querySelector(".reference-stage");
 const output = document.querySelector("#tryon-result");
@@ -3344,6 +3267,359 @@ Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
   })
   .catch(() => {});
 // Sections remain visible without animation or script-dependent reveal states.
+
+(() => {
+  const video = document.querySelector(".showcase-film");
+  const start = document.querySelector(".film-start");
+  const button = document.querySelector("#film-start-button");
+  const quality = document.querySelector("#film-quality");
+  const status = document.querySelector(".film-playback-status");
+  const config = JSON.parse(document.querySelector("#film-config-data").textContent);
+  const mediaRoot = new URL(config.mediaPath, document.baseURI).href;
+  const origins = [mediaRoot, ...config.mirrors];
+  let preferredOrigin = 0;
+  let hls = null;
+  let libraryPromise = null;
+  let initializing = null;
+  let mode = "";
+  let started = false;
+  let wantedPlayback = false;
+  let pendingSeek = null;
+  let recoveryCount = 0;
+  let statusTimer = null;
+  let fallbackTimer = null;
+
+  video.controls = false;
+  start.hidden = false;
+  video.dataset.player = "adaptive";
+
+  function message(text = "") {
+    status.textContent = text;
+    status.hidden = !text;
+  }
+  function showRetry() {
+    start.hidden = false;
+    button.disabled = false;
+    button.querySelector(".film-start-label").textContent = "Resume film";
+    message("Playback interrupted. Resume here, or download the film below.");
+  }
+  function playNative() {
+    video.play().catch((error) => {
+      if (error.name !== "AbortError" && wantedPlayback) showRetry();
+    });
+  }
+  function applySeek() {
+    if (pendingSeek === null || !Number.isFinite(video.duration)) return;
+    video.currentTime = Math.min(pendingSeek, Math.max(0, video.duration - 0.1));
+    pendingSeek = null;
+  }
+  function updateQuality(height) {
+    video.dataset.quality = String(height);
+    quality.options[0].textContent = quality.value === "auto" ? `Auto (${height}p)` : "Auto";
+  }
+
+  function loadLibrary() {
+    if (window.Hls) return Promise.resolve(window.Hls);
+    if (libraryPromise) return libraryPromise;
+    libraryPromise = new Promise((resolve, reject) => {
+      let attempts = 0;
+      let failures = 0;
+      let finished = false;
+      const scripts = [];
+      const urls = [new URL(config.library, document.baseURI).href, config.libraryFallback];
+      function done() {
+        if (!window.Hls || finished) return;
+        finished = true;
+        clearTimeout(hedge);
+        resolve(window.Hls);
+      }
+      function attempt() {
+        if (finished || attempts === urls.length) return;
+        const script = document.createElement("script");
+        script.src = urls[attempts++];
+        script.async = true;
+        script.integrity = config.libraryIntegrity;
+        script.crossOrigin = "anonymous";
+        script.onload = done;
+        script.onerror = () => {
+          failures++;
+          if (attempts < urls.length) attempt();
+          if (failures === urls.length && !finished) {
+            finished = true;
+            clearTimeout(hedge);
+            reject(new Error("Video player could not load"));
+          }
+        };
+        scripts.push(script);
+        document.head.append(script);
+      }
+      const hedge = setTimeout(attempt, 2500);
+      attempt();
+      setTimeout(() => {
+        if (finished) return;
+        finished = true;
+        scripts.forEach((script) => script.remove());
+        reject(new Error("Video player timed out"));
+      }, 15000);
+    }).catch((error) => {
+      libraryPromise = null;
+      throw error;
+    });
+    return libraryPromise;
+  }
+
+  // Keep HLS transport retries below the player: a failed route retries the same
+  // small segment elsewhere, preserving the buffered timeline and current frame.
+  function resilientLoader(Hls) {
+    const Base = Hls.DefaultConfig.loader;
+    return class {
+      constructor(settings) {
+        this.settings = settings;
+        this.inner = new Base(settings);
+        this.stats = this.inner.stats;
+        this.context = null;
+        this.cancelled = false;
+        this.timer = null;
+      }
+      load(context, settings, callbacks) {
+        this.context = context;
+        const marker = "/film-hls-v1/";
+        const position = context.url.indexOf(marker);
+        const relative = position >= 0 ? context.url.slice(position + marker.length) : null;
+        const order = relative === null ? [0] : [preferredOrigin, ...origins.map((_, i) => i).filter((i) => i !== preferredOrigin)];
+        let attemptIndex = 0;
+        const attempt = () => {
+          if (this.cancelled) return;
+          const route = order[attemptIndex++];
+          this.inner.destroy();
+          this.inner = new Base(this.settings);
+          Object.assign(this.stats, this.inner.stats);
+          this.inner.stats = this.stats;
+          const requestContext = { ...context, url: relative === null ? context.url : origins[route] + relative };
+          let done = false;
+          let lastBytes = 0;
+          let lastProgress = performance.now();
+          const cleanup = () => {
+            clearInterval(this.timer);
+            this.timer = null;
+          };
+          const failed = (kind, args) => {
+            if (done || this.cancelled) return;
+            done = true;
+            cleanup();
+            if (attemptIndex < order.length) attempt();
+            else callbacks[kind](...args);
+          };
+          const wrapped = {
+            onSuccess: (response, stats, ignored, network) => {
+              if (done || this.cancelled) return;
+              done = true;
+              cleanup();
+              preferredOrigin = route;
+              video.dataset.delivery = new URL(origins[route]).hostname;
+              // Preserve the logical URL for relative playlist resolution.
+              callbacks.onSuccess({ ...response, url: context.url }, stats, context, network);
+            },
+            onError: (error, ignored, network, stats) => failed("onError", [error, context, network, stats]),
+            onTimeout: (stats, ignored, network) => failed("onTimeout", [stats, context, network]),
+            onAbort: (stats, ignored, network) => callbacks.onAbort?.(stats, context, network),
+            onProgress: (stats, ignored, data, network) => callbacks.onProgress?.(stats, context, data, network),
+          };
+          this.timer = setInterval(() => {
+            if (this.stats.loaded !== lastBytes) {
+              lastBytes = this.stats.loaded;
+              lastProgress = performance.now();
+            } else if (lastBytes > 0 && performance.now() - lastProgress > 2500 && attemptIndex < order.length) {
+              failed("onTimeout", [this.stats, context, null]);
+            }
+          }, 250);
+          const policy = { ...settings.loadPolicy, maxTimeToFirstByteMs: 2500, maxLoadTimeMs: 20000, timeoutRetry: null, errorRetry: null };
+          this.inner.load(requestContext, { ...settings, loadPolicy: policy }, wrapped);
+        };
+        attempt();
+      }
+      abort() {
+        this.cancelled = true;
+        clearInterval(this.timer);
+        this.inner.abort();
+      }
+      destroy() {
+        this.cancelled = true;
+        clearInterval(this.timer);
+        this.inner.destroy();
+      }
+      getCacheAge() {
+        return this.inner.getCacheAge?.() ?? null;
+      }
+      getResponseHeader(name) {
+        return this.inner.getResponseHeader?.(name) ?? null;
+      }
+    };
+  }
+
+  function applyQuality() {
+    if (mode === "hls") {
+      const level = quality.value === "auto" ? -1 : hls.levels.findIndex((item) => item.height === Number(quality.value));
+      hls.currentLevel = level;
+      if (level === -1) quality.options[0].textContent = `Auto (${video.dataset.quality || 480}p)`;
+      else quality.options[0].textContent = "Auto";
+    } else if (mode === "native-hls") {
+      pendingSeek = video.currentTime;
+      video.src = mediaRoot + (quality.value === "auto" ? "master.m3u8" : `${quality.value}/index.m3u8`);
+      video.load();
+      if (wantedPlayback) playNative();
+    } else if (mode === "mp4") fallbackMP4(pendingSeek ?? video.currentTime);
+  }
+
+  function fallbackMP4(position = 0) {
+    if (hls) {
+      hls.destroy();
+      hls = null;
+    }
+    mode = "mp4";
+    video.dataset.player = "mp4-fallback";
+    pendingSeek = position;
+    const height = quality.value === "1080" ? 1080 : quality.value === "720" ? 720 : 480;
+    updateQuality(height);
+    video.src = `assets/wegen2-film${height === 1080 ? "" : "-" + height}.mp4`;
+    video.load();
+    if (wantedPlayback) playNative();
+  }
+
+  async function initialize() {
+    if (initializing) return initializing;
+    initializing = (async () => {
+      let Hls;
+      try {
+        Hls = await loadLibrary();
+      } catch {
+        fallbackMP4(pendingSeek ?? 0);
+        return;
+      }
+      if (Hls.isSupported()) {
+        mode = "hls";
+        video.dataset.player = "hls";
+        hls = new Hls({
+          loader: resilientLoader(Hls),
+          startLevel: quality.value === "auto" ? 1 : [360, 480, 720, 1080].indexOf(Number(quality.value)),
+          startPosition: pendingSeek ?? 0,
+          capLevelToPlayerSize: true,
+          maxDevicePixelRatio: 1.5,
+          maxBufferLength: 20,
+          maxMaxBufferLength: 30,
+          backBufferLength: 30,
+          abrEwmaDefaultEstimate: 450000,
+          abrBandWidthFactor: 0.8,
+          abrBandWidthUpFactor: 0.6,
+          maxStarvationDelay: 2,
+          maxLoadingDelay: 2,
+          enableWorker: true,
+          progressive: false,
+        });
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          if (quality.value !== "auto") applyQuality();
+          if (wantedPlayback) playNative();
+        });
+        hls.on(Hls.Events.LEVEL_SWITCHED, (event, data) => updateQuality(hls.levels[data.level].height));
+        hls.on(Hls.Events.ERROR, (event, data) => {
+          if (!data.fatal) return;
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR && recoveryCount++ < 2) {
+            message("Reconnecting…");
+            hls.startLoad(pendingSeek ?? video.currentTime);
+          } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR && recoveryCount++ < 2) hls.recoverMediaError();
+          else fallbackMP4(pendingSeek ?? video.currentTime);
+        });
+        hls.attachMedia(video);
+        hls.loadSource(mediaRoot + "master.m3u8");
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        mode = "native-hls";
+        video.dataset.player = "native-hls";
+        video.src = mediaRoot + "master.m3u8";
+        if (wantedPlayback) playNative();
+      } else fallbackMP4(pendingSeek ?? 0);
+    })();
+    return initializing;
+  }
+
+  function playFilm(position) {
+    wantedPlayback = true;
+    started = true;
+    if (Number.isFinite(position)) pendingSeek = Math.max(0, position);
+    video.controls = true;
+    start.hidden = true;
+    message(mode ? "" : "Loading film…");
+    if (!mode) initialize();
+    else {
+      if (hls) hls.startLoad(pendingSeek ?? video.currentTime);
+      applySeek();
+      playNative();
+    }
+  }
+  button.addEventListener("click", () => playFilm());
+  document.querySelectorAll("[data-seek]").forEach((item) => item.addEventListener("click", () => playFilm(Number(item.dataset.seek))));
+  quality.addEventListener("change", applyQuality);
+  video.addEventListener("loadedmetadata", applySeek);
+  video.addEventListener("play", () => {
+    wantedPlayback = true;
+    if (hls) hls.startLoad(video.currentTime);
+  });
+  video.addEventListener("playing", () => {
+    clearTimeout(statusTimer);
+    clearTimeout(fallbackTimer);
+    start.hidden = true;
+    message("");
+    recoveryCount = 0;
+  });
+  video.addEventListener("waiting", () => {
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(() => {
+      if (!video.paused && video.readyState < 3) message("Buffering…");
+    }, 900);
+    if (mode === "mp4" && quality.value === "auto" && video.dataset.quality !== "480") {
+      clearTimeout(fallbackTimer);
+      fallbackTimer = setTimeout(() => {
+        if (!video.paused && video.readyState < 3) fallbackMP4(video.currentTime);
+      }, 2500);
+    }
+  });
+  video.addEventListener("pause", () => {
+    wantedPlayback = false;
+    clearTimeout(statusTimer);
+    message("");
+  });
+  video.addEventListener("error", () => {
+    if (mode === "mp4" || mode === "native-hls") showRetry();
+  });
+  window.addEventListener("offline", () => {
+    if (!wantedPlayback) return;
+    if (hls) hls.stopLoad();
+    message("Waiting for connection…");
+  });
+  window.addEventListener("online", () => {
+    if (!wantedPlayback) return;
+    if (hls) hls.startLoad(pendingSeek ?? video.currentTime);
+    else if (video.error) video.load();
+    playNative();
+  });
+  if ("IntersectionObserver" in window) {
+    const warmup = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadLibrary().catch(() => {});
+          warmup.disconnect();
+        }
+      },
+      { rootMargin: "400px" }
+    );
+    warmup.observe(video);
+    new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting && started && !document.pictureInPictureElement) {
+        video.pause();
+        if (hls) hls.stopLoad();
+      }
+    }).observe(video);
+  }
+})();
 
 </script>
 <!-- INLINE_APP_END -->
