@@ -266,7 +266,7 @@ new ResizeObserver(drawReference).observe(stage);
 output.addEventListener("load", drawReference);
 
 const diagramStart =
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g font-family="Arial,Helvetica,sans-serif" fill="#073f32">';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g font-family="Manrope,Arial,Helvetica,sans-serif" fill="#073f32">';
 const diagramEnd = "</g></svg>";
 const box = (x, y, w, h, label, fill = "#f8fcf5", stroke = "#b7cdb5", size = 17) =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="15" fill="${fill}" stroke="${stroke}"/><text x="${x + w / 2}" y="${y + h / 2 + 6}" text-anchor="middle" font-size="${size}">${label}</text>`;
@@ -378,6 +378,8 @@ methodTabs.forEach((b, i) => {
     let n;
     if (e.key === "ArrowRight") n = (i + 1) % methodTabs.length;
     if (e.key === "ArrowLeft") n = (i + methodTabs.length - 1) % methodTabs.length;
+    if (e.key === "Home") n = 0;
+    if (e.key === "End") n = methodTabs.length - 1;
     if (n !== undefined) {
       e.preventDefault();
       setMethod(methodTabs[n].dataset.method, true);
