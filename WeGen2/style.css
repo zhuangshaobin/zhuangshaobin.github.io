@@ -920,7 +920,8 @@ p {
   align-items: center;
   font-size: 13px;
 }
-.resource-links a {
+.resource-links a,
+.resource-links .resource-unavailable {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -2009,5 +2010,63 @@ footer .wordmark img {
   }
   footer .wordmark img {
     width: 124px;
+  }
+}
+
+/* Public resources share the same release state in the hero and inference panel. */
+.hero-resources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: min(360px, 100%);
+  margin-top: 22px;
+}
+.resource-pill {
+  min-height: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 10px;
+  border: 1px solid #b6cbbb;
+  border-radius: 24px;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #073f32;
+  background: #f8faf4;
+}
+a.resource-pill:hover {
+  border-color: #087f5b;
+  background: #e4f0e5;
+}
+.resource-unavailable {
+  color: #718477;
+  cursor: default;
+}
+.resource-pill.resource-unavailable {
+  background: transparent;
+  border-color: #d0d9cf;
+}
+.resource-unavailable small {
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.resource-links .resource-unavailable {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+@media (max-width: 760px) {
+  .hero.brand-hero {
+    height: 415px;
+  }
+  .hero-resources {
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .resource-pill {
+    font-size: 12px;
+    padding-inline: 6px;
   }
 }

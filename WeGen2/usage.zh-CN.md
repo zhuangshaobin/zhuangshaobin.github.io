@@ -12,8 +12,6 @@ Python 3.10 或更高版本。先安装适配设备的 PyTorch，再在仓库根
 pip install -e .
 ```
 
-**H20 部署估算：** 两张 NVIDIA H20（每张 96 GB）。按默认层分配，BF16 权重预计分别占用 **57.9 / 56.6 GiB**，运行时缓存、上下文和中间结果另需显存。这是基于权重文件的估算；尚未实测 H20 峰值显存与推理速度。
-
 权重可用后，下载至本地目录：
 
 ```bash
@@ -25,19 +23,19 @@ hf download GrayShine/WeGen2 --local-dir ./weights/WeGen2
 ## 生成图片
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
+wegen2 --model ./weights/WeGen2 --devices auto generate \
   --prompt "一座位于海底的歌剧院，精致的珊瑚建筑，电影感光线" \
   --size 1024 1024 --seed 42 --output ./outputs/opera.png
 ```
 
-`--size` 的顺序是宽、高，均须为 32 的倍数。请根据设备显存选择足够多的卡。
+`--size` 的顺序是宽、高，均须为 32 的倍数。请根据图像分辨率、上下文长度和可用内存配置运行环境。
 
 ## 编辑与多图参考
 
 在生成命令中加入 `--image ./input.png` 即可编辑。多个 `--image` 按顺序提供多张参考图，提示词也应按该顺序描述图像。
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
+wegen2 --model ./weights/WeGen2 --devices auto generate \
   --image ./person.png --image ./outfit.png \
   --prompt "让第一张图的人物穿上第二张图的服装，保留人物身份和场景。" \
   --size 768 1024 --output ./outputs/result.png
@@ -48,7 +46,7 @@ wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
 ## 多轮编辑
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 sequence \
+wegen2 --model ./weights/WeGen2 --devices auto sequence \
   --request ./examples/story.json --output ./outputs/story
 ```
 

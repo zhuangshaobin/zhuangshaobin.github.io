@@ -412,31 +412,50 @@ const icons = {
 Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
   .then((links) => {
     const container = document.querySelector("#resource-links");
+    const resourceUrl = (value) => {
+      try {
+        const url = new URL(value);
+        return url.protocol === "https:" ? url.href : null;
+      } catch {
+        return null;
+      }
+    };
+    const makeResource = (key, label, pill = false) => {
+      const url = resourceUrl(links[key]);
+      const node = document.createElement(url ? "a" : "span");
+      node.dataset.resource = key;
+      if (pill) node.className = "resource-pill";
+      if (url) {
+        node.href = url;
+        node.target = "_blank";
+        node.rel = "noopener noreferrer";
+      } else {
+        node.setAttribute("role", "link");
+        node.setAttribute("aria-disabled", "true");
+        node.title = `${label} will be available after release`;
+        node.classList.add("resource-unavailable");
+      }
+      const icon = pill ? "" : `<svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true">${icons[key]}</svg>`;
+      node.innerHTML = `${icon}<span>${label}</span>${url ? "" : "<small>Coming soon</small>"}`;
+      return node;
+    };
+    container.replaceChildren();
     for (const [key, label] of [
       ["paper", "Paper"],
       ["github", "Code"],
       ["weights", "Weights"],
     ]) {
-      if (!links[key]) continue;
-      let url;
-      try {
-        url = new URL(links[key]);
-      } catch {
-        continue;
-      }
-      if (url.protocol !== "https:") continue;
-      const a = document.createElement("a");
-      a.href = url.href;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.innerHTML = `<svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true">${icons[key]}</svg><span>${label}</span>`;
-      container.append(a);
-      document.querySelectorAll(`[data-resource="${key}"]`).forEach((el) => {
-        el.href = url.href;
-        el.hidden = false;
+      container.append(makeResource(key, label));
+      document.querySelectorAll(`.hero-resources [data-resource="${key}"]`).forEach((el) => {
+        el.replaceWith(makeResource(key, label, true));
       });
+      const url = resourceUrl(links[key]);
+      if (url)
+        document.querySelectorAll(`a[data-resource="${key}"]`).forEach((el) => {
+          el.href = url;
+        });
     }
-    container.hidden = !container.children.length;
+    container.hidden = false;
   })
   .catch(() => {});
 // Sections remain visible without animation or script-dependent reveal states.
