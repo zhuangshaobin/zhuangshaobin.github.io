@@ -1,6 +1,6 @@
 # WeGen2 inference guide
 
-[English overview](../README.md) · [中文使用说明](usage.zh-CN.md)
+[English overview](../README.md) · [Project Page](https://zhuangshaobin.github.io/WeGen2/) · [Weights](https://huggingface.co/GrayShine/WeGen2) · [中文使用说明](usage.zh-CN.md)
 
 ## Quick start
 
@@ -13,8 +13,6 @@ git clone git@github.com:zhuangshaobin/WeGen2.git
 cd WeGen2
 pip install -e .
 ```
-
-**H20 planning estimate:** 2 × NVIDIA H20 (96 GB). BF16 weights alone occupy approximately **57.9 / 56.6 GiB** across the two GPUs with the default layer split. Runtime buffers and context require additional memory. These are checkpoint-based estimates; H20 peak memory and latency have not been measured.
 
 ### 2. Download the checkpoint
 
@@ -31,7 +29,7 @@ The model directory contains `config.json`, `tokenizer.json`, and indexed `.safe
 ### 3. Generate an image
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
+wegen2 --model ./weights/WeGen2 --devices auto generate \
   --prompt "A luminous underwater opera house, elaborate coral architecture, cinematic lighting" \
   --size 1024 1024 --seed 42 --output ./outputs/opera.png
 ```
@@ -39,7 +37,7 @@ wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
 ## Image editing
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
+wegen2 --model ./weights/WeGen2 --devices auto generate \
   --image ./input.png \
   --prompt "Change the red mug to cobalt blue. Preserve the table, napkin, lighting, and composition." \
   --size 512 512 --seed 42 --output ./outputs/edit.png
@@ -52,7 +50,7 @@ Reference images keep their aspect ratio, subject to patch alignment and the ref
 Supply references in the order used by your instruction:
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 generate \
+wegen2 --model ./weights/WeGen2 --devices auto generate \
   --image ./subject.png --image ./setting.png \
   --prompt "Place the subject from the first image in the setting of the second image." \
   --size 1024 768 --output ./outputs/composition.png
@@ -63,7 +61,7 @@ The model accepts more than two references. Reference count and image size incre
 ## Multi-turn creation
 
 ```bash
-wegen2 --model ./weights/WeGen2 --devices cuda:0,cuda:1 sequence \
+wegen2 --model ./weights/WeGen2 --devices auto sequence \
   --request ./examples/story.json --output ./outputs/story
 ```
 
@@ -81,7 +79,7 @@ A JSON request lists ordered turns. Each generated image becomes context for the
 ```python
 from wegen2 import SamplingConfig, WeGen2Pipeline
 
-pipe = WeGen2Pipeline.from_pretrained("./weights/WeGen2", devices="cuda:0,cuda:1")
+pipe = WeGen2Pipeline.from_pretrained("./weights/WeGen2", devices="auto")
 
 image = pipe.generate(
     "A cinematic underwater opera house, intricate coral architecture.",

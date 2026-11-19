@@ -942,7 +942,8 @@ p {
   align-items: center;
   font-size: 13px;
 }
-.resource-links a {
+.resource-links a,
+.resource-links .resource-unavailable {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -2034,6 +2035,64 @@ footer .wordmark img {
   }
 }
 
+/* Public resources share the same release state in the hero and inference panel. */
+.hero-resources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: min(360px, 100%);
+  margin-top: 22px;
+}
+.resource-pill {
+  min-height: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 10px;
+  border: 1px solid #b6cbbb;
+  border-radius: 24px;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #073f32;
+  background: #f8faf4;
+}
+a.resource-pill:hover {
+  border-color: #087f5b;
+  background: #e4f0e5;
+}
+.resource-unavailable {
+  color: #718477;
+  cursor: default;
+}
+.resource-pill.resource-unavailable {
+  background: transparent;
+  border-color: #d0d9cf;
+}
+.resource-unavailable small {
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.resource-links .resource-unavailable {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+@media (max-width: 760px) {
+  .hero.brand-hero {
+    height: 415px;
+  }
+  .hero-resources {
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .resource-pill {
+    font-size: 12px;
+    padding-inline: 6px;
+  }
+}
+
 </style>
 <!-- INLINE_STYLE_END -->
   </head>
@@ -2105,6 +2164,22 @@ footer .wordmark img {
           </svg>
         </h1>
         <p class="brand-line">One model. <em>Many worlds.</em></p>
+        <nav class="hero-resources" aria-label="Project resources">
+          <span
+            class="resource-pill resource-unavailable"
+            data-resource="paper"
+            role="link"
+            aria-disabled="true"
+            title="Paper will be available after release"
+            ><span>Paper</span><small>Coming soon</small></span
+          >
+          <a class="resource-pill" data-resource="github" href="https://github.com/zhuangshaobin/WeGen2" target="_blank" rel="noopener noreferrer"
+            ><span>Code</span></a
+          >
+          <a class="resource-pill" data-resource="weights" href="https://huggingface.co/GrayShine/WeGen2" target="_blank" rel="noopener noreferrer"
+            ><span>Weights</span></a
+          >
+        </nav>
         <div class="brand-footer">
           <p>Native pixels. Multimodal context.</p>
           <a class="brand-play" href="#film"><span aria-hidden="true">▷</span> Watch the film</a>
@@ -2774,7 +2849,7 @@ footer .wordmark img {
               <pre><code>from wegen2 import WeGen2Pipeline
 
 pipe = WeGen2Pipeline.from_pretrained(
-    "./weights/WeGen2", devices="cuda:0,cuda:1"
+    "./weights/WeGen2", devices="auto"
 )
 
 session = pipe.session()
@@ -2797,17 +2872,15 @@ next_image.save("paper-world-night.png")</code></pre>
                   <dd>61B parameters · BF16</dd>
                 </div>
                 <div>
-                  <dt>H20 planning estimate</dt>
-                  <dd>2 × NVIDIA H20 · 96 GB each</dd>
+                  <dt>Interface</dt>
+                  <dd>Python API · Command line</dd>
                 </div>
                 <div>
-                  <dt>Estimated weight memory</dt>
-                  <dd>57.9 / 56.6 GiB across two H20 GPUs</dd>
+                  <dt>Workflows</dt>
+                  <dd>Single-turn · Multi-turn</dd>
                 </div>
               </dl>
-              <p class="fine-print">
-                Weights only; runtime memory is additional. Checkpoint-based estimates, not H20 measurements. H20 latency has not been measured.
-              </p>
+              <p class="fine-print">Memory requirements depend on image size, context length, and runtime configuration.</p>
               <a data-resource="github" class="text-link" href="https://github.com/zhuangshaobin/WeGen2">Read the inference guide ↗</a>
               <p class="fine-print release-note">Code in private preview. Weights and final licensing forthcoming.</p>
             </div>
@@ -3267,31 +3340,50 @@ const icons = {
 Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
   .then((links) => {
     const container = document.querySelector("#resource-links");
+    const resourceUrl = (value) => {
+      try {
+        const url = new URL(value);
+        return url.protocol === "https:" ? url.href : null;
+      } catch {
+        return null;
+      }
+    };
+    const makeResource = (key, label, pill = false) => {
+      const url = resourceUrl(links[key]);
+      const node = document.createElement(url ? "a" : "span");
+      node.dataset.resource = key;
+      if (pill) node.className = "resource-pill";
+      if (url) {
+        node.href = url;
+        node.target = "_blank";
+        node.rel = "noopener noreferrer";
+      } else {
+        node.setAttribute("role", "link");
+        node.setAttribute("aria-disabled", "true");
+        node.title = `${label} will be available after release`;
+        node.classList.add("resource-unavailable");
+      }
+      const icon = pill ? "" : `<svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true">${icons[key]}</svg>`;
+      node.innerHTML = `${icon}<span>${label}</span>${url ? "" : "<small>Coming soon</small>"}`;
+      return node;
+    };
+    container.replaceChildren();
     for (const [key, label] of [
       ["paper", "Paper"],
       ["github", "Code"],
       ["weights", "Weights"],
     ]) {
-      if (!links[key]) continue;
-      let url;
-      try {
-        url = new URL(links[key]);
-      } catch {
-        continue;
-      }
-      if (url.protocol !== "https:") continue;
-      const a = document.createElement("a");
-      a.href = url.href;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.innerHTML = `<svg class="resource-icon" viewBox="0 0 24 24" aria-hidden="true">${icons[key]}</svg><span>${label}</span>`;
-      container.append(a);
-      document.querySelectorAll(`[data-resource="${key}"]`).forEach((el) => {
-        el.href = url.href;
-        el.hidden = false;
+      container.append(makeResource(key, label));
+      document.querySelectorAll(`.hero-resources [data-resource="${key}"]`).forEach((el) => {
+        el.replaceWith(makeResource(key, label, true));
       });
+      const url = resourceUrl(links[key]);
+      if (url)
+        document.querySelectorAll(`a[data-resource="${key}"]`).forEach((el) => {
+          el.href = url;
+        });
     }
-    container.hidden = !container.children.length;
+    container.hidden = false;
   })
   .catch(() => {});
 // Sections remain visible without animation or script-dependent reveal states.
