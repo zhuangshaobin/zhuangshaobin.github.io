@@ -11,13 +11,13 @@
     <link rel="canonical" href="https://zhuangshaobin.github.io/WeGen2/" />
     <meta property="og:title" content="WeGen2 — Native Pixel-Space Multimodal Creation" />
     <meta property="og:description" content="Bring an idea. See where it goes. Image generation, editing and composition with WeGen2." />
-    <meta property="og:image" content="https://zhuangshaobin.github.io/WeGen2/assets/release-cover.webp?v=20261119w" />
+    <meta property="og:image" content="https://zhuangshaobin.github.io/WeGen2/assets/release-cover.webp?v=20261119inlinew" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f8f9f3" />
     <meta name="robots" content="noindex,nofollow" />
-    <link rel="icon" type="image/svg+xml" href="assets/wegen2-favicon.svg?v=20261119w" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/wegen2-apple-touch-icon.png?v=20261119w" />
+    <link rel="icon" type="image/svg+xml" href="assets/wegen2-favicon.svg?v=20261119inlinew" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/wegen2-apple-touch-icon.png?v=20261119inlinew" />
     <!-- INLINE_STYLE_START -->
     <style>
       :root {
@@ -1890,7 +1890,7 @@
         left: 46px;
       }
       .brand-hero #hero-title {
-        width: min(880px, 83%);
+        width: min(740px, 83%);
         padding: 0;
         margin: 10px 0 0;
         line-height: 0;
@@ -2009,6 +2009,30 @@
         color: var(--muted, #527063);
         font-size: 13px;
       }
+
+      /* The custom W is part of the wordmark, including navigation and footer. */
+      .wordmark {
+        gap: 0;
+        line-height: 0;
+      }
+      .site-header .wordmark img {
+        display: block;
+        width: 150px;
+        height: auto;
+      }
+      footer .wordmark img {
+        display: block;
+        width: 132px;
+        height: auto;
+      }
+      @media (max-width: 760px) {
+        .site-header .wordmark img {
+          width: 132px;
+        }
+        footer .wordmark img {
+          width: 124px;
+        }
+      }
     </style>
     <!-- INLINE_STYLE_END -->
   </head>
@@ -2016,8 +2040,8 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="wordmark" href="#main" aria-label="WeGen2 home"
-        ><img alt="" decoding="async" height="38" src="assets/wegen2-mark.svg?v=20261119w" width="38" /><span>WeGen2</span></a
-      >
+        ><img alt="WeGen2" decoding="async" width="365" height="88" src="assets/wegen2-wordmark.svg?v=20261119inlinew"
+      /></a>
       <nav aria-label="Main navigation">
         <a href="#capabilities">Explore</a><a href="#film">Film</a><a href="#method">The model</a
         ><a href="#inference" class="nav-pill">Get started <span aria-hidden="true">↗</span></a>
@@ -2027,47 +2051,52 @@
       <section class="hero brand-hero" aria-labelledby="hero-title">
         <p class="brand-eyebrow">Unified multimodal creation</p>
         <h1 id="hero-title" aria-label="WeGen2">
-          <svg class="hero-wordmark" xmlns="http://www.w3.org/2000/svg" width="508" height="128" viewBox="0 0 508 128" role="img" aria-label="WeGen2">
+          <svg class="hero-wordmark" xmlns="http://www.w3.org/2000/svg" width="365" height="88" viewBox="0 20 365 88" role="img" aria-label="WeGen2">
             <title>WeGen2</title>
-            <desc>An unfolding W with a pixel-shaped open centre. Original WeGen2 identity.</desc>
-            <defs>
-              <mask id="wg2-hero-pixel" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
-                <rect width="128" height="128" fill="white" />
-                <path d="M64 54 H73 A4 4 0 0 1 77 58 V67 A4 4 0 0 1 73 71 H64 A4 4 0 0 1 60 67 V58 A4 4 0 0 1 64 54 Z" fill="black" />
-              </mask>
-            </defs>
-            <g mask="url(#wg2-hero-pixel)">
-              <path
-                d="M28 24 C40 22 47 25 54 37 L61 49 C65 51 65 44 73 44 C78 44 80 46 82 49 L90 29 C96 17 109 20 116 27 C123 35 121 44 116 56 L104 85 C98 101 87 105 75 100 C67 97 61 89 55 85 C46 79 41 91 33 98 C27 104 22 100 19 92 L8 55 C3 42 9 29 21 25 C24 24 26 24 28 24 Z"
-                fill="#08B86C"
-              />
-              <path
-                d="M82 49 L90 29 C96 17 109 20 116 27 C123 35 121 44 116 56 L104 85 C98 101 87 105 75 100 C67 97 61 89 55 85 C46 79 41 91 33 98 C39 87 43 70 60 70 L66 70 C76 70 77 59 82 49 Z"
-                fill="#07533C"
-              />
+            <desc>The rounded two-tone W forms the first letter of WeGen2.</desc>
+            <g data-brand-initial="W" transform="translate(0.465048 17.437086) scale(0.75349522)">
+              <g aria-label="W">
+                <path
+                  d="M22 32 L43 89 Q45 94 48 86 L64 48 L81 88 Q84 94 87 86 L108 30"
+                  stroke="#08B86C"
+                  fill="none"
+                  stroke-width="24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M64 48 L81 88 Q84 94 87 86 L108 30"
+                  stroke="#07533C"
+                  fill="none"
+                  stroke-width="24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
             </g>
-            <g fill="#073F32">
+            <g data-brand-rest="eGen2" transform="translate(-141.717374 0)" fill="#073F32">
               <path
-                transform="translate(144.00000 94) scale(0.08800000 -0.08800000)"
-                d="M267.554443359375 0 16.675048828125 705H176.239501953125L358.710205078125 160.515869140625H315.577880859375L508.927978515625 705H621.468994140625L805.939697265625 160.515869140625H768.7470703125L954.84423828125 705H1105.216064453125L852.336669921875 0H726.289794921875L549.445556640625 501.27978515625H573.38525390625L393.91455078125 0Z"
-              />
-              <path
+                xmlns="http://www.w3.org/2000/svg"
                 transform="translate(236.14375 94) scale(0.08800000 -0.08800000)"
                 d="M312.89111328125 -10.62646484375Q226.445556640625 -10.62646484375 163.7830810546875 20.686767578125Q101.12060546875 52 67.36767578125 109.4698486328125Q33.61474609375 166.939697265625 33.61474609375 245.2529296875Q33.61474609375 321.2529296875 66.054443359375 378.566162109375Q98.494140625 435.87939453125 155.560302734375 468.5360107421875Q212.62646484375 501.192626953125 285.505859375 501.192626953125Q357.698486328125 501.192626953125 409.7344970703125 470.566162109375Q461.7705078125 439.939697265625 490.3668212890625 383.8433837890625Q518.963134765625 327.7470703125 518.963134765625 250.807373046875V212.86767578125H158.107177734375V290.819091796875H409.9765625L394.289794921875 277.072021484375Q394.289794921875 338.180908203125 367.7353515625 369.669189453125Q341.180908203125 401.157470703125 292.072021484375 401.157470703125Q255.39697265625 401.157470703125 229.1859130859375 384.163330078125Q202.974853515625 367.169189453125 189.1976318359375 335.2713623046875Q175.42041015625 303.37353515625 175.42041015625 257.819091796875V250.192626953125Q175.42041015625 198.951416015625 190.854248046875 166.2403564453125Q206.2880859375 133.529296875 237.7822265625 117.8785400390625Q269.2763671875 102.227783203125 316.14404296875 102.227783203125Q355.89111328125 102.227783203125 397.0477294921875 114.2579345703125Q438.204345703125 126.2880859375 471.2646484375 150.7822265625L510.963134765625 50.494140625Q474.39697265625 22.433837890625 420.457275390625 5.9036865234375Q366.517578125 -10.62646484375 312.89111328125 -10.62646484375Z"
               />
               <path
+                xmlns="http://www.w3.org/2000/svg"
                 transform="translate(283.75625 94) scale(0.08800000 -0.08800000)"
                 d="M420.072021484375 -10.62646484375Q300.87939453125 -10.62646484375 218.5 34.0Q136.12060546875 78.62646484375 93.0242919921875 159.62646484375Q49.927978515625 240.62646484375 49.927978515625 350.060302734375Q49.927978515625 462.060302734375 94.6507568359375 544.0301513671875Q139.37353515625 626 223.505859375 670.813232421875Q307.63818359375 715.62646484375 425.336669921875 715.62646484375Q475.0234375 715.62646484375 521.14990234375 706.439697265625Q567.2763671875 697.2529296875 606.589599609375 680.0360107421875Q645.90283203125 662.819091796875 673.589599609375 638.698486328125L624.324951171875 518.33837890625Q577.63818359375 551.892822265625 529.89111328125 566.639892578125Q482.14404296875 581.386962890625 425.963134765625 581.386962890625Q319.2880859375 581.386962890625 265.546875 522.025146484375Q211.8056640625 462.663330078125 211.8056640625 350.060302734375Q211.8056640625 237.39697265625 266.5770263671875 179.1917724609375Q321.348388671875 120.986572265625 428.2646484375 120.986572265625Q463.566162109375 120.986572265625 501.7470703125 128.046875Q539.927978515625 135.107177734375 577.36181640625 147.854248046875L548.289794921875 84.589599609375V277.2294921875H396.313232421875V388.830810546875H676.2763671875V42.62646484375Q641.7705078125 26 599.330810546875 14.186767578125Q556.89111328125 2.37353515625 511.1080322265625 -4.12646484375Q465.324951171875 -10.62646484375 420.072021484375 -10.62646484375Z"
               />
               <path
+                xmlns="http://www.w3.org/2000/svg"
                 transform="translate(348.35312 94) scale(0.08800000 -0.08800000)"
                 d="M312.89111328125 -10.62646484375Q226.445556640625 -10.62646484375 163.7830810546875 20.686767578125Q101.12060546875 52 67.36767578125 109.4698486328125Q33.61474609375 166.939697265625 33.61474609375 245.2529296875Q33.61474609375 321.2529296875 66.054443359375 378.566162109375Q98.494140625 435.87939453125 155.560302734375 468.5360107421875Q212.62646484375 501.192626953125 285.505859375 501.192626953125Q357.698486328125 501.192626953125 409.7344970703125 470.566162109375Q461.7705078125 439.939697265625 490.3668212890625 383.8433837890625Q518.963134765625 327.7470703125 518.963134765625 250.807373046875V212.86767578125H158.107177734375V290.819091796875H409.9765625L394.289794921875 277.072021484375Q394.289794921875 338.180908203125 367.7353515625 369.669189453125Q341.180908203125 401.157470703125 292.072021484375 401.157470703125Q255.39697265625 401.157470703125 229.1859130859375 384.163330078125Q202.974853515625 367.169189453125 189.1976318359375 335.2713623046875Q175.42041015625 303.37353515625 175.42041015625 257.819091796875V250.192626953125Q175.42041015625 198.951416015625 190.854248046875 166.2403564453125Q206.2880859375 133.529296875 237.7822265625 117.8785400390625Q269.2763671875 102.227783203125 316.14404296875 102.227783203125Q355.89111328125 102.227783203125 397.0477294921875 114.2579345703125Q438.204345703125 126.2880859375 471.2646484375 150.7822265625L510.963134765625 50.494140625Q474.39697265625 22.433837890625 420.457275390625 5.9036865234375Q366.517578125 -10.62646484375 312.89111328125 -10.62646484375Z"
               />
               <path
+                xmlns="http://www.w3.org/2000/svg"
                 transform="translate(395.96562 94) scale(0.08800000 -0.08800000)"
                 d="M58.422119140625 0V490.566162109375H205.7939453125V398.517578125H194.7939453125Q217.733642578125 448.38525390625 263.2939453125 474.7889404296875Q308.854248046875 501.192626953125 366.601318359375 501.192626953125Q425.601318359375 501.192626953125 463.76653575067934 478.79390920474543Q501.9317531419837 456.3951914563658 520.7665357506794 410.4778200721877Q539.601318359375 364.5604486880095 539.601318359375 294.554443359375V0H388.60302734375V287.927978515625Q388.60302734375 322.169189453125 380.35595703125 343.35009765625Q372.10888671875 364.531005859375 355.6598909818209 374.46484375Q339.21089524489184 384.398681640625 313.7587890625 384.398681640625Q282.457275390625 384.398681640625 258.8277013442096 370.8428236607143Q235.19812729779412 357.2869656808036 222.30926872702207 332.38201729910713Q209.42041015625 307.4770689174107 209.42041015625 274.060302734375V0Z"
               />
               <path
+                xmlns="http://www.w3.org/2000/svg"
                 transform="translate(447.62500 94) scale(0.08800000 -0.08800000)"
                 d="M74.36181640625 0V114.733642578125L294.531005859375 347.39697265625Q323.33837890625 377.89111328125 340.4288330078125 403.072021484375Q357.519287109375 428.2529296875 365.7362060546875 451.2772216796875Q373.953125 474.301513671875 373.953125 497.169189453125Q373.953125 541.2177734375 345.58544921875 563.9288330078125Q317.2177734375 586.639892578125 263.482421875 586.639892578125Q219.927978515625 586.639892578125 176.994140625 570.392822265625Q134.060302734375 554.145751953125 93.060302734375 519.651611328125L43.169189453125 634.445556640625Q87.048583984375 671.505859375 151.4581298828125 693.566162109375Q215.86767578125 715.62646484375 284.494140625 715.62646484375Q363.313232421875 715.62646484375 417.192626953125 692.1566162109375Q471.072021484375 668.686767578125 499.01171875 623.7470703125Q526.951416015625 578.807373046875 526.951416015625 514.2412109375Q526.951416015625 482.2412109375 519.7646484375 451.7412109375Q512.577880859375 421.2412109375 497.2344970703125 391.3978271484375Q481.89111328125 361.554443359375 458.2344970703125 330.36767578125Q434.577880859375 299.180908203125 400.951416015625 265.494140625L225.7939453125 87.03515625V127.2998046875H553.324951171875V0Z"
               />
@@ -2122,14 +2151,14 @@
             controls
             playsinline
             preload="none"
-            poster="assets/film-poster-v7.webp"
+            poster="assets/film-poster-v8.webp"
             width="1920"
             height="1080"
             aria-label="WeGen2 showcase and model introduction"
           >
-            <source src="assets/wegen2-film-v7-720.mp4" type="video/mp4" />
-            <track kind="captions" src="assets/film-captions-v7.vtt" srclang="en" label="English descriptions" />
-            Your browser does not support embedded video. <a href="assets/wegen2-film-v7.mp4">Download the film</a>.
+            <source src="assets/wegen2-film-v8-720.mp4" type="video/mp4" />
+            <track kind="captions" src="assets/film-captions-v8.vtt" srclang="en" label="English descriptions" />
+            Your browser does not support embedded video. <a href="assets/wegen2-film-v8.mp4">Download the film</a>.
           </video>
           <div class="film-start" hidden>
             <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
@@ -2153,7 +2182,7 @@
                 <option value="360">360p</option>
               </select></label
             >
-            <a href="assets/wegen2-film-v7.mp4" download>Download 1080p ↗</a><a href="film-transcript.html?v=film7">Visual transcript ↗</a>
+            <a href="assets/wegen2-film-v8.mp4" download>Download 1080p ↗</a><a href="film-transcript.html?v=film8">Visual transcript ↗</a>
           </div>
         </div>
         <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
@@ -2809,9 +2838,9 @@ next_image.save("paper-world-night.png")</code></pre>
       </dialog>
     </main>
     <footer class="wrap">
-      <a class="wordmark" href="#main"
-        ><img alt="" decoding="async" height="30" src="assets/wegen2-mark.svg?v=20261119w" width="30" /><span>WeGen2</span></a
-      >
+      <a class="wordmark" href="#main" aria-label="WeGen2 home"
+        ><img alt="WeGen2" decoding="async" width="365" height="88" src="assets/wegen2-wordmark.svg?v=20261119inlinew"
+      /></a>
       <p>Native pixels. Multimodal context. Visual creation.</p>
       <a href="#main">Back to top ↑</a>
     </footer>
@@ -3108,15 +3137,15 @@ next_image.save("paper-world-night.png")</code></pre>
     </script>
     <script type="application/json" id="film-config-data">
       {
-        "mediaPath": "assets/film-hls-v7/",
+        "mediaPath": "assets/film-hls-v8/",
         "mirrors": [
-          "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/49e3856ef42a50f1781efac4616557cb14b677e5/WeGen2/assets/film-hls-v7/",
-          "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@49e3856ef42a50f1781efac4616557cb14b677e5/WeGen2/assets/film-hls-v7/"
+          "https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/c1fba63b04322f03c61539adb21ffc6b2f7868e0/WeGen2/assets/film-hls-v8/",
+          "https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@c1fba63b04322f03c61539adb21ffc6b2f7868e0/WeGen2/assets/film-hls-v8/"
         ],
         "library": "player/hls.light-1.7.4.min.js",
         "libraryFallback": "https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js",
         "libraryIntegrity": "sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz",
-        "mp4Sources": { "480": "assets/wegen2-film-v7-480.mp4", "720": "assets/wegen2-film-v7-720.mp4", "1080": "assets/wegen2-film-v7.mp4" }
+        "mp4Sources": { "480": "assets/wegen2-film-v8-480.mp4", "720": "assets/wegen2-film-v8-720.mp4", "1080": "assets/wegen2-film-v8.mp4" }
       }
     </script>
     <!-- INLINE_DATA_END -->
