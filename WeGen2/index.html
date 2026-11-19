@@ -1,38 +1,46 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
     <title>WeGen2 — A world of creation, in native pixels</title>
     <meta
-      name="description"
       content="Explore WeGen2: native pixel-space image generation, editing, reference composition, and continuing visual creation. 61B total parameters, 7B activated."
+      name="description"
     />
-    <link rel="canonical" href="https://zhuangshaobin.github.io/WeGen2/" />
-    <meta property="og:title" content="WeGen2 — Native Pixel-Space Multimodal Creation" />
-    <meta property="og:description" content="Bring an idea. See where it goes. Image generation, editing and composition with WeGen2." />
-    <meta property="og:image" content="https://zhuangshaobin.github.io/WeGen2/assets/release-cover.webp?v=20261119roundtype" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#f8f9f3" />
-    <meta name="robots" content="noindex,nofollow" />
-    <link rel="icon" type="image/svg+xml" href="assets/wegen2-favicon.svg?v=20261119roundtype" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/wegen2-apple-touch-icon.png?v=20261119roundtype" />
+    <link href="https://zhuangshaobin.github.io/WeGen2/" rel="canonical" />
+    <meta content="WeGen2 — Native Pixel-Space Multimodal Creation" property="og:title" />
+    <meta content="Bring an idea. See where it goes. Image generation, editing and composition with WeGen2." property="og:description" />
+    <meta content="https://zhuangshaobin.github.io/WeGen2/assets/release-cover.webp?v=20261119design" property="og:image" />
+    <meta content="website" property="og:type" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="#f8f9f3" name="theme-color" />
+    <meta content="noindex,nofollow" name="robots" />
+    <link href="assets/wegen2-favicon.svg?v=20261119roundtype" rel="icon" type="image/svg+xml" />
+    <link href="assets/wegen2-apple-touch-icon.png?v=20261119roundtype" rel="apple-touch-icon" sizes="180x180" />
     <!-- INLINE_STYLE_START -->
 <style>
+@font-face {
+  font-family: Manrope;
+  src: url("assets/manrope-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
-  --paper: #f8f9f3;
-  --white: #fff;
-  --ink: #073f32;
-  --body: #426153;
-  --muted: #6b7f72;
-  --green: #0db16e;
-  --mint: #dff4e5;
-  --line: #d9e5d8;
-  --dark: #083a2d;
-  --serif: Georgia, "Times New Roman", serif;
-  --sans: Arial, Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --radius: 22px;
+  --paper: #fafbf7;
+  --ink: #0b3528;
+  --body: #40594c;
+  --muted: #65786c;
+  --green: #087c4d;
+  --bright: #08b86c;
+  --line: #d2ddd3;
+  --mint: #eaf2e8;
+  --dark: #0c2c22;
+  --sans: Manrope, Arial, Helvetica, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --gutter: clamp(24px, 4.4vw, 80px);
 }
 * {
   box-sizing: border-box;
@@ -49,7 +57,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 button,
-input {
+input,
+select {
   font: inherit;
 }
 button,
@@ -58,13 +67,6 @@ input,
 summary {
   -webkit-tap-highlight-color: transparent;
 }
-a {
-  color: inherit;
-  text-decoration: none;
-}
-button {
-  color: inherit;
-}
 button,
 a,
 summary {
@@ -72,14 +74,11 @@ summary {
 }
 button {
   cursor: pointer;
+  color: inherit;
 }
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-summary:focus-visible,
-[data-zoom]:focus-visible {
-  outline: 3px solid #d79532;
-  outline-offset: 5px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 figure,
 p,
@@ -91,369 +90,342 @@ dd {
   margin: 0;
 }
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
   height: auto;
 }
 figure {
   min-width: 0;
 }
+button {
+  border: 0;
+}
+p {
+  line-height: 1.7;
+}
+h2 {
+  font-size: clamp(44px, 5.1vw, 76px);
+  line-height: 1.05;
+  font-weight: 550;
+  letter-spacing: -0.065em;
+}
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+h2 em {
+  font-style: normal;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+select:focus-visible,
+[data-zoom]:focus-visible {
+  outline: 3px solid #cf913b;
+  outline-offset: 5px;
+}
 [hidden] {
   display: none !important;
 }
+[data-zoom] {
+  cursor: zoom-in;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .wrap {
-  width: min(1320px, calc(100% - 112px));
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 1320px;
   margin-inline: auto;
 }
 .section {
-  padding-block: 106px;
+  padding-block: 112px;
 }
-.eyebrow {
+.eyebrow,
+.brand-eyebrow {
+  font: 11px/1.5 var(--mono);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 11px;
-  line-height: 1.6;
-  font-weight: 700;
   color: var(--green);
 }
-h2 {
-  font-size: clamp(38px, 4.2vw, 64px);
-  font-weight: 600;
-  line-height: 1.04;
-  letter-spacing: -0.055em;
-}
-h2 em {
-  font-family: var(--serif);
-  font-weight: 400;
-  letter-spacing: -0.045em;
-}
-p {
-  line-height: 1.75;
-}
+.fine-print,
 .small-copy {
-  font-size: 12px !important;
-  color: var(--muted);
-}
-.fine-print {
-  font-size: 11px;
-  color: var(--muted);
+  font-size: 12px;
   line-height: 1.7;
+  color: var(--muted);
 }
 .text-link {
-  padding: 0 0 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 0 8px;
   border: 0;
   border-bottom: 1px solid currentColor;
   background: transparent;
   font-size: 13px;
-  line-height: 1.6;
-  display: inline-flex;
-  gap: 25px;
-  align-items: center;
+  font-weight: 550;
+  line-height: 1.5;
 }
 .text-link:hover {
-  color: var(--green);
+  color: var(--bright);
 }
 .skip-link {
-  position: absolute;
+  position: fixed;
+  top: -100px;
   left: 20px;
-  top: -80px;
-  padding: 14px;
+  padding: 14px 22px;
   background: var(--ink);
   color: white;
   z-index: 100;
 }
 .skip-link:focus {
-  top: 20px;
+  top: 12px;
 }
+/* A quiet masthead and a full-width, logo-led opening. */
 .site-header {
-  height: 88px;
-  padding-inline: 48px;
+  height: 78px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-inline: var(--gutter);
   background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
 }
 .wordmark {
   display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  font-size: 25px;
-  font-weight: 750;
-  letter-spacing: -1px;
+  line-height: 0;
+}
+.site-header .wordmark img {
+  width: 145px;
+  height: auto;
 }
 .site-header nav {
   display: flex;
-  gap: 35px;
+  gap: 34px;
   align-items: center;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.site-header nav a:not(.nav-pill) {
+  padding-block: 9px;
+  border-bottom: 1px solid transparent;
 }
 .site-header nav a:not(.nav-pill):hover {
-  color: var(--green);
+  border-color: var(--ink);
 }
 .nav-pill {
-  padding: 12px 19px;
-  border: 1px solid #bbd7c5;
-  border-radius: 30px;
   display: flex;
-  gap: 28px;
+  gap: 22px;
   align-items: center;
+  background: var(--ink);
+  color: white;
+  border-radius: 30px;
+  padding: 12px 20px;
 }
 .nav-pill:hover {
-  background: var(--mint);
+  background: #116843;
 }
-.hero {
-  margin: 0 18px;
-  position: relative;
-  height: min(790px, calc(100svh - 110px));
-  min-height: 610px;
-  isolation: isolate;
-  border-radius: 28px;
-  overflow: hidden;
-  color: white;
-  background: #102a21;
-}
-.hero-art,
-.hero-shade {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-}
-.hero-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 46%;
-}
-.hero-shade {
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 20, 13, 0.5), transparent 35%, rgba(0, 21, 14, 0.12) 55%, rgba(0, 20, 13, 0.8));
+.brand-hero {
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 1320px;
+  margin: auto;
+  padding: 30px 0 0;
 }
 .hero-topline {
-  position: absolute;
-  top: 38px;
-  left: 40px;
-  right: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-}
-.hero-topline p {
-  font-size: 14px;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-.hero-zoom {
-  border: 1px solid #ffffff75;
-  background: #ffffff10;
-  color: white;
-  border-radius: 30px;
-  display: flex;
+  gap: 24px;
   align-items: center;
-  gap: 25px;
-  padding: 10px 17px;
-  font-size: 11px;
-  backdrop-filter: blur(8px);
 }
-.hero-zoom:hover {
-  background: #ffffff30;
+.hero-topline > span {
+  font: 10px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
 }
-.hero-bottom {
-  position: absolute;
-  bottom: 22px;
-  left: 36px;
-  right: 40px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 25px;
+#hero-title {
+  margin: 44px 0 38px;
+  line-height: 0;
 }
-.hero-kicker {
-  font-size: 15px;
-  letter-spacing: 0.01em;
-  margin: 0 0 5px 5px;
-}
-.hero h1 {
-  font-size: clamp(120px, 17.5vw, 260px);
-  font-weight: 650;
-  letter-spacing: -0.075em;
-  line-height: 0.93;
-  margin-left: -8px;
-}
-.hero h1 span {
-  color: #acffc9;
-}
-.play-orbit {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 13px;
-  margin-bottom: 25px;
-  white-space: nowrap;
-}
-.play-icon {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  border: 1px solid #ffffffb0;
-  border-radius: 50%;
-  font-size: 32px;
-  transition:
-    background 0.2s,
-    transform 0.2s;
-}
-.play-orbit:hover .play-icon {
-  background: var(--green);
-  border-color: var(--green);
-  transform: scale(1.07);
-}
-.play-orbit small {
+.hero-wordmark {
   display: block;
-  margin-top: 7px;
-  font-size: 10px;
-  color: #d2e4d8;
+  width: min(1120px, 94%);
+  height: auto;
+  margin-left: -18px;
 }
-.hero-caption {
+.hero-under {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 10px;
-  color: var(--muted);
-  padding-top: 14px;
-  line-height: 1.6;
+  gap: 32px;
 }
-.intro {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 100px;
-  padding-top: 100px;
-  padding-bottom: 10px;
+.hero-statement {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+.brand-line {
+  font-size: 32px;
+  font-weight: 550;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+.brand-line span {
+  color: #6e8778;
+}
+.hero-description {
+  font-size: 13px;
+  color: var(--body);
+  line-height: 1.7;
+}
+.hero-resources {
+  display: flex;
+  align-items: stretch;
+  gap: 7px;
+}
+.resource-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 94px;
+  min-height: 43px;
+  border: 1px solid #adc6b5;
+  border-radius: 28px;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.resource-pill:hover {
+  background: #e4efdf;
+  border-color: #8baf95;
+}
+.resource-unavailable {
+  color: #708173;
+  cursor: default;
+}
+.resource-pill.resource-unavailable {
+  border-color: #d0dbd0;
+  background: transparent;
+}
+.resource-unavailable small {
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-weight: 400;
+}
+.brand-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding-top: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.work-index {
+  display: flex;
+  gap: 31px;
+  font-size: 12px;
+}
+.work-index a {
+  display: flex;
+  gap: 8px;
   align-items: center;
 }
-.intro h2 {
-  margin: 19px 0 25px;
-}
-.intro-copy > p:last-child {
-  font-size: 16px;
-  color: var(--body);
-  max-width: 540px;
-}
-.model-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 31px 34px;
-}
-.model-stats > div {
-  border-top: 1px solid var(--line);
-  padding-top: 19px;
-}
-.model-stats dt {
-  font-size: 70px;
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: -0.07em;
-}
-.model-stats dt span {
-  font-size: 42px;
-  letter-spacing: -0.05em;
-}
-.model-stats dd {
-  font-size: 11px;
+.work-index span {
+  font: 9px var(--mono);
   color: var(--muted);
-  margin-top: 13px;
-  line-height: 1.6;
 }
-.model-stats .stat-word {
-  font-size: 37px;
-  font-family: var(--serif);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
+.work-index a:hover {
+  color: var(--green);
+}
+.brand-play {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.brand-play > span {
+  font-size: 22px;
+  line-height: 1;
+}
+.brand-play small {
+  font: 9px var(--mono);
+  color: var(--muted);
+  margin-left: 8px;
+}
+/* The first gallery is a composition of original aspect ratios. */
+.creation-section {
+  padding-top: 48px;
+  padding-bottom: 58px;
 }
 .section-heading {
   display: flex;
-  align-items: flex-end;
   justify-content: space-between;
-  gap: 54px;
-  margin-bottom: 38px;
+  align-items: flex-end;
+  gap: 56px;
+  margin-bottom: 40px;
 }
 .section-heading h2 {
-  margin-top: 18px;
+  margin-top: 17px;
 }
 .section-heading > p {
-  font-size: 14px;
   max-width: 340px;
+  font-size: 14px;
   color: var(--body);
-  line-height: 1.8;
+  line-height: 1.7;
 }
 .section-heading > div {
   min-width: 0;
 }
-.film-section {
-  padding-bottom: 20px;
-}
-.film-shell {
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--dark);
-}
-.showcase-film {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
-  display: block;
-}
-.film-under {
-  display: flex;
+.creation-section .section-heading {
   align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  padding-top: 21px;
-  padding-bottom: 14px;
+  margin-bottom: 27px;
 }
-.film-chapters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px 27px;
+.creation-section .eyebrow {
+  display: none;
 }
-.film-chapters button {
-  background: transparent;
-  border: 0;
-  padding: 5px 0;
-  display: flex;
-  gap: 11px;
-  align-items: center;
-  font-size: 10px;
-  color: var(--muted);
+.creation-section h2 {
+  font-size: clamp(23px, 2.2vw, 34px);
+  margin: 0;
+  font-weight: 550;
+  letter-spacing: -0.045em;
 }
-.film-chapters button span {
-  font-size: 13px;
-  color: var(--ink);
-}
-.film-chapters button:hover span {
-  color: var(--green);
-}
-.film-downloads {
-  display: flex;
-  gap: 25px;
-  font-size: 11px;
-  color: var(--muted);
-}
-.film-downloads a:hover {
-  color: var(--green);
+.creation-section .section-heading > p {
+  max-width: 370px;
+  font-size: 12px;
 }
 .creation-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1.16fr 0.92fr 1fr;
+  gap: 20px;
   align-items: start;
-  gap: 30px 16px;
-}
-.creation-grid .poster {
-  grid-column: 1;
-  grid-row: 1 / 3;
+  grid-template-rows: auto auto;
 }
 .creation-grid .portrait {
+  grid-column: 1;
+  grid-row: 1/3;
+}
+.creation-grid .poster {
   grid-column: 2;
-  grid-row: 1 / 3;
+  grid-row: 1/3;
+  padding-top: 74px;
 }
 .creation-grid .paper-world {
   grid-column: 3;
@@ -462,1329 +434,296 @@ p {
 .creation-grid .market {
   grid-column: 3;
   grid-row: 2;
+  align-self: end;
+  padding-bottom: 38px;
 }
 .creation-grid img {
   width: 100%;
-  border-radius: 14px;
-  transition: filter 0.2s;
-}
-.creation-grid img:hover {
-  filter: brightness(1.03);
-}
-[data-zoom] {
-  cursor: zoom-in;
+  border-radius: 4px;
 }
 .creation-grid figcaption {
-  padding: 15px 2px 0;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  padding-top: 15px;
+  gap: 2px 7px;
 }
-.creation-grid figcaption span {
-  display: block;
+.work-number {
+  grid-row: 1/3;
+  font: 10px var(--mono);
+  padding-top: 2px;
   color: var(--muted);
+}
+.creation-grid figcaption > span {
   font-size: 10px;
-  letter-spacing: 0.01em;
+  color: var(--muted);
+  line-height: 1.5;
 }
 .creation-grid figcaption strong {
-  display: block;
-  font-weight: 500;
-  font-size: 15px;
-  margin-top: 5px;
-}
-.word-section {
-  background: #e8f1e4;
-  border-radius: 60px 60px 0 0;
-  margin-top: 15px;
-}
-.word-layout {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 75px;
-  align-items: center;
-}
-.word-copy h2 {
-  margin: 19px 0 25px;
-}
-.word-copy > p:not(.eyebrow) {
-  max-width: 370px;
-  font-size: 15px;
-  color: var(--body);
-}
-.word-copy .small-copy {
-  margin-top: 17px;
-}
-.word-copy > .text-link {
-  margin-top: 28px;
-}
-.dense-figure img {
-  width: 100%;
-  border-radius: 20px;
-}
-.dense-figure figcaption {
-  padding: 14px 2px 0;
-  font-size: 11px;
-  color: var(--muted);
-}
-.word-detail {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 42px;
-  padding-top: 28px;
-  border-top: 1px solid #c6d9c6;
-}
-.word-detail img {
-  width: 138px;
-  border-radius: 8px;
-}
-.word-detail p {
   font-size: 12px;
+  font-weight: 550;
+  line-height: 1.6;
+}
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 2.1fr;
+  gap: 70px;
+  padding: 30px 0 65px;
+  border-top: 1px solid var(--line);
+  align-items: center;
+}
+.intro-copy > p {
+  font-size: 15px;
   color: var(--body);
+  max-width: 315px;
+  line-height: 1.8;
 }
-.reference-stage {
+.model-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.model-stats dt {
+  font-size: 46px;
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.065em;
+}
+.model-stats dt span {
+  font-size: 26px;
+  letter-spacing: -0.04em;
+  margin-left: 3px;
+}
+.model-stats dd {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 145px;
+}
+.model-stats .stat-word {
+  font-size: 22px;
+  line-height: 1.08;
+  font-weight: 550;
+  letter-spacing: -0.04em;
+}
+/* The film forms a distinct dark chapter; media delivery is unchanged. */
+.film-section {
+  background: var(--dark);
+  color: #eef8ec;
+  padding-block: 76px;
+}
+.film-section .eyebrow {
+  color: #9ed9ad;
+}
+.film-section .section-heading {
+  margin-bottom: 32px;
+}
+.film-section h2 {
+  font-size: 60px;
+}
+.film-section .section-heading > p {
+  color: #b4c7b9;
+  max-width: 320px;
+}
+.film-shell {
   position: relative;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 90px;
-  align-items: center;
-}
-.reference-inputs {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 24px;
-  align-items: center;
-}
-.reference-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px;
-}
-.reference-card {
-  padding: 0;
-  background: #fff;
-  border: 1px solid #dce4d9;
-  border-radius: 10px;
   overflow: hidden;
-  text-align: left;
-  transition:
-    box-shadow 0.2s,
-    border-color 0.2s;
-  position: relative;
-  z-index: 2;
+  border-radius: 7px;
+  background: #102d29;
+  border: 1px solid #385045;
 }
-.reference-card img {
+.showcase-film {
   width: 100%;
   height: auto;
-  aspect-ratio: 4/3;
-  object-fit: contain;
+  aspect-ratio: 16/9;
+  display: block;
 }
-.reference-card > span {
+.film-start {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(transparent, #05291b33);
+}
+.film-start button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 26px;
+  background: #eef8ecee;
+  color: #0c3528;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 650;
+  box-shadow: 0 5px 24px #0002;
+}
+.film-start button > span:first-child {
+  font-size: 27px;
+  line-height: 1;
+}
+.film-start button:disabled {
+  cursor: wait;
+}
+.film-start p {
+  font-size: 12px;
+  color: white;
+  margin-top: 16px;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 420px;
+  text-shadow: 0 1px 6px #000;
+}
+.film-playback-status {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 10px 0;
+  color: #cce6d1;
+}
+.film-under {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0 14px;
+}
+.film-chapters {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+.film-chapters button {
   display: flex;
   gap: 8px;
   align-items: center;
-  font-size: 9px;
-  padding: 9px 7px;
-  border-top: 1px solid #eef1e9;
-  color: var(--body);
-  line-height: 1.2;
+  background: transparent;
+  padding: 5px 0;
+  color: #9fc0aa;
+  font: 10px var(--mono);
 }
-.reference-card > span b {
-  font-weight: 500;
-  font-size: 8px;
-  color: var(--muted);
+.film-chapters button span {
+  font: 12px var(--sans);
+  color: #eef8ec;
 }
-.reference-card[aria-pressed="true"] {
-  border-color: var(--green);
-  box-shadow: 0 0 0 2px #0db16e55;
+.film-chapters button:hover span {
+  color: #b7efaf;
 }
-.reference-card:hover {
-  border-color: var(--green);
-}
-.source-person img,
-.reference-result img {
-  width: 100%;
-  border-radius: 14px;
-}
-.source-person figcaption,
-.reference-result figcaption {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 14px;
-}
-.reference-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 3;
-  overflow: visible;
-}
-.reference-controls {
+.film-downloads {
   display: flex;
-  justify-content: space-between;
-  gap: 25px;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
+  align-items: center;
+  gap: 20px;
+  font-size: 10px;
+  color: #b4c7b9;
 }
-.reference-controls p {
-  font-size: 12px;
-  color: var(--body);
-  min-height: 24px;
-  max-width: 800px;
+.film-quality {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-.reference-controls .text-link {
+.film-quality select {
+  background: #153a2c;
+  color: #edf8ec;
+  border: 1px solid #506a5b;
+  border-radius: 4px;
+  padding: 6px 8px;
   font-size: 11px;
-  white-space: nowrap;
-  align-self: flex-start;
 }
+.film-section .fine-print {
+  color: #a3baa9;
+  font-size: 10px;
+}
+/* Editing: an uninterrupted canvas with an integrated comparison handle. */
 .editing-section {
-  background: #edf3e8;
+  background: #fff;
 }
 .edit-tabs {
   display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 22px;
 }
 .edit-tabs button {
-  border: 1px solid #bfcebd;
-  border-radius: 30px;
-  padding: 11px 20px;
-  background: transparent;
   font-size: 12px;
+  font-weight: 550;
+  padding: 13px 0;
+  background: transparent;
+  color: #697a6d;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
 }
 .edit-tabs button[aria-selected="true"] {
-  background: var(--ink);
-  color: white;
-  border-color: var(--ink);
+  color: var(--ink);
+  border-color: var(--green);
 }
 .edit-tabs button:hover {
-  border-color: var(--ink);
+  color: var(--ink);
 }
 .comparison {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border-radius: 20px;
-  background: #dbe6d7;
+  width: 100%;
   aspect-ratio: 2/1;
+  overflow: hidden;
+  --split: 50%;
+  background: #e5ede2;
+  border-radius: 5px;
 }
 .comparison img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 .comparison-before {
-  position: absolute;
-  inset: 0;
   clip-path: inset(0 calc(100% - var(--split)) 0 0);
 }
 .comparison-divider {
   position: absolute;
-  left: var(--split);
   top: 0;
   bottom: 0;
+  left: var(--split);
   width: 2px;
   background: white;
-  transform: translateX(-1px);
+  transform: translateX(-50%);
   pointer-events: none;
+  z-index: 3;
 }
 .comparison-divider > span {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
   display: grid;
   place-items: center;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
   background: white;
   color: var(--ink);
-  font-size: 25px;
-  box-shadow: 0 3px 15px #0002;
+  font-size: 24px;
+  box-shadow: 0 2px 16px #073f3240;
 }
 .comparison-label {
   position: absolute;
-  top: 22px;
-  background: #f8f9f3ed;
-  border: 1px solid #ffffff80;
-  border-radius: 30px;
-  padding: 8px 14px;
-  font-size: 11px;
+  z-index: 4;
+  top: 20px;
+  background: #102c23cc;
+  color: white;
+  border: 1px solid #ffffff30;
+  padding: 7px 11px;
+  border-radius: 3px;
+  font: 10px var(--mono);
 }
 .before-label {
-  left: 22px;
+  left: 20px;
 }
 .after-label {
-  right: 22px;
+  right: 20px;
 }
-.comparison-control {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-top: 22px;
-  font-size: 12px;
-  color: var(--body);
-}
-.comparison-control input {
-  width: 100%;
-  max-width: 550px;
-  accent-color: var(--green);
-  min-height: 32px;
-  cursor: ew-resize;
-}
-.comparison-control label {
-  min-width: 140px;
-}
-.comparison-control > span {
-  min-width: 55px;
-  font-variant-numeric: tabular-nums;
-}
-.chat-sequence {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  max-width: 1070px;
-  margin: auto;
-}
-.chat-sequence img {
-  width: 100%;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-}
-.chat-sequence figcaption {
-  margin-top: 16px;
-  font-size: 13px;
-}
-.chat-sequence figcaption b {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--green);
-  margin-right: 14px;
-}
-.stories-section {
-  background: #0b4634;
-  color: #f2f8ee;
-  border-radius: 60px 60px 0 0;
-}
-.stories-section .eyebrow {
-  color: #a8edc0;
-}
-.stories-section .section-heading > p {
-  color: #c0d8c8;
-}
-.comic-sheet img {
-  width: 100%;
-  border-radius: 10px;
-}
-.comic-sheet figcaption {
-  font-size: 12px;
-  color: #b9d0c1;
-  padding-top: 15px;
-}
-.sequence-details {
-  margin-top: 42px;
-  border-top: 1px solid #52745f;
-  padding-top: 25px;
-}
-.sequence-details summary {
-  list-style: none;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-}
-.sequence-details summary::-webkit-details-marker {
-  display: none;
-}
-.sequence-details summary span {
-  font-size: 25px;
-  line-height: 1;
-}
-.sequence-details[open] summary span {
-  transform: rotate(45deg);
-}
-.robot-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  margin-top: 28px;
-}
-.robot-grid img {
-  width: 100%;
-  border-radius: 8px;
-}
-.robot-grid figcaption {
-  font-size: 10px;
-  color: #c5d8ca;
-  margin-top: 9px;
-}
-.sequence-details .fine-print {
-  color: #b9d0c1;
-  margin-top: 15px;
-}
-.method-section {
-  background: #e6f0e1;
-}
-.method-switcher {
-  display: flex;
-  border-bottom: 1px solid #bfd1bd;
-  gap: 38px;
-  margin: 52px 0 0;
-}
-.method-switcher button {
-  padding: 0 0 20px;
-  background: transparent;
-  border: 0;
-  border-bottom: 3px solid transparent;
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: -2px;
-}
-.method-switcher button[aria-selected="true"] {
-  border-bottom-color: var(--green);
-  color: var(--ink);
-  font-weight: 600;
-}
-.model-stage {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 48px;
-  align-items: center;
-  min-height: 430px;
-  margin-top: 32px;
-}
-.method-counter {
-  display: block;
-  color: #8bb69a;
-  font-size: 69px;
-  font-family: var(--serif);
-  line-height: 1;
-}
-.method-copy h3 {
-  font-weight: 500;
-  font-size: 30px;
-  letter-spacing: -0.035em;
-  margin: 20px 0 18px;
-}
-.method-copy p {
-  font-size: 14px;
-  color: var(--body);
-  max-width: 360px;
-}
-.model-diagram {
-  width: 100%;
-  min-height: 360px;
-  display: grid;
-  place-items: center;
-}
-.model-diagram svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-.foundation-note {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  padding-top: 27px;
-  border-top: 1px solid #bfd1bd;
-  margin-top: 26px;
-}
-.foundation-note p {
-  font-family: var(--serif);
-  font-size: 22px;
-}
-.foundation-note span {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.results-section {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
-  align-items: center;
-}
-.results-copy h2 {
-  margin: 18px 0 28px;
-}
-.results-copy > p:not(.eyebrow) {
-  font-size: 15px;
-  color: var(--body);
-  margin-top: 20px;
-  max-width: 400px;
-}
-.benchmark-figure {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-}
-.benchmark-figure img {
-  width: 100%;
-}
-.benchmark-figure figcaption {
-  text-align: center;
-  color: var(--muted);
-  font-size: 10px;
-  margin-top: 13px;
-}
-.inference-section {
-  background: #eaf2e6;
-  border-radius: 60px 60px 0 0;
-}
-.resource-links {
-  display: flex;
-  gap: 23px;
-  flex-wrap: wrap;
-  align-items: center;
-  font-size: 13px;
-}
-.resource-links a,
-.resource-links .resource-unavailable {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #bccfbc;
-}
-.resource-icon {
-  width: 17px;
-  height: 17px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.code-layout {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 68px;
-  align-items: center;
-}
-.code-card {
-  background: var(--ink);
-  color: #e4f0dc;
-  border: 1px solid #2a5845;
-  border-radius: 16px;
-  overflow: hidden;
-  min-width: 0;
-}
-.code-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 17px 24px;
-  border-bottom: 1px solid #3d6652;
-  font-size: 11px;
-  color: #c0d6c3;
-}
-.copy-code {
-  background: transparent;
-  color: #e4f0dc;
-  border: 1px solid #698b74;
-  border-radius: 30px;
-  padding: 7px 16px;
-  font-size: 11px;
-}
-.code-card pre {
-  padding: 24px;
-  margin: 0;
-  overflow: auto;
-  font-size: 12px;
-  line-height: 1.85;
-}
-.code-card code {
-  font-family: Consolas, "Liberation Mono", monospace;
-}
-.inference-copy h3 {
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  margin-bottom: 17px;
-}
-.inference-copy p {
-  font-size: 14px;
-  color: var(--body);
-}
-.inference-copy dl {
-  margin: 27px 0;
-}
-.inference-copy dl > div {
-  padding: 13px 0;
-  border-top: 1px solid #c8d8c3;
-}
-.inference-copy dt {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-.inference-copy dd {
-  font-size: 13px;
-  margin-top: 7px;
-  line-height: 1.6;
-}
-.inference-copy .release-note {
-  font-size: 11px;
-  margin-top: 22px;
-}
-#copy-status {
-  font-size: 12px;
-  color: var(--green);
-  min-height: 22px;
-  margin-top: 15px;
-}
-.authors-section {
-  text-align: center;
-}
-.authors-section h2 {
-  font-size: 57px;
-  margin-top: 15px;
-}
-.paper-title {
-  font-family: var(--serif);
-  font-size: 23px;
-  line-height: 1.5;
-  margin: 18px auto 30px;
-  max-width: 800px;
-}
-.authors {
-  font-size: 14px;
-  line-height: 2.5;
-  max-width: 940px;
-  margin: auto;
-}
-.authors sup {
-  font-size: 9px;
-  color: var(--green);
-}
-.affiliations {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-size: 11px;
-  margin-top: 25px;
-}
-.contribution-note {
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 20px;
-  line-height: 1.9;
-}
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  border-top: 1px solid var(--line);
-  padding-block: 25px 35px;
-}
-footer .wordmark {
-  font-size: 21px;
-}
-footer p,
-footer > a:last-child {
-  font-size: 10px;
-  color: var(--muted);
-}
-.image-dialog {
-  border: 0;
-  background: #073f32f7;
-  color: white;
-  max-width: 96vw;
-  width: fit-content;
-  max-height: 96vh;
-  padding: 52px 18px 18px;
-  border-radius: 18px;
-}
-.image-dialog::backdrop {
-  background: #06281fe8;
-  backdrop-filter: blur(6px);
-}
-.image-dialog img {
-  max-width: 90vw;
-  max-height: 78vh;
-  object-fit: contain;
-  margin: auto;
-}
-.image-dialog p {
-  font-size: 12px;
-  max-width: 950px;
-  text-align: center;
-  margin: 15px auto 0;
-}
-.dialog-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: transparent;
-  color: white;
-  border: 1px solid #ffffff80;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 23px;
-  line-height: 1;
-}
-@media (min-width: 1700px) {
-  .hero {
-    max-width: 1800px;
-    margin-inline: auto;
-  }
-  .hero h1 {
-    font-size: 270px;
-  }
-}
-@media (max-width: 1100px) {
-  .wrap {
-    width: calc(100% - 64px);
-  }
-  .site-header {
-    padding-inline: 32px;
-  }
-  .intro {
-    gap: 50px;
-  }
-  .hero {
-    min-height: 540px;
-  }
-  .hero h1 {
-    font-size: 18vw;
-  }
-  .hero-topline {
-    top: 28px;
-    left: 28px;
-    right: 28px;
-  }
-  .hero-bottom {
-    left: 28px;
-    right: 28px;
-  }
-  .play-orbit small {
-    display: none;
-  }
-  .play-icon {
-    width: 52px;
-    height: 52px;
-  }
-  .word-layout {
-    gap: 38px;
-  }
-  .reference-stage {
-    gap: 55px;
-  }
-  .reference-inputs {
-    gap: 16px;
-  }
-  .reference-card > span {
-    font-size: 8px;
-    gap: 5px;
-    padding: 7px 5px;
-  }
-  .code-layout {
-    gap: 40px;
-  }
-  .model-stage {
-    gap: 32px;
-  }
-  .results-section {
-    gap: 35px;
-  }
-  .section {
-    padding-block: 80px;
-  }
-  .section-heading {
-    gap: 32px;
-  }
-  .section-heading > p {
-    max-width: 290px;
-  }
-  .model-stats dt {
-    font-size: 60px;
-  }
-  .method-copy h3 {
-    font-size: 26px;
-  }
-  .foundation-note {
-    align-items: flex-start;
-  }
-  .foundation-note span {
-    max-width: 360px;
-  }
-}
-@media (max-width: 760px) {
-  .wrap {
-    width: calc(100% - 40px);
-  }
-  .site-header {
-    height: 76px;
-    padding-inline: 20px;
-  }
-  .site-header nav {
-    gap: 20px;
-    font-size: 11px;
-  }
-  .site-header nav a[href="#capabilities"] {
-    display: none;
-  }
-  .nav-pill {
-    padding: 9px 14px;
-    gap: 15px;
-  }
-  .wordmark {
-    font-size: 23px;
-    gap: 8px;
-  }
-  .wordmark img {
-    width: 31px;
-    height: 31px;
-  }
-  .hero {
-    margin-inline: 10px;
-    border-radius: 20px;
-    min-height: 560px;
-    height: calc(90svh - 95px);
-    max-height: 720px;
-  }
-  .hero-art img {
-    object-position: 50% 42%;
-  }
-  .hero-topline {
-    top: 23px;
-    left: 22px;
-    right: 22px;
-  }
-  .hero-topline p {
-    font-size: 12px;
-  }
-  .hero-zoom {
-    font-size: 10px;
-    padding: 9px 12px;
-    gap: 12px;
-  }
-  .hero-bottom {
-    left: 22px;
-    right: 22px;
-    bottom: 24px;
-    display: block;
-  }
-  .hero h1 {
-    font-size: 24vw;
-    letter-spacing: -0.075em;
-    margin-left: -3px;
-  }
-  .hero-kicker {
-    font-size: 12px;
-    margin-left: 2px;
-    margin-bottom: 8px;
-  }
-  .play-orbit {
-    margin: 23px 0 0;
-    gap: 13px;
-    font-size: 12px;
-  }
-  .play-orbit small {
-    display: block;
-    font-size: 9px;
-  }
-  .play-icon {
-    width: 43px;
-    height: 43px;
-    font-size: 25px;
-  }
-  .hero-caption {
-    font-size: 9px;
-    gap: 15px;
-  }
-  .hero-caption span:last-child {
-    text-align: right;
-    max-width: 200px;
-  }
-  .intro {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding-top: 65px;
-  }
-  .intro-copy > p:last-child {
-    font-size: 15px;
-  }
-  .intro h2 {
-    font-size: 49px;
-  }
-  .model-stats {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-  .model-stats dt {
-    font-size: 47px;
-  }
-  .model-stats dt span {
-    font-size: 28px;
-  }
-  .model-stats .stat-word {
-    font-size: 25px;
-  }
-  .model-stats dd {
-    font-size: 9px;
-    line-height: 1.6;
-  }
-  .section {
-    padding-block: 62px;
-  }
-  .section-heading {
-    display: block;
-    margin-bottom: 27px;
-  }
-  .section-heading h2 {
-    font-size: 43px;
-  }
-  .section-heading > p {
-    margin-top: 22px;
-    max-width: 450px;
-    font-size: 13px;
-  }
-  .film-section {
-    padding-bottom: 10px;
-  }
-  .film-shell {
-    border-radius: 14px;
-  }
-  .film-under {
-    align-items: flex-start;
-    gap: 20px;
-    flex-direction: column;
-  }
-  .film-chapters {
-    gap: 12px 22px;
-  }
-  .film-chapters button {
-    font-size: 9px;
-  }
-  .film-chapters button span {
-    font-size: 12px;
-  }
-  .film-downloads {
-    font-size: 10px;
-  }
-  .fine-print {
-    font-size: 10px;
-  }
-  .creation-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 10px;
-  }
-  .creation-grid .poster {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .creation-grid .portrait {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .creation-grid .paper-world {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .creation-grid .market {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .creation-grid img {
-    border-radius: 10px;
-  }
-  .creation-grid figcaption {
-    padding-top: 11px;
-  }
-  .creation-grid figcaption span {
-    font-size: 9px;
-  }
-  .creation-grid figcaption strong {
-    font-size: 13px;
-  }
-  .word-section,
-  .stories-section,
-  .inference-section {
-    border-radius: 32px 32px 0 0;
-  }
-  .word-layout {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-  .word-copy h2 {
-    font-size: 45px;
-  }
-  .word-copy > p:not(.eyebrow) {
-    max-width: 560px;
-    font-size: 14px;
-  }
-  .word-detail {
-    display: none;
-  }
-  .dense-figure img {
-    border-radius: 14px;
-  }
-  .reference-stage {
-    gap: 25px;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
-  .reference-inputs {
-    display: block;
-  }
-  .source-person {
-    width: 75%;
-    margin: 0 auto 20px;
-  }
-  .source-person figcaption {
-    font-size: 10px;
-    margin-top: 9px;
-  }
-  .reference-card > span {
-    font-size: 8px;
-    line-height: 1.35;
-  }
-  .reference-result {
-    position: sticky;
-    top: 20px;
-  }
-  .reference-result figcaption {
-    font-size: 10px;
-  }
-  .reference-grid {
-    gap: 7px;
-  }
-  .reference-controls {
-    gap: 15px;
-  }
-  .reference-controls p {
-    font-size: 11px;
-  }
-  .reference-controls .text-link {
-    font-size: 10px;
-  }
-  .edit-tabs {
-    gap: 6px;
-  }
-  .edit-tabs button {
-    font-size: 10px;
-    padding: 9px 13px;
-  }
-  .comparison {
-    border-radius: 12px;
-  }
-  .comparison-label {
-    top: 12px;
-    font-size: 9px;
-    padding: 6px 10px;
-  }
-  .before-label {
-    left: 12px;
-  }
-  .after-label {
-    right: 12px;
-  }
-  .comparison-divider > span {
-    width: 38px;
-    height: 38px;
-    font-size: 22px;
-  }
-  .comparison-control {
-    gap: 15px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-    font-size: 11px;
-  }
-  .comparison-control label {
-    width: 100%;
-  }
-  .comparison-control input {
-    max-width: none;
-    width: calc(100% - 75px);
-  }
-  .chat-sequence {
-    gap: 10px;
-  }
-  .chat-sequence img {
-    border-radius: 10px;
-  }
-  .chat-sequence figcaption {
-    font-size: 11px;
-    line-height: 1.5;
-  }
-  .chat-sequence figcaption b {
-    display: block;
-    margin-bottom: 5px;
-  }
-  .comic-sheet img {
-    border-radius: 7px;
-  }
-  .comic-sheet figcaption {
-    font-size: 10px;
-  }
-  .sequence-details summary {
-    font-size: 14px;
-  }
-  .robot-grid {
-    overflow-x: auto;
-    display: flex;
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
-  }
-  .robot-grid figure {
-    flex: 0 0 70%;
-    scroll-snap-align: start;
-  }
-  .method-switcher {
-    gap: 23px;
-    margin-top: 35px;
-  }
-  .method-switcher button {
-    font-size: 11px;
-    padding-bottom: 16px;
-  }
-  .model-stage {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    gap: 25px;
-    margin-top: 27px;
-  }
-  .method-counter {
-    display: none;
-  }
-  .method-copy h3 {
-    font-size: 27px;
-    margin: 0 0 15px;
-  }
-  .method-copy p {
-    font-size: 13px;
-    max-width: 550px;
-  }
-  .model-diagram {
-    min-height: 0;
-  }
-  .foundation-note {
-    display: block;
-    margin-top: 25px;
-  }
-  .foundation-note p {
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-  .foundation-note span {
-    font-size: 10px;
-  }
-  .results-section {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .results-copy h2 {
-    font-size: 43px;
-  }
-  .results-copy > p:not(.eyebrow) {
-    max-width: 550px;
-    font-size: 14px;
-  }
-  .benchmark-figure {
-    padding: 12px;
-  }
-  .code-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .resource-links {
-    margin-top: 25px;
-    font-size: 12px;
-  }
-  .code-card pre {
-    font-size: 11px;
-    padding: 20px;
-  }
-  .code-heading {
-    padding: 16px 20px;
-  }
-  .inference-copy h3 {
-    font-size: 27px;
-  }
-  .authors-section h2 {
-    font-size: 45px;
-  }
-  .paper-title {
-    font-size: 21px;
-  }
-  .authors {
-    font-size: 12px;
-  }
-  .affiliations {
-    display: block;
-    line-height: 1.9;
-  }
-  .affiliations span {
-    display: block;
-  }
-  .contribution-note {
-    font-size: 9px;
-  }
-  footer {
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-  footer p {
-    order: 3;
-    width: 100%;
-  }
-  footer .wordmark {
-    font-size: 20px;
-  }
-  .image-dialog {
-    border-radius: 10px;
-  }
-  .image-dialog p {
-    font-size: 10px;
-  }
-  .image-dialog img {
-    max-height: 75vh;
-  }
-}
-@media (max-width: 420px) {
-  .site-header nav {
-    gap: 15px;
-  }
-  .site-header nav a[href="#method"] {
-    display: none;
-  }
-  .hero {
-    min-height: 525px;
-  }
-  .hero-zoom {
-    width: 34px;
-    height: 34px;
-    overflow: hidden;
-    font-size: 0;
-    gap: 0;
-    padding: 0;
-    display: grid;
-    place-items: center;
-  }
-  .hero-zoom span {
-    font-size: 17px;
-  }
-  .hero-topline p {
-    font-size: 11px;
-  }
-  .model-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-  }
-  .model-stats dt {
-    font-size: 55px;
-  }
-  .model-stats .stat-word {
-    font-size: 28px;
-  }
-  .model-stats dd {
-    font-size: 10px;
-  }
-  .section-heading h2 {
-    font-size: 39px;
-  }
-  .reference-stage {
-    gap: 14px;
-  }
-  .reference-card > span {
-    font-size: 7px;
-    padding: 6px 4px;
-  }
-  .reference-card > span b {
-    display: none;
-  }
-  .reference-controls {
-    display: block;
-  }
-  .reference-controls .text-link {
-    margin-top: 15px;
-  }
-  .chat-sequence {
-    display: flex;
-    overflow: auto;
-    scroll-snap-type: x mandatory;
-    gap: 13px;
-    padding-bottom: 12px;
-  }
-  .chat-sequence figure {
-    flex: 0 0 79%;
-    scroll-snap-align: start;
-  }
-  .chat-sequence figcaption b {
-    display: inline;
-  }
-  .method-switcher {
-    gap: 16px;
-  }
-  .method-switcher button {
-    font-size: 10px;
-  }
-  .code-card pre {
-    font-size: 10px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    animation: none !important;
-  }
-  .motion-ready .reveal:not(.in-view) {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (max-width: 760px) {
-  .hero h1 {
-    font-size: 19vw;
-    letter-spacing: -0.065em;
-  }
-  .reference-result {
-    position: static;
-  }
-  .wordmark img {
-    flex-shrink: 0;
-  }
-}
-@media (max-width: 360px) {
-  .site-header {
-    padding-inline: 16px;
-  }
-  .site-header .wordmark {
-    font-size: 21px;
-    gap: 7px;
-  }
-  .site-header nav a[href="#film"] {
-    display: none;
-  }
-}
-
-.eyebrow {
-  color: #087b4e;
-}
-.stories-section .eyebrow {
-  color: #a8edc0;
-}
-.text-link:hover,
-.resource-links a:hover {
-  color: #087b4e;
-}
-
-/* The comparison surface itself is the draggable control. */
 .comparison-drag {
   position: absolute;
   inset: 0;
@@ -1797,402 +736,1633 @@ footer > a:last-child {
   touch-action: pan-y;
 }
 .comparison:focus-within {
-  outline: 3px solid #0b8555;
+  outline: 3px solid var(--green);
   outline-offset: 5px;
 }
-.comparison-divider {
-  width: 3px;
+.comparison-hint {
+  font: 10px/1.6 var(--mono);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
 }
-.comparison-divider > span {
-  box-shadow: 0 2px 18px #073f3240;
+.comparison-hint > span {
+  font-size: 17px;
 }
-.film-shell {
+/* Reference workbench: inputs, precise connections, and one large result. */
+.references-section {
+  padding-block: 112px;
+}
+.reference-stage {
   position: relative;
+  display: grid;
+  grid-template-columns: 1.43fr 1fr;
+  gap: 58px;
+  padding: 32px;
+  background: var(--mint);
+  border-radius: 6px;
+  align-items: start;
 }
-.film-start {
+.reference-inputs {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 22px;
+  align-items: start;
+}
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.reference-card {
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  background: white;
+  border: 1px solid #ccd9cc;
+  border-radius: 3px;
+  overflow: hidden;
+  text-align: left;
+}
+.reference-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+}
+.reference-card > span {
+  display: flex;
+  gap: 7px;
+  padding: 8px 6px;
+  border-top: 1px solid #e1e8df;
+  font-size: 9px;
+  line-height: 1.35;
+  color: var(--body);
+}
+.reference-card > span b {
+  font: 8px var(--mono);
+  color: var(--muted);
+  padding-top: 1px;
+  font-weight: 400;
+}
+.reference-card[aria-pressed="true"] {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px #087c4d40;
+}
+.reference-card:hover {
+  border-color: var(--green);
+}
+.source-person img,
+.reference-result img {
+  width: 100%;
+  border-radius: 3px;
+}
+.source-person figcaption,
+.reference-result figcaption {
+  margin-top: 10px;
+  font: 10px/1.5 var(--mono);
+  color: var(--muted);
+}
+.reference-source-note {
+  margin-top: 30px;
+  border-top: 1px solid #c4d5c4;
+  padding-top: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.reference-source-note strong {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 450;
+  letter-spacing: -0.06em;
+}
+.reference-source-note span {
+  font-size: 10px;
+  color: var(--body);
+  line-height: 1.5;
+}
+.reference-lines {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(transparent, #05291b55);
-  padding: 24px;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
 }
-.film-start button {
+.reference-controls {
   display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 18px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+.reference-controls p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 750px;
+  min-height: 22px;
+}
+.reference-controls .text-link {
+  font-size: 11px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+/* Typography is shown as a large editorial spread. */
+.word-section {
+  background: #173b2d;
+  color: #f2f7ed;
+  padding-block: 80px;
+}
+.word-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 100px;
   align-items: center;
+}
+.word-copy .eyebrow {
+  color: #aedab5;
+}
+.word-copy h2 {
+  font-size: clamp(60px, 6vw, 90px);
+  margin: 25px 0 30px;
+  line-height: 1.01;
+}
+.word-copy > p:not(.eyebrow) {
+  font-size: 15px;
+  max-width: 360px;
+  color: #bed1c1;
+}
+.word-copy .small-copy {
+  font-size: 11px !important;
+  margin-top: 16px;
+  color: #a9c5af !important;
+}
+.word-copy > .text-link {
+  margin-top: 25px;
+  color: #f4faed;
+}
+.word-detail {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 18px;
+  align-items: center;
+  border-top: 1px solid #466451;
+  margin-top: 40px;
+  padding-top: 24px;
+  max-width: 330px;
+}
+.word-detail img {
+  width: 95px;
+  border-radius: 3px;
+}
+.word-detail p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #b8d0bc;
+}
+.dense-figure img {
+  width: 100%;
+  border-radius: 4px;
+}
+.dense-figure figcaption {
+  font: 10px/1.6 var(--mono);
+  margin-top: 14px;
+  color: #a9c5af;
+}
+/* A conversation is a sequence, rather than three generic feature cards. */
+.context-section {
+  display: grid;
+  grid-template-columns: 0.8fr 2.4fr;
+  gap: 55px;
+  align-items: center;
+}
+.context-section .section-heading {
+  display: block;
+  margin: 0;
+}
+.context-section h2 {
+  font-size: clamp(38px, 3.5vw, 54px);
+  line-height: 1.07;
+}
+.context-section .section-heading > p {
+  font-size: 13px;
+  margin-top: 24px;
+  max-width: 265px;
+}
+.chat-sequence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 15px;
-  border: 1px solid #ffffffa0;
-  border-radius: 50px;
-  background: #073f32e8;
-  color: #fff;
-  padding: 17px 28px;
-  font-size: 16px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 6px 30px #0003;
+  align-items: start;
 }
-.film-start button > span:first-child {
-  font-size: 30px;
+.chat-sequence img {
+  width: 100%;
+  border: 1px solid #ccd8ce;
+  border-radius: 7px;
+  box-shadow: 0 8px 20px #153c2810;
+}
+.chat-sequence figcaption {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 10px;
+  padding-top: 14px;
+  color: var(--body);
+}
+.chat-sequence figcaption b {
+  font: 9px var(--mono);
+  color: var(--muted);
+}
+.stories-section {
+  border-top: 1px solid var(--line);
+  background: #f0f4ec;
+  padding-block: 95px;
+}
+.stories-section h2 {
+  font-size: clamp(42px, 4.2vw, 64px);
+}
+.comic-sheet img {
+  width: 100%;
+  border-radius: 5px;
+}
+.comic-sheet figcaption {
+  font: 10px/1.7 var(--mono);
+  padding-top: 15px;
+  color: var(--muted);
+}
+.sequence-details {
+  margin-top: 30px;
+  border-top: 1px solid #c6d5c6;
+  border-bottom: 1px solid #c6d5c6;
+}
+.sequence-details summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.sequence-details summary::-webkit-details-marker {
+  display: none;
+}
+.sequence-details summary span {
+  font-size: 23px;
+  font-weight: 400;
   line-height: 1;
 }
-.film-start button:disabled {
-  cursor: wait;
+.sequence-details[open] summary span {
+  transform: rotate(45deg);
 }
-.film-start p {
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.5;
-  margin-top: 17px;
-  text-shadow: 0 1px 8px #000;
-  max-width: 420px;
-  text-align: center;
+.robot-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 12px;
 }
-@media (max-width: 760px) {
-  .film-start {
-    padding: 14px;
-  }
-  .film-start button {
-    font-size: 13px;
-    padding: 10px 20px;
-    gap: 10px;
-  }
-  .film-start button > span:first-child {
-    font-size: 24px;
-  }
-  .film-start p {
-    font-size: 10px;
-    margin-top: 10px;
-  }
+.robot-grid img {
+  width: 100%;
+  border-radius: 3px;
 }
-
-/* The opening is vector artwork, so no photographic background needs loading. */
-.hero.brand-hero {
-  height: clamp(420px, 44vw, 640px);
-  min-height: 0;
-  margin: 0 24px;
-  padding: 46px 56px 34px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f2f2e9;
-  color: var(--ink);
-  border: 1px solid #e1e4d9;
-  border-radius: 24px;
+.robot-grid figcaption {
+  font: 10px var(--mono);
+  color: var(--muted);
+  padding-top: 10px;
 }
-.brand-eyebrow {
+.sequence-details .fine-print {
+  padding: 20px 0;
   font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: #567564;
-  position: absolute;
-  top: 38px;
-  left: 46px;
 }
-.brand-hero #hero-title {
-  width: min(740px, 83%);
-  padding: 0;
-  margin: 10px 0 0;
-  line-height: 0;
-  font-size: 0;
+/* Research retains the diagrams and evidence, in a quieter technical layout. */
+.method-section {
+  background: white;
 }
-.hero-wordmark {
+.method-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+.method-switcher button {
+  background: #f6f9f2;
+  padding: 20px 22px;
+  font-size: 13px;
+  font-weight: 550;
+  text-align: left;
+  border-right: 1px solid var(--line);
+}
+.method-switcher button:last-child {
+  border-right: 0;
+}
+.method-switcher button[aria-selected="true"] {
+  background: var(--ink);
+  color: white;
+}
+.model-stage {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 46px;
+  padding: 44px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  align-items: center;
+  background: #fcfdf9;
+}
+.method-counter {
+  font: 12px var(--mono);
+  color: var(--muted);
+  display: block;
+  margin-bottom: 24px;
+}
+.method-copy h3 {
+  font-size: 31px;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  margin-bottom: 18px;
+}
+.method-copy p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--body);
+}
+.model-diagram {
+  min-width: 0;
+}
+.model-diagram svg {
   display: block;
   width: 100%;
   height: auto;
 }
-.brand-line {
-  margin: 26px 0 0;
-  font-size: clamp(22px, 2.4vw, 34px);
-  line-height: 1.3;
-  letter-spacing: -0.035em;
+.foundation-note {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
 }
-.brand-line em {
-  font-family: var(--serif);
-  font-weight: 400;
+.foundation-note p {
+  font-size: 13px;
+  font-weight: 600;
 }
-.brand-footer {
-  position: absolute;
-  left: 46px;
-  right: 46px;
-  bottom: 30px;
+.foundation-note span {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.results-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+  padding-top: 50px;
+}
+.results-copy h2 {
+  margin: 22px 0 28px;
+}
+.results-copy > p:not(.eyebrow) {
+  font-size: 15px;
+  max-width: 350px;
+  color: var(--body);
+}
+.results-copy .small-copy {
+  font-size: 11px !important;
+  margin-top: 19px;
+  color: var(--muted) !important;
+}
+.benchmark-figure img {
+  width: 100%;
+  background: white;
+  border-radius: 50%;
+}
+.benchmark-figure figcaption {
+  font: 10px var(--mono);
+  text-align: center;
+  padding-top: 20px;
+  color: var(--muted);
+}
+/* Resources close the narrative with an immediately usable interface. */
+.inference-section {
+  background: var(--dark);
+  color: #eef7ed;
+  padding-block: 92px;
+}
+.inference-section .eyebrow {
+  color: #b7dfb8;
+}
+.inference-section h2 {
+  font-size: clamp(42px, 4.4vw, 65px);
+}
+.resource-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.resource-links a,
+.resource-links .resource-unavailable {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 0;
+  border-bottom: 1px solid #6e9479;
+  color: #e9f5e6;
+}
+.resource-links .resource-unavailable {
+  color: #91ab95;
+  border-color: #496952;
+  flex-wrap: wrap;
+}
+.resource-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.resource-links a:hover {
+  color: #b7efaf;
+}
+.code-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 75px;
+  align-items: center;
+}
+.code-card {
+  min-width: 0;
+  background: #10231b;
+  border: 1px solid #345344;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.code-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 23px;
+  border-bottom: 1px solid #345344;
+  font: 11px var(--mono);
+  color: #a9c1ad;
+}
+.copy-code {
+  background: transparent;
+  color: #d3ebd1;
+  border: 1px solid #5b7a62;
+  border-radius: 4px;
+  padding: 5px 12px;
+  font-size: 10px;
+}
+.code-card pre {
+  overflow: auto;
+  margin: 0;
+  padding: 25px 24px 29px;
+  font: 12px/1.9 var(--mono);
+  color: #dcebd9;
+}
+.code-card code {
+  font: inherit;
+}
+.inference-copy h3 {
+  font-size: 31px;
+  line-height: 1.15;
+  margin-bottom: 19px;
+}
+.inference-copy > p {
+  font-size: 13px;
+  color: #b7cdbb;
+}
+.inference-copy dl {
+  margin: 25px 0 20px;
+}
+.inference-copy dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid #365543;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.inference-copy dt {
+  color: #98b49e;
+}
+.inference-copy dd {
+  color: #e9f5e6;
+  text-align: right;
+}
+.inference-copy .fine-print {
+  font-size: 10px;
+  color: #a8c0ae;
+}
+.inference-copy .text-link {
+  margin-top: 23px;
+  color: #e9f5e6;
+}
+.inference-copy .release-note {
+  margin-top: 19px;
+}
+.inference-section #copy-status {
+  font-size: 11px;
+  min-height: 18px;
+  color: #b9daba;
+  margin-top: 12px;
+}
+.authors-section {
+  padding-block: 75px 50px;
+}
+.authors-section .paper-title {
+  font-size: 25px;
+  font-weight: 550;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  max-width: 760px;
+  margin: 19px 0 25px;
+}
+.authors {
+  font-size: 12px;
+  line-height: 2.1;
+  max-width: 1150px;
+  color: var(--body);
+}
+.authors sup {
+  font-size: 8px;
+  margin-left: 2px;
+}
+.affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 24px;
+  margin-top: 13px;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.contribution-note {
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 19px;
+  line-height: 1.9;
+}
+footer.wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #d4dccd;
-  padding-top: 20px;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  padding: 28px 0 37px;
 }
-.brand-footer p {
-  font-size: 12px;
-  color: #536c5d;
-}
-.brand-play {
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  font-size: 13px;
-}
-.brand-play span {
-  font-size: 23px;
-  color: #0b8555;
-}
-.film-downloads {
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 22px;
-}
-.film-quality {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.film-quality select {
-  color: var(--ink);
-  font: inherit;
-  background: transparent;
-  border: 1px solid #b7cdb5;
-  border-radius: 6px;
-  padding: 5px 6px;
-}
-.dialog-original {
-  display: block;
-  width: max-content;
-  margin: 14px auto 0;
-  font-size: 13px;
-  text-decoration: underline;
-}
-@media (max-width: 760px) {
-  .hero.brand-hero {
-    margin: 0 14px;
-    height: 355px;
-    border-radius: 18px;
-    padding: 42px 20px 72px;
-  }
-  .brand-eyebrow {
-    top: 24px;
-    left: 24px;
-    font-size: 9px;
-    letter-spacing: 0.14em;
-  }
-  .brand-hero #hero-title {
-    width: 100%;
-    margin-top: 12px;
-  }
-  .brand-line {
-    font-size: 25px;
-    margin-top: 22px;
-  }
-  .brand-footer {
-    left: 24px;
-    right: 24px;
-    bottom: 19px;
-    padding-top: 15px;
-    gap: 15px;
-  }
-  .brand-footer p {
-    max-width: 140px;
-    font-size: 10px;
-    line-height: 1.5;
-  }
-  .brand-play {
-    font-size: 11px;
-    gap: 8px;
-    white-space: nowrap;
-  }
-  .film-downloads {
-    justify-content: flex-start;
-  }
-}
-
-.film-playback-status {
-  margin: 12px 0 0;
-  color: var(--muted, #527063);
-  font-size: 13px;
-}
-
-/* The custom W is part of the wordmark, including navigation and footer. */
-.wordmark {
-  gap: 0;
-  line-height: 0;
-}
-.site-header .wordmark img {
-  display: block;
+footer .wordmark img {
   width: 150px;
   height: auto;
 }
-footer .wordmark img {
-  display: block;
-  width: 132px;
-  height: auto;
+footer p {
+  font-size: 10px;
+  color: var(--muted);
 }
-@media (max-width: 760px) {
-  .site-header .wordmark img {
-    width: 132px;
-  }
-  footer .wordmark img {
-    width: 124px;
-  }
-}
-
-/* Public resources share the same release state in the hero and inference panel. */
-.hero-resources {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  width: min(360px, 100%);
-  margin-top: 22px;
-}
-.resource-pill {
-  min-height: 42px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  padding: 6px 10px;
-  border: 1px solid #b6cbbb;
-  border-radius: 24px;
-  font-size: 13px;
-  line-height: 1.2;
-  color: #073f32;
-  background: #f8faf4;
-}
-a.resource-pill:hover {
-  border-color: #087f5b;
-  background: #e4f0e5;
-}
-.resource-unavailable {
-  color: #718477;
-  cursor: default;
-}
-.resource-pill.resource-unavailable {
-  background: transparent;
-  border-color: #d0d9cf;
-}
-.resource-unavailable small {
-  font-size: 9px;
-  line-height: 1.2;
+footer > a:last-child {
+  font: 10px var(--mono);
   white-space: nowrap;
 }
-.resource-links .resource-unavailable {
-  flex-wrap: wrap;
-  gap: 6px;
+.image-dialog {
+  border: 1px solid #547562;
+  background: #0a2b21;
+  color: white;
+  width: fit-content;
+  max-width: 96vw;
+  max-height: 96vh;
+  border-radius: 8px;
+  padding: 50px 18px 20px;
 }
-@media (max-width: 760px) {
-  .hero.brand-hero {
-    height: 415px;
+.image-dialog::backdrop {
+  background: #06231cef;
+}
+.image-dialog img {
+  max-width: 90vw;
+  max-height: 78vh;
+  object-fit: contain;
+  margin: auto;
+}
+.image-dialog p {
+  font-size: 12px;
+  text-align: center;
+  max-width: 950px;
+  margin: 15px auto 0;
+  line-height: 1.6;
+}
+.dialog-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  font-size: 23px;
+  line-height: 1;
+}
+.dialog-original {
+  display: block;
+  width: fit-content;
+  margin: 12px auto 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #9cb2a0;
+  font-size: 11px;
+  color: #c9e0cb;
+}
+@media (min-width: 1750px) {
+  .brand-hero {
+    padding-top: 42px;
   }
-  .hero-resources {
-    gap: 8px;
-    margin-top: 18px;
+  .hero-wordmark {
+    width: 1190px;
+  }
+  .section {
+    padding-block: 128px;
+  }
+  .creation-section {
+    padding-top: 54px;
+    padding-bottom: 70px;
+  }
+  .brand-line {
+    font-size: 37px;
+  }
+  .hero-description {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1100px) {
+  .site-header nav {
+    gap: 23px;
+  }
+  .hero-wordmark {
+    margin-left: -12px;
+    width: 100%;
+  }
+  #hero-title {
+    margin: 40px 0 32px;
+  }
+  .hero-statement {
+    gap: 28px;
+  }
+  .hero-description {
+    font-size: 12px;
+  }
+  .brand-line {
+    font-size: 28px;
   }
   .resource-pill {
+    min-width: 80px;
+    padding: 8px 14px;
+  }
+  .creation-grid {
+    gap: 16px;
+  }
+  .creation-grid .poster {
+    padding-top: 50px;
+  }
+  .creation-grid .market {
+    padding-bottom: 10px;
+  }
+  .intro {
+    gap: 35px;
+    grid-template-columns: 0.85fr 2fr;
+  }
+  .model-stats {
+    gap: 13px;
+  }
+  .model-stats dt {
+    font-size: 39px;
+  }
+  .word-layout {
+    gap: 50px;
+    grid-template-columns: 1fr 1.35fr;
+  }
+  .section-heading {
+    gap: 35px;
+  }
+  .section-heading > p {
+    max-width: 300px;
+    font-size: 13px;
+  }
+  .film-under {
+    align-items: flex-start;
+  }
+  .film-downloads {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 15px;
+    max-width: 280px;
+  }
+  .reference-stage {
+    padding: 24px;
+    gap: 28px;
+    grid-template-columns: 1.45fr 1fr;
+  }
+  .reference-inputs {
+    gap: 15px;
+    grid-template-columns: 0.75fr 1.25fr;
+  }
+  .reference-card > span {
+    font-size: 8px;
+    gap: 4px;
+    padding: 7px 4px;
+  }
+  .reference-source-note {
+    display: block;
+    margin-top: 22px;
+  }
+  .reference-source-note span {
+    display: block;
+    margin-top: 7px;
+  }
+  .reference-source-note strong {
+    font-size: 37px;
+  }
+  .context-section {
+    grid-template-columns: 0.8fr 2fr;
+    gap: 30px;
+    align-items: start;
+  }
+  .context-section h2 {
+    font-size: 39px;
+  }
+  .chat-sequence {
+    gap: 10px;
+  }
+  .chat-sequence figcaption {
+    font-size: 9px;
+    gap: 6px;
+  }
+  .model-stage {
+    gap: 24px;
+    padding: 30px;
+    grid-template-columns: 0.8fr 1.45fr;
+  }
+  .method-copy h3 {
+    font-size: 26px;
+  }
+  .code-layout {
+    gap: 40px;
+  }
+  .code-card pre {
+    font-size: 11px;
+    padding: 23px 19px;
+  }
+  .inference-copy h3 {
+    font-size: 27px;
+  }
+  .results-section {
+    gap: 45px;
+  }
+}
+@media (max-width: 760px) {
+  :root {
+    --gutter: 24px;
+  }
+  .site-header {
+    height: 68px;
+    padding-inline: 24px;
+  }
+  .site-header .wordmark img {
+    width: 128px;
+  }
+  .site-header nav {
+    gap: 19px;
+    font-size: 11px;
+  }
+  .site-header nav > a:first-child,
+  .site-header nav > a:nth-child(3) {
+    display: none;
+  }
+  .nav-pill {
+    padding: 10px 15px;
+    gap: 12px;
+  }
+  .section {
+    padding-block: 70px;
+  }
+  h2 {
+    font-size: 44px;
+    letter-spacing: -0.055em;
+  }
+  .brand-hero {
+    padding-top: 23px;
+  }
+  .hero-topline > span {
+    display: none;
+  }
+  .brand-eyebrow {
+    font-size: 9px;
+  }
+  #hero-title {
+    margin: 37px 0 30px;
+  }
+  .hero-wordmark {
+    margin-left: -7px;
+    width: calc(100% + 7px);
+  }
+  .hero-under {
+    display: block;
+  }
+  .hero-statement {
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .brand-line {
+    font-size: 27px;
+  }
+  .hero-description {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .hero-resources {
+    margin-top: 27px;
+    gap: 8px;
+  }
+  .resource-pill {
+    flex: 1;
+    min-height: 43px;
+    padding-inline: 12px;
     font-size: 12px;
-    padding-inline: 6px;
+    min-width: 0;
+  }
+  .brand-footer {
+    margin-top: 28px;
+    padding-top: 17px;
+  }
+  .work-index {
+    gap: 16px;
+    font-size: 11px;
+  }
+  .work-index span {
+    display: none;
+  }
+  .brand-play {
+    font-size: 11px;
+  }
+  .brand-play small {
+    display: none;
+  }
+  .brand-play > span {
+    font-size: 19px;
+  }
+  .creation-section {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  .creation-section .section-heading {
+    display: block;
+    margin-bottom: 22px;
+  }
+  .creation-section h2 {
+    font-size: 26px;
+  }
+  .creation-section .section-heading > p {
+    margin-top: 12px;
+    font-size: 11px;
+    max-width: 340px;
+  }
+  .creation-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 13px;
+    grid-template-rows: auto auto;
+  }
+  .creation-grid .portrait {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .creation-grid .poster {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 42px;
+  }
+  .creation-grid .paper-world {
+    grid-column: 1/3;
+    grid-row: 2;
+    width: 84%;
+    margin-left: auto;
+  }
+  .creation-grid .market {
+    grid-column: 1/3;
+    grid-row: 3;
+    width: 84%;
+    padding-bottom: 0;
+  }
+  .creation-grid figcaption {
+    padding-top: 11px;
+    grid-template-columns: 17px 1fr;
+    gap: 1px 4px;
+  }
+  .work-number {
+    font-size: 8px;
+  }
+  .creation-grid figcaption > span {
+    font-size: 9px;
+  }
+  .creation-grid figcaption strong {
+    font-size: 10px;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-top: 24px;
+    padding-bottom: 43px;
+  }
+  .intro-copy > p {
+    max-width: 430px;
+    font-size: 13px;
+  }
+  .model-stats {
+    gap: 17px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .model-stats dt {
+    font-size: 32px;
+  }
+  .model-stats dt span {
+    font-size: 19px;
+  }
+  .model-stats .stat-word {
+    font-size: 17px;
+  }
+  .model-stats dd {
+    font-size: 8px;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+  .section-heading {
+    display: block;
+    margin-bottom: 28px;
+  }
+  .section-heading h2 {
+    margin-top: 15px;
+  }
+  .section-heading > p {
+    margin-top: 20px;
+    font-size: 13px;
+    max-width: 440px;
+  }
+  .eyebrow {
+    font-size: 9px;
+  }
+  .film-section {
+    padding-block: 50px;
+  }
+  .film-section h2 {
+    font-size: 44px;
+  }
+  .film-section .section-heading > p {
+    max-width: 340px;
+  }
+  .film-shell {
+    border-radius: 4px;
+  }
+  .film-start {
+    padding: 14px;
+  }
+  .film-start button {
+    padding: 10px 17px;
+    font-size: 12px;
+    gap: 10px;
+  }
+  .film-start button > span:first-child {
+    font-size: 22px;
+  }
+  .film-start p {
+    font-size: 10px;
+    margin-top: 9px;
+  }
+  .film-under {
+    display: block;
+    padding-top: 16px;
+  }
+  .film-chapters {
+    gap: 13px 19px;
+  }
+  .film-chapters button {
+    font-size: 8px;
+    gap: 6px;
+  }
+  .film-chapters button span {
+    font-size: 10px;
+  }
+  .film-downloads {
+    margin-top: 17px;
+    justify-content: flex-start;
+    max-width: none;
+    font-size: 9px;
+    gap: 13px;
+  }
+  .film-quality select {
+    font-size: 10px;
+    padding: 4px;
+  }
+  .film-section .fine-print {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+  .edit-tabs {
+    gap: 0 20px;
+    margin-bottom: 20px;
+  }
+  .edit-tabs button {
+    font-size: 10px;
+    padding: 12px 0;
+  }
+  .comparison-label {
+    top: 10px;
+    font-size: 8px;
+    padding: 5px 8px;
+  }
+  .before-label {
+    left: 10px;
+  }
+  .after-label {
+    right: 10px;
+  }
+  .comparison-divider > span {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+  .comparison-hint {
+    font-size: 9px;
+    padding-top: 12px;
+  }
+  .reference-stage {
+    padding: 17px;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .reference-inputs {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 16px;
+  }
+  .reference-grid {
+    gap: 7px;
+  }
+  .reference-card > span {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .reference-result {
+    width: 72%;
+    margin-left: auto;
+  }
+  .reference-controls {
+    display: block;
+    min-height: 0;
+  }
+  .reference-controls p {
+    font-size: 10px;
+  }
+  .reference-controls .text-link {
+    margin-top: 12px;
+    font-size: 10px;
+  }
+  .reference-source-note strong {
+    font-size: 42px;
+  }
+  .reference-source-note span {
+    font-size: 10px;
+  }
+  .source-person figcaption,
+  .reference-result figcaption {
+    font-size: 9px;
+  }
+  .word-section {
+    padding-block: 55px;
+  }
+  .word-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .word-copy h2 {
+    font-size: 60px;
+    margin: 22px 0;
+  }
+  .word-copy > p:not(.eyebrow) {
+    font-size: 13px;
+    max-width: 440px;
+  }
+  .word-copy .small-copy {
+    font-size: 10px !important;
+    max-width: 400px;
+  }
+  .word-copy > .text-link {
+    margin-top: 21px;
+    font-size: 12px;
+  }
+  .word-detail {
+    grid-template-columns: 72px 1fr;
+    max-width: 310px;
+    margin-top: 27px;
+    padding-top: 20px;
+    gap: 17px;
+  }
+  .word-detail img {
+    width: 72px;
+  }
+  .word-detail p {
+    font-size: 10px;
+  }
+  .dense-figure {
+    width: 100%;
+  }
+  .dense-figure figcaption {
+    font-size: 9px;
+  }
+  .context-section {
+    display: block;
+  }
+  .context-section .section-heading {
+    margin-bottom: 30px;
+  }
+  .context-section h2 {
+    font-size: 44px;
+  }
+  .context-section .section-heading > p {
+    max-width: 400px;
+  }
+  .chat-sequence {
+    gap: 11px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    grid-template-columns: repeat(3, minmax(220px, 68vw));
+    padding-bottom: 15px;
+  }
+  .chat-sequence figure {
+    scroll-snap-align: start;
+  }
+  .chat-sequence figcaption {
+    font-size: 10px;
+  }
+  .stories-section h2 {
+    font-size: 43px;
+  }
+  .comic-sheet figcaption {
+    font-size: 9px;
+  }
+  .sequence-details {
+    margin-top: 24px;
+  }
+  .sequence-details summary {
+    font-size: 12px;
+  }
+  .robot-grid {
+    grid-template-columns: repeat(5, minmax(190px, 58vw));
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+  }
+  .robot-grid figure {
+    scroll-snap-align: start;
+  }
+  .robot-grid figcaption {
+    font-size: 9px;
+  }
+  .sequence-details .fine-print {
+    font-size: 10px;
+  }
+  .method-switcher button {
+    font-size: 10px;
+    padding: 15px 10px;
+  }
+  .model-stage {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 23px 20px;
+  }
+  .method-counter {
+    margin-bottom: 16px;
+    font-size: 10px;
+  }
+  .method-copy h3 {
+    font-size: 28px;
+  }
+  .method-copy p {
+    font-size: 12px;
+  }
+  .model-diagram {
+    margin-inline: -8px;
+  }
+  .foundation-note {
+    display: block;
+    margin-top: 22px;
+  }
+  .foundation-note p {
+    font-size: 12px;
+  }
+  .foundation-note span {
+    display: block;
+    font-size: 9px;
+    max-width: 390px;
+    margin-top: 9px;
+  }
+  .results-section {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+    gap: 35px;
+  }
+  .results-copy h2 {
+    margin: 18px 0 24px;
+    font-size: 48px;
+  }
+  .results-copy > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+  .results-copy .small-copy {
+    font-size: 10px !important;
+  }
+  .benchmark-figure {
+    width: min(100%, 480px);
+    margin: auto;
+  }
+  .benchmark-figure figcaption {
+    font-size: 9px;
+  }
+  .inference-section {
+    padding-block: 60px;
+  }
+  .inference-section h2 {
+    font-size: 43px;
+  }
+  .inference-section .resource-links {
+    margin-top: 22px;
+    gap: 24px;
+    font-size: 12px;
+  }
+  .code-layout {
+    grid-template-columns: 1fr;
+    gap: 33px;
+  }
+  .code-card pre {
+    font-size: 10px;
+    line-height: 1.9;
+    padding: 19px 17px;
+  }
+  .code-heading {
+    padding: 13px 17px;
+    font-size: 10px;
+  }
+  .inference-copy h3 {
+    font-size: 29px;
+    max-width: 330px;
+  }
+  .inference-copy > p {
+    font-size: 12px;
+  }
+  .inference-copy dl > div {
+    font-size: 10px;
+  }
+  .inference-copy .text-link {
+    font-size: 12px;
+  }
+  .authors-section {
+    padding-block: 50px 35px;
+  }
+  .authors-section .paper-title {
+    font-size: 22px;
+    max-width: 470px;
+    margin: 18px 0 20px;
+  }
+  .authors {
+    font-size: 11px;
+    line-height: 2.1;
+  }
+  .affiliations {
+    display: block;
+    font-size: 9px;
+  }
+  .affiliations span {
+    display: block;
+    margin-top: 5px;
+  }
+  .contribution-note {
+    font-size: 8px;
+  }
+  .authors sup {
+    font-size: 7px;
+  }
+  footer.wrap {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 25px 0 30px;
+  }
+  footer .wordmark img {
+    width: 132px;
+  }
+  footer p {
+    order: 3;
+    flex-basis: 100%;
+    font-size: 9px;
+  }
+  footer > a:last-child {
+    font-size: 9px;
+  }
+  .image-dialog {
+    padding: 48px 12px 17px;
+    max-width: 98vw;
+  }
+  .image-dialog img {
+    max-width: 90vw;
+    max-height: 75vh;
+  }
+  .image-dialog p {
+    font-size: 10px;
+  }
+  .dialog-original {
+    font-size: 10px;
+  }
+}
+@media (max-width: 380px) {
+  :root {
+    --gutter: 19px;
+  }
+  .site-header {
+    padding-inline: 19px;
+  }
+  .site-header .wordmark img {
+    width: 116px;
+  }
+  .site-header nav {
+    gap: 14px;
+  }
+  .nav-pill {
+    padding: 9px 12px;
+  }
+  .brand-line {
+    font-size: 24px;
+  }
+  .hero-description {
+    font-size: 10px;
+  }
+  .work-index {
+    gap: 12px;
+    font-size: 10px;
+  }
+  .brand-play {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .model-stats {
+    gap: 11px;
+  }
+  .model-stats dt {
+    font-size: 29px;
+  }
+  .model-stats dt span {
+    font-size: 17px;
+  }
+  .model-stats .stat-word {
+    font-size: 15px;
+  }
+  .model-stats dd {
+    font-size: 8px;
+  }
+  .reference-stage {
+    padding: 13px;
+  }
+  .reference-inputs {
+    gap: 11px;
+  }
+  .reference-card > span {
+    font-size: 7px;
+    padding: 6px 4px;
+  }
+  .reference-source-note {
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+  .reference-source-note strong {
+    font-size: 34px;
+  }
+  .source-person figcaption {
+    font-size: 8px;
+  }
+  .method-switcher button {
+    font-size: 9px;
+    padding-inline: 8px;
+  }
+  .film-chapters {
+    gap: 12px;
+  }
+  .film-downloads {
+    gap: 11px;
+  }
+  .code-card pre {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
 </style>
 <!-- INLINE_STYLE_END -->
+    <link as="font" crossorigin="" href="assets/manrope-latin.woff2" rel="preload" type="font/woff2" />
   </head>
-  <body>
+  <body class="release-design">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="wordmark" href="#main" aria-label="WeGen2 home"
-        ><img alt="WeGen2" decoding="async" width="365" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype"
+      <a aria-label="WeGen2 home" class="wordmark" href="#main"
+        ><img alt="WeGen2" decoding="async" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype" width="365"
       /></a>
       <nav aria-label="Main navigation">
-        <a href="#capabilities">Explore</a><a href="#film">Film</a><a href="#method">The model</a
-        ><a href="#inference" class="nav-pill">Get started <span aria-hidden="true">↗</span></a>
+        <a href="#capabilities">Work</a><a href="#film">Film</a><a href="#method">Research</a
+        ><a class="nav-pill" href="#inference">Resources <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
     <main id="main">
-      <section class="hero brand-hero" aria-labelledby="hero-title">
-        <p class="brand-eyebrow">Unified multimodal creation</p>
-        <h1 id="hero-title" aria-label="WeGen2">
-          <svg class="hero-wordmark" xmlns="http://www.w3.org/2000/svg" width="365" height="88" viewBox="0 20 365 88" role="img" aria-label="WeGen2">
+      <section aria-labelledby="hero-title" class="hero brand-hero">
+        <div class="hero-topline">
+          <p class="brand-eyebrow">Unified multimodal creation</p>
+          <span>Native pixel-space modeling</span>
+        </div>
+        <h1 aria-label="WeGen2" id="hero-title">
+          <svg aria-label="WeGen2" class="hero-wordmark" height="88" role="img" viewbox="0 20 365 88" width="365" xmlns="http://www.w3.org/2000/svg">
             <title>WeGen2</title>
             <desc>The two-tone rounded W joins softly rounded eGen2 lettering in one wordmark.</desc>
-            <g xmlns="http://www.w3.org/2000/svg" data-brand-initial="W" transform="translate(0.465048 17.437086) scale(0.75349522)">
+            <g data-brand-initial="W" transform="translate(0.465048 17.437086) scale(0.75349522)" xmlns="http://www.w3.org/2000/svg">
               <g aria-label="W">
                 <path
                   d="M22 32 L43 89 Q45 94 48 86 L64 48 L81 88 Q84 94 87 86 L108 30"
-                  stroke="#08B86C"
                   fill="none"
-                  stroke-width="24"
+                  stroke="#08B86C"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                />
+                  stroke-width="24"
+                ></path>
                 <path
                   d="M64 48 L81 88 Q84 94 87 86 L108 30"
-                  stroke="#07533C"
                   fill="none"
-                  stroke-width="24"
+                  stroke="#07533C"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                />
+                  stroke-width="24"
+                ></path>
               </g>
             </g>
             <g data-brand-rest="eGen2" data-typeface="Nunito Rounded" fill="#073F32">
               <path
+                d="M320.048095703125 -11.277099609375Q230.0240478515625 -11.277099609375 164.59637451171875 20.3614501953125Q99.168701171875 52 64.114501953125 109.95782470703125Q29.060302734375 167.9156494140625 29.060302734375 246.55419921875Q29.060302734375 322.55419921875 62.4759521484375 380.1927490234375Q95.8916015625 437.831298828125 154.5843505859375 470.65057373046875Q213.277099609375 503.4698486328125 288.1083984375 503.4698486328125Q343.3011474609375 503.4698486328125 387.993896484375 485.51202392578125Q432.6866455078125 467.55419921875 464.7408447265625 434.277099609375Q496.7950439453125 401 513.5721435546875 353.90362548828125Q530.3492431640625 306.8072509765625 530.3492431640625 248.5301513671875Q530.3492431640625 228.614501953125 519.1263427734375 219.114501953125Q507.9034423828125 209.614501953125 484.264892578125 209.614501953125H177.9515380859375V293.7469482421875H399.56640625L384.2049560546875 281.3011474609375Q384.2049560546875 317.722900390625 373.897705078125 341.060302734375Q363.5904541015625 364.397705078125 344.15667724609375 376.10858154296875Q324.722900390625 387.8194580078125 296.3011474609375 387.8194580078125Q265.156494140625 387.8194580078125 242.36126708984375 373.4278564453125Q219.5660400390625 359.0362548828125 207.57806396484375 330.87957763671875Q195.590087890625 302.722900390625 195.590087890625 260.7469482421875V252.4698486328125Q195.590087890625 181.3251953125 227.0660400390625 150.72271728515625Q258.5419921875 120.1202392578125 324.602294921875 120.1202392578125Q346.77099609375 120.1202392578125 375.439697265625 125.3431396484375Q404.1083984375 130.5660400390625 429.9156494140625 140.819091796875Q456.0240478515625 150.9034423828125 475.216796875 144.61431884765625Q494.4095458984375 138.3251953125 504.86737060546875 122.89752197265625Q515.3251953125 107.4698486328125 516.3673706054688 87.54217529296875Q517.4095458984375 67.614501953125 507.03607177734375 49.4217529296875Q496.66259765625 31.22900390625 473.55419921875 20.8675537109375Q439.1927490234375 4.614501953125 399.75897216796875 -3.331298828125Q360.3251953125 -11.277099609375 320.048095703125 -11.277099609375Z"
                 data-letter="e"
                 transform="translate(94.823714 94.007999) scale(0.088118835 -0.087965955)"
-                d="M320.048095703125 -11.277099609375Q230.0240478515625 -11.277099609375 164.59637451171875 20.3614501953125Q99.168701171875 52 64.114501953125 109.95782470703125Q29.060302734375 167.9156494140625 29.060302734375 246.55419921875Q29.060302734375 322.55419921875 62.4759521484375 380.1927490234375Q95.8916015625 437.831298828125 154.5843505859375 470.65057373046875Q213.277099609375 503.4698486328125 288.1083984375 503.4698486328125Q343.3011474609375 503.4698486328125 387.993896484375 485.51202392578125Q432.6866455078125 467.55419921875 464.7408447265625 434.277099609375Q496.7950439453125 401 513.5721435546875 353.90362548828125Q530.3492431640625 306.8072509765625 530.3492431640625 248.5301513671875Q530.3492431640625 228.614501953125 519.1263427734375 219.114501953125Q507.9034423828125 209.614501953125 484.264892578125 209.614501953125H177.9515380859375V293.7469482421875H399.56640625L384.2049560546875 281.3011474609375Q384.2049560546875 317.722900390625 373.897705078125 341.060302734375Q363.5904541015625 364.397705078125 344.15667724609375 376.10858154296875Q324.722900390625 387.8194580078125 296.3011474609375 387.8194580078125Q265.156494140625 387.8194580078125 242.36126708984375 373.4278564453125Q219.5660400390625 359.0362548828125 207.57806396484375 330.87957763671875Q195.590087890625 302.722900390625 195.590087890625 260.7469482421875V252.4698486328125Q195.590087890625 181.3251953125 227.0660400390625 150.72271728515625Q258.5419921875 120.1202392578125 324.602294921875 120.1202392578125Q346.77099609375 120.1202392578125 375.439697265625 125.3431396484375Q404.1083984375 130.5660400390625 429.9156494140625 140.819091796875Q456.0240478515625 150.9034423828125 475.216796875 144.61431884765625Q494.4095458984375 138.3251953125 504.86737060546875 122.89752197265625Q515.3251953125 107.4698486328125 516.3673706054688 87.54217529296875Q517.4095458984375 67.614501953125 507.03607177734375 49.4217529296875Q496.66259765625 31.22900390625 473.55419921875 20.8675537109375Q439.1927490234375 4.614501953125 399.75897216796875 -3.331298828125Q360.3251953125 -11.277099609375 320.048095703125 -11.277099609375Z"
-              />
+              ></path>
               <path
+                d="M424.3011474609375 -11.277099609375Q302.831298828125 -11.277099609375 218.5 34.0Q134.168701171875 79.277099609375 89.93377685546875 160.277099609375Q45.6988525390625 241.277099609375 45.6988525390625 349.0843505859375Q45.6988525390625 433.0843505859375 72.114501953125 500.722900390625Q98.5301513671875 568.3614501953125 148.8614501953125 616.5Q199.1927490234375 664.6385498046875 271.62042236328125 690.4578247070312Q344.048095703125 716.277099609375 436.0721435546875 716.277099609375Q486.3251953125 716.277099609375 538.0360717773438 706.6083984375Q589.7469482421875 696.939697265625 640.385498046875 671.3251953125Q665.6866455078125 659.048095703125 675.3372192382812 637.6204223632812Q684.98779296875 616.1927490234375 681.6263427734375 592.3494262695312Q678.264892578125 568.506103515625 664.3914184570312 549.4820556640625Q650.5179443359375 530.4580078125 627.6324462890625 523.626708984375Q604.7469482421875 516.79541015625 575.8072509765625 529.7110595703125Q546.1083984375 544.0484619140625 511.25897216796875 551.4942626953125Q476.4095458984375 558.9400634765625 437.3492431640625 558.9400634765625Q370.373291015625 558.9400634765625 325.43951416015625 534.8677368164062Q280.5057373046875 510.79541015625 258.51776123046875 464.05438232421875Q236.52978515625 417.3133544921875 236.52978515625 349.0843505859375Q236.52978515625 247.156494140625 286.90936279296875 194.96966552734375Q337.2889404296875 142.7828369140625 434.77099609375 142.7828369140625Q465.1927490234375 142.7828369140625 500.44580078125 148.8671875Q535.6988525390625 154.9515380859375 571.506103515625 166.3973388671875L538.2049560546875 96.6263427734375V268.12060546875H468.43359375Q433.8553466796875 268.12060546875 415.2469482421875 284.951904296875Q396.6385498046875 301.783203125 396.6385498046875 332.722900390625Q396.6385498046875 364.0240478515625 415.2469482421875 380.493896484375Q433.8553466796875 396.9637451171875 468.43359375 396.9637451171875H616.1927490234375Q651.4095458984375 396.9637451171875 669.6986694335938 378.67462158203125Q687.98779296875 360.385498046875 687.98779296875 325.168701171875V103.87939453125Q687.98779296875 73.5782470703125 675.656494140625 52.831298828125Q663.3251953125 32.0843505859375 636.0240478515625 22.5301513671875Q588.831298828125 6.5301513671875 534.0662231445312 -2.37347412109375Q479.3011474609375 -11.277099609375 424.3011474609375 -11.277099609375Z"
                 data-letter="G"
                 transform="translate(142.730542 94.007999) scale(0.088118835 -0.087965955)"
-                d="M424.3011474609375 -11.277099609375Q302.831298828125 -11.277099609375 218.5 34.0Q134.168701171875 79.277099609375 89.93377685546875 160.277099609375Q45.6988525390625 241.277099609375 45.6988525390625 349.0843505859375Q45.6988525390625 433.0843505859375 72.114501953125 500.722900390625Q98.5301513671875 568.3614501953125 148.8614501953125 616.5Q199.1927490234375 664.6385498046875 271.62042236328125 690.4578247070312Q344.048095703125 716.277099609375 436.0721435546875 716.277099609375Q486.3251953125 716.277099609375 538.0360717773438 706.6083984375Q589.7469482421875 696.939697265625 640.385498046875 671.3251953125Q665.6866455078125 659.048095703125 675.3372192382812 637.6204223632812Q684.98779296875 616.1927490234375 681.6263427734375 592.3494262695312Q678.264892578125 568.506103515625 664.3914184570312 549.4820556640625Q650.5179443359375 530.4580078125 627.6324462890625 523.626708984375Q604.7469482421875 516.79541015625 575.8072509765625 529.7110595703125Q546.1083984375 544.0484619140625 511.25897216796875 551.4942626953125Q476.4095458984375 558.9400634765625 437.3492431640625 558.9400634765625Q370.373291015625 558.9400634765625 325.43951416015625 534.8677368164062Q280.5057373046875 510.79541015625 258.51776123046875 464.05438232421875Q236.52978515625 417.3133544921875 236.52978515625 349.0843505859375Q236.52978515625 247.156494140625 286.90936279296875 194.96966552734375Q337.2889404296875 142.7828369140625 434.77099609375 142.7828369140625Q465.1927490234375 142.7828369140625 500.44580078125 148.8671875Q535.6988525390625 154.9515380859375 571.506103515625 166.3973388671875L538.2049560546875 96.6263427734375V268.12060546875H468.43359375Q433.8553466796875 268.12060546875 415.2469482421875 284.951904296875Q396.6385498046875 301.783203125 396.6385498046875 332.722900390625Q396.6385498046875 364.0240478515625 415.2469482421875 380.493896484375Q433.8553466796875 396.9637451171875 468.43359375 396.9637451171875H616.1927490234375Q651.4095458984375 396.9637451171875 669.6986694335938 378.67462158203125Q687.98779296875 360.385498046875 687.98779296875 325.168701171875V103.87939453125Q687.98779296875 73.5782470703125 675.656494140625 52.831298828125Q663.3251953125 32.0843505859375 636.0240478515625 22.5301513671875Q588.831298828125 6.5301513671875 534.0662231445312 -2.37347412109375Q479.3011474609375 -11.277099609375 424.3011474609375 -11.277099609375Z"
-              />
+              ></path>
               <path
+                d="M320.048095703125 -11.277099609375Q230.0240478515625 -11.277099609375 164.59637451171875 20.3614501953125Q99.168701171875 52 64.114501953125 109.95782470703125Q29.060302734375 167.9156494140625 29.060302734375 246.55419921875Q29.060302734375 322.55419921875 62.4759521484375 380.1927490234375Q95.8916015625 437.831298828125 154.5843505859375 470.65057373046875Q213.277099609375 503.4698486328125 288.1083984375 503.4698486328125Q343.3011474609375 503.4698486328125 387.993896484375 485.51202392578125Q432.6866455078125 467.55419921875 464.7408447265625 434.277099609375Q496.7950439453125 401 513.5721435546875 353.90362548828125Q530.3492431640625 306.8072509765625 530.3492431640625 248.5301513671875Q530.3492431640625 228.614501953125 519.1263427734375 219.114501953125Q507.9034423828125 209.614501953125 484.264892578125 209.614501953125H177.9515380859375V293.7469482421875H399.56640625L384.2049560546875 281.3011474609375Q384.2049560546875 317.722900390625 373.897705078125 341.060302734375Q363.5904541015625 364.397705078125 344.15667724609375 376.10858154296875Q324.722900390625 387.8194580078125 296.3011474609375 387.8194580078125Q265.156494140625 387.8194580078125 242.36126708984375 373.4278564453125Q219.5660400390625 359.0362548828125 207.57806396484375 330.87957763671875Q195.590087890625 302.722900390625 195.590087890625 260.7469482421875V252.4698486328125Q195.590087890625 181.3251953125 227.0660400390625 150.72271728515625Q258.5419921875 120.1202392578125 324.602294921875 120.1202392578125Q346.77099609375 120.1202392578125 375.439697265625 125.3431396484375Q404.1083984375 130.5660400390625 429.9156494140625 140.819091796875Q456.0240478515625 150.9034423828125 475.216796875 144.61431884765625Q494.4095458984375 138.3251953125 504.86737060546875 122.89752197265625Q515.3251953125 107.4698486328125 516.3673706054688 87.54217529296875Q517.4095458984375 67.614501953125 507.03607177734375 49.4217529296875Q496.66259765625 31.22900390625 473.55419921875 20.8675537109375Q439.1927490234375 4.614501953125 399.75897216796875 -3.331298828125Q360.3251953125 -11.277099609375 320.048095703125 -11.277099609375Z"
                 data-letter="e"
                 transform="translate(205.994465 94.007999) scale(0.088118835 -0.087965955)"
-                d="M320.048095703125 -11.277099609375Q230.0240478515625 -11.277099609375 164.59637451171875 20.3614501953125Q99.168701171875 52 64.114501953125 109.95782470703125Q29.060302734375 167.9156494140625 29.060302734375 246.55419921875Q29.060302734375 322.55419921875 62.4759521484375 380.1927490234375Q95.8916015625 437.831298828125 154.5843505859375 470.65057373046875Q213.277099609375 503.4698486328125 288.1083984375 503.4698486328125Q343.3011474609375 503.4698486328125 387.993896484375 485.51202392578125Q432.6866455078125 467.55419921875 464.7408447265625 434.277099609375Q496.7950439453125 401 513.5721435546875 353.90362548828125Q530.3492431640625 306.8072509765625 530.3492431640625 248.5301513671875Q530.3492431640625 228.614501953125 519.1263427734375 219.114501953125Q507.9034423828125 209.614501953125 484.264892578125 209.614501953125H177.9515380859375V293.7469482421875H399.56640625L384.2049560546875 281.3011474609375Q384.2049560546875 317.722900390625 373.897705078125 341.060302734375Q363.5904541015625 364.397705078125 344.15667724609375 376.10858154296875Q324.722900390625 387.8194580078125 296.3011474609375 387.8194580078125Q265.156494140625 387.8194580078125 242.36126708984375 373.4278564453125Q219.5660400390625 359.0362548828125 207.57806396484375 330.87957763671875Q195.590087890625 302.722900390625 195.590087890625 260.7469482421875V252.4698486328125Q195.590087890625 181.3251953125 227.0660400390625 150.72271728515625Q258.5419921875 120.1202392578125 324.602294921875 120.1202392578125Q346.77099609375 120.1202392578125 375.439697265625 125.3431396484375Q404.1083984375 130.5660400390625 429.9156494140625 140.819091796875Q456.0240478515625 150.9034423828125 475.216796875 144.61431884765625Q494.4095458984375 138.3251953125 504.86737060546875 122.89752197265625Q515.3251953125 107.4698486328125 516.3673706054688 87.54217529296875Q517.4095458984375 67.614501953125 507.03607177734375 49.4217529296875Q496.66259765625 31.22900390625 473.55419921875 20.8675537109375Q439.1927490234375 4.614501953125 399.75897216796875 -3.331298828125Q360.3251953125 -11.277099609375 320.048095703125 -11.277099609375Z"
-              />
+              ></path>
               <path
+                d="M140.4095458984375 -9.277099609375Q97.6385498046875 -9.277099609375 74.614501953125 13.92767333984375Q51.5904541015625 37.1324462890625 51.5904541015625 80.9034423828125V411.6507568359375Q51.5904541015625 455.4217529296875 74.29522705078125 478.44580078125Q97 501.4698486328125 138.77099609375 501.4698486328125Q180.5419921875 501.4698486328125 202.927490234375 478.44580078125Q225.31298828125 455.4217529296875 225.31298828125 411.6507568359375V365.3614501953125L214.31298828125 406.3251953125Q238.2286376953125 452.939697265625 282.81298828125 478.20477294921875Q327.3973388671875 503.4698486328125 383.8431396484375 503.4698486328125Q442.8431396484375 503.4698486328125 480.8431396484375 480.51202392578125Q518.8431396484375 457.55419921875 537.8431396484375 410.5Q556.8431396484375 363.44580078125 556.8431396484375 290.9759521484375V80.9034423828125Q556.8431396484375 37.1324462890625 533.819091796875 13.92767333984375Q510.7950439453125 -9.277099609375 468.0240478515625 -9.277099609375Q425.2530517578125 -9.277099609375 402.04827880859375 13.92767333984375Q378.843505859375 37.1324462890625 378.843505859375 80.9034423828125V283.6988525390625Q378.843505859375 328.56640625 363.40972900390625 347.86163330078125Q347.9759521484375 367.1568603515625 317.66259765625 367.1568603515625Q277.98779296875 367.1568603515625 253.7889404296875 341.5965576171875Q229.590087890625 316.0362548828125 229.590087890625 273.0843505859375V80.9034423828125Q229.590087890625 -9.277099609375 140.4095458984375 -9.277099609375Z"
                 data-letter="n"
                 transform="translate(253.882131 94.007999) scale(0.088118835 -0.087965955)"
-                d="M140.4095458984375 -9.277099609375Q97.6385498046875 -9.277099609375 74.614501953125 13.92767333984375Q51.5904541015625 37.1324462890625 51.5904541015625 80.9034423828125V411.6507568359375Q51.5904541015625 455.4217529296875 74.29522705078125 478.44580078125Q97 501.4698486328125 138.77099609375 501.4698486328125Q180.5419921875 501.4698486328125 202.927490234375 478.44580078125Q225.31298828125 455.4217529296875 225.31298828125 411.6507568359375V365.3614501953125L214.31298828125 406.3251953125Q238.2286376953125 452.939697265625 282.81298828125 478.20477294921875Q327.3973388671875 503.4698486328125 383.8431396484375 503.4698486328125Q442.8431396484375 503.4698486328125 480.8431396484375 480.51202392578125Q518.8431396484375 457.55419921875 537.8431396484375 410.5Q556.8431396484375 363.44580078125 556.8431396484375 290.9759521484375V80.9034423828125Q556.8431396484375 37.1324462890625 533.819091796875 13.92767333984375Q510.7950439453125 -9.277099609375 468.0240478515625 -9.277099609375Q425.2530517578125 -9.277099609375 402.04827880859375 13.92767333984375Q378.843505859375 37.1324462890625 378.843505859375 80.9034423828125V283.6988525390625Q378.843505859375 328.56640625 363.40972900390625 347.86163330078125Q347.9759521484375 367.1568603515625 317.66259765625 367.1568603515625Q277.98779296875 367.1568603515625 253.7889404296875 341.5965576171875Q229.590087890625 316.0362548828125 229.590087890625 273.0843505859375V80.9034423828125Q229.590087890625 -9.277099609375 140.4095458984375 -9.277099609375Z"
-              />
+              ></path>
               <path
+                d="M143.8553466796875 0Q100.3614501953125 0 80.43377685546875 20.56622314453125Q60.506103515625 41.1324462890625 60.506103515625 81.264892578125Q60.506103515625 109.1202392578125 73.01812744140625 130.8671875Q85.5301513671875 152.6141357421875 106.3614501953125 174.4454345703125L280.5423583984375 357.156494140625Q320.1568603515625 398.77099609375 336.64483642578125 428.6927490234375Q353.1328125 458.614501953125 353.1328125 489.0362548828125Q353.1328125 526.90380859375 328.018310546875 546.1990356445312Q302.90380859375 565.4942626953125 255.6748046875 565.4942626953125Q231.8916015625 565.4942626953125 204.9156494140625 558.8677368164062Q177.939697265625 552.2412109375 146.77099609375 536.2652587890625Q120.4698486328125 523.626708984375 98.5843505859375 528.8194580078125Q76.6988525390625 534.01220703125 62.32537841796875 550.7591552734375Q47.951904296875 567.506103515625 44.27117919921875 589.5723266601562Q40.5904541015625 611.6385498046875 50.560302734375 633.2469482421875Q60.5301513671875 654.8553466796875 87.4698486328125 668.77099609375Q133.0240478515625 693.939697265625 182.6927490234375 705.1083984375Q232.3614501953125 716.277099609375 281.8916015625 716.277099609375Q363.6385498046875 716.277099609375 419.4698486328125 692.3192749023438Q475.3011474609375 668.3614501953125 504.216796875 622.44580078125Q533.1324462890625 576.5301513671875 533.1324462890625 510.33740234375Q533.1324462890625 467.6988525390625 520.5902709960938 428.01812744140625Q508.048095703125 388.33740234375 480.548095703125 347.9759521484375Q453.048095703125 307.614501953125 407.1324462890625 262.8916015625L245.31298828125 102.650390625V149.42138671875H492.060302734375Q529.277099609375 149.42138671875 548.7047729492188 130.35516357421875Q568.1324462890625 111.2889404296875 568.1324462890625 75.0721435546875Q568.1324462890625 38.8553466796875 548.7047729492188 19.42767333984375Q529.277099609375 0 492.060302734375 0Z"
                 data-letter="2"
                 transform="translate(304.936831 94.007999) scale(0.088118835 -0.087965955)"
-                d="M143.8553466796875 0Q100.3614501953125 0 80.43377685546875 20.56622314453125Q60.506103515625 41.1324462890625 60.506103515625 81.264892578125Q60.506103515625 109.1202392578125 73.01812744140625 130.8671875Q85.5301513671875 152.6141357421875 106.3614501953125 174.4454345703125L280.5423583984375 357.156494140625Q320.1568603515625 398.77099609375 336.64483642578125 428.6927490234375Q353.1328125 458.614501953125 353.1328125 489.0362548828125Q353.1328125 526.90380859375 328.018310546875 546.1990356445312Q302.90380859375 565.4942626953125 255.6748046875 565.4942626953125Q231.8916015625 565.4942626953125 204.9156494140625 558.8677368164062Q177.939697265625 552.2412109375 146.77099609375 536.2652587890625Q120.4698486328125 523.626708984375 98.5843505859375 528.8194580078125Q76.6988525390625 534.01220703125 62.32537841796875 550.7591552734375Q47.951904296875 567.506103515625 44.27117919921875 589.5723266601562Q40.5904541015625 611.6385498046875 50.560302734375 633.2469482421875Q60.5301513671875 654.8553466796875 87.4698486328125 668.77099609375Q133.0240478515625 693.939697265625 182.6927490234375 705.1083984375Q232.3614501953125 716.277099609375 281.8916015625 716.277099609375Q363.6385498046875 716.277099609375 419.4698486328125 692.3192749023438Q475.3011474609375 668.3614501953125 504.216796875 622.44580078125Q533.1324462890625 576.5301513671875 533.1324462890625 510.33740234375Q533.1324462890625 467.6988525390625 520.5902709960938 428.01812744140625Q508.048095703125 388.33740234375 480.548095703125 347.9759521484375Q453.048095703125 307.614501953125 407.1324462890625 262.8916015625L245.31298828125 102.650390625V149.42138671875H492.060302734375Q529.277099609375 149.42138671875 548.7047729492188 130.35516357421875Q568.1324462890625 111.2889404296875 568.1324462890625 75.0721435546875Q568.1324462890625 38.8553466796875 548.7047729492188 19.42767333984375Q529.277099609375 0 492.060302734375 0Z"
-              />
+              ></path>
             </g>
           </svg>
         </h1>
-        <p class="brand-line">One model. <em>Many worlds.</em></p>
-        <nav class="hero-resources" aria-label="Project resources">
-          <span
-            class="resource-pill resource-unavailable"
-            data-resource="paper"
-            role="link"
-            aria-disabled="true"
-            title="Paper will be available after release"
-            ><span>Paper</span><small>Coming soon</small></span
-          >
-          <a class="resource-pill" data-resource="github" href="https://github.com/zhuangshaobin/WeGen2" target="_blank" rel="noopener noreferrer"
-            ><span>Code</span></a
-          >
-          <a class="resource-pill" data-resource="weights" href="https://huggingface.co/GrayShine/WeGen2" target="_blank" rel="noopener noreferrer"
-            ><span>Weights</span></a
-          >
-        </nav>
+        <div class="hero-under">
+          <div class="hero-statement">
+            <p class="brand-line">One model.<br /><span>Many worlds.</span></p>
+            <p class="hero-description">Generate, edit, and compose.<br />Keep creating in context.</p>
+          </div>
+          <nav aria-label="Project resources" class="hero-resources">
+            <span
+              aria-disabled="true"
+              class="resource-pill resource-unavailable"
+              data-resource="paper"
+              role="link"
+              title="Paper will be available after release"
+              ><span>Paper</span><small>Coming soon</small></span
+            >
+            <a class="resource-pill" data-resource="github" href="https://github.com/zhuangshaobin/WeGen2" rel="noopener noreferrer" target="_blank"
+              ><span>Code</span></a
+            >
+            <a class="resource-pill" data-resource="weights" href="https://huggingface.co/GrayShine/WeGen2" rel="noopener noreferrer" target="_blank"
+              ><span>Weights</span></a
+            >
+          </nav>
+        </div>
         <div class="brand-footer">
-          <p>Native pixels. Multimodal context.</p>
-          <a class="brand-play" href="#film"><span aria-hidden="true">▷</span> Watch the film</a>
+          <nav aria-label="Explore capabilities" class="work-index">
+            <a href="#capabilities"><span>01</span> Generate</a><a href="#editing"><span>02</span> Edit</a
+            ><a href="#references"><span>03</span> Compose</a><a href="#context"><span>04</span> Continue</a>
+          </nav>
+          <a class="brand-play" href="#film"><span aria-hidden="true">▷</span> Watch the film <small>01:52</small></a>
         </div>
       </section>
-      <section class="intro wrap reveal" aria-labelledby="intro-title">
+      <section aria-labelledby="capability-title" class="creation-section wrap section" id="capabilities">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected generations</p>
+            <h2 id="capability-title">An idea. A visual world.</h2>
+          </div>
+          <p>Photographic light. Tactile materials. Intricate illustrations. Explore each image at full resolution.</p>
+        </div>
+        <div class="creation-grid">
+          <figure class="portrait">
+            <img
+              alt="A photographic portrait with an orange umbrella, rain reflections, flowers and a red tram."
+              data-full="assets/rain-portrait.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1152"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/rain-portrait-480.webp"
+              srcset="assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w"
+              width="768"
+            />
+            <figcaption><b class="work-number">01</b><span>Photographic detail</span><strong>A moment in the rain</strong></figcaption>
+          </figure>
+          <figure class="poster">
+            <img
+              alt="The Lantern Wood, a fantasy film poster generated with integrated English lettering."
+              data-full="assets/poster.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1216"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/poster-480.webp"
+              srcset="assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w"
+              width="832"
+            />
+            <figcaption><b class="work-number">02</b><span>Illustration &amp; typography</span><strong>The Lantern Wood</strong></figcaption>
+          </figure>
+
+          <figure class="paper-world">
+            <img
+              alt="A paper mountain city with a red train on a curved viaduct."
+              data-full="assets/paper-world.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="768"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/paper-world-480.webp"
+              srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
+              width="1536"
+            />
+            <figcaption><b class="work-number">03</b><span>Material &amp; craft</span><strong>A world made of paper</strong></figcaption>
+          </figure>
+          <figure class="market">
+            <img
+              alt="An intricate oil painting of a lantern-lit night market, stone bridges and glass pavilions."
+              data-full="assets/night-market.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="768"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/night-market-480.webp"
+              srcset="assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w"
+              width="1152"
+            />
+            <figcaption><b class="work-number">04</b><span>Painterly scenes</span><strong>Light after dark</strong></figcaption>
+          </figure>
+        </div>
+      </section>
+      <section aria-labelledby="intro-title" class="intro wrap">
         <div class="intro-copy">
-          <p class="eyebrow">One model. Many ways to create.</p>
-          <h2 id="intro-title">Bring an idea.<br /><em>See where it goes.</em></h2>
-          <p>
-            Start with words. Add references. Keep creating in context. WeGen2 brings generation, editing, and visual composition into one native
-            pixel-space model.
-          </p>
+          <h2 class="sr-only" id="intro-title">A unified model for visual creation.</h2>
+          <p>Words, reference images, and conversation history—connected in one native pixel-space model.</p>
         </div>
         <dl class="model-stats">
           <div>
@@ -2205,7 +2375,7 @@ a.resource-pill:hover {
           </div>
           <div>
             <dt>11</dt>
-            <dd>Generation &amp; editing benchmarks</dd>
+            <dd>Generation, editing &amp; composition benchmarks</dd>
           </div>
           <div>
             <dt class="stat-word">Native<br />pixels</dt>
@@ -2213,190 +2383,125 @@ a.resource-pill:hover {
           </div>
         </dl>
       </section>
-      <section id="film" class="film-section wrap section reveal" aria-labelledby="film-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">The film</p>
-            <h2 id="film-title">A closer look<br /><em>at what comes next.</em></h2>
+      <section aria-labelledby="film-title" class="film-section section" id="film">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">The film / 01:52</p>
+              <h2 id="film-title">Meet WeGen2.</h2>
+            </div>
+            <p>A closer look at the work, the possibilities, and the model behind them.</p>
           </div>
-          <p>From imagined worlds to reference-guided creation, then inside the architecture and progressive training that bring them together.</p>
-        </div>
-        <div class="film-shell">
-          <video
-            class="showcase-film"
-            controls
-            playsinline
-            preload="none"
-            poster="assets/film-poster-v9.webp"
-            width="1920"
-            height="1080"
-            aria-label="WeGen2 showcase and model introduction"
-          >
-            <source src="assets/wegen2-film-v9-720.mp4" type="video/mp4" />
-            <track kind="captions" src="assets/film-captions-v9.vtt" srclang="en" label="English descriptions" />
-            Your browser does not support embedded video. <a href="assets/wegen2-film-v9.mp4">Download the film</a>.
-          </video>
-          <div class="film-start" hidden>
-            <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
-            <p id="film-load-status" role="status" aria-live="polite"></p>
-          </div>
-        </div>
-        <p class="film-playback-status" role="status" aria-live="polite" hidden></p>
-        <div class="film-under">
-          <div class="film-chapters" aria-label="Film chapters">
-            <button type="button" data-seek="0">01 <span>Create</span></button><button type="button" data-seek="29">02 <span>Compose</span></button
-            ><button type="button" data-seek="63">03 <span>The model</span></button><button type="button" data-seek="89">04 <span>PHT</span></button>
-          </div>
-          <div class="film-downloads">
-            <label class="film-quality"
-              >Quality
-              <select id="film-quality" aria-label="Video quality">
-                <option value="auto">Auto</option>
-                <option value="720">720p</option>
-                <option value="1080">1080p</option>
-                <option value="480">480p</option>
-                <option value="360">360p</option>
-              </select></label
+          <div class="film-shell">
+            <video
+              aria-label="WeGen2 showcase and model introduction"
+              class="showcase-film"
+              controls=""
+              height="1080"
+              playsinline=""
+              poster="assets/film-poster-v9.webp"
+              preload="none"
+              width="1920"
             >
-            <a href="assets/wegen2-film-v9.mp4" download>Download 1080p ↗</a><a href="film-transcript.html?v=film9">Visual transcript ↗</a>
-          </div>
-        </div>
-        <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
-      </section>
-      <section id="capabilities" class="section wrap reveal" aria-labelledby="capability-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">01 / Create</p>
-            <h2 id="capability-title">A wider<br /><em>visual vocabulary.</em></h2>
-          </div>
-          <p>Photographic light, intricate illustrations, tactile materials. Different visual languages, one model.</p>
-        </div>
-        <div class="creation-grid">
-          <figure class="poster">
-            <img
-              alt="The Lantern Wood, a fantasy film poster generated with integrated English lettering."
-              data-full="assets/poster.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="1216"
-              loading="lazy"
-              sizes="(max-width: 760px) 90vw, 33vw"
-              src="assets/previews/poster-480.webp"
-              srcset="assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w"
-              width="832"
-            />
-            <figcaption><span>Illustration &amp; typography</span><strong>The Lantern Wood</strong></figcaption>
-          </figure>
-          <figure class="portrait">
-            <img
-              alt="A photographic portrait with an orange umbrella, rain reflections, flowers and a red tram."
-              data-full="assets/rain-portrait.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="1152"
-              loading="lazy"
-              sizes="(max-width: 760px) 90vw, 33vw"
-              src="assets/previews/rain-portrait-480.webp"
-              srcset="assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w"
-              width="768"
-            />
-            <figcaption><span>Photographic detail</span><strong>A moment in the rain</strong></figcaption>
-          </figure>
-          <figure class="paper-world">
-            <img
-              alt="A paper mountain city with a red train on a curved viaduct."
-              data-full="assets/paper-world.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="768"
-              loading="lazy"
-              sizes="(max-width: 760px) 90vw, 33vw"
-              src="assets/previews/paper-world-480.webp"
-              srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
-              width="1536"
-            />
-            <figcaption><span>Material &amp; craft</span><strong>A world made of paper</strong></figcaption>
-          </figure>
-          <figure class="market">
-            <img
-              alt="An intricate oil painting of a lantern-lit night market, stone bridges and glass pavilions."
-              data-full="assets/night-market.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="768"
-              loading="lazy"
-              sizes="(max-width: 760px) 90vw, 33vw"
-              src="assets/previews/night-market-480.webp"
-              srcset="assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w"
-              width="1152"
-            />
-            <figcaption><span>Painterly scenes</span><strong>Light after dark</strong></figcaption>
-          </figure>
-        </div>
-      </section>
-      <section id="words" class="word-section section reveal" aria-labelledby="words-title">
-        <div class="wrap word-layout">
-          <div class="word-copy">
-            <p class="eyebrow">Words belong in the picture.</p>
-            <h2 id="words-title">More to see.<br /><em>More to read.</em></h2>
-            <p>
-              A WeGen2 creation-studio poster brings imagined landscapes, architectural spaces, and fashion scenes together with Chinese headlines and
-              descriptive text.
-            </p>
-            <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
-            <button class="text-link" type="button" data-open-image="creation-studio.webp">
-              Explore the full image <span aria-hidden="true">↗</span>
-            </button>
-            <div class="word-detail">
-              <img
-                alt="A Chinese illustrated reading guide generated from one text prompt."
-                data-full="assets/reading-guide.webp"
-                data-zoom=""
-                decoding="async"
-                fetchpriority="low"
-                height="1024"
-                loading="lazy"
-                sizes="138px"
-                src="assets/previews/reading-guide-320.webp"
-                srcset="assets/previews/reading-guide-320.webp 320w"
-                width="1024"
-              />
-              <p>And another voice:<br />a text-to-image reading guide.</p>
+              <source src="assets/wegen2-film-v9-720.mp4" type="video/mp4" />
+              <track kind="captions" label="English descriptions" src="assets/film-captions-v9.vtt" srclang="en" />
+              Your browser does not support embedded video. <a href="assets/wegen2-film-v9.mp4">Download the film</a>.
+            </video>
+            <div class="film-start" hidden="">
+              <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
+              <p aria-live="polite" id="film-load-status" role="status"></p>
             </div>
           </div>
-          <figure class="dense-figure">
-            <img
-              alt="A WeGen2 creation-studio poster with six miniature scenes and Chinese text about generation, editing, and composition."
-              data-full="assets/creation-studio.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="1024"
-              loading="lazy"
-              sizes="(max-width: 760px) 92vw, 56vw"
-              src="assets/previews/creation-studio-640.webp"
-              srcset="
-                assets/previews/creation-studio-640.webp   640w,
-                assets/previews/creation-studio-960.webp   960w,
-                assets/previews/creation-studio-1024.webp 1024w
-              "
-              width="1024"
-            />
-            <figcaption>Chinese text &amp; illustrated information design</figcaption>
-          </figure>
+          <p aria-live="polite" class="film-playback-status" hidden="" role="status"></p>
+          <div class="film-under">
+            <div aria-label="Film chapters" class="film-chapters">
+              <button data-seek="0" type="button">01 <span>Create</span></button><button data-seek="29" type="button">02 <span>Compose</span></button
+              ><button data-seek="63" type="button">03 <span>The model</span></button
+              ><button data-seek="89" type="button">04 <span>PHT</span></button>
+            </div>
+            <div class="film-downloads">
+              <label class="film-quality"
+                >Quality
+                <select aria-label="Video quality" id="film-quality">
+                  <option value="auto">Auto</option>
+                  <option value="720">720p</option>
+                  <option value="1080">1080p</option>
+                  <option value="480">480p</option>
+                  <option value="360">360p</option>
+                </select></label
+              >
+              <a download="" href="assets/wegen2-film-v9.mp4">Download 1080p ↗</a><a href="film-transcript.html?v=film9">Visual transcript ↗</a>
+            </div>
+          </div>
+          <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
         </div>
       </section>
-      <section id="references" class="section wrap reveal" aria-labelledby="reference-title">
+      <section aria-labelledby="editing-title" class="editing-section section reveal" id="editing">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01 / Image editing</p>
+              <h2 id="editing-title">Edit with intent.</h2>
+            </div>
+            <p id="edit-description">A reference image guides the next creation.</p>
+          </div>
+          <div aria-label="Editing demonstrations" class="edit-tabs" role="tablist">
+            <button aria-controls="edit-panel" aria-selected="true" data-edit="paper" role="tab">Day to night</button
+            ><button aria-controls="edit-panel" aria-selected="false" data-edit="season" role="tab" tabindex="-1">A different season</button
+            ><button aria-controls="edit-panel" aria-selected="false" data-edit="landscape" role="tab" tabindex="-1">Another medium</button
+            ><button aria-controls="edit-panel" aria-selected="false" data-edit="architecture" role="tab" tabindex="-1">Sketch to render</button
+            ><button aria-controls="edit-panel" aria-selected="false" data-edit="reef" role="tab" tabindex="-1">A world within</button>
+          </div>
+          <div id="edit-panel" role="tabpanel">
+            <div class="comparison" style="--split: 50%">
+              <img
+                alt="The paper world edited into a moonlit scene"
+                class="comparison-base"
+                data-full="assets/paper-night.webp"
+                decoding="async"
+                fetchpriority="low"
+                height="768"
+                loading="lazy"
+                sizes="(max-width: 760px) 90vw, 70vw"
+                src="assets/previews/paper-night-480.webp"
+                srcset="assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w"
+                width="1536"
+              /><img
+                alt="The original paper city in daylight"
+                class="comparison-before"
+                data-full="assets/paper-world.webp"
+                decoding="async"
+                fetchpriority="low"
+                height="768"
+                loading="lazy"
+                sizes="(max-width: 760px) 90vw, 33vw"
+                src="assets/previews/paper-world-480.webp"
+                srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
+                width="1536"
+              /><span class="comparison-label before-label">Source</span><span class="comparison-label after-label">Edited</span>
+              <div aria-hidden="true" class="comparison-divider"><span>↔</span></div>
+              <input
+                aria-label="Drag to compare the source and edited image"
+                aria-valuetext="50 percent source visible"
+                class="comparison-drag"
+                id="comparison-range"
+                max="100"
+                min="0"
+                type="range"
+                value="50"
+              />
+            </div>
+            <p class="comparison-hint"><span aria-hidden="true">↔</span> Drag across the image to compare.</p>
+          </div>
+        </div>
+      </section>
+      <section aria-labelledby="reference-title" class="references-section section wrap" id="references">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">02 / Compose</p>
-            <h2 id="reference-title">Many references.<br /><em>One new look.</em></h2>
+            <p class="eyebrow">02 / Visual composition</p>
+            <h2 id="reference-title">Many references.<br />One composition.</h2>
           </div>
-          <p>Select a reference to trace its visible counterpart. Individual garments and accessories guide the resulting outfit.</p>
+          <p>A person. Eight visual references. One shared context. Select a garment or accessory to explore its correspondence.</p>
         </div>
         <div class="reference-stage">
           <div class="reference-inputs">
@@ -2414,10 +2519,13 @@ a.resource-pill:hover {
                 srcset="assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w"
                 width="832"
               />
-              <figcaption>The starting point</figcaption>
+              <figcaption>Source person</figcaption>
+              <div class="reference-source-note">
+                <strong>8</strong><span>visual references<br />in one context</span>
+              </div>
             </figure>
             <div class="reference-grid">
-              <button class="reference-card" type="button" data-reference="1" aria-pressed="false">
+              <button aria-pressed="false" class="reference-card" data-reference="1" type="button">
                 <img
                   alt="Reference 1: Ivory blazer"
                   data-full="assets/tryon-ref-01.webp"
@@ -2430,7 +2538,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-01-240.webp 240w"
                   width="800"
                 /><span><b>01</b> Ivory blazer</span></button
-              ><button class="reference-card" type="button" data-reference="2" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="2" type="button">
                 <img
                   alt="Reference 2: White T-shirt"
                   data-full="assets/tryon-ref-02.webp"
@@ -2443,7 +2551,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-02-240.webp 240w"
                   width="800"
                 /><span><b>02</b> White T-shirt</span></button
-              ><button class="reference-card" type="button" data-reference="3" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="3" type="button">
                 <img
                   alt="Reference 3: Blue jeans"
                   data-full="assets/tryon-ref-03.webp"
@@ -2456,7 +2564,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-03-240.webp 240w"
                   width="800"
                 /><span><b>03</b> Blue jeans</span></button
-              ><button class="reference-card" type="button" data-reference="4" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="4" type="button">
                 <img
                   alt="Reference 4: White sneakers"
                   data-full="assets/tryon-ref-04.webp"
@@ -2469,7 +2577,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-04-240.webp 240w"
                   width="800"
                 /><span><b>04</b> White sneakers</span></button
-              ><button class="reference-card" type="button" data-reference="5" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="5" type="button">
                 <img
                   alt="Reference 5: Burgundy bag"
                   data-full="assets/tryon-ref-05.webp"
@@ -2482,7 +2590,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-05-240.webp 240w"
                   width="800"
                 /><span><b>05</b> Burgundy bag</span></button
-              ><button class="reference-card" type="button" data-reference="6" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="6" type="button">
                 <img
                   alt="Reference 6: Black belt"
                   data-full="assets/tryon-ref-06.webp"
@@ -2495,7 +2603,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-06-240.webp 240w"
                   width="800"
                 /><span><b>06</b> Black belt</span></button
-              ><button class="reference-card" type="button" data-reference="7" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="7" type="button">
                 <img
                   alt="Reference 7: Dark glasses"
                   data-full="assets/tryon-ref-07.webp"
@@ -2508,7 +2616,7 @@ a.resource-pill:hover {
                   srcset="assets/previews/tryon-ref-07-240.webp 240w"
                   width="800"
                 /><span><b>07</b> Dark glasses</span></button
-              ><button class="reference-card" type="button" data-reference="8" aria-pressed="false">
+              ><button aria-pressed="false" class="reference-card" data-reference="8" type="button">
                 <img
                   alt="Reference 8: Fine necklace"
                   data-full="assets/tryon-ref-08.webp"
@@ -2539,80 +2647,71 @@ a.resource-pill:hover {
               srcset="assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w"
               width="1024"
             />
-            <figcaption>WeGen2 output</figcaption>
+            <figcaption>Reference-guided creation</figcaption>
           </figure>
-          <svg id="reference-lines" class="reference-lines" aria-hidden="true"></svg>
+          <svg aria-hidden="true" class="reference-lines" id="reference-lines"></svg>
         </div>
         <div class="reference-controls">
-          <p id="reference-status" role="status" aria-live="polite">Select a reference to explore the outfit.</p>
-          <button type="button" class="text-link" id="clear-reference">Clear selection ↗</button>
+          <p aria-live="polite" id="reference-status" role="status">Select a reference to explore the outfit.</p>
+          <button class="text-link" id="clear-reference" type="button">Clear selection ↗</button>
         </div>
       </section>
-      <section class="editing-section section reveal" aria-labelledby="editing-title">
-        <div class="wrap">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">03 / Edit</p>
-              <h2 id="editing-title">Keep the idea.<br /><em>Change its world.</em></h2>
-            </div>
-            <p id="edit-description">A reference image guides the next creation.</p>
-          </div>
-          <div class="edit-tabs" role="tablist" aria-label="Editing demonstrations">
-            <button role="tab" aria-selected="true" data-edit="paper" aria-controls="edit-panel">Day to night</button
-            ><button role="tab" aria-selected="false" tabindex="-1" data-edit="season" aria-controls="edit-panel">A different season</button
-            ><button role="tab" aria-selected="false" tabindex="-1" data-edit="landscape" aria-controls="edit-panel">Another medium</button
-            ><button role="tab" aria-selected="false" tabindex="-1" data-edit="architecture" aria-controls="edit-panel">Sketch to render</button
-            ><button role="tab" aria-selected="false" tabindex="-1" data-edit="reef" aria-controls="edit-panel">A world within</button>
-          </div>
-          <div id="edit-panel" role="tabpanel">
-            <div class="comparison" style="--split: 50%">
+      <section aria-labelledby="words-title" class="word-section section reveal" id="words">
+        <div class="wrap word-layout">
+          <div class="word-copy">
+            <p class="eyebrow">03 / Text &amp; image</p>
+            <h2 id="words-title">Words,<br />in the world.</h2>
+            <p>Chinese headlines, imagined landscapes, architecture, and fashion—composed together in one generated image.</p>
+            <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
+            <button class="text-link" data-open-image="creation-studio.webp" type="button">
+              Explore the full image <span aria-hidden="true">↗</span>
+            </button>
+            <div class="word-detail">
               <img
-                alt="The paper world edited into a moonlit scene"
-                class="comparison-base"
-                data-full="assets/paper-night.webp"
+                alt="A Chinese illustrated reading guide generated from one text prompt."
+                data-full="assets/reading-guide.webp"
+                data-zoom=""
                 decoding="async"
                 fetchpriority="low"
-                height="768"
+                height="1024"
                 loading="lazy"
-                sizes="(max-width: 760px) 90vw, 70vw"
-                src="assets/previews/paper-night-480.webp"
-                srcset="assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w"
-                width="1536"
-              /><img
-                alt="The original paper city in daylight"
-                class="comparison-before"
-                data-full="assets/paper-world.webp"
-                decoding="async"
-                fetchpriority="low"
-                height="768"
-                loading="lazy"
-                sizes="(max-width: 760px) 90vw, 33vw"
-                src="assets/previews/paper-world-480.webp"
-                srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
-                width="1536"
-              /><span class="comparison-label before-label">Source</span><span class="comparison-label after-label">Edited</span>
-              <div class="comparison-divider" aria-hidden="true"><span>↔</span></div>
-              <input
-                class="comparison-drag"
-                id="comparison-range"
-                type="range"
-                min="0"
-                max="100"
-                value="50"
-                aria-label="Drag to compare the source and edited image"
-                aria-valuetext="50 percent source visible"
+                sizes="138px"
+                src="assets/previews/reading-guide-320.webp"
+                srcset="assets/previews/reading-guide-320.webp 320w"
+                width="1024"
               />
+              <p>Another format: an illustrated reading guide.</p>
             </div>
           </div>
+          <figure class="dense-figure">
+            <img
+              alt="A WeGen2 creation-studio poster with six miniature scenes and Chinese text about generation, editing, and composition."
+              data-full="assets/creation-studio.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1024"
+              loading="lazy"
+              sizes="(max-width: 760px) 92vw, 56vw"
+              src="assets/previews/creation-studio-640.webp"
+              srcset="
+                assets/previews/creation-studio-640.webp   640w,
+                assets/previews/creation-studio-960.webp   960w,
+                assets/previews/creation-studio-1024.webp 1024w
+              "
+              width="1024"
+            />
+            <figcaption>Chinese text &amp; illustrated information design</figcaption>
+          </figure>
         </div>
       </section>
-      <section class="section wrap reveal" aria-labelledby="context-title">
+      <section aria-labelledby="context-title" class="context-section section wrap" id="context">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">04 / Continue</p>
-            <h2 id="context-title">There is always<br /><em>a next idea.</em></h2>
+            <p class="eyebrow">04 / Continued creation</p>
+            <h2 id="context-title">The next turn<br />starts here.</h2>
           </div>
-          <p>Add a reply, then revise the conversation. Earlier images become context for successive edits.</p>
+          <p>Add a reply. Then revise the conversation. Each image becomes context for the next edit.</p>
         </div>
         <div class="chat-sequence">
           <figure>
@@ -2665,16 +2764,14 @@ a.resource-pill:hover {
           </figure>
         </div>
       </section>
-      <section id="stories" class="stories-section section reveal" aria-labelledby="story-title">
+      <section aria-labelledby="story-title" class="stories-section section reveal" id="stories">
         <div class="wrap">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Visual storytelling</p>
-              <h2 id="story-title">A whole story.<br /><em>One canvas.</em></h2>
+              <p class="eyebrow">05 / Visual sequences</p>
+              <h2 id="story-title">Stories take shape.</h2>
             </div>
-            <p id="comic-description">
-              A fox and a little robot make a cake. Eight richly illustrated panels, brought together as one complete comic page.
-            </p>
+            <p id="comic-description">A fox, a little robot, and a cake. An illustrated story unfolds across eight sequentially generated panels.</p>
           </div>
           <figure class="comic-sheet">
             <img
@@ -2784,19 +2881,19 @@ a.resource-pill:hover {
           </details>
         </div>
       </section>
-      <section id="method" class="method-section section reveal" aria-labelledby="method-title">
+      <section aria-labelledby="method-title" class="method-section section reveal" id="method">
         <div class="wrap">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Inside WeGen2</p>
-              <h2 id="method-title">Native pixels.<br /><em>Connected thinking.</em></h2>
+              <p class="eyebrow">Inside the model</p>
+              <h2 id="method-title">One model.<br />Native pixels.</h2>
             </div>
-            <p>Distinct roles for understanding and generation. A shared visual conversation, from context to the next image.</p>
+            <p>Understanding and generation work together, with dedicated generation pathways and shared and routed experts.</p>
           </div>
-          <div class="method-switcher" role="tablist" aria-label="Model features">
-            <button role="tab" aria-selected="true" data-method="pixels">01 / Native pixels</button
-            ><button role="tab" aria-selected="false" tabindex="-1" data-method="mot">02 / A-MoT</button
-            ><button role="tab" aria-selected="false" tabindex="-1" data-method="moe">03 / A-MoE</button>
+          <div aria-label="Model features" class="method-switcher" role="tablist">
+            <button aria-selected="true" data-method="pixels" role="tab">01 / Native pixels</button
+            ><button aria-selected="false" data-method="mot" role="tab" tabindex="-1">02 / A-MoT</button
+            ><button aria-selected="false" data-method="moe" role="tab" tabindex="-1">03 / A-MoE</button>
           </div>
           <div class="model-stage" id="method-panel" role="tabpanel">
             <div class="method-copy">
@@ -2808,10 +2905,10 @@ a.resource-pill:hover {
               </p>
             </div>
             <div
+              aria-label="RGB images pass through learned patch modules to the multimodal backbone and back to RGB"
               class="model-diagram"
               id="model-diagram"
               role="img"
-              aria-label="RGB images pass through learned patch modules to the multimodal backbone and back to RGB"
             ></div>
           </div>
           <div class="foundation-note">
@@ -2820,11 +2917,11 @@ a.resource-pill:hover {
           </div>
         </div>
       </section>
-      <section id="results" class="section results-section wrap reveal" aria-labelledby="results-title">
+      <section aria-labelledby="results-title" class="section results-section wrap reveal" id="results">
         <div class="results-copy">
-          <p class="eyebrow">Measured across tasks</p>
-          <h2 id="results-title">Top-tier results.<br /><em>A broader picture.</em></h2>
-          <p>The report evaluates WeGen2 across 11 generation, editing, and composition benchmarks.</p>
+          <p class="eyebrow">Research, measured</p>
+          <h2 id="results-title">Across<br />11 benchmarks.</h2>
+          <p>Top-tier results across generation, editing, and composition.</p>
           <p class="small-copy">
             Each benchmark uses its own metric. See the report for individual scores, comparison settings, and prompt-enhancement reporting.
           </p>
@@ -2834,14 +2931,14 @@ a.resource-pill:hover {
           <figcaption>Generation · Editing · Composition</figcaption>
         </figure>
       </section>
-      <section id="inference" class="section inference-section reveal">
+      <section class="section inference-section reveal" id="inference">
         <div class="wrap">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Start creating</p>
-              <h2>A simple interface.<br /><em>An open-ended idea.</em></h2>
+              <p class="eyebrow">Resources</p>
+              <h2>Create with WeGen2.</h2>
             </div>
-            <div id="resource-links" class="resource-links" hidden></div>
+            <div class="resource-links" hidden="" id="resource-links"></div>
           </div>
           <div class="code-layout">
             <div class="code-card">
@@ -2864,7 +2961,7 @@ next_image = session.generate(
 next_image.save("paper-world-night.png")</code></pre>
             </div>
             <div class="inference-copy">
-              <h3>Words. Images. Context.</h3>
+              <h3>From a prompt to a conversation.</h3>
               <p>A prompt starts a generation. Images provide references. A session retains context for the next edit.</p>
               <dl>
                 <div>
@@ -2881,16 +2978,16 @@ next_image.save("paper-world-night.png")</code></pre>
                 </div>
               </dl>
               <p class="fine-print">Memory requirements depend on image size, context length, and runtime configuration.</p>
-              <a data-resource="github" class="text-link" href="https://github.com/zhuangshaobin/WeGen2">Read the inference guide ↗</a>
+              <a class="text-link" data-resource="github" href="https://github.com/zhuangshaobin/WeGen2">Read the inference guide ↗</a>
               <p class="fine-print release-note">Code in private preview. Weights and final licensing forthcoming.</p>
             </div>
           </div>
-          <p id="copy-status" role="status" aria-live="polite"></p>
+          <p aria-live="polite" id="copy-status" role="status"></p>
         </div>
       </section>
-      <section id="authors" class="authors-section section wrap" aria-labelledby="authors-title">
-        <p class="eyebrow">The team</p>
-        <h2 id="authors-title">WeGen2</h2>
+      <section aria-labelledby="authors-title" class="authors-section section wrap" id="authors">
+        <p class="eyebrow">The team behind WeGen2</p>
+        <h2 class="sr-only" id="authors-title">WeGen2</h2>
         <p class="paper-title">Native Pixel-Space Modeling for Unified Multimodal Creation</p>
         <p class="authors">
           Shaobin Zhuang<sup>1,*,§</sup> · Zhipeng Huang<sup>2,*</sup> · Canmiao Fu<sup>2,†</sup> · Xiaoqiang Zhou<sup>2</sup> · Hao Lu<sup>2</sup> ·
@@ -2904,16 +3001,15 @@ next_image.save("paper-world-night.png")</code></pre>
           * Equal contribution. † Project leader. ‡ Corresponding authors.<br />§ Work done during Shaobin Zhuang's internship at Tencent.
         </p>
       </section>
-
-      <dialog class="image-dialog" aria-label="Full image">
-        <button class="dialog-close" type="button" aria-label="Close full image">×</button><img alt="" decoding="async" />
+      <dialog aria-label="Full image" class="image-dialog">
+        <button aria-label="Close full image" class="dialog-close" type="button">×</button><img alt="" decoding="async" />
         <p></p>
-        <a class="dialog-original" target="_blank" rel="noopener">Open original ↗</a>
+        <a class="dialog-original" rel="noopener" target="_blank">Open original ↗</a>
       </dialog>
     </main>
     <footer class="wrap">
-      <a class="wordmark" href="#main" aria-label="WeGen2 home"
-        ><img alt="WeGen2" decoding="async" width="365" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype"
+      <a aria-label="WeGen2 home" class="wordmark" href="#main"
+        ><img alt="WeGen2" decoding="async" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype" width="365"
       /></a>
       <p>Native pixels. Multimodal context. Visual creation.</p>
       <a href="#main">Back to top ↑</a>
@@ -3194,7 +3290,7 @@ new ResizeObserver(drawReference).observe(stage);
 output.addEventListener("load", drawReference);
 
 const diagramStart =
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g font-family="Arial,Helvetica,sans-serif" fill="#073f32">';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g font-family="Manrope,Arial,Helvetica,sans-serif" fill="#073f32">';
 const diagramEnd = "</g></svg>";
 const box = (x, y, w, h, label, fill = "#f8fcf5", stroke = "#b7cdb5", size = 17) =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="15" fill="${fill}" stroke="${stroke}"/><text x="${x + w / 2}" y="${y + h / 2 + 6}" text-anchor="middle" font-size="${size}">${label}</text>`;
@@ -3306,6 +3402,8 @@ methodTabs.forEach((b, i) => {
     let n;
     if (e.key === "ArrowRight") n = (i + 1) % methodTabs.length;
     if (e.key === "ArrowLeft") n = (i + methodTabs.length - 1) % methodTabs.length;
+    if (e.key === "Home") n = 0;
+    if (e.key === "End") n = methodTabs.length - 1;
     if (n !== undefined) {
       e.preventDefault();
       setMethod(methodTabs[n].dataset.method, true);
