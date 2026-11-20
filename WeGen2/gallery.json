@@ -22,31 +22,49 @@
     "featured": true
   },
   {
-    "id": "costume-in-motion",
-    "title": "A costume in motion",
-    "task": "Image editing",
-    "width": 768,
-    "height": 1152,
-    "alt": "A woman in an ivory blouse and a red pleated skirt changes from a standing portrait to a dance pose.",
-    "description": "An identity-preserving pose edit with natural hands, leg movement and flowing fabric.",
+    "id": "a-shop-comes-to-life",
+    "title": "A shop comes to life",
+    "task": "Multi-turn editing",
+    "width": 1024,
+    "height": 1024,
+    "alt": "An empty corner storefront becomes a flower shop, gains PETAL lettering and changes to blue-hour light.",
+    "description": "Three successive edits add a flower display, awning lettering and evening illumination.",
     "frames": [
       {
-        "asset": "costume-in-motion-frame-01",
-        "label": "Input",
+        "asset": "a-shop-comes-to-life-reference-01",
+        "label": "Empty storefront",
         "role": "input",
-        "width": 768,
-        "height": 1152,
-        "alt": "A costume in motion — Input",
-        "prompt": "A full-length fine-art fashion photograph of an adult East Asian woman standing naturally in a quiet dark rehearsal studio. She wears an ivory long-sleeved blouse with a bow at the neck, a structured ruby-red pleated skirt ending below the knee, dark ankle boots and two small round gold earrings. Her black hair is tied in a low bun. Her hands rest naturally at her sides. A long horizontal wooden ballet barre and a single tall window are visible behind her. Realistic face and anatomy, beautiful fabric detail, restrained theatrical light, no text."
+        "width": 1024,
+        "height": 1024,
+        "alt": "A shop comes to life — Empty storefront",
+        "prompt": "A beautifully resolved straight-on architectural photograph of a small corner flower shop before opening. A sage-green painted storefront has one broad display window on the left, one narrow glass door on the right, and a plain ivory fabric awning above both. The blank cream signboard above the awning has no text. Through the window are orderly pale wooden shelves and empty ceramic vases. The sidewalk is clean pale stone. Warm cream brick walls, soft morning light, coherent architecture, no people and no lettering."
       },
       {
-        "asset": "costume-in-motion",
-        "label": "Result",
+        "asset": "a-shop-comes-to-life-frame-01",
+        "label": "Flower display",
         "role": "output",
-        "width": 768,
-        "height": 1152,
-        "alt": "A costume in motion — Result",
-        "prompt": "Keep the exact same adult woman, face, hairstyle, gold earrings, ivory bow blouse, ruby pleated skirt, boots and rehearsal room. Change her pose into a graceful mid-turn dance movement: one foot remains on the floor, the other bends slightly behind, both arms open outward, and the same pleated skirt flares naturally with the rotation. Show anatomically correct hands and legs, convincing fabric motion and grounded shadow. Preserve the camera framing and original window light."
+        "width": 1024,
+        "height": 1024,
+        "alt": "A shop comes to life — Flower display",
+        "prompt": "Turn this empty storefront into a beautiful flower shop. Keep the sage-green facade, window, glass door, ivory awning, indoor shelves and camera view. Add a rich display of fresh flowers in galvanized buckets, a small wooden crate and a tall pale-blue vase below the left window. Include white cosmos, pink peonies, yellow tulips and delicate flowering branches. Keep the doorway clear and the flower stems and containers physically coherent. Beautiful realistic morning light, natural contact shadows, no writing yet."
+      },
+      {
+        "asset": "a-shop-comes-to-life-frame-02",
+        "label": "Add lettering",
+        "role": "output",
+        "width": 1024,
+        "height": 1024,
+        "alt": "A shop comes to life — Add lettering",
+        "prompt": "Keep this flower shop and its flower display. Add the single word \"PETAL\" in elegant, perfectly readable dark-green capital serif letters to the center of the ivory fabric awning. The letters are printed on the awning fabric and follow its flat front face. Preserve the flowers, buckets, crate, vase, sage facade, window and glass door. No other text or new objects."
+      },
+      {
+        "asset": "a-shop-comes-to-life",
+        "label": "Blue hour",
+        "role": "output",
+        "width": 1024,
+        "height": 1024,
+        "alt": "A shop comes to life — Blue hour",
+        "prompt": "Transform this same finished flower shop into an elegant blue-hour evening photograph. Keep the PETAL lettering on the ivory awning, the green storefront and the complete flower display in their established positions. Warm light now glows from inside through the shop window and glass door; the surrounding brick wall and pavement have cool evening illumination. Slightly wet paving reflects the window light naturally. No people, new signs or changes to the storefront design."
       }
     ],
     "featured": true
@@ -77,6 +95,78 @@
         "height": 768,
         "alt": "From paint to print — Result",
         "prompt": "Translate this exact composition into an exquisite two-color hand-carved linocut print on textured ivory paper. Use only deep indigo and warm burnt orange ink. Preserve the single fox walking right across the bridge, its four legs and tail, the white heron with two legs at the right, the left reeds and high round sun. Replace painted gradients with deliberate carved hatching, bold cut shapes and subtle ink texture. Keep the original spatial arrangement and all animals."
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "brass-globe-render",
+    "title": "From sketch to brass",
+    "task": "Sketch to image",
+    "width": 1024,
+    "height": 1024,
+    "alt": "An intricate globe sketch becomes a brass instrument with blue enamel and gold engraved land shapes.",
+    "description": "A detailed material rendering preserving the drawing’s rings, supports, finial and adjustment knobs.",
+    "frames": [
+      {
+        "asset": "brass-globe-render-reference-01",
+        "label": "Sketch",
+        "role": "input",
+        "width": 1024,
+        "height": 1024,
+        "alt": "From sketch to brass — Sketch",
+        "prompt": "An elegant ink sketch of a small desktop brass armillary sphere on a tripod wooden stand. Three intersecting circular rings surround one central globe, with one tilted axis passing through its center. The three wooden legs meet a round base under the sphere, and a small adjustment knob sits at the right. Clearly visible ring geometry and intersections, fine precise linework on white paper, one three-quarter view, no letters, numerals or extra objects."
+      },
+      {
+        "asset": "brass-globe-render",
+        "label": "Rendered object",
+        "role": "output",
+        "width": 1024,
+        "height": 1024,
+        "alt": "From sketch to brass — Rendered object",
+        "prompt": "Render this intricate instrument sketch as a finely crafted museum object. Keep its ring arrangement, central globe, side knob, top finial and complete supporting structure from the same viewpoint. Make all rings, rods and supports richly patinated brass. Make the globe deep-blue enamel with fine gold engraved land shapes following the drawing. Beautiful realistic metal, polished enamel and subtle contact shadows, pale warm-gray background, controlled soft side light. Remove sketch construction marks; do not turn pencil guides into physical wires or add components. No lettering."
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": "four-materials-four-lights",
+    "title": "Four materials, four lights",
+    "task": "Multi-panel generation",
+    "width": 1152,
+    "height": 1152,
+    "alt": "A four-panel design board shows ceramic, glass, paper and metal lamps with clear labels.",
+    "description": "Four lighting concepts generated together, with distinct materials, coherent construction and coordinated presentation.",
+    "prompt": "一张极其精美的四格工业设计板，两行两列，四个等大的画面，细白线分隔。每格展示一款造型独特、结构合理的桌面灯具，四款分别体现不同材料的特点。左上是象牙白陶瓷灯罩与赤陶底座，标签“CLAY”；右上是烟蓝色透明玻璃灯罩与黄铜灯杆，标签“GLASS”；左下是精细折叠白纸灯罩与浅木底座，标签“PAPER”；右下是精密拉丝铝灯罩与深色底座，标签“METAL”。四款灯都有合理连接的灯罩、支撑与底座，材料差异鲜明，专业高端产品摄影，统一浅灰背景和侧光，所有四个英文标签准确，没有其他字或多余画面。",
+    "preserveLayout": true,
+    "featured": true
+  },
+  {
+    "id": "costume-in-motion",
+    "title": "A costume in motion",
+    "task": "Image editing",
+    "width": 768,
+    "height": 1152,
+    "alt": "A woman in an ivory blouse and a red pleated skirt changes from a standing portrait to a dance pose.",
+    "description": "An identity-preserving pose edit with natural hands, leg movement and flowing fabric.",
+    "frames": [
+      {
+        "asset": "costume-in-motion-frame-01",
+        "label": "Input",
+        "role": "input",
+        "width": 768,
+        "height": 1152,
+        "alt": "A costume in motion — Input",
+        "prompt": "A full-length fine-art fashion photograph of an adult East Asian woman standing naturally in a quiet dark rehearsal studio. She wears an ivory long-sleeved blouse with a bow at the neck, a structured ruby-red pleated skirt ending below the knee, dark ankle boots and two small round gold earrings. Her black hair is tied in a low bun. Her hands rest naturally at her sides. A long horizontal wooden ballet barre and a single tall window are visible behind her. Realistic face and anatomy, beautiful fabric detail, restrained theatrical light, no text."
+      },
+      {
+        "asset": "costume-in-motion",
+        "label": "Result",
+        "role": "output",
+        "width": 768,
+        "height": 1152,
+        "alt": "A costume in motion — Result",
+        "prompt": "Keep the exact same adult woman, face, hairstyle, gold earrings, ivory bow blouse, ruby pleated skirt, boots and rehearsal room. Change her pose into a graceful mid-turn dance movement: one foot remains on the floor, the other bends slightly behind, both arms open outward, and the same pleated skirt flares naturally with the rotation. Show anatomically correct hands and legs, convincing fabric motion and grounded shadow. Preserve the camera framing and original window light."
       }
     ],
     "featured": true
@@ -125,96 +215,6 @@
         "height": 1152,
         "alt": "Three references, one look — Composition",
         "prompt": "Create a refined full-length studio portrait combining the three reference images. Keep the recognizable woman from image 1, including her face, short curls, freckles, skin tone and hoop earrings. Dress her in the burnt-orange jacket from image 2, preserving its navy collar and shoulder panels, two square zipped chest pockets, cream horizontal band and elastic cuffs. Add the navy satchel from image 3 with its broad cream crossbody strap, single large flap, two brass buckles and orange side pocket. The bag hangs naturally at one hip with a coherent continuous strap attached to the bag. Preserve her dark trousers and white sneakers. A relaxed comfortable standing pose in a cool-gray studio, natural hands and anatomy, beautiful clothing fit and realistic folds, no text."
-      }
-    ],
-    "featured": true
-  },
-  {
-    "id": "brass-globe-render",
-    "title": "From sketch to brass",
-    "task": "Sketch to image",
-    "width": 1024,
-    "height": 1024,
-    "alt": "An intricate globe sketch becomes a brass instrument with blue enamel and gold engraved land shapes.",
-    "description": "A detailed material rendering preserving the drawing’s rings, supports, finial and adjustment knobs.",
-    "frames": [
-      {
-        "asset": "brass-globe-render-reference-01",
-        "label": "Sketch",
-        "role": "input",
-        "width": 1024,
-        "height": 1024,
-        "alt": "From sketch to brass — Sketch",
-        "prompt": "An elegant ink sketch of a small desktop brass armillary sphere on a tripod wooden stand. Three intersecting circular rings surround one central globe, with one tilted axis passing through its center. The three wooden legs meet a round base under the sphere, and a small adjustment knob sits at the right. Clearly visible ring geometry and intersections, fine precise linework on white paper, one three-quarter view, no letters, numerals or extra objects."
-      },
-      {
-        "asset": "brass-globe-render",
-        "label": "Rendered object",
-        "role": "output",
-        "width": 1024,
-        "height": 1024,
-        "alt": "From sketch to brass — Rendered object",
-        "prompt": "Render this intricate instrument sketch as a finely crafted museum object. Keep its ring arrangement, central globe, side knob, top finial and complete supporting structure from the same viewpoint. Make all rings, rods and supports richly patinated brass. Make the globe deep-blue enamel with fine gold engraved land shapes following the drawing. Beautiful realistic metal, polished enamel and subtle contact shadows, pale warm-gray background, controlled soft side light. Remove sketch construction marks; do not turn pencil guides into physical wires or add components. No lettering."
-      }
-    ],
-    "featured": true
-  },
-  {
-    "id": "four-materials-four-lights",
-    "title": "Four materials, four lights",
-    "task": "Multi-panel generation",
-    "width": 1152,
-    "height": 1152,
-    "alt": "A four-panel design board shows ceramic, glass, paper and metal lamps with clear labels.",
-    "description": "Four lighting concepts generated together, with distinct materials, coherent construction and coordinated presentation.",
-    "prompt": "一张极其精美的四格工业设计板，两行两列，四个等大的画面，细白线分隔。每格展示一款造型独特、结构合理的桌面灯具，四款分别体现不同材料的特点。左上是象牙白陶瓷灯罩与赤陶底座，标签“CLAY”；右上是烟蓝色透明玻璃灯罩与黄铜灯杆，标签“GLASS”；左下是精细折叠白纸灯罩与浅木底座，标签“PAPER”；右下是精密拉丝铝灯罩与深色底座，标签“METAL”。四款灯都有合理连接的灯罩、支撑与底座，材料差异鲜明，专业高端产品摄影，统一浅灰背景和侧光，所有四个英文标签准确，没有其他字或多余画面。",
-    "preserveLayout": true,
-    "featured": true
-  },
-  {
-    "id": "a-shop-comes-to-life",
-    "title": "A shop comes to life",
-    "task": "Multi-turn editing",
-    "width": 1024,
-    "height": 1024,
-    "alt": "An empty corner storefront becomes a flower shop, gains PETAL lettering and changes to blue-hour light.",
-    "description": "Three successive edits add a flower display, awning lettering and evening illumination.",
-    "frames": [
-      {
-        "asset": "a-shop-comes-to-life-reference-01",
-        "label": "Empty storefront",
-        "role": "input",
-        "width": 1024,
-        "height": 1024,
-        "alt": "A shop comes to life — Empty storefront",
-        "prompt": "A beautifully resolved straight-on architectural photograph of a small corner flower shop before opening. A sage-green painted storefront has one broad display window on the left, one narrow glass door on the right, and a plain ivory fabric awning above both. The blank cream signboard above the awning has no text. Through the window are orderly pale wooden shelves and empty ceramic vases. The sidewalk is clean pale stone. Warm cream brick walls, soft morning light, coherent architecture, no people and no lettering."
-      },
-      {
-        "asset": "a-shop-comes-to-life-frame-01",
-        "label": "Flower display",
-        "role": "output",
-        "width": 1024,
-        "height": 1024,
-        "alt": "A shop comes to life — Flower display",
-        "prompt": "Turn this empty storefront into a beautiful flower shop. Keep the sage-green facade, window, glass door, ivory awning, indoor shelves and camera view. Add a rich display of fresh flowers in galvanized buckets, a small wooden crate and a tall pale-blue vase below the left window. Include white cosmos, pink peonies, yellow tulips and delicate flowering branches. Keep the doorway clear and the flower stems and containers physically coherent. Beautiful realistic morning light, natural contact shadows, no writing yet."
-      },
-      {
-        "asset": "a-shop-comes-to-life-frame-02",
-        "label": "Add lettering",
-        "role": "output",
-        "width": 1024,
-        "height": 1024,
-        "alt": "A shop comes to life — Add lettering",
-        "prompt": "Keep this flower shop and its flower display. Add the single word \"PETAL\" in elegant, perfectly readable dark-green capital serif letters to the center of the ivory fabric awning. The letters are printed on the awning fabric and follow its flat front face. Preserve the flowers, buckets, crate, vase, sage facade, window and glass door. No other text or new objects."
-      },
-      {
-        "asset": "a-shop-comes-to-life",
-        "label": "Blue hour",
-        "role": "output",
-        "width": 1024,
-        "height": 1024,
-        "alt": "A shop comes to life — Blue hour",
-        "prompt": "Transform this same finished flower shop into an elegant blue-hour evening photograph. Keep the PETAL lettering on the ivory awning, the green storefront and the complete flower display in their established positions. Warm light now glows from inside through the shop window and glass door; the surrounding brick wall and pavement have cool evening illumination. Slightly wet paving reflects the window light naturally. No people, new signs or changes to the storefront design."
       }
     ],
     "featured": true
