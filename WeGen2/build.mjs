@@ -47,12 +47,13 @@ replaceBlock(
   <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
     <div class="art-scroll-track"><div class="art-scroll-cycle">${scrollCards(false)}</div><div class="art-scroll-cycle" aria-hidden="true">${scrollCards(true)}</div></div>
   </div>
-  <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore all cases</a></div></div>
+  <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
 </section>`
 );
 replaceBlock(
   "GALLERY",
   gallery
+    .filter((item) => item.featured === true)
     .map((item) => {
       const id = escapeHtml(item.id);
       const asset = escapeHtml(item.asset || item.id);
