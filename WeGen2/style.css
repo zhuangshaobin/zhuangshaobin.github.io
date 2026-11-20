@@ -2681,9 +2681,37 @@ body.artwork-open {
   }
 }
 
-/* The opening canvas: a quiet brand above one continuous mosaic of works. */
+/* One continuous canvas, fading into the identity at the top. */
 .brand-hero {
+  --hero-overlap: 214px;
   padding-top: 26px;
+}
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-copy .brand-eyebrow {
+  color: #007642;
+}
+.hero-copy .hero-topline > span {
+  color: #496654;
+}
+.hero-copy .brand-line span {
+  color: #3b5b49;
+}
+.hero-copy .hero-description {
+  color: #365443;
+}
+.hero-copy a,
+.hero-copy .resource-pill {
+  pointer-events: auto;
+}
+.hero-copy .hero-resources .resource-pill {
+  background: #fafcf8f2;
+}
+.hero-copy .hero-resources a:hover {
+  background: #e4efdf;
 }
 .hero-topline {
   padding-bottom: 20px;
@@ -2750,6 +2778,7 @@ body.artwork-open {
   width: 100vw;
   left: 50%;
   margin-left: -50vw;
+  margin-top: calc(-1 * var(--hero-overlap));
   isolation: isolate;
   overflow: hidden;
 }
@@ -2762,10 +2791,10 @@ body.artwork-open {
 }
 .art-scroll-viewport {
   position: relative;
-  height: calc(var(--scroll-height) + 30px);
+  height: calc(var(--hero-overlap) + var(--scroll-height) + 30px);
   overflow-x: auto;
   overflow-y: hidden;
-  padding-block: 15px;
+  padding-block: 0 15px;
   touch-action: pan-y;
   scrollbar-width: none;
   cursor: grab;
@@ -2783,7 +2812,7 @@ body.artwork-open {
   display: flex;
   gap: var(--scroll-gap);
   width: max-content;
-  height: var(--scroll-height);
+  height: calc(var(--hero-overlap) + var(--scroll-height) + 15px);
 }
 .art-scroll-track {
   transform: translate3d(0, 0, 0);
@@ -2793,12 +2822,61 @@ body.artwork-open {
   will-change: transform;
 }
 .art-scroll-group {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--scroll-gap);
+  width: calc(var(--feature-height) * var(--feature-ratio, 0.667) + var(--tile-height) * 1.88 + var(--scroll-gap) * 2);
+}
+.art-scroll-canopy {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: var(--scroll-gap);
+  height: calc(var(--hero-overlap) + 15px - var(--scroll-gap));
+  flex: none;
+  pointer-events: none;
+}
+.art-scroll-canopy img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 4px;
+  user-select: none;
+}
+.art-scroll-canopy img:first-child {
+  grid-row: span 2;
+}
+.art-scroll-group.is-reversed .art-scroll-canopy img:first-child {
+  grid-column: 2;
+}
+.art-scroll-group.is-reversed .art-scroll-canopy img:not(:first-child) {
+  grid-column: 1;
+}
+.art-scroll-group.is-reversed .art-scroll-canopy img:nth-child(2) {
+  grid-row: 1;
+}
+.art-scroll-veil {
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(var(--hero-overlap) + 70px);
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 21% 37%, #fafcf8bf 0%, #fafcf870 20%, transparent 45%),
+    radial-gradient(ellipse at 72% 40%, #fafcf8b3 0%, transparent 40%),
+    linear-gradient(180deg, #fafcf8 0%, #fafcf8c2 22%, #fafcf8d4 62%, #fafcf880 78%, #fafcf800 100%);
+}
+.art-scroll-mosaic {
   display: grid;
   flex: none;
   grid-template-columns: calc(var(--feature-height) * var(--feature-ratio, 0.667)) repeat(2, calc(var(--tile-height) * 0.94));
   grid-template-rows: repeat(3, 1fr);
   gap: var(--scroll-gap);
-  height: 100%;
+  height: var(--scroll-height);
 }
 .art-scroll-card {
   display: block;
@@ -2842,7 +2920,7 @@ body.artwork-open {
   grid-column: 3;
   grid-row: 3;
 }
-.art-scroll-group.is-reversed {
+.art-scroll-group.is-reversed .art-scroll-mosaic {
   grid-template-columns: repeat(2, calc(var(--tile-height) * 0.94)) calc(var(--feature-height) * var(--feature-ratio, 0.667));
 }
 .art-scroll-group.is-reversed .tile-0 {
@@ -3036,6 +3114,7 @@ body.artwork-open {
 }
 @media (max-width: 760px) {
   .brand-hero {
+    --hero-overlap: 290px;
     padding-top: 20px;
   }
   .hero-topline {
@@ -3074,8 +3153,8 @@ body.artwork-open {
     --scroll-gap: 4px;
   }
   .art-scroll-viewport {
-    height: calc(var(--scroll-height) + 18px);
-    padding-block: 9px;
+    height: calc(var(--hero-overlap) + var(--scroll-height) + 18px);
+    padding-block: 0 9px;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
   }
@@ -3128,5 +3207,21 @@ body.artwork-open {
   }
   .hero-introduction .hero-statement {
     gap: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .art-scroll-track,
+  .art-scroll-cycle {
+    height: calc(var(--hero-overlap) + var(--scroll-height) + 9px);
+  }
+  .art-scroll-canopy {
+    height: calc(var(--hero-overlap) + 9px - var(--scroll-gap));
+  }
+  .art-scroll-veil {
+    height: calc(var(--hero-overlap) + 55px);
+    background:
+      radial-gradient(ellipse at 46% 33%, #fafcf8bf 0%, transparent 62%),
+      linear-gradient(180deg, #fafcf8, #fafcf8bf 29%, #fafcf8eb 75%, #fafcf800 100%);
   }
 }

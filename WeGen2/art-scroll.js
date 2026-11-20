@@ -3,6 +3,11 @@
   const root = document.querySelector(".art-scroll");
   if (!root) return;
   const viewport = root.querySelector(".art-scroll-viewport");
+  const hero = root.closest(".brand-hero");
+  const copy = hero.querySelector(".hero-copy");
+  const fitCopy = () => hero.style.setProperty("--hero-overlap", `${copy.getBoundingClientRect().height}px`);
+  fitCopy();
+  new ResizeObserver(fitCopy).observe(copy);
   const track = root.querySelector(".art-scroll-track");
   const cycle = track.firstElementChild;
   const toggle = root.querySelector("[data-scroll-toggle]");

@@ -1,56 +1,40 @@
 [
   [
     "the-night-train-letter",
-    "rehearsal-in-red",
-    "woven-reef",
-    "marquetry-bestiary",
+    "the-coral-desert",
+    "the-potter-at-dawn",
+    "a-tide-of-ink",
     "cherry-blossom-bus",
     "four-materials-four-lights",
-    "the-lacquered-dragon"
-  ],
-  [
-    "costume-in-motion",
-    "the-last-tram-home",
-    "a-fold-for-spring",
-    "sand-and-silver",
-    "a-summer-between-pages",
-    "ceramic-moonrise",
-    "the-porcelain-tiger"
-  ],
-  [
-    "paper-portrait-study",
-    "the-sunlit-souk",
-    "brass-globe-render",
-    "the-tin-toy-regatta",
-    "a-shop-comes-to-life",
-    "a-tide-of-ink",
-    "porcelain-light"
-  ],
-  [
-    "an-orchard-in-glass",
-    "the-dyers-courtyard",
-    "the-watchmakers-desk",
-    "woven-memory",
-    "screenprint-to-woodblock",
-    "glass-sunflower-study",
-    "courier-wardrobe-composition"
+    "glass-sunflower-study"
   ],
   [
     "the-rain-dancer",
-    "the-coral-desert",
-    "the-potter-at-dawn",
-    "mechanical-herbarium",
+    "the-last-tram-home",
+    "ceramic-moonrise",
+    "marquetry-bestiary",
     "the-latticed-courtyard",
-    "room-under-an-umbrella",
-    "accordion-book"
+    "brass-globe-render",
+    "a-summer-between-pages"
   ],
+  ["paper-portrait-study", "rehearsal-in-red", "woven-reef", "sand-and-silver", "the-sunlit-souk", "the-tin-toy-regatta", "a-shop-comes-to-life"],
   [
-    "the-lacemaker",
-    "the-copper-kettle-train",
+    "an-orchard-in-glass",
+    "the-dyers-courtyard",
+    "a-fold-for-spring",
+    "the-porcelain-tiger",
+    "screenprint-to-woodblock",
+    "courier-wardrobe-composition",
+    "the-watchmakers-desk"
+  ],
+  ["the-lacemaker", "the-copper-kettle-train", "accordion-book", "the-lacquered-dragon", "woven-memory", "porcelain-light", "mechanical-herbarium"],
+  [
+    "costume-in-motion",
+    "the-red-lantern-workshop",
     "the-bespoke-bicycle",
-    "glass-harmonics",
+    "room-under-an-umbrella",
     "the-amethyst-grotto",
     "a-dress-made-of-wind",
-    "the-red-lantern-workshop"
+    "glass-harmonics"
   ]
 ]
