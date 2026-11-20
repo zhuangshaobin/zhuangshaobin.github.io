@@ -14,6 +14,36 @@ function replaceBlock(name, content) {
 }
 replaceBlock("STYLE", `<style>\n${read("style.css")}\n</style>`);
 const gallery = JSON.parse(read("gallery.json"));
+const scroll = JSON.parse(read("scroll.json"));
+const byId = new Map(gallery.map((item) => [item.id, item]));
+const scrollCards = (clone) =>
+  scroll
+    .map(
+      (group, index) =>
+        `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}">${group
+          .map((id, position) => {
+            const item = byId.get(id);
+            if (!item) throw new Error(`Missing scroll case: ${id}`);
+            const asset = escapeHtml(item.asset || item.id);
+            const eager = !clone && index === 0 && position === 0;
+            const contain = ["Text & layout", "Multi-panel generation"].includes(item.task);
+            return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
+  <img ${eager ? "src" : "data-src"}="assets/scroll/${asset}-640.webp" width="${item.width}" height="${item.height}" decoding="async" ${eager ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
+  <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
+          })
+          .join("")}</div>`
+    )
+    .join("");
+replaceBlock(
+  "SCROLL",
+  `<section class="art-scroll" aria-label="A moving canvas of WeGen2 creations">
+  <div class="art-scroll-light" aria-hidden="true"></div>
+  <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
+    <div class="art-scroll-track"><div class="art-scroll-cycle">${scrollCards(false)}</div><div class="art-scroll-cycle" aria-hidden="true">${scrollCards(true)}</div></div>
+  </div>
+  <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore all cases</a></div></div>
+</section>`
+);
 replaceBlock(
   "GALLERY",
   gallery
@@ -57,6 +87,9 @@ replaceBlock(
     )
     .join("\n")
 );
-replaceBlock("APP", `<script>\n${read("app.js") + "\n" + read("film-player.js") + "\n" + read("gallery.js")}\n</script>`);
+replaceBlock(
+  "APP",
+  `<script>\n${read("app.js") + "\n" + read("film-player.js") + "\n" + read("gallery.js") + "\n" + read("art-scroll.js")}\n</script>`
+);
 writeFileSync(join(root, "index.html"), html);
 console.log("Prepared standalone WeGen2 HTML");
