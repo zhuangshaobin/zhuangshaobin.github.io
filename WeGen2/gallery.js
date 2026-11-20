@@ -1,6 +1,7 @@
 // Original images are loaded only when a visitor opens a case or selects a frame.
 (() => {
   const works = JSON.parse(document.querySelector("#gallery-data").textContent);
+  const highlights = works.filter((work) => work.featured === true);
   const section = document.querySelector("#gallery");
   const modal = document.querySelector(".gallery-dialog");
   const image = modal.querySelector(".artwork-image");
@@ -8,8 +9,8 @@
   const frameList = modal.querySelector(".artwork-frames");
   const stage = modal.querySelector(".artwork-stage");
   const prompt = modal.querySelector(".artwork-prompt");
-  let selection = works,
-    gallerySelection = works,
+  let selection = highlights,
+    gallerySelection = highlights,
     current = 0,
     frameIndex = 0,
     frames = [],
@@ -124,7 +125,7 @@
   filters.forEach((button) =>
     button.addEventListener("click", () => {
       const task = button.dataset.galleryFilter;
-      selection = works.filter((work) => task === "All" || (work.task || "Text to image") === task);
+      selection = highlights.filter((work) => task === "All" || (work.task || "Text to image") === task);
       gallerySelection = selection;
       filters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
       cards.forEach((card) => {
