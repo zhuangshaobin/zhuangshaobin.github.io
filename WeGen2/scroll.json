@@ -1,10 +1,18 @@
 [
-  ["linen-and-daisies", "seaside-picnic", "apricot-studio", "coastal-watercolor"],
-  ["spring-studio-fair", "cloud-observatory", "kinetic-tea", "garden-comic"],
-  ["handwritten-invitation", "spring-bicycle", "clockwork-conservatory", "paper-cosmos"],
-  ["book-of-tides", "glasshouse-morning", "ceramic-evolution", "four-seasons"],
-  ["mountain-letter", "crystal-tram", "woodcut-mountains", "paper-opera"],
-  ["jade-orchid-couture", "silk-road-station", "porcelain-tide", "cabin-sketch"],
-  ["night-bookshop", "gilded-library", "red-dancer", "rain-painting"],
-  ["silk-stage", "atelier-study", "orchid-portrait", "atelier-title"]
+  ["linen-and-daisies", "seaside-picnic", "glass-metropolis", "apricot-studio", "coastal-watercolor", "garden-comic", "kinetic-tea"],
+  ["spring-studio-fair", "paper-city-night", "ceramic-evolution", "robot-cafe", "spring-bicycle", "four-seasons", "copper-garden"],
+  [
+    "handwritten-invitation",
+    "architectural-render",
+    "glasshouse-morning",
+    "chair-sketch",
+    "night-market-painting",
+    "botanical-fragrance",
+    "porcelain-origami"
+  ],
+  ["lantern-wood", "cake-story", "clockwork-conservatory", "porcelain-tide", "silk-road-station", "night-bookshop", "paper-cosmos"],
+  ["raincoat-editorial", "winter-terrarium", "cabin-sketch", "teahouse-winter", "crystal-tram", "atelier-title", "orchid-portrait"],
+  ["mountain-letter", "jade-opera", "saffron-kitchen", "sculpture-exhibition", "gilded-library", "rain-painting", "aurora-museum"],
+  ["chat-thread", "ink-landscape", "three-reference-editorial", "constellation-gown", "night-train", "aurora-citadel", "woodcut-mountains"],
+  ["couture-tryon", "atelier-study", "jade-orchid-couture", "silk-stage", "cloud-observatory", "red-dancer", "paper-opera"]
 ]

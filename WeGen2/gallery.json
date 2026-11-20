@@ -10,6 +10,15 @@
     "prompt": "A refined airy fashion portrait of an adult East Asian woman standing beside a sunlit open French window in a peaceful seaside cottage. She wears a beautifully textured ivory linen blouse with loose sleeves and a pale sky-blue flowing skirt. Her hair is loosely tied, natural luminous skin with visible fine texture, a relaxed genuine expression. She gently holds one small bouquet of white daisies at waist height with both natural anatomically correct hands. Gauzy white curtains move slightly in the breeze; soft foliage shadows cross a cream wall, with a glimpse of blue sea and a small bowl of apricots in the background. Photograph from knees up. Gentle morning daylight, clean white highlights that retain detail, pastel blue and butter yellow, soft elegant magazine photography, intricate linen fibers and flower petals, no text or logos."
   },
   {
+    "id": "lantern-wood",
+    "title": "The Lantern Wood",
+    "task": "Text & layout",
+    "alt": "An intricate illustrated film poster with a treehouse, forest creatures and clear English credits.",
+    "description": "A richly illustrated film poster combining a detailed woodland scene with titles, a tagline and credits.",
+    "width": 832,
+    "height": 1216
+  },
+  {
     "id": "spring-studio-fair",
     "title": "春日创作集",
     "task": "Text & layout",
@@ -18,6 +27,33 @@
     "alt": "A Chinese spring creative-market poster with illustrated stalls, activity descriptions and an event schedule.",
     "description": "A spring event poster combining Chinese typography, miniature garden illustrations and a detailed program.",
     "prompt": "一张设计精美的中文生活方式市集海报，竖版奶油白底。精致的等距微缩花园由淡蓝展台、粉色花树、黄色遮阳伞、陶器、书本、花束和咖啡组成。大标题准确写“春日创作集”，下面写“把灵感带到阳光下”和“四月十二日·湖畔花园”。中间四个图文模块分别写：“手作与器物”“陶器·纸艺·生活小物”；“书籍与插画”“独立出版·原创作品”；“花草与香气”“时令鲜花·植物手作”；“咖啡与甜点”“现磨咖啡·新鲜面包”。下方三行日程：“十点开场”“十四点分享会”“十七点音乐时光”。最底部写“免费入场·欢迎带上朋友”。所有文字完整清晰，字号较大，文字与精美微缩物件相互呼应，不要添加其他文字。清新、优雅、丰富的专业平面设计。"
+  },
+  {
+    "id": "paper-city-night",
+    "title": "A paper world after dark",
+    "task": "Image editing",
+    "alt": "A handcrafted paper mountain town and red train illuminated at night.",
+    "description": "A daylight paper city reimagined as a moonlit scene with illuminated windows.",
+    "width": 1536,
+    "height": 768,
+    "frames": [
+      {
+        "asset": "paper-city-night-frame-01",
+        "label": "Input",
+        "role": "input",
+        "width": 1536,
+        "height": 768,
+        "alt": "A paper world after dark — Input"
+      },
+      {
+        "asset": "paper-city-night",
+        "label": "Night edit",
+        "role": "output",
+        "width": 1536,
+        "height": 768,
+        "alt": "A paper world after dark — Night edit"
+      }
+    ]
   },
   {
     "id": "seaside-picnic",
@@ -30,6 +66,33 @@
     "prompt": "A beautiful sunlit lifestyle photograph of a quiet Mediterranean seaside picnic, airy and fresh, not dark or dramatic. A pale lemon-yellow linen cloth lies on smooth white limestone beside clear shallow turquoise water. On the cloth: a small ceramic plate of ripe apricots, a glass carafe of water, two softly folded white napkins, a straw sunhat and a bunch of white cosmos flowers in a tiny blue vase. Every object has coherent geometry and realistic contact shadows. A flowering bougainvillea branch frames the upper left; distant cream houses and a small moored blue boat form a softly detailed background. Sparkling water, delicate leaf shadows, natural skin-free still life, finely resolved woven fibers and translucent fruit. Pastel yellow, chalk white, clear sky blue and soft coral. Premium editorial photography with natural high-key exposure and retained highlight detail. No people, no words, no logos."
   },
   {
+    "id": "winter-terrarium",
+    "title": "Winter inside a miniature world",
+    "task": "Image editing",
+    "alt": "A snowy miniature city inside a glass sphere in a museum atrium.",
+    "description": "A miniature mountain city changes season while its glass display and surrounding atrium remain recognizable.",
+    "width": 1536,
+    "height": 768,
+    "frames": [
+      {
+        "asset": "winter-terrarium-frame-01",
+        "label": "Input",
+        "role": "input",
+        "width": 1536,
+        "height": 768,
+        "alt": "Winter inside a miniature world — Input"
+      },
+      {
+        "asset": "winter-terrarium",
+        "label": "Winter edit",
+        "role": "output",
+        "width": 1536,
+        "height": 768,
+        "alt": "Winter inside a miniature world — Winter edit"
+      }
+    ]
+  },
+  {
     "id": "coastal-watercolor",
     "title": "Postcards from a quiet coast",
     "task": "Text to image",
@@ -40,6 +103,15 @@
     "prompt": "A sophisticated hand-painted watercolor and colored-pencil illustration of a tiny sunlit coastal town in spring. White cottages with powder-blue shutters climb a gentle hillside; winding pale stone stairs connect them, flowering pink bougainvillea grows over walls, little cafes have striped butter-yellow awnings, a narrow harbor contains three small blue fishing boats, and terracotta pots with daisies populate the foreground. A few clearly separate small human figures stroll naturally. Intricate but coherent architectural details, delicate pencil contours, visible paper grain and translucent watercolor washes. Fresh ivory, sky blue, dusty rose, soft sage and apricot. Warm peaceful storybook atmosphere, luminous restrained color, visually rich and meticulously composed, no dark fantasy elements and no text anywhere."
   },
   {
+    "id": "night-market-painting",
+    "title": "Lanterns along the river",
+    "task": "Text to image",
+    "alt": "A richly painted riverside night market with crowds, stalls, lanterns and traditional buildings.",
+    "description": "An expansive oil-painting scene filled with people, warm lights and layered architectural detail.",
+    "width": 1152,
+    "height": 768
+  },
+  {
     "id": "handwritten-invitation",
     "title": "见字如面 · A handwritten invitation",
     "task": "Text & layout",
@@ -47,6 +119,15 @@
     "height": 1216,
     "alt": "A long handwritten Chinese invitation on ivory paper with a red envelope and golden ginkgo leaves.",
     "description": "A handwritten Chinese letter, with full sentences integrated into a warm photographic still life."
+  },
+  {
+    "id": "raincoat-editorial",
+    "title": "A little color in the rain",
+    "task": "Text to image",
+    "alt": "A woman with an orange umbrella on a rainy street with flowers and a tram.",
+    "description": "A fashion editorial with wet-street reflections, vivid color and natural photographic detail.",
+    "width": 768,
+    "height": 1152
   },
   {
     "id": "spring-bicycle",
@@ -59,6 +140,97 @@
     "prompt": "An exquisite fresh spring lifestyle photograph of a pale sky-blue vintage bicycle leaning against a cream stucco wall under a flowering cherry tree. The wicker front basket holds a bouquet of white daisies and pink ranunculus. Exactly two coherent bicycle wheels, a single frame, one saddle and one pair of handlebars, viewed from the side with natural perspective. Petals lie on the quiet stone lane, a pale green wooden window is partly open, a tiny ceramic pot and climbing jasmine add carefully arranged details. Beyond the wall is a glimpse of the sparkling sea. Soft morning sunlight, luminous pastel colors, beautifully tactile woven wicker and chalky plaster, breezy peaceful atmosphere, light editorial color grading, realistic photography. No text, no people, no dark cinematic treatment."
   },
   {
+    "id": "couture-tryon",
+    "title": "Many pieces, one outfit",
+    "task": "Reference composition",
+    "alt": "A woman wearing a coordinated outfit assembled from garment and accessory references.",
+    "description": "A virtual try-on case combining a person reference with eight garment and accessory images.",
+    "width": 1024,
+    "height": 1536,
+    "frames": [
+      {
+        "asset": "couture-tryon-frame-01",
+        "label": "Person",
+        "role": "input",
+        "width": 832,
+        "height": 1248,
+        "alt": "Many pieces, one outfit — Person"
+      },
+      {
+        "asset": "couture-tryon-frame-02",
+        "label": "Item 1",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 1"
+      },
+      {
+        "asset": "couture-tryon-frame-03",
+        "label": "Item 2",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 2"
+      },
+      {
+        "asset": "couture-tryon-frame-04",
+        "label": "Item 3",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 3"
+      },
+      {
+        "asset": "couture-tryon-frame-05",
+        "label": "Item 4",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 4"
+      },
+      {
+        "asset": "couture-tryon-frame-06",
+        "label": "Item 5",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 5"
+      },
+      {
+        "asset": "couture-tryon-frame-07",
+        "label": "Item 6",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 6"
+      },
+      {
+        "asset": "couture-tryon-frame-08",
+        "label": "Item 7",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 7"
+      },
+      {
+        "asset": "couture-tryon-frame-09",
+        "label": "Item 8",
+        "role": "input",
+        "width": 800,
+        "height": 600,
+        "alt": "Many pieces, one outfit — Item 8"
+      },
+      {
+        "asset": "couture-tryon",
+        "label": "Result",
+        "role": "output",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Many pieces, one outfit — Result"
+      }
+    ]
+  },
+  {
     "id": "apricot-studio",
     "title": "Sunlight, slowly",
     "task": "Text to image",
@@ -67,6 +239,33 @@
     "alt": "A blue ceramic pitcher, apricots and three white cosmos blossoms in morning light.",
     "description": "A restrained editorial still life with soft colors and carefully resolved materials.",
     "prompt": "An extraordinarily elegant fresh still-life editorial photograph. On a pale warm travertine table, arrange a sculptural matte sky-blue ceramic pitcher, one shallow cream bowl containing five ripe apricots, a folded butter-yellow linen napkin and a clear cylindrical glass holding three tiny white cosmos blossoms. A delicate branch of green leaves enters from above, casting soft overlapping shadows. Background is a softly lit warm ivory plaster wall with a narrow band of blue sky. Exact believable object geometry, fine ceramic glaze, tiny skin textures on fruit, realistic glass and water refraction, subtle natural irregularities. Art-directed asymmetrical composition with generous breathing room, luminous natural morning light, pastel colors, sophisticated contemporary lifestyle magazine photography. No lettering or logos."
+  },
+  {
+    "id": "architectural-render",
+    "title": "From a sketch to a living space",
+    "task": "Sketch to image",
+    "alt": "A photorealistic multi-storey home with terraces, wood, glazing and lush planting.",
+    "description": "A black-and-white architectural concept becomes a detailed rendering with materials, glazing and planted terraces.",
+    "width": 1280,
+    "height": 960,
+    "frames": [
+      {
+        "asset": "architectural-render-frame-01",
+        "label": "Sketch",
+        "role": "input",
+        "width": 900,
+        "height": 524,
+        "alt": "From a sketch to a living space — Sketch"
+      },
+      {
+        "asset": "architectural-render",
+        "label": "Rendering",
+        "role": "output",
+        "width": 1280,
+        "height": 960,
+        "alt": "From a sketch to a living space — Rendering"
+      }
+    ]
   },
   {
     "id": "glasshouse-morning",
@@ -79,6 +278,89 @@
     "prompt": "A bright sophisticated architectural photograph of a small glasshouse reading room in a spring garden. Slender white-painted metal window frames, an ivory curved reading chair, a natural oak side table with an open blank book, pale blue linen cushions, a large ceramic pot of delicate green leaves, and tiny white flowers placed sparingly throughout the room. The glass roof shows a clear powder-blue sky; open double doors reveal a lush but softly focused flower garden and pale gravel path. Beautiful geometric window shadows fall across a warm limestone floor. Fine wood grain, woven linen, clear glass joints, realistic furniture geometry, calm balanced composition and fresh natural daylight. Airy elegant lifestyle editorial, every highlight retains texture, no dramatic green darkness and no words."
   },
   {
+    "id": "cake-story",
+    "title": "A birthday story, eight panels",
+    "task": "Multi-panel generation",
+    "alt": "An eight-panel illustrated baking story arranged in four columns and two rows.",
+    "description": "Eight separately generated comic panels presented in sequence and assembled into a complete page. Explore each panel at full size.",
+    "width": 3072,
+    "height": 1536,
+    "frames": [
+      {
+        "asset": "cake-story-frame-01",
+        "label": "Panel 1",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 1"
+      },
+      {
+        "asset": "cake-story-frame-02",
+        "label": "Panel 2",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 2"
+      },
+      {
+        "asset": "cake-story-frame-03",
+        "label": "Panel 3",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 3"
+      },
+      {
+        "asset": "cake-story-frame-04",
+        "label": "Panel 4",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 4"
+      },
+      {
+        "asset": "cake-story-frame-05",
+        "label": "Panel 5",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 5"
+      },
+      {
+        "asset": "cake-story-frame-06",
+        "label": "Panel 6",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 6"
+      },
+      {
+        "asset": "cake-story-frame-07",
+        "label": "Panel 7",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 7"
+      },
+      {
+        "asset": "cake-story-frame-08",
+        "label": "Panel 8",
+        "role": "output",
+        "width": 768,
+        "height": 768,
+        "alt": "A birthday story, eight panels — Panel 8"
+      },
+      {
+        "asset": "cake-story",
+        "label": "Assembled page",
+        "role": "output",
+        "width": 3072,
+        "height": 1536,
+        "alt": "A birthday story, eight panels — Assembled page"
+      }
+    ]
+  },
+  {
     "id": "jade-orchid-couture",
     "title": "The jade atelier",
     "task": "Text to image",
@@ -87,6 +369,57 @@
     "alt": "An editorial fashion portrait in a sculptural jade-green silk gown.",
     "description": "Orchid-like silk construction, fine embroidery and theatrical architectural light.",
     "prompt": "High-fashion editorial full-length portrait of an adult Chinese woman in a sculptural jade-green silk gown, standing in a monumental dark limestone atrium. The gown is constructed from layered curved silk panels like unfurling orchid petals, with extremely delicate gold embroidery and a long flowing train resting naturally on the floor. Sleek black hair, understated gold earrings, natural luminous skin with visible fine texture. Both arms relaxed and clearly separated, anatomically natural hands. A dramatic oval skylight casts a warm shaft of daylight across her face and the cloth; the rest is cool forest-green shadow. Behind her, tall ribbed bronze screens and a shallow reflecting pool create depth. Luxury fashion campaign, extraordinary couture craftsmanship, elegant face, realistic body proportions, no text."
+  },
+  {
+    "id": "robot-cafe",
+    "title": "A robot makes coffee",
+    "task": "Multi-turn editing",
+    "alt": "A cafe robot using a metal pitcher beside a cup of coffee.",
+    "description": "Five successive generated image states showing a cafe robot preparing a drink.",
+    "width": 1280,
+    "height": 1024,
+    "frames": [
+      {
+        "asset": "robot-cafe-frame-01",
+        "label": "Input",
+        "role": "input",
+        "width": 1280,
+        "height": 1024,
+        "alt": "A robot makes coffee — Input"
+      },
+      {
+        "asset": "robot-cafe-frame-02",
+        "label": "Edit 1",
+        "role": "output",
+        "width": 1280,
+        "height": 1024,
+        "alt": "A robot makes coffee — Edit 1"
+      },
+      {
+        "asset": "robot-cafe-frame-03",
+        "label": "Edit 2",
+        "role": "output",
+        "width": 1280,
+        "height": 1024,
+        "alt": "A robot makes coffee — Edit 2"
+      },
+      {
+        "asset": "robot-cafe-frame-04",
+        "label": "Edit 3",
+        "role": "output",
+        "width": 1280,
+        "height": 1024,
+        "alt": "A robot makes coffee — Edit 3"
+      },
+      {
+        "asset": "robot-cafe",
+        "label": "Edit 4",
+        "role": "output",
+        "width": 1280,
+        "height": 1024,
+        "alt": "A robot makes coffee — Edit 4"
+      }
+    ]
   },
   {
     "id": "cloud-observatory",
@@ -99,6 +432,42 @@
     "prompt": "A cinematic architectural photograph of a monumental circular observatory built into a steep green mountain above a sea of clouds. The architecture combines carved pale limestone, patinated bronze rings, delicately ribbed glass domes and suspended botanical walkways. A central open courtyard contains a large reflecting pool and one precise brass astronomical instrument. Interlocking terraces have coherent stairs and railings; tiny visitors establish scale. Foreground moss-covered rocks and wind-bent pines frame the view, distant layered mountains fade into blue. Warm late-afternoon sunlight cuts across cool cloud shadows. A spectacular but believable built environment with deep spatial layering, extraordinary fine material detail and balanced highlights. Wide editorial architectural photography, no words or logos."
   },
   {
+    "id": "chat-thread",
+    "title": "Rewrite the conversation",
+    "task": "Multi-turn editing",
+    "alt": "A fictional chat edited with a lead-singer pass, revised messages and a singing penguin sticker.",
+    "description": "A fictional chat is edited to add a sticker and then revise its messages, pass and reaction image.",
+    "width": 768,
+    "height": 1280,
+    "preserveLayout": true,
+    "frames": [
+      {
+        "asset": "chat-thread-frame-01",
+        "label": "Input",
+        "role": "input",
+        "width": 768,
+        "height": 1280,
+        "alt": "Rewrite the conversation — Input"
+      },
+      {
+        "asset": "chat-thread-frame-02",
+        "label": "Sticker reply",
+        "role": "output",
+        "width": 768,
+        "height": 1280,
+        "alt": "Rewrite the conversation — Sticker reply"
+      },
+      {
+        "asset": "chat-thread",
+        "label": "Revised conversation",
+        "role": "output",
+        "width": 768,
+        "height": 1280,
+        "alt": "Rewrite the conversation — Revised conversation"
+      }
+    ]
+  },
+  {
     "id": "book-of-tides",
     "title": "The Book of Tides",
     "task": "Text & layout",
@@ -109,6 +478,33 @@
     "prompt": "Design a refined English-language fantasy film poster with rich cinematic detail and perfectly legible typesetting. An immense open antique book becomes a miniature coastal city: luminous harbors, terraced white buildings, bridges, dark green cliffs and tiny ships emerge from the pages. Sea water curves around the book but its binding remains visible. Dramatic sea-green twilight with small golden windows, elaborate engraved paper edges, realistic crafted miniature textures. Upper third: elegant large ivory serif title exactly \"THE BOOK OF TIDES\" across two balanced lines. Below it, smaller line exactly \"Every story finds its shore.\" Bottom two lines exactly \"A FILM BY ELENA VALE\" and \"IN CINEMAS THIS WINTER\". Integrate typography into dark negative space without obscuring the city. Sophisticated cinema-poster hierarchy, crisp letterforms, no extra words or logos."
   },
   {
+    "id": "ink-landscape",
+    "title": "A landscape, another medium",
+    "task": "Image editing",
+    "alt": "A monochrome ink landscape with layered mountains, a stone bridge and waterside buildings.",
+    "description": "A mountain landscape translated into a traditional ink-painting style.",
+    "width": 1248,
+    "height": 832,
+    "frames": [
+      {
+        "asset": "ink-landscape-frame-01",
+        "label": "Input",
+        "role": "input",
+        "width": 1248,
+        "height": 832,
+        "alt": "A landscape, another medium — Input"
+      },
+      {
+        "asset": "ink-landscape",
+        "label": "Ink edit",
+        "role": "output",
+        "width": 1248,
+        "height": 832,
+        "alt": "A landscape, another medium — Ink edit"
+      }
+    ]
+  },
+  {
     "id": "kinetic-tea",
     "title": "A garden inside the mechanism",
     "task": "Text to image",
@@ -117,6 +513,15 @@
     "alt": "A glass teapot containing a miniature bonsai garden and brass mechanisms.",
     "description": "Glass, engraved brass, foliage and tiny architectural details meet in a crafted surreal object.",
     "prompt": "Extraordinary macro product photograph of a transparent glass teapot transformed into an intricate miniature mechanical tea garden. Its glass body contains one small living bonsai, polished brass gears, a tiny stone bridge, copper pipes and a still reflecting pool, all arranged as a meticulously crafted museum automaton. The clear curved spout and single amber handle remain physically coherent. Fine condensation droplets on the glass and subtle reflections; loose tea leaves and a few pale ceramic fragments on a charcoal slate surface. Directional warm studio light reveals brass engraving, leaf veins, clear glass thickness and tiny joinery. A sophisticated surreal luxury object, believable handcrafted materials, dark emerald background, no words."
+  },
+  {
+    "id": "glass-metropolis",
+    "title": "A city inside glass",
+    "task": "Text to image",
+    "alt": "A transparent glass elephant containing an illuminated miniature city and winding roads.",
+    "description": "An intricate glass sculpture combines a recognizable animal silhouette with a miniature urban world.",
+    "width": 1024,
+    "height": 1024
   },
   {
     "id": "silk-stage",
