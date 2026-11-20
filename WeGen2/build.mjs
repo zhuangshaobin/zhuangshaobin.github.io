@@ -37,7 +37,7 @@ const canopy = (index) =>
   `<div class="art-scroll-canopy" aria-hidden="true">${canopyIds[index]
     .map((id) => {
       const item = byId.get(id);
-      return `<img data-src="assets/gallery/${escapeHtml(item.asset || id)}-480.webp" width="${item.width}" height="${item.height}" decoding="async" alt="" draggable="false" />`;
+      return `<img data-src="assets/scroll/${escapeHtml(item.asset || id)}-320.webp" fetchpriority="low" width="${item.width}" height="${item.height}" decoding="async" alt="" draggable="false" />`;
     })
     .join("")}</div>`;
 const scrollCards = (clone) =>
@@ -78,6 +78,7 @@ replaceBlock(
       const id = escapeHtml(item.id);
       const asset = escapeHtml(item.asset || item.id);
       const task = escapeHtml(item.task || "Text to image");
+      const capability = { "Text & layout": "Create", "Multi-turn editing": "Edit", "Reference composition": "Combine" }[item.task];
       const frames = item.frames || [];
       const miniatures =
         frames.length > 1
@@ -90,6 +91,7 @@ replaceBlock(
               .join("")}<span class="gallery-result-label">${escapeHtml(frames.at(-1).label)} above</span></span>`
           : "";
       return `<figure class="gallery-card" data-category="${task}">
+    <p class="gallery-capability">${escapeHtml(capability)}</p>
     <button class="gallery-open" type="button" data-artwork="${id}" aria-label="Explore ${escapeHtml(item.title)}">
       <span class="gallery-main-image"><img src="assets/gallery/${asset}-480.webp" srcset="assets/gallery/${asset}-480.webp 480w, assets/gallery/${asset}-960.webp ${Math.min(960, item.width)}w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="${item.width}" height="${item.height}" loading="lazy" decoding="async" alt="${escapeHtml(item.alt)}" />
       <span class="gallery-open-label" aria-hidden="true">${frames.length > 1 ? "Explore the process" : "View artwork"} <span>+</span></span></span>

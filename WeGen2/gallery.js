@@ -10,7 +10,6 @@
   const stage = modal.querySelector(".artwork-stage");
   const prompt = modal.querySelector(".artwork-prompt");
   let selection = highlights,
-    gallerySelection = highlights,
     current = 0,
     frameIndex = 0,
     frames = [],
@@ -18,13 +17,6 @@
     origin,
     touch,
     loader;
-  const cards = [...section.querySelectorAll(".gallery-card")];
-  const filters = [...section.querySelectorAll("[data-gallery-filter]")];
-  const count = section.querySelector(".gallery-count");
-  function updateCount() {
-    section.querySelector(".gallery-grid").dataset.count = String(selection.length);
-    count.textContent = `${selection.length} ${selection.length === 1 ? "case" : "cases"}`;
-  }
   function renderFrame(index, focus = false) {
     frameIndex = (index + frames.length) % frames.length;
     const frame = frames[frameIndex],
@@ -122,22 +114,10 @@
     }
     renderFrame(frames.length - 1);
   }
-  filters.forEach((button) =>
-    button.addEventListener("click", () => {
-      const task = button.dataset.galleryFilter;
-      selection = highlights.filter((work) => task === "All" || (work.task || "Text to image") === task);
-      gallerySelection = selection;
-      filters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-      cards.forEach((card) => {
-        card.hidden = task !== "All" && card.dataset.category !== task;
-      });
-      updateCount();
-    })
-  );
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-artwork]");
     if (!button || !works.some((work) => work.id === button.dataset.artwork)) return;
-    selection = section.contains(button) ? gallerySelection : works;
+    selection = section.contains(button) ? highlights : works;
     origin = button;
     modal.showModal();
     document.body.classList.add("artwork-open");
@@ -190,8 +170,7 @@
     }
     image.removeAttribute("src");
     document.body.classList.remove("artwork-open");
-    selection = gallerySelection;
+    selection = highlights;
     origin?.focus({ preventScroll: true });
   });
-  updateCount();
 })();

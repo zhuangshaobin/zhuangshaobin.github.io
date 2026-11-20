@@ -2233,12 +2233,33 @@
         white-space: nowrap;
       }
       .gallery-grid {
-        columns: 3;
-        column-gap: 22px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 26px;
       }
       .gallery-card {
-        break-inside: avoid;
+        min-width: 0;
         padding-bottom: 30px;
+      }
+      .gallery-capability {
+        color: #176343;
+        font-size: 16px;
+        font-weight: 600;
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #bccdbf;
+      }
+      .gallery-main-image {
+        aspect-ratio: 3 / 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #dce7dd;
+      }
+      .gallery-card .gallery-main-image > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
       .gallery-open {
         display: block;
@@ -2443,8 +2464,7 @@
       }
       @media (max-width: 1000px) {
         .gallery-grid {
-          columns: 2;
-          column-gap: 18px;
+          gap: 16px;
         }
         .gallery-toolbar {
           align-items: flex-start;
@@ -2490,7 +2510,14 @@
           margin-top: 4px;
         }
         .gallery-grid {
-          columns: 1;
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .gallery-main-image {
+          aspect-ratio: auto;
+        }
+        .gallery-card .gallery-main-image > img {
+          height: auto;
         }
         .gallery-card {
           padding-bottom: 26px;
@@ -2555,7 +2582,8 @@
         overflow: hidden;
       }
       .gallery-mini-strip {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: center;
         gap: 9px;
         padding: 10px;
@@ -2567,9 +2595,12 @@
         flex-direction: column;
         gap: 5px;
         min-width: 0;
+        align-items: center;
+        text-align: center;
       }
       .gallery-mini-strip img {
         width: 64px;
+        max-width: 100%;
         height: 48px;
         object-fit: contain;
         background: #edf2ec;
@@ -2582,8 +2613,8 @@
         color: #264b39;
       }
       .gallery-result-label {
-        margin-left: auto;
-        align-self: end;
+        grid-column: 1 / -1;
+        text-align: right;
         font-size: 12px;
         line-height: 1.4;
         color: #40594c;
@@ -3376,14 +3407,24 @@
                 <div class="art-scroll-group" style="--feature-ratio: 0.7272727272727273">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/a-dress-made-of-wind-480.webp"
+                      data-src="assets/scroll/a-dress-made-of-wind-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
                       alt=""
                       draggable="false"
-                    /><img data-src="assets/gallery/woven-memory-480.webp" width="1152" height="896" decoding="async" alt="" draggable="false" /><img
-                      data-src="assets/gallery/screenprint-to-woodblock-480.webp"
+                    /><img
+                      data-src="assets/scroll/woven-memory-320.webp"
+                      fetchpriority="low"
+                      width="1152"
+                      height="896"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    /><img
+                      data-src="assets/scroll/screenprint-to-woodblock-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
@@ -3483,15 +3524,25 @@
                 </div>
                 <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.7777777777777778">
                   <div class="art-scroll-canopy" aria-hidden="true">
-                    <img data-src="assets/gallery/the-lacemaker-480.webp" width="768" height="1152" decoding="async" alt="" draggable="false" /><img
-                      data-src="assets/gallery/glass-harmonics-480.webp"
+                    <img
+                      data-src="assets/scroll/the-lacemaker-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/the-dyers-courtyard-480.webp"
+                      data-src="assets/scroll/glass-harmonics-320.webp"
+                      fetchpriority="low"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    /><img
+                      data-src="assets/scroll/the-dyers-courtyard-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
@@ -3591,21 +3642,24 @@
                 <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/the-bespoke-bicycle-480.webp"
+                      data-src="assets/scroll/the-bespoke-bicycle-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/accordion-book-480.webp"
+                      data-src="assets/scroll/accordion-book-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/courier-wardrobe-composition-480.webp"
+                      data-src="assets/scroll/courier-wardrobe-composition-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
@@ -3700,20 +3754,30 @@
                 <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/ceramic-moonrise-480.webp"
+                      data-src="assets/scroll/ceramic-moonrise-320.webp"
+                      fetchpriority="low"
                       width="1024"
                       height="1024"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/rehearsal-in-red-480.webp"
+                      data-src="assets/scroll/rehearsal-in-red-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
-                    /><img data-src="assets/gallery/the-coral-desert-480.webp" width="1152" height="768" decoding="async" alt="" draggable="false" />
+                    /><img
+                      data-src="assets/scroll/the-coral-desert-320.webp"
+                      fetchpriority="low"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    />
                   </div>
                   <div class="art-scroll-mosaic">
                     <button
@@ -3817,20 +3881,30 @@
                 <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/glass-sunflower-study-480.webp"
+                      data-src="assets/scroll/glass-sunflower-study-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/cherry-blossom-bus-480.webp"
+                      data-src="assets/scroll/cherry-blossom-bus-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
-                    /><img data-src="assets/gallery/the-rain-dancer-480.webp" width="896" height="1152" decoding="async" alt="" draggable="false" />
+                    /><img
+                      data-src="assets/scroll/the-rain-dancer-320.webp"
+                      fetchpriority="low"
+                      width="896"
+                      height="1152"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    />
                   </div>
                   <div class="art-scroll-mosaic">
                     <button
@@ -3929,21 +4003,24 @@
                 <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/the-potter-at-dawn-480.webp"
+                      data-src="assets/scroll/the-potter-at-dawn-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/a-summer-between-pages-480.webp"
+                      data-src="assets/scroll/a-summer-between-pages-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/the-tin-toy-regatta-480.webp"
+                      data-src="assets/scroll/the-tin-toy-regatta-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
@@ -4050,14 +4127,24 @@
                 <div class="art-scroll-group" style="--feature-ratio: 0.7272727272727273">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/a-dress-made-of-wind-480.webp"
+                      data-src="assets/scroll/a-dress-made-of-wind-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
                       alt=""
                       draggable="false"
-                    /><img data-src="assets/gallery/woven-memory-480.webp" width="1152" height="896" decoding="async" alt="" draggable="false" /><img
-                      data-src="assets/gallery/screenprint-to-woodblock-480.webp"
+                    /><img
+                      data-src="assets/scroll/woven-memory-320.webp"
+                      fetchpriority="low"
+                      width="1152"
+                      height="896"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    /><img
+                      data-src="assets/scroll/screenprint-to-woodblock-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
@@ -4183,15 +4270,25 @@
                 </div>
                 <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.7777777777777778">
                   <div class="art-scroll-canopy" aria-hidden="true">
-                    <img data-src="assets/gallery/the-lacemaker-480.webp" width="768" height="1152" decoding="async" alt="" draggable="false" /><img
-                      data-src="assets/gallery/glass-harmonics-480.webp"
+                    <img
+                      data-src="assets/scroll/the-lacemaker-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/the-dyers-courtyard-480.webp"
+                      data-src="assets/scroll/glass-harmonics-320.webp"
+                      fetchpriority="low"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    /><img
+                      data-src="assets/scroll/the-dyers-courtyard-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
@@ -4318,21 +4415,24 @@
                 <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/the-bespoke-bicycle-480.webp"
+                      data-src="assets/scroll/the-bespoke-bicycle-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/accordion-book-480.webp"
+                      data-src="assets/scroll/accordion-book-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/courier-wardrobe-composition-480.webp"
+                      data-src="assets/scroll/courier-wardrobe-composition-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
@@ -4459,20 +4559,30 @@
                 <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/ceramic-moonrise-480.webp"
+                      data-src="assets/scroll/ceramic-moonrise-320.webp"
+                      fetchpriority="low"
                       width="1024"
                       height="1024"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/rehearsal-in-red-480.webp"
+                      data-src="assets/scroll/rehearsal-in-red-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
-                    /><img data-src="assets/gallery/the-coral-desert-480.webp" width="1152" height="768" decoding="async" alt="" draggable="false" />
+                    /><img
+                      data-src="assets/scroll/the-coral-desert-320.webp"
+                      fetchpriority="low"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    />
                   </div>
                   <div class="art-scroll-mosaic">
                     <button
@@ -4593,20 +4703,30 @@
                 <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/glass-sunflower-study-480.webp"
+                      data-src="assets/scroll/glass-sunflower-study-320.webp"
+                      fetchpriority="low"
                       width="768"
                       height="1152"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/cherry-blossom-bus-480.webp"
+                      data-src="assets/scroll/cherry-blossom-bus-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
-                    /><img data-src="assets/gallery/the-rain-dancer-480.webp" width="896" height="1152" decoding="async" alt="" draggable="false" />
+                    /><img
+                      data-src="assets/scroll/the-rain-dancer-320.webp"
+                      fetchpriority="low"
+                      width="896"
+                      height="1152"
+                      decoding="async"
+                      alt=""
+                      draggable="false"
+                    />
                   </div>
                   <div class="art-scroll-mosaic">
                     <button
@@ -4721,21 +4841,24 @@
                 <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
                   <div class="art-scroll-canopy" aria-hidden="true">
                     <img
-                      data-src="assets/gallery/the-potter-at-dawn-480.webp"
+                      data-src="assets/scroll/the-potter-at-dawn-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/a-summer-between-pages-480.webp"
+                      data-src="assets/scroll/a-summer-between-pages-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
                       alt=""
                       draggable="false"
                     /><img
-                      data-src="assets/gallery/the-tin-toy-regatta-480.webp"
+                      data-src="assets/scroll/the-tin-toy-regatta-320.webp"
+                      fetchpriority="low"
                       width="1152"
                       height="768"
                       decoding="async"
@@ -5041,45 +5164,12 @@
               <p class="eyebrow">Capability highlights</p>
               <h2 id="gallery-title">Create. Edit. Combine.</h2>
             </div>
-            <p>A focused look at generation, editing and composition across images.</p>
-          </div>
-          <div class="gallery-toolbar">
-            <div class="gallery-filters" role="group" aria-label="Filter by capability">
-              <button type="button" data-gallery-filter="All" aria-pressed="true">All highlights</button>
-              <button type="button" data-gallery-filter="Text to image" aria-pressed="false">Text to image</button>
-              <button type="button" data-gallery-filter="Text &amp; layout" aria-pressed="false">Text &amp; layout</button>
-              <button type="button" data-gallery-filter="Image editing" aria-pressed="false">Image editing</button>
-              <button type="button" data-gallery-filter="Reference composition" aria-pressed="false">Reference composition</button>
-              <button type="button" data-gallery-filter="Sketch to image" aria-pressed="false">Sketch to image</button>
-              <button type="button" data-gallery-filter="Multi-panel generation" aria-pressed="false">Multi-panel generation</button>
-              <button type="button" data-gallery-filter="Multi-turn editing" aria-pressed="false">Multi-turn editing</button>
-            </div>
-            <p class="gallery-count" aria-live="polite" aria-atomic="true"></p>
+            <p>Dense text. Evolving scenes. Multiple references.</p>
           </div>
           <div class="gallery-grid">
             <!-- INLINE_GALLERY_START -->
-            <figure class="gallery-card" data-category="Text to image">
-              <button class="gallery-open" type="button" data-artwork="rehearsal-in-red" aria-label="Explore Before the first note">
-                <span class="gallery-main-image"
-                  ><img
-                    src="assets/gallery/rehearsal-in-red-480.webp"
-                    srcset="assets/gallery/rehearsal-in-red-480.webp 480w, assets/gallery/rehearsal-in-red-960.webp 960w"
-                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
-                    width="1152"
-                    height="768"
-                    loading="lazy"
-                    decoding="async"
-                    alt="Five jazz musicians rehearse together in a crimson recording room."
-                  />
-                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
-                >
-              </button>
-              <figcaption>
-                <h3>Before the first note</h3>
-                <span>Text to image</span>
-              </figcaption>
-            </figure>
             <figure class="gallery-card" data-category="Text &amp; layout">
+              <p class="gallery-capability">Create</p>
               <button class="gallery-open" type="button" data-artwork="the-night-train-letter" aria-label="Explore A letter from the night train">
                 <span class="gallery-main-image"
                   ><img
@@ -5101,6 +5191,7 @@
               </figcaption>
             </figure>
             <figure class="gallery-card" data-category="Multi-turn editing">
+              <p class="gallery-capability">Edit</p>
               <button class="gallery-open" type="button" data-artwork="a-shop-comes-to-life" aria-label="Explore A shop comes to life">
                 <span class="gallery-main-image"
                   ><img
@@ -5151,127 +5242,8 @@
                 <span>Multi-turn editing · 4 images</span>
               </figcaption>
             </figure>
-            <figure class="gallery-card" data-category="Image editing">
-              <button class="gallery-open" type="button" data-artwork="screenprint-to-woodblock" aria-label="Explore From paint to print">
-                <span class="gallery-main-image"
-                  ><img
-                    src="assets/gallery/screenprint-to-woodblock-480.webp"
-                    srcset="assets/gallery/screenprint-to-woodblock-480.webp 480w, assets/gallery/screenprint-to-woodblock-960.webp 960w"
-                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
-                    width="1152"
-                    height="768"
-                    loading="lazy"
-                    decoding="async"
-                    alt="A fox and heron beside a bridge are reinterpreted in indigo and ochre woodcut."
-                  />
-                  <span class="gallery-open-label" aria-hidden="true">Explore the process <span>+</span></span></span
-                >
-                <span class="gallery-mini-strip" aria-hidden="true"
-                  ><span
-                    ><img
-                      src="assets/gallery/screenprint-to-woodblock-frame-01-160.webp"
-                      width="1152"
-                      height="768"
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
-                    /><span>Input</span></span
-                  ><span class="gallery-result-label">Result above</span></span
-                >
-              </button>
-              <figcaption>
-                <h3>From paint to print</h3>
-                <span>Image editing · 2 images</span>
-              </figcaption>
-            </figure>
-            <figure class="gallery-card" data-category="Sketch to image">
-              <button class="gallery-open" type="button" data-artwork="brass-globe-render" aria-label="Explore From sketch to brass">
-                <span class="gallery-main-image"
-                  ><img
-                    src="assets/gallery/brass-globe-render-480.webp"
-                    srcset="assets/gallery/brass-globe-render-480.webp 480w, assets/gallery/brass-globe-render-960.webp 960w"
-                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
-                    width="1024"
-                    height="1024"
-                    loading="lazy"
-                    decoding="async"
-                    alt="An intricate globe sketch becomes a brass instrument with blue enamel and gold engraved land shapes."
-                  />
-                  <span class="gallery-open-label" aria-hidden="true">Explore the process <span>+</span></span></span
-                >
-                <span class="gallery-mini-strip" aria-hidden="true"
-                  ><span
-                    ><img
-                      src="assets/gallery/brass-globe-render-reference-01-160.webp"
-                      width="1024"
-                      height="1024"
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
-                    /><span>Sketch</span></span
-                  ><span class="gallery-result-label">Rendered object above</span></span
-                >
-              </button>
-              <figcaption>
-                <h3>From sketch to brass</h3>
-                <span>Sketch to image · 2 images</span>
-              </figcaption>
-            </figure>
-            <figure class="gallery-card" data-category="Multi-panel generation">
-              <button class="gallery-open" type="button" data-artwork="four-materials-four-lights" aria-label="Explore Four materials, four lights">
-                <span class="gallery-main-image"
-                  ><img
-                    src="assets/gallery/four-materials-four-lights-480.webp"
-                    srcset="assets/gallery/four-materials-four-lights-480.webp 480w, assets/gallery/four-materials-four-lights-960.webp 960w"
-                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
-                    width="1152"
-                    height="1152"
-                    loading="lazy"
-                    decoding="async"
-                    alt="A four-panel design board shows ceramic, glass, paper and metal lamps with clear labels."
-                  />
-                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
-                >
-              </button>
-              <figcaption>
-                <h3>Four materials, four lights</h3>
-                <span>Multi-panel generation</span>
-              </figcaption>
-            </figure>
-            <figure class="gallery-card" data-category="Image editing">
-              <button class="gallery-open" type="button" data-artwork="costume-in-motion" aria-label="Explore A costume in motion">
-                <span class="gallery-main-image"
-                  ><img
-                    src="assets/gallery/costume-in-motion-480.webp"
-                    srcset="assets/gallery/costume-in-motion-480.webp 480w, assets/gallery/costume-in-motion-960.webp 768w"
-                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
-                    width="768"
-                    height="1152"
-                    loading="lazy"
-                    decoding="async"
-                    alt="A woman in an ivory blouse and a red pleated skirt changes from a standing portrait to a dance pose."
-                  />
-                  <span class="gallery-open-label" aria-hidden="true">Explore the process <span>+</span></span></span
-                >
-                <span class="gallery-mini-strip" aria-hidden="true"
-                  ><span
-                    ><img
-                      src="assets/gallery/costume-in-motion-frame-01-160.webp"
-                      width="768"
-                      height="1152"
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
-                    /><span>Input</span></span
-                  ><span class="gallery-result-label">Result above</span></span
-                >
-              </button>
-              <figcaption>
-                <h3>A costume in motion</h3>
-                <span>Image editing · 2 images</span>
-              </figcaption>
-            </figure>
             <figure class="gallery-card" data-category="Reference composition">
+              <p class="gallery-capability">Combine</p>
               <button class="gallery-open" type="button" data-artwork="courier-wardrobe-composition" aria-label="Explore Three references, one look">
                 <span class="gallery-main-image"
                   ><img
@@ -6249,7 +6221,7 @@ next_image.save("paper-world-night.png")</code></pre>
           "alt": "Five jazz musicians rehearse together in a crimson recording room.",
           "description": "An ensemble scene with distinct instruments, hand interactions and layered cinematic lighting.",
           "prompt": "A sophisticated wide editorial photograph of a jazz quintet rehearsing inside a beautifully worn crimson recording room. Exactly five adult musicians: a woman playing a saxophone on the left, a seated upright-bass player behind her, a drummer at a compact drum kit in the center back, a man seated at a grand piano on the right, and a female singer holding a wired microphone in the foreground. Their instruments are distinct and physically coherent; hands touch the appropriate keys, strings or sticks. Cables lie naturally across a dark wood floor, a large window creates soft cool light against warm lamps. Layered composition, expressive faces, realistic skin, polished music-magazine art direction, no lettering.",
-          "featured": true
+          "featured": false
         },
         {
           "id": "the-night-train-letter",
@@ -6338,7 +6310,7 @@ next_image.save("paper-world-night.png")</code></pre>
               "prompt": "Translate this exact composition into an exquisite two-color hand-carved linocut print on textured ivory paper. Use only deep indigo and warm burnt orange ink. Preserve the single fox walking right across the bridge, its four legs and tail, the white heron with two legs at the right, the left reeds and high round sun. Replace painted gradients with deliberate carved hatching, bold cut shapes and subtle ink texture. Keep the original spatial arrangement and all animals."
             }
           ],
-          "featured": true
+          "featured": false
         },
         {
           "id": "brass-globe-render",
@@ -6368,7 +6340,7 @@ next_image.save("paper-world-night.png")</code></pre>
               "prompt": "Render this intricate instrument sketch as a finely crafted museum object. Keep its ring arrangement, central globe, side knob, top finial and complete supporting structure from the same viewpoint. Make all rings, rods and supports richly patinated brass. Make the globe deep-blue enamel with fine gold engraved land shapes following the drawing. Beautiful realistic metal, polished enamel and subtle contact shadows, pale warm-gray background, controlled soft side light. Remove sketch construction marks; do not turn pencil guides into physical wires or add components. No lettering."
             }
           ],
-          "featured": true
+          "featured": false
         },
         {
           "id": "four-materials-four-lights",
@@ -6380,7 +6352,7 @@ next_image.save("paper-world-night.png")</code></pre>
           "description": "Four lighting concepts generated together, with distinct materials, coherent construction and coordinated presentation.",
           "prompt": "一张极其精美的四格工业设计板，两行两列，四个等大的画面，细白线分隔。每格展示一款造型独特、结构合理的桌面灯具，四款分别体现不同材料的特点。左上是象牙白陶瓷灯罩与赤陶底座，标签“CLAY”；右上是烟蓝色透明玻璃灯罩与黄铜灯杆，标签“GLASS”；左下是精细折叠白纸灯罩与浅木底座，标签“PAPER”；右下是精密拉丝铝灯罩与深色底座，标签“METAL”。四款灯都有合理连接的灯罩、支撑与底座，材料差异鲜明，专业高端产品摄影，统一浅灰背景和侧光，所有四个英文标签准确，没有其他字或多余画面。",
           "preserveLayout": true,
-          "featured": true
+          "featured": false
         },
         {
           "id": "costume-in-motion",
@@ -6410,7 +6382,7 @@ next_image.save("paper-world-night.png")</code></pre>
               "prompt": "Keep the exact same adult woman, face, hairstyle, gold earrings, ivory bow blouse, ruby pleated skirt, boots and rehearsal room. Change her pose into a graceful mid-turn dance movement: one foot remains on the floor, the other bends slightly behind, both arms open outward, and the same pleated skirt flares naturally with the rotation. Show anatomically correct hands and legs, convincing fabric motion and grounded shadow. Preserve the camera framing and original window light."
             }
           ],
-          "featured": true
+          "featured": false
         },
         {
           "id": "courier-wardrobe-composition",
@@ -7668,7 +7640,6 @@ next_image.save("paper-world-night.png")</code></pre>
         const stage = modal.querySelector(".artwork-stage");
         const prompt = modal.querySelector(".artwork-prompt");
         let selection = highlights,
-          gallerySelection = highlights,
           current = 0,
           frameIndex = 0,
           frames = [],
@@ -7676,13 +7647,6 @@ next_image.save("paper-world-night.png")</code></pre>
           origin,
           touch,
           loader;
-        const cards = [...section.querySelectorAll(".gallery-card")];
-        const filters = [...section.querySelectorAll("[data-gallery-filter]")];
-        const count = section.querySelector(".gallery-count");
-        function updateCount() {
-          section.querySelector(".gallery-grid").dataset.count = String(selection.length);
-          count.textContent = `${selection.length} ${selection.length === 1 ? "case" : "cases"}`;
-        }
         function renderFrame(index, focus = false) {
           frameIndex = (index + frames.length) % frames.length;
           const frame = frames[frameIndex],
@@ -7788,22 +7752,10 @@ next_image.save("paper-world-night.png")</code></pre>
           }
           renderFrame(frames.length - 1);
         }
-        filters.forEach((button) =>
-          button.addEventListener("click", () => {
-            const task = button.dataset.galleryFilter;
-            selection = highlights.filter((work) => task === "All" || (work.task || "Text to image") === task);
-            gallerySelection = selection;
-            filters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-            cards.forEach((card) => {
-              card.hidden = task !== "All" && card.dataset.category !== task;
-            });
-            updateCount();
-          })
-        );
         document.addEventListener("click", (event) => {
           const button = event.target.closest("[data-artwork]");
           if (!button || !works.some((work) => work.id === button.dataset.artwork)) return;
-          selection = section.contains(button) ? gallerySelection : works;
+          selection = section.contains(button) ? highlights : works;
           origin = button;
           modal.showModal();
           document.body.classList.add("artwork-open");
@@ -7856,10 +7808,9 @@ next_image.save("paper-world-night.png")</code></pre>
           }
           image.removeAttribute("src");
           document.body.classList.remove("artwork-open");
-          selection = gallerySelection;
+          selection = highlights;
           origin?.focus({ preventScroll: true });
         });
-        updateCount();
       })();
 
       // A single, gently moving canvas. Full-resolution artwork stays in the case viewer.

@@ -8,7 +8,7 @@
     "alt": "Five jazz musicians rehearse together in a crimson recording room.",
     "description": "An ensemble scene with distinct instruments, hand interactions and layered cinematic lighting.",
     "prompt": "A sophisticated wide editorial photograph of a jazz quintet rehearsing inside a beautifully worn crimson recording room. Exactly five adult musicians: a woman playing a saxophone on the left, a seated upright-bass player behind her, a drummer at a compact drum kit in the center back, a man seated at a grand piano on the right, and a female singer holding a wired microphone in the foreground. Their instruments are distinct and physically coherent; hands touch the appropriate keys, strings or sticks. Cables lie naturally across a dark wood floor, a large window creates soft cool light against warm lamps. Layered composition, expressive faces, realistic skin, polished music-magazine art direction, no lettering.",
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-night-train-letter",
@@ -97,7 +97,7 @@
         "prompt": "Translate this exact composition into an exquisite two-color hand-carved linocut print on textured ivory paper. Use only deep indigo and warm burnt orange ink. Preserve the single fox walking right across the bridge, its four legs and tail, the white heron with two legs at the right, the left reeds and high round sun. Replace painted gradients with deliberate carved hatching, bold cut shapes and subtle ink texture. Keep the original spatial arrangement and all animals."
       }
     ],
-    "featured": true
+    "featured": false
   },
   {
     "id": "brass-globe-render",
@@ -127,7 +127,7 @@
         "prompt": "Render this intricate instrument sketch as a finely crafted museum object. Keep its ring arrangement, central globe, side knob, top finial and complete supporting structure from the same viewpoint. Make all rings, rods and supports richly patinated brass. Make the globe deep-blue enamel with fine gold engraved land shapes following the drawing. Beautiful realistic metal, polished enamel and subtle contact shadows, pale warm-gray background, controlled soft side light. Remove sketch construction marks; do not turn pencil guides into physical wires or add components. No lettering."
       }
     ],
-    "featured": true
+    "featured": false
   },
   {
     "id": "four-materials-four-lights",
@@ -139,7 +139,7 @@
     "description": "Four lighting concepts generated together, with distinct materials, coherent construction and coordinated presentation.",
     "prompt": "一张极其精美的四格工业设计板，两行两列，四个等大的画面，细白线分隔。每格展示一款造型独特、结构合理的桌面灯具，四款分别体现不同材料的特点。左上是象牙白陶瓷灯罩与赤陶底座，标签“CLAY”；右上是烟蓝色透明玻璃灯罩与黄铜灯杆，标签“GLASS”；左下是精细折叠白纸灯罩与浅木底座，标签“PAPER”；右下是精密拉丝铝灯罩与深色底座，标签“METAL”。四款灯都有合理连接的灯罩、支撑与底座，材料差异鲜明，专业高端产品摄影，统一浅灰背景和侧光，所有四个英文标签准确，没有其他字或多余画面。",
     "preserveLayout": true,
-    "featured": true
+    "featured": false
   },
   {
     "id": "costume-in-motion",
@@ -169,7 +169,7 @@
         "prompt": "Keep the exact same adult woman, face, hairstyle, gold earrings, ivory bow blouse, ruby pleated skirt, boots and rehearsal room. Change her pose into a graceful mid-turn dance movement: one foot remains on the floor, the other bends slightly behind, both arms open outward, and the same pleated skirt flares naturally with the rotation. Show anatomically correct hands and legs, convincing fabric motion and grounded shadow. Preserve the camera framing and original window light."
       }
     ],
-    "featured": true
+    "featured": false
   },
   {
     "id": "courier-wardrobe-composition",
