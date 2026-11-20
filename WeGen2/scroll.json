@@ -4,12 +4,12 @@
     "the-coral-desert",
     "the-potter-at-dawn",
     "a-tide-of-ink",
-    "cherry-blossom-bus",
+    "paper-garden-festival",
     "four-materials-four-lights",
     "glass-sunflower-study"
   ],
   [
-    "the-rain-dancer",
+    "moon-post-office",
     "the-last-tram-home",
     "ceramic-moonrise",
     "marquetry-bestiary",
@@ -17,9 +17,9 @@
     "brass-globe-render",
     "a-summer-between-pages"
   ],
-  ["paper-portrait-study", "rehearsal-in-red", "woven-reef", "sand-and-silver", "the-sunlit-souk", "the-tin-toy-regatta", "a-shop-comes-to-life"],
+  ["paper-portrait-study", "rehearsal-in-red", "woven-reef", "sand-and-silver", "tomorrow-blackboard", "the-tin-toy-regatta", "a-shop-comes-to-life"],
   [
-    "an-orchard-in-glass",
+    "spring-letter-studio",
     "the-dyers-courtyard",
     "a-fold-for-spring",
     "the-porcelain-tiger",
@@ -36,5 +36,6 @@
     "the-amethyst-grotto",
     "a-dress-made-of-wind",
     "glass-harmonics"
-  ]
+  ],
+  ["cherry-blossom-bus", "the-rain-dancer", "the-sunlit-souk", "an-orchard-in-glass"]
 ]

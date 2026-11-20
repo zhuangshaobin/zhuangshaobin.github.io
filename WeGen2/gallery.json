@@ -592,5 +592,49 @@
     "description": "Precise hands, tool contact and miniature mechanical detail in an intimate macro photograph.",
     "prompt": "An exquisite close editorial photograph of an adult watchmaker repairing an open mechanical pocket watch on dark-green felt. One hand holds fine tweezers placing a tiny brass gear into the exposed mechanism; the other hand steadies the watch at its edge. Coherent five-finger anatomy and real tool contact, beautifully detailed balance wheel, jewels and engraved metal. A detached plain case back, small orderly trays of screws and a loupe remain separate on the desk. Soft warm task light and cool window fill, immaculate tactile precision, mature documentary composition, no readable lettering or logos.",
     "featured": false
+  },
+  {
+    "id": "paper-garden-festival",
+    "title": "A garden made of paper",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "Coral flowers, folded birds and miniature paper landscapes surround a Chinese exhibition programme.",
+    "description": "A complete exhibition programme integrated into dimensional paper art, with long Chinese copy and delicate material detail.",
+    "prompt": "A richly designed Chinese art exhibition poster. Elaborate folded-paper flowers, delicate paper birds and miniature books form a sculptural garden around the typography. Exquisite cut edges, soft layered shadows, coral orange, teal, pale green and ivory. A large title and three clearly separated paragraphs use crisp Chinese lettering.\nThe complete text on the page reads: “纸上花园” “让想象开出新的花” “一场关于纸张、色彩与手工的展览” “折出一片森林” “从一张纸开始，寻找形状之间的无限可能。” “收藏一束春天” “让花瓣、叶脉与光影，在指尖重新生长。” “写下一个故事” “把日常的小小发现，装进亲手制作的书。” “周末十点至十八点” “河岸艺术空间 · 欢迎慢慢参观”. Render only this quoted copy, with natural line breaks and clear, correct lettering. No extra words.",
+    "featured": false
+  },
+  {
+    "id": "moon-post-office",
+    "title": "A letter from the Moon",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A long handwritten Chinese letter rests beside a coffee cup beneath a lunar observatory window.",
+    "description": "A complete Chinese letter woven into an illustrated lunar scene, balancing warm lamplight, paper texture and a blue view of Earth.",
+    "prompt": "一幅优雅而丰富的中文手写信插画：展开的奶油白信纸放在月球观测站的木桌上，旁边是一杯咖啡、钢笔、带月亮图案的信封，圆窗外有蓝色地球和银色月面。信纸上用清晰自然的中文手写体写以下内容：“亲爱的朋友：”“今晚的窗外没有风，只有一片安静的银色。”“我把一颗星星画在信封上，替你照亮回家的路。”“这里的日子很慢，想念却总是跑得很快。”“等下一班飞船抵达，我们就一起去看海。”“愿你每天都能发现一点新的勇气。”“你的朋友”“月球邮局”。八行文字完全正确，版式松紧有致，钢笔字工整但有手写质感。电影感暖光、蓝色太空和细腻纸张，画面成熟精致，不添加其他文字。",
+    "featured": false
+  },
+  {
+    "id": "tomorrow-blackboard",
+    "title": "Dear tomorrow",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "Seven long Chinese sentences and a title are written in white chalk on a sunlit green classroom blackboard.",
+    "description": "Long, coherent Chinese handwriting rendered as chalk, with natural surface texture, warm classroom light and small hand-drawn illustrations.",
+    "prompt": "A cinematic photograph of a large dark green classroom chalkboard covered with beautiful, highly legible handwritten Chinese. Fine chalk dust, a little colored drawing of a sun and paper airplane, a small white flower and an old wooden chair at the lower edge. Warm afternoon light, realistic board texture and ample line spacing.\nThe complete text on the page reads: “给明天的自己” “今天没有完成的事，可以明天再继续。” “不要因为走得慢，就忘了看看沿途的风景。” “认真吃饭，好好睡觉，也记得和朋友见面。” “有时勇敢并不是向前冲，而是愿意重新开始。” “你已经走过了很长的路，请对自己温柔一点。” “把今天的最后一点光，留给新的愿望。” “明天见，未来的你。”. Render only this quoted copy, with natural line breaks and clear, correct lettering. No extra words.",
+    "featured": false
+  },
+  {
+    "id": "spring-letter-studio",
+    "title": "A slow letter in spring",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A long Chinese letter sits on a mint-green desk beside purple wisteria, a blue vase and watercolor postcards.",
+    "description": "Nine complete Chinese text blocks share the frame with layered watercolor detail, transparent glass, flower shadows and a sunlit old street.",
+    "prompt": "一幅优雅而丰富的中文手写信插画：展开的奶油白信纸放在浅绿色木桌上，周围有一枝紫藤、蓝色玻璃花瓶、钢笔、信封和画着旧街小店的水彩明信片，窗外有春日庭院。信纸占画面的主要部分。画面中清晰自然地写着：“春天的慢信”“亲爱的朋友：”“今天路过旧街，发现那家花店又开门了。”“窗边的紫藤垂下来，像一场安静的雨。”“我买了一枝花，也替你留了一张明信片。”“等天气再暖一些，我们就一起去散步。”“愿你在忙碌的日子里，也能遇见温柔的小事。”“你的朋友”“写在花开的季节”。文字逐字正确，版式松紧有致，所有文字清晰可读，不添加其他文字。",
+    "featured": false
   }
 ]
