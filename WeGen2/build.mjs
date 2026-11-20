@@ -19,12 +19,26 @@ replaceBlock(
   gallery
     .map((item) => {
       const id = escapeHtml(item.id);
-      return `<figure class="gallery-card" data-category="${escapeHtml(item.category)}">
-    <button class="gallery-open" type="button" data-artwork="${id}" aria-label="View ${escapeHtml(item.title)}">
-      <img src="assets/gallery/${id}-480.webp" srcset="assets/gallery/${id}-480.webp 480w, assets/gallery/${id}-960.webp ${Math.min(960, item.width)}w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="${item.width}" height="${item.height}" loading="lazy" decoding="async" alt="${escapeHtml(item.alt)}" />
-      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+      const asset = escapeHtml(item.asset || item.id);
+      const task = escapeHtml(item.task || "Text to image");
+      const frames = item.frames || [];
+      const miniatures =
+        frames.length > 1
+          ? `<span class="gallery-mini-strip" aria-hidden="true">${frames
+              .slice(0, -1)
+              .map(
+                (frame) =>
+                  `<span><img src="assets/gallery/${escapeHtml(frame.asset)}-160.webp" width="${frame.width}" height="${frame.height}" loading="lazy" decoding="async" alt="" /><span>${escapeHtml(frame.label)}</span></span>`
+              )
+              .join("")}<span class="gallery-result-label">${escapeHtml(frames.at(-1).label)} above</span></span>`
+          : "";
+      return `<figure class="gallery-card" data-category="${task}">
+    <button class="gallery-open" type="button" data-artwork="${id}" aria-label="Explore ${escapeHtml(item.title)}">
+      <span class="gallery-main-image"><img src="assets/gallery/${asset}-480.webp" srcset="assets/gallery/${asset}-480.webp 480w, assets/gallery/${asset}-960.webp ${Math.min(960, item.width)}w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="${item.width}" height="${item.height}" loading="lazy" decoding="async" alt="${escapeHtml(item.alt)}" />
+      <span class="gallery-open-label" aria-hidden="true">${frames.length > 1 ? "Explore the process" : "View artwork"} <span>+</span></span></span>
+      ${miniatures}
     </button>
-    <figcaption><h3>${escapeHtml(item.title)}</h3><span>${escapeHtml(item.category)}</span></figcaption>
+    <figcaption><h3>${escapeHtml(item.title)}</h3><span>${task}${frames.length > 1 ? ` · ${frames.length} images` : ""}</span></figcaption>
   </figure>`;
     })
     .join("\n")
