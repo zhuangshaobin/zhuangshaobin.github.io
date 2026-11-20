@@ -9,6 +9,7 @@
   const stage = modal.querySelector(".artwork-stage");
   const prompt = modal.querySelector(".artwork-prompt");
   let selection = works,
+    gallerySelection = works,
     current = 0,
     frameIndex = 0,
     frames = [],
@@ -124,6 +125,7 @@
     button.addEventListener("click", () => {
       const task = button.dataset.galleryFilter;
       selection = works.filter((work) => task === "All" || (work.task || "Text to image") === task);
+      gallerySelection = selection;
       filters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
       cards.forEach((card) => {
         card.hidden = task !== "All" && card.dataset.category !== task;
@@ -131,14 +133,15 @@
       updateCount();
     })
   );
-  section.querySelectorAll("[data-artwork]").forEach((button) =>
-    button.addEventListener("click", () => {
-      origin = button;
-      modal.showModal();
-      document.body.classList.add("artwork-open");
-      renderArtwork(selection.findIndex((work) => work.id === button.dataset.artwork));
-    })
-  );
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-artwork]");
+    if (!button || !works.some((work) => work.id === button.dataset.artwork)) return;
+    selection = section.contains(button) ? gallerySelection : works;
+    origin = button;
+    modal.showModal();
+    document.body.classList.add("artwork-open");
+    renderArtwork(selection.findIndex((work) => work.id === button.dataset.artwork));
+  });
   modal.querySelector(".artwork-close").addEventListener("click", () => modal.close());
   modal.querySelector("[data-artwork-prev]").addEventListener("click", () => renderArtwork(current - 1));
   modal.querySelector("[data-artwork-next]").addEventListener("click", () => renderArtwork(current + 1));
@@ -186,6 +189,7 @@
     }
     image.removeAttribute("src");
     document.body.classList.remove("artwork-open");
+    selection = gallerySelection;
     origin?.focus({ preventScroll: true });
   });
   updateCount();

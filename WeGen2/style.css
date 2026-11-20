@@ -2680,3 +2680,411 @@ body.artwork-open {
     font-size: 15px;
   }
 }
+
+/* The opening canvas: a quiet brand above one continuous mosaic of works. */
+.brand-hero {
+  padding-top: 26px;
+}
+.hero-topline {
+  padding-bottom: 20px;
+}
+.hero-topline .brand-eyebrow,
+.hero-topline > span {
+  font-size: 12px;
+}
+.hero-introduction {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 48px;
+  align-items: center;
+  padding: 5px 0 27px;
+}
+.hero-introduction #hero-title {
+  margin: 0;
+}
+.hero-introduction .hero-wordmark {
+  width: min(100%, 520px);
+  margin-left: -8px;
+}
+.hero-introduction .hero-under {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-introduction .hero-statement {
+  display: block;
+}
+.hero-introduction .brand-line {
+  font-size: clamp(25px, 2.2vw, 34px);
+}
+.hero-introduction .hero-description {
+  font-size: 14px;
+  margin-top: 9px;
+}
+.hero-introduction .hero-resources {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+}
+.hero-introduction .resource-pill {
+  min-height: 35px;
+  min-width: 108px;
+  padding: 6px 16px;
+  font-size: 14px;
+}
+.hero-introduction .resource-unavailable small {
+  font-size: 10px;
+}
+.brand-hero .brand-footer {
+  margin-top: 6px;
+  padding-top: 15px;
+}
+.art-scroll {
+  --scroll-height: clamp(330px, 29vw, 442px);
+  --scroll-gap: 7px;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  isolation: isolate;
+  overflow: hidden;
+}
+.art-scroll-light {
+  position: absolute;
+  inset: 0 8% 20%;
+  z-index: -1;
+  background: radial-gradient(ellipse at 60% 50%, #88c8a742, transparent 70%);
+  pointer-events: none;
+}
+.art-scroll-viewport {
+  position: relative;
+  height: calc(var(--scroll-height) + 30px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 15px;
+  touch-action: pan-y;
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+.art-scroll-viewport::-webkit-scrollbar {
+  display: none;
+}
+.art-scroll.is-enhanced .art-scroll-viewport {
+  overflow: hidden;
+}
+.art-scroll-track,
+.art-scroll-cycle {
+  display: flex;
+  gap: var(--scroll-gap);
+  width: max-content;
+  height: var(--scroll-height);
+}
+.art-scroll-track {
+  transform: translate3d(0, 0, 0);
+}
+.art-scroll[data-playing="true"] .art-scroll-track,
+.art-scroll.is-dragging .art-scroll-track {
+  will-change: transform;
+}
+.art-scroll-group {
+  display: grid;
+  flex: none;
+  grid-template-columns: calc(var(--scroll-height) * 0.667) repeat(2, calc(var(--scroll-height) * 0.45));
+  grid-template-rows: 1fr 1fr;
+  gap: var(--scroll-gap);
+  height: 100%;
+}
+.art-scroll-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 5px;
+  padding: 0;
+  background: #dce7df;
+  width: 100%;
+  height: 100%;
+  cursor: inherit;
+  text-align: left;
+  box-shadow: inset 0 0 0 1px #133b2f0c;
+}
+.art-scroll-card.tile-0 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.art-scroll-card.tile-1 {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+.art-scroll-card.tile-2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+.art-scroll-card.tile-3 {
+  grid-column: 3;
+  grid-row: 2;
+}
+.art-scroll-group.is-reversed {
+  grid-template-columns: repeat(2, calc(var(--scroll-height) * 0.45)) calc(var(--scroll-height) * 0.667);
+}
+.art-scroll-group.is-reversed .tile-0 {
+  grid-column: 3;
+}
+.art-scroll-group.is-reversed .tile-1 {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+.art-scroll-group.is-reversed .tile-2 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.art-scroll-group.is-reversed .tile-3 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.art-scroll-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  user-select: none;
+  -webkit-user-drag: none;
+  color: transparent;
+}
+.art-scroll-card.preserve-layout img {
+  object-fit: contain;
+}
+.art-scroll-card:is(:hover, :focus-visible) img {
+  transform: scale(1.025);
+}
+.art-scroll-card.preserve-layout:is(:hover, :focus-visible) img {
+  transform: none;
+}
+.art-scroll-card:focus-visible {
+  outline: 3px solid #08b86c;
+  outline-offset: -4px;
+}
+.art-scroll-caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 38px 15px 14px;
+  color: white;
+  background: linear-gradient(transparent, #04291ee8);
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 200ms,
+    transform 200ms;
+  pointer-events: none;
+}
+.art-scroll-caption > span {
+  display: block;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.art-scroll-caption small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #daeee1;
+}
+.art-scroll-card:is(:hover, :focus-visible) .art-scroll-caption {
+  opacity: 1;
+  transform: none;
+}
+.art-scroll-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 9px 0 15px;
+  font-size: 14px;
+}
+.art-scroll-controls > p {
+  color: #476a59;
+  font-weight: 500;
+}
+.art-scroll-controls > div {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.art-scroll-hint {
+  color: #60796c;
+  font-size: 13px;
+}
+.art-scroll-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: none;
+  padding: 7px 0;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.art-scroll-controls button i {
+  width: 9px;
+  height: 11px;
+  border-inline: 3px solid currentColor;
+}
+.art-scroll-controls button[aria-pressed="true"] i {
+  border: 0;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.art-scroll-controls a {
+  border-bottom: 1px solid #8fae9b;
+  padding-block: 4px;
+}
+.art-scroll-controls a:hover,
+.art-scroll-controls button:hover {
+  color: #00864a;
+}
+.art-scroll.is-dragging .art-scroll-viewport {
+  cursor: grabbing;
+}
+.art-scroll.is-dragging .art-scroll-card img {
+  transform: none;
+}
+.art-scroll.is-dragging .art-scroll-caption {
+  opacity: 0;
+}
+@media (min-width: 1700px) {
+  .art-scroll {
+    --scroll-height: 460px;
+  }
+}
+@media (max-width: 1000px) {
+  .hero-introduction {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .hero-introduction .hero-under {
+    display: block;
+  }
+  .hero-introduction .hero-statement {
+    display: flex;
+    gap: 20px;
+  }
+  .hero-introduction .brand-line {
+    font-size: 27px;
+  }
+  .hero-introduction .hero-description {
+    margin: 0;
+    font-size: 13px;
+  }
+  .hero-introduction .hero-resources {
+    flex-direction: row;
+    margin-top: 14px;
+  }
+  .hero-introduction .resource-pill {
+    min-width: 0;
+    flex: 1;
+    padding-inline: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .brand-hero {
+    padding-top: 20px;
+  }
+  .hero-topline {
+    padding-bottom: 22px;
+  }
+  .hero-topline .brand-eyebrow {
+    font-size: 12px;
+  }
+  .hero-introduction {
+    display: block;
+    padding-bottom: 18px;
+  }
+  .hero-introduction .hero-wordmark {
+    width: min(430px, 95%);
+    margin: 0 auto 21px;
+  }
+  .hero-introduction .hero-statement {
+    justify-content: space-between;
+    gap: 22px;
+  }
+  .hero-introduction .brand-line {
+    font-size: 25px;
+  }
+  .hero-introduction .hero-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .hero-introduction .hero-resources {
+    margin-top: 20px;
+  }
+  .hero-introduction .resource-pill {
+    min-height: 42px;
+  }
+  .art-scroll {
+    --scroll-height: 330px;
+    --scroll-gap: 6px;
+  }
+  .art-scroll-viewport {
+    height: calc(var(--scroll-height) + 18px);
+    padding-block: 9px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  }
+  .art-scroll-controls {
+    padding-block: 7px 12px;
+    gap: 10px;
+  }
+  .art-scroll-controls > div {
+    gap: 18px;
+  }
+  .art-scroll-controls > p,
+  .art-scroll-hint {
+    display: none;
+  }
+  .art-scroll-controls > div {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .brand-hero .brand-footer {
+    margin-top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .art-scroll-card img,
+  .art-scroll-caption {
+    transition: none;
+  }
+  .art-scroll-card:is(:hover, :focus-visible) img {
+    transform: none;
+  }
+}
+@media (max-width: 760px) {
+  .hero-introduction .brand-line {
+    flex: 0 0 auto;
+  }
+  .hero-introduction .brand-line span {
+    white-space: nowrap;
+  }
+  .hero-introduction .hero-description {
+    flex: 1;
+    min-width: 0;
+  }
+}
+@media (max-width: 360px) {
+  .hero-introduction .brand-line {
+    font-size: 22px;
+  }
+  .hero-introduction .hero-description {
+    font-size: 13px;
+  }
+  .hero-introduction .hero-statement {
+    gap: 16px;
+  }
+}
