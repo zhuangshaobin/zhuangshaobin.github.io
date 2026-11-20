@@ -42,22 +42,27 @@ const canopy = (index) =>
     .join("")}</div>`;
 const scrollCards = (clone) =>
   scroll
-    .map(
-      (group, index) =>
-        `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="--feature-ratio:${byId.get(group[0]).width / byId.get(group[0]).height}">${canopy(index)}<div class="art-scroll-mosaic">${group
-          .map((id, position) => {
-            const item = byId.get(id);
-            if (!item) throw new Error(`Missing scroll case: ${id}`);
-            const asset = escapeHtml(item.asset || item.id);
-            const eager = !clone && index === 0 && position === 0;
-            const contain = item.preserveLayout || ["Text & layout", "Multi-panel generation"].includes(item.task);
-            const previewWidth = position === 0 ? 480 : position === 1 ? 640 : 320;
-            return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.width < item.height ? " portrait-preview" : ""}${item.task === "Text & layout" || item.preserveLayout ? " text-rich" : ""}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
+    .map((group, index) => {
+      const ratios = group.map((id) => byId.get(id).width / byId.get(id).height);
+      // Fit two complete-image stacks and one wide image to a common height.
+      // The widths follow the artwork ratios, so no tile needs to be cropped.
+      const leftPair = 1 / (1 / ratios[2] + 1 / ratios[5]);
+      const rightPair = 1 / (1 / ratios[3] + 1 / ratios[6]);
+      const pairRatio = leftPair + rightPair;
+      const dimensions = `--feature-stack:${1 / ratios[0] + 1 / ratios[4]};--cluster-stack:${1 / ratios[1] + 1 / pairRatio};--cluster-gaps:${2 - 1 / pairRatio};--pair-share:${leftPair / pairRatio}`;
+      const cards = group.map((id, position) => {
+        const item = byId.get(id);
+        if (!item) throw new Error(`Missing scroll case: ${id}`);
+        const asset = escapeHtml(item.asset || item.id);
+        const eager = !clone && index === 0 && position === 0;
+        const contain = item.preserveLayout || ["Text & layout", "Multi-panel generation"].includes(item.task);
+        const previewWidth = position === 0 ? 480 : position === 1 ? 640 : 320;
+        return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.task === "Text & layout" || item.preserveLayout ? " text-rich" : ""}" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
   <img ${eager ? "src" : "data-src"}="assets/scroll/${asset}-${previewWidth}.webp" width="${item.width}" height="${item.height}" decoding="async" ${eager ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
   <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
-          })
-          .join("")}</div></div>`
-    )
+      });
+      return `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="${dimensions}">${canopy(index)}<div class="art-scroll-mosaic"><div class="art-scroll-feature">${cards[0]}${cards[4]}</div><div class="art-scroll-cluster">${cards[1]}<div class="art-scroll-pairs"><div>${cards[2]}${cards[5]}</div><div>${cards[3]}${cards[6]}</div></div></div></div></div>`;
+    })
     .join("");
 replaceBlock(
   "SCROLL",

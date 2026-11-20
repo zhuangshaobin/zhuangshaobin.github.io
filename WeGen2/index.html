@@ -2876,11 +2876,13 @@ body.artwork-open {
   will-change: transform;
 }
 .art-scroll-group {
+  --feature-width: calc((var(--scroll-height) - var(--scroll-gap)) / var(--feature-stack));
+  --cluster-width: calc((var(--scroll-height) - var(--scroll-gap) * var(--cluster-gaps)) / var(--cluster-stack));
   display: flex;
   flex: none;
   flex-direction: column;
   gap: var(--scroll-gap);
-  width: calc(var(--feature-height) * var(--feature-ratio, 0.667) + var(--tile-height) * 1.88 + var(--scroll-gap) * 2);
+  width: calc(var(--feature-width) + var(--cluster-width) + var(--scroll-gap));
 }
 .art-scroll-canopy {
   display: grid;
@@ -2896,8 +2898,8 @@ body.artwork-open {
   height: 100%;
   min-height: 0;
   min-width: 0;
-  object-fit: cover;
-  object-position: center 35%;
+  object-fit: contain;
+  object-position: center;
   border-radius: 4px;
   user-select: none;
 }
@@ -2925,106 +2927,67 @@ body.artwork-open {
     linear-gradient(180deg, #fafcf8 0%, #fafcf8c2 22%, #fafcf8d4 62%, #fafcf880 78%, #fafcf800 100%);
 }
 .art-scroll-mosaic {
-  display: grid;
+  display: flex;
   flex: none;
-  grid-template-columns: calc(var(--feature-height) * var(--feature-ratio, 0.667)) repeat(2, calc(var(--tile-height) * 0.94));
-  grid-template-rows: repeat(3, 1fr);
   gap: var(--scroll-gap);
   height: var(--scroll-height);
+}
+.art-scroll-feature,
+.art-scroll-cluster,
+.art-scroll-pairs > div {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--scroll-gap);
+  min-width: 0;
+}
+.art-scroll-feature {
+  width: var(--feature-width);
+}
+.art-scroll-cluster {
+  width: var(--cluster-width);
+}
+.art-scroll-pairs {
+  display: flex;
+  gap: var(--scroll-gap);
+}
+.art-scroll-pairs > div:first-child {
+  width: calc((100% - var(--scroll-gap)) * var(--pair-share));
+}
+.art-scroll-pairs > div:last-child {
+  flex: 1;
+}
+.art-scroll-group.is-reversed .art-scroll-mosaic {
+  flex-direction: row-reverse;
+}
+.art-scroll-group.is-reversed .art-scroll-feature,
+.art-scroll-group.is-reversed .art-scroll-cluster,
+.art-scroll-group.is-reversed .art-scroll-pairs > div {
+  flex-direction: column-reverse;
 }
 .art-scroll-card {
   display: block;
   position: relative;
+  flex: none;
   overflow: hidden;
   border: 0;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 0;
-  background: #dce7df;
+  background: transparent;
   width: 100%;
-  height: 100%;
+  height: auto;
   cursor: inherit;
   text-align: left;
-  box-shadow: inset 0 0 0 1px #133b2f0c;
-}
-.art-scroll-card.tile-0 {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-.art-scroll-card.tile-1 {
-  grid-column: 2 / 4;
-  grid-row: 1;
-}
-.art-scroll-card.tile-2 {
-  grid-column: 2;
-  grid-row: 2;
-}
-.art-scroll-card.tile-3 {
-  grid-column: 3;
-  grid-row: 2;
-}
-.art-scroll-card.tile-4 {
-  grid-column: 1;
-  grid-row: 3;
-}
-.art-scroll-card.tile-5 {
-  grid-column: 2;
-  grid-row: 3;
-}
-.art-scroll-card.tile-6 {
-  grid-column: 3;
-  grid-row: 3;
-}
-.art-scroll-group.is-reversed .art-scroll-mosaic {
-  grid-template-columns: repeat(2, calc(var(--tile-height) * 0.94)) calc(var(--feature-height) * var(--feature-ratio, 0.667));
-}
-.art-scroll-group.is-reversed .tile-0 {
-  grid-column: 3;
-  grid-row: 2 / 4;
-}
-.art-scroll-group.is-reversed .tile-1 {
-  grid-column: 1 / 3;
-  grid-row: 3;
-}
-.art-scroll-group.is-reversed .tile-2 {
-  grid-column: 1;
-  grid-row: 2;
-}
-.art-scroll-group.is-reversed .tile-3 {
-  grid-column: 2;
-  grid-row: 2;
-}
-.art-scroll-group.is-reversed .tile-4 {
-  grid-column: 3;
-  grid-row: 1;
-}
-.art-scroll-group.is-reversed .tile-5 {
-  grid-column: 1;
-  grid-row: 1;
-}
-.art-scroll-group.is-reversed .tile-6 {
-  grid-column: 2;
-  grid-row: 1;
 }
 .art-scroll-card img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  object-fit: contain;
+  object-position: center;
   user-select: none;
   -webkit-user-drag: none;
   color: transparent;
-}
-.art-scroll-card.preserve-layout img {
-  object-fit: contain;
-}
-.art-scroll-card.portrait-preview:not(.preserve-layout) img {
-  object-position: 50% 25%;
-}
-.art-scroll-card:is(:hover, :focus-visible) img {
-  transform: scale(1.025);
-}
-.art-scroll-card.preserve-layout:is(:hover, :focus-visible) img {
-  transform: none;
 }
 .art-scroll-card:focus-visible {
   outline: 3px solid #08b86c;
@@ -3403,175 +3366,175 @@ body.artwork-open {
   <div class="art-scroll-light" aria-hidden="true"></div>
   <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
     <div class="art-scroll-veil" aria-hidden="true"></div>
-    <div class="art-scroll-track"><div class="art-scroll-cycle"><div class="art-scroll-group " style="--feature-ratio:0.7272727272727273"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/a-dress-made-of-wind-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/woven-memory-320.webp" fetchpriority="low" width="1152" height="896" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/screenprint-to-woodblock-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 preserve-layout portrait-preview text-rich" type="button" data-artwork="the-night-train-letter" aria-label="Explore A letter from the night train">
+    <div class="art-scroll-track"><div class="art-scroll-cycle"><div class="art-scroll-group " style="--feature-stack:2.0416666666666665;--cluster-stack:1.6666666666666665;--cluster-gaps:1;--pair-share:0.6000000000000001"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/a-dress-made-of-wind-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/woven-memory-320.webp" fetchpriority="low" width="1152" height="896" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/screenprint-to-woodblock-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0 preserve-layout text-rich" style="aspect-ratio:1024/1408" type="button" data-artwork="the-night-train-letter" aria-label="Explore A letter from the night train">
   <img src="assets/scroll/the-night-train-letter-480.webp" width="1024" height="1408" decoding="async" fetchpriority="high" alt="Eight lines of handwritten Chinese fill a letter beside a teacup, pen and patterned envelope." draggable="false" />
-  <span class="art-scroll-caption"><span>A letter from the night train</span><small>Text &amp; layout</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-coral-desert" aria-label="Explore The coral desert">
-  <img data-src="assets/scroll/the-coral-desert-640.webp" width="1152" height="768" decoding="async"  alt="Branching coral-like forms rise from a richly colored desert landscape." draggable="false" />
-  <span class="art-scroll-caption"><span>The coral desert</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="the-potter-at-dawn" aria-label="Explore The potter at dawn">
-  <img data-src="assets/scroll/the-potter-at-dawn-320.webp" width="1152" height="768" decoding="async"  alt="A ceramic artist shapes a clay vessel with one hand inside the rim and one supporting its outer wall." draggable="false" />
-  <span class="art-scroll-caption"><span>The potter at dawn</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="a-tide-of-ink" aria-label="Explore A tide of ink">
-  <img data-src="assets/scroll/a-tide-of-ink-320.webp" width="1024" height="1024" decoding="async"  alt="Three distinct koi circle a lotus in a detailed ink-and-gold composition." draggable="false" />
-  <span class="art-scroll-caption"><span>A tide of ink</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="cherry-blossom-bus" aria-label="Explore The blossom route">
+  <span class="art-scroll-caption"><span>A letter from the night train</span><small>Text &amp; layout</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="cherry-blossom-bus" aria-label="Explore The blossom route">
   <img data-src="assets/scroll/cherry-blossom-bus-320.webp" width="1152" height="768" decoding="async"  alt="A pastel bus with visible passengers follows a spring road beneath cherry blossoms." draggable="false" />
-  <span class="art-scroll-caption"><span>The blossom route</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 preserve-layout text-rich" type="button" data-artwork="four-materials-four-lights" aria-label="Explore Four materials, four lights">
+  <span class="art-scroll-caption"><span>The blossom route</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-coral-desert" aria-label="Explore The coral desert">
+  <img data-src="assets/scroll/the-coral-desert-640.webp" width="1152" height="768" decoding="async"  alt="Branching coral-like forms rise from a richly colored desert landscape." draggable="false" />
+  <span class="art-scroll-caption"><span>The coral desert</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="the-potter-at-dawn" aria-label="Explore The potter at dawn">
+  <img data-src="assets/scroll/the-potter-at-dawn-320.webp" width="1152" height="768" decoding="async"  alt="A ceramic artist shapes a clay vessel with one hand inside the rim and one supporting its outer wall." draggable="false" />
+  <span class="art-scroll-caption"><span>The potter at dawn</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 preserve-layout text-rich" style="aspect-ratio:1152/1152" type="button" data-artwork="four-materials-four-lights" aria-label="Explore Four materials, four lights">
   <img data-src="assets/scroll/four-materials-four-lights-320.webp" width="1152" height="1152" decoding="async"  alt="A four-panel design board shows ceramic, glass, paper and metal lamps with clear labels." draggable="false" />
-  <span class="art-scroll-caption"><span>Four materials, four lights</span><small>Multi-panel generation</small></span></button><button class="art-scroll-card tile-6 portrait-preview" type="button" data-artwork="glass-sunflower-study" aria-label="Explore A sunflower in glass">
+  <span class="art-scroll-caption"><span>Four materials, four lights</span><small>Multi-panel generation</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1024/1024" type="button" data-artwork="a-tide-of-ink" aria-label="Explore A tide of ink">
+  <img data-src="assets/scroll/a-tide-of-ink-320.webp" width="1024" height="1024" decoding="async"  alt="Three distinct koi circle a lotus in a detailed ink-and-gold composition." draggable="false" />
+  <span class="art-scroll-caption"><span>A tide of ink</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:768/1152" type="button" data-artwork="glass-sunflower-study" aria-label="Explore A sunflower in glass">
   <img data-src="assets/scroll/glass-sunflower-study-320.webp" width="768" height="1152" decoding="async"  alt="An amber glass sunflower with two green leaves casts colored light onto a dark stone surface." draggable="false" />
-  <span class="art-scroll-caption"><span>A sunflower in glass</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group is-reversed" style="--feature-ratio:0.7777777777777778"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-lacemaker-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/glass-harmonics-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-dyers-courtyard-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="the-rain-dancer" aria-label="Explore Between rain and light">
+  <span class="art-scroll-caption"><span>A sunflower in glass</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group is-reversed" style="--feature-stack:1.952380952380952;--cluster-stack:1.5757575757575757;--cluster-gaps:1.0909090909090908;--pair-share:0.45454545454545453"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-lacemaker-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/glass-harmonics-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-dyers-courtyard-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:896/1152" type="button" data-artwork="the-rain-dancer" aria-label="Explore Between rain and light">
   <img data-src="assets/scroll/the-rain-dancer-480.webp" width="896" height="1152" decoding="async"  alt="A dancer moves through a cinematic rain-soaked scene." draggable="false" />
-  <span class="art-scroll-caption"><span>Between rain and light</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-last-tram-home" aria-label="Explore The last tram home">
-  <img data-src="assets/scroll/the-last-tram-home-640.webp" width="1152" height="768" decoding="async"  alt="A warmly lit tram follows a curved rain-soaked street past a figure carrying an umbrella." draggable="false" />
-  <span class="art-scroll-caption"><span>The last tram home</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="ceramic-moonrise" aria-label="Explore Ceramic moonrise">
-  <img data-src="assets/scroll/ceramic-moonrise-320.webp" width="1024" height="1024" decoding="async"  alt="Ivory and blue ceramic crescents form a sculptural vessel around a flowering branch." draggable="false" />
-  <span class="art-scroll-caption"><span>Ceramic moonrise</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="marquetry-bestiary" aria-label="Explore A creature in wood">
-  <img data-src="assets/scroll/marquetry-bestiary-320.webp" width="1024" height="1024" decoding="async"  alt="An intricately assembled fox sculpture made from contrasting wood veneers and carved joints." draggable="false" />
-  <span class="art-scroll-caption"><span>A creature in wood</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="the-latticed-courtyard" aria-label="Explore Through the lattice">
+  <span class="art-scroll-caption"><span>Between rain and light</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="the-latticed-courtyard" aria-label="Explore Through the lattice">
   <img data-src="assets/scroll/the-latticed-courtyard-320.webp" width="1152" height="768" decoding="async"  alt="Terracotta lattice screens cast repeating shadows beside an olive tree and a reflecting pool." draggable="false" />
-  <span class="art-scroll-caption"><span>Through the lattice</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" type="button" data-artwork="brass-globe-render" aria-label="Explore From sketch to brass">
+  <span class="art-scroll-caption"><span>Through the lattice</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-last-tram-home" aria-label="Explore The last tram home">
+  <img data-src="assets/scroll/the-last-tram-home-640.webp" width="1152" height="768" decoding="async"  alt="A warmly lit tram follows a curved rain-soaked street past a figure carrying an umbrella." draggable="false" />
+  <span class="art-scroll-caption"><span>The last tram home</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1024/1024" type="button" data-artwork="ceramic-moonrise" aria-label="Explore Ceramic moonrise">
+  <img data-src="assets/scroll/ceramic-moonrise-320.webp" width="1024" height="1024" decoding="async"  alt="Ivory and blue ceramic crescents form a sculptural vessel around a flowering branch." draggable="false" />
+  <span class="art-scroll-caption"><span>Ceramic moonrise</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:1024/1024" type="button" data-artwork="brass-globe-render" aria-label="Explore From sketch to brass">
   <img data-src="assets/scroll/brass-globe-render-320.webp" width="1024" height="1024" decoding="async"  alt="An intricate globe sketch becomes a brass instrument with blue enamel and gold engraved land shapes." draggable="false" />
-  <span class="art-scroll-caption"><span>From sketch to brass</span><small>Sketch to image</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="a-summer-between-pages" aria-label="Explore A summer between pages">
+  <span class="art-scroll-caption"><span>From sketch to brass</span><small>Sketch to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1024/1024" type="button" data-artwork="marquetry-bestiary" aria-label="Explore A creature in wood">
+  <img data-src="assets/scroll/marquetry-bestiary-320.webp" width="1024" height="1024" decoding="async"  alt="An intricately assembled fox sculpture made from contrasting wood veneers and carved joints." draggable="false" />
+  <span class="art-scroll-caption"><span>A creature in wood</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1152/768" type="button" data-artwork="a-summer-between-pages" aria-label="Explore A summer between pages">
   <img data-src="assets/scroll/a-summer-between-pages-320.webp" width="1152" height="768" decoding="async"  alt="An elaborate paper greenhouse with tiny plants rises from the center fold of an open pop-up book." draggable="false" />
-  <span class="art-scroll-caption"><span>A summer between pages</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group " style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-bespoke-bicycle-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/accordion-book-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/courier-wardrobe-composition-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="paper-portrait-study" aria-label="Explore A portrait in paper">
+  <span class="art-scroll-caption"><span>A summer between pages</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group " style="--feature-stack:2.1666666666666665;--cluster-stack:1.4666666666666668;--cluster-gaps:1.2;--pair-share:0.6"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-bespoke-bicycle-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/accordion-book-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/courier-wardrobe-composition-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="paper-portrait-study" aria-label="Explore A portrait in paper">
   <img data-src="assets/scroll/paper-portrait-study-480.webp" width="768" height="1152" decoding="async"  alt="Layered terracotta, cream and blue paper forms a sculptural three-quarter portrait." draggable="false" />
-  <span class="art-scroll-caption"><span>A portrait in paper</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="rehearsal-in-red" aria-label="Explore Before the first note">
-  <img data-src="assets/scroll/rehearsal-in-red-640.webp" width="1152" height="768" decoding="async"  alt="Five jazz musicians rehearse together in a crimson recording room." draggable="false" />
-  <span class="art-scroll-caption"><span>Before the first note</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="woven-reef" aria-label="Explore A reef in thread">
-  <img data-src="assets/scroll/woven-reef-320.webp" width="1152" height="768" decoding="async"  alt="A richly textured crochet coral reef with three tiny stitched fish." draggable="false" />
-  <span class="art-scroll-caption"><span>A reef in thread</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="sand-and-silver" aria-label="Explore Sand and silver">
-  <img data-src="assets/scroll/sand-and-silver-320.webp" width="1024" height="1024" decoding="async"  alt="An articulated silver cuff with an amber stone wraps around a wrist against pale sand." draggable="false" />
-  <span class="art-scroll-caption"><span>Sand and silver</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="the-sunlit-souk" aria-label="Explore The sunlit souk">
+  <span class="art-scroll-caption"><span>A portrait in paper</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="the-sunlit-souk" aria-label="Explore The sunlit souk">
   <img data-src="assets/scroll/the-sunlit-souk-320.webp" width="1152" height="768" decoding="async"  alt="People browse a richly stocked market beneath layered balconies and awnings." draggable="false" />
-  <span class="art-scroll-caption"><span>The sunlit souk</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" type="button" data-artwork="the-tin-toy-regatta" aria-label="Explore A tiny regatta">
+  <span class="art-scroll-caption"><span>The sunlit souk</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="rehearsal-in-red" aria-label="Explore Before the first note">
+  <img data-src="assets/scroll/rehearsal-in-red-640.webp" width="1152" height="768" decoding="async"  alt="Five jazz musicians rehearse together in a crimson recording room." draggable="false" />
+  <span class="art-scroll-caption"><span>Before the first note</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="woven-reef" aria-label="Explore A reef in thread">
+  <img data-src="assets/scroll/woven-reef-320.webp" width="1152" height="768" decoding="async"  alt="A richly textured crochet coral reef with three tiny stitched fish." draggable="false" />
+  <span class="art-scroll-caption"><span>A reef in thread</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:1152/768" type="button" data-artwork="the-tin-toy-regatta" aria-label="Explore A tiny regatta">
   <img data-src="assets/scroll/the-tin-toy-regatta-320.webp" width="1152" height="768" decoding="async"  alt="Two intricately made toy sailboats with mouse sailors float on reflective water." draggable="false" />
-  <span class="art-scroll-caption"><span>A tiny regatta</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="a-shop-comes-to-life" aria-label="Explore A shop comes to life">
+  <span class="art-scroll-caption"><span>A tiny regatta</span><small>Text to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1024/1024" type="button" data-artwork="sand-and-silver" aria-label="Explore Sand and silver">
+  <img data-src="assets/scroll/sand-and-silver-320.webp" width="1024" height="1024" decoding="async"  alt="An articulated silver cuff with an amber stone wraps around a wrist against pale sand." draggable="false" />
+  <span class="art-scroll-caption"><span>Sand and silver</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1024/1024" type="button" data-artwork="a-shop-comes-to-life" aria-label="Explore A shop comes to life">
   <img data-src="assets/scroll/a-shop-comes-to-life-320.webp" width="1024" height="1024" decoding="async"  alt="An empty corner storefront becomes a flower shop, gains PETAL lettering and changes to blue-hour light." draggable="false" />
-  <span class="art-scroll-caption"><span>A shop comes to life</span><small>Multi-turn editing</small></span></button></div></div><div class="art-scroll-group is-reversed" style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/ceramic-moonrise-320.webp" fetchpriority="low" width="1024" height="1024" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/rehearsal-in-red-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-coral-desert-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="an-orchard-in-glass" aria-label="Explore An orchard in glass">
+  <span class="art-scroll-caption"><span>A shop comes to life</span><small>Multi-turn editing</small></span></button></div></div></div></div></div><div class="art-scroll-group is-reversed" style="--feature-stack:2.1666666666666665;--cluster-stack:1.5821596244131455;--cluster-gaps:1.0845070422535212;--pair-share:0.3661971830985915"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/ceramic-moonrise-320.webp" fetchpriority="low" width="1024" height="1024" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/rehearsal-in-red-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-coral-desert-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="an-orchard-in-glass" aria-label="Explore An orchard in glass">
   <img data-src="assets/scroll/an-orchard-in-glass-480.webp" width="768" height="1152" decoding="async"  alt="Pear branches and a songbird form a detailed stained-glass composition inside a tall arched window." draggable="false" />
-  <span class="art-scroll-caption"><span>An orchard in glass</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-dyers-courtyard" aria-label="Explore The dyers’ courtyard">
-  <img data-src="assets/scroll/the-dyers-courtyard-640.webp" width="1152" height="768" decoding="async"  alt="People hold a long wet cloth above a dye vat in a layered architectural courtyard." draggable="false" />
-  <span class="art-scroll-caption"><span>The dyers’ courtyard</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="a-fold-for-spring" aria-label="Explore A fold for spring">
-  <img data-src="assets/scroll/a-fold-for-spring-320.webp" width="1024" height="1024" decoding="async"  alt="A pale-blue origami crane rests on a textured presentation box with a red silk ribbon." draggable="false" />
-  <span class="art-scroll-caption"><span>A fold for spring</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="the-porcelain-tiger" aria-label="Explore The porcelain tiger">
-  <img data-src="assets/scroll/the-porcelain-tiger-320.webp" width="1152" height="896" decoding="async"  alt="A reclining white porcelain tiger is decorated with fine cobalt-blue ornament." draggable="false" />
-  <span class="art-scroll-caption"><span>The porcelain tiger</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="screenprint-to-woodblock" aria-label="Explore From paint to print">
+  <span class="art-scroll-caption"><span>An orchard in glass</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="screenprint-to-woodblock" aria-label="Explore From paint to print">
   <img data-src="assets/scroll/screenprint-to-woodblock-320.webp" width="1152" height="768" decoding="async"  alt="A fox and heron beside a bridge are reinterpreted in indigo and ochre woodcut." draggable="false" />
-  <span class="art-scroll-caption"><span>From paint to print</span><small>Image editing</small></span></button><button class="art-scroll-card tile-5 portrait-preview" type="button" data-artwork="courier-wardrobe-composition" aria-label="Explore Three references, one look">
+  <span class="art-scroll-caption"><span>From paint to print</span><small>Image editing</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-dyers-courtyard" aria-label="Explore The dyers’ courtyard">
+  <img data-src="assets/scroll/the-dyers-courtyard-640.webp" width="1152" height="768" decoding="async"  alt="People hold a long wet cloth above a dye vat in a layered architectural courtyard." draggable="false" />
+  <span class="art-scroll-caption"><span>The dyers’ courtyard</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1024/1024" type="button" data-artwork="a-fold-for-spring" aria-label="Explore A fold for spring">
+  <img data-src="assets/scroll/a-fold-for-spring-320.webp" width="1024" height="1024" decoding="async"  alt="A pale-blue origami crane rests on a textured presentation box with a red silk ribbon." draggable="false" />
+  <span class="art-scroll-caption"><span>A fold for spring</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:768/1152" type="button" data-artwork="courier-wardrobe-composition" aria-label="Explore Three references, one look">
   <img data-src="assets/scroll/courier-wardrobe-composition-320.webp" width="768" height="1152" decoding="async"  alt="A woman wears an orange technical jacket and navy crossbody satchel from separate references." draggable="false" />
-  <span class="art-scroll-caption"><span>Three references, one look</span><small>Reference composition</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="the-watchmakers-desk" aria-label="Explore The watchmaker’s desk">
+  <span class="art-scroll-caption"><span>Three references, one look</span><small>Reference composition</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1152/896" type="button" data-artwork="the-porcelain-tiger" aria-label="Explore The porcelain tiger">
+  <img data-src="assets/scroll/the-porcelain-tiger-320.webp" width="1152" height="896" decoding="async"  alt="A reclining white porcelain tiger is decorated with fine cobalt-blue ornament." draggable="false" />
+  <span class="art-scroll-caption"><span>The porcelain tiger</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1152/768" type="button" data-artwork="the-watchmakers-desk" aria-label="Explore The watchmaker’s desk">
   <img data-src="assets/scroll/the-watchmakers-desk-320.webp" width="1152" height="768" decoding="async"  alt="A watchmaker uses fine tweezers to place a small gear into an open pocket watch." draggable="false" />
-  <span class="art-scroll-caption"><span>The watchmaker’s desk</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group " style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/glass-sunflower-study-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/cherry-blossom-bus-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-rain-dancer-320.webp" fetchpriority="low" width="896" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="the-lacemaker" aria-label="Explore The lacemaker">
+  <span class="art-scroll-caption"><span>The watchmaker’s desk</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group " style="--feature-stack:2.2777777777777777;--cluster-stack:1.5333333333333332;--cluster-gaps:1.1333333333333333;--pair-share:0.39999999999999997"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/glass-sunflower-study-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/cherry-blossom-bus-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-rain-dancer-320.webp" fetchpriority="low" width="896" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="the-lacemaker" aria-label="Explore The lacemaker">
   <img data-src="assets/scroll/the-lacemaker-480.webp" width="768" height="1152" decoding="async"  alt="A woman in an ivory jacket touches her lapel beneath an intricately structured black lace hat." draggable="false" />
-  <span class="art-scroll-caption"><span>The lacemaker</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-copper-kettle-train" aria-label="Explore The copper-kettle train">
-  <img data-src="assets/scroll/the-copper-kettle-train-640.webp" width="1152" height="768" decoding="async"  alt="A copper and teal locomotive rests on rails beneath an intricate glass-and-steel station." draggable="false" />
-  <span class="art-scroll-caption"><span>The copper-kettle train</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="accordion-book" aria-label="Explore A landscape unfolds">
-  <img data-src="assets/scroll/accordion-book-320.webp" width="1152" height="768" decoding="async"  alt="A continuous accordion book carries a mountain landscape across folds and raised paper trees." draggable="false" />
-  <span class="art-scroll-caption"><span>A landscape unfolds</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="the-lacquered-dragon" aria-label="Explore Lacquer and gold">
-  <img data-src="assets/scroll/the-lacquered-dragon-320.webp" width="1152" height="896" decoding="async"  alt="A sculpted dragon has glossy lacquer scales and precise gold decoration." draggable="false" />
-  <span class="art-scroll-caption"><span>Lacquer and gold</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="woven-memory" aria-label="Explore Woven memory">
+  <span class="art-scroll-caption"><span>The lacemaker</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/896" type="button" data-artwork="woven-memory" aria-label="Explore Woven memory">
   <img data-src="assets/scroll/woven-memory-320.webp" width="1152" height="896" decoding="async"  alt="A continuous wall tapestry depicts a dense hillside town through raised embroidery and colored thread." draggable="false" />
-  <span class="art-scroll-caption"><span>Woven memory</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 portrait-preview" type="button" data-artwork="porcelain-light" aria-label="Explore A quiet light">
+  <span class="art-scroll-caption"><span>Woven memory</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-copper-kettle-train" aria-label="Explore The copper-kettle train">
+  <img data-src="assets/scroll/the-copper-kettle-train-640.webp" width="1152" height="768" decoding="async"  alt="A copper and teal locomotive rests on rails beneath an intricate glass-and-steel station." draggable="false" />
+  <span class="art-scroll-caption"><span>The copper-kettle train</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="accordion-book" aria-label="Explore A landscape unfolds">
+  <img data-src="assets/scroll/accordion-book-320.webp" width="1152" height="768" decoding="async"  alt="A continuous accordion book carries a mountain landscape across folds and raised paper trees." draggable="false" />
+  <span class="art-scroll-caption"><span>A landscape unfolds</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:768/1152" type="button" data-artwork="porcelain-light" aria-label="Explore A quiet light">
   <img data-src="assets/scroll/porcelain-light-320.webp" width="768" height="1152" decoding="async"  alt="A translucent porcelain petal shade glows above a terracotta base and a slim brass stem." draggable="false" />
-  <span class="art-scroll-caption"><span>A quiet light</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="mechanical-herbarium" aria-label="Explore A mechanical herbarium">
+  <span class="art-scroll-caption"><span>A quiet light</span><small>Text to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1152/896" type="button" data-artwork="the-lacquered-dragon" aria-label="Explore Lacquer and gold">
+  <img data-src="assets/scroll/the-lacquered-dragon-320.webp" width="1152" height="896" decoding="async"  alt="A sculpted dragon has glossy lacquer scales and precise gold decoration." draggable="false" />
+  <span class="art-scroll-caption"><span>Lacquer and gold</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1152/768" type="button" data-artwork="mechanical-herbarium" aria-label="Explore A mechanical herbarium">
   <img data-src="assets/scroll/mechanical-herbarium-320.webp" width="1152" height="768" decoding="async"  alt="Mechanical objects inspired by seeds, leaves and beetle shells are arranged in a glass museum case." draggable="false" />
-  <span class="art-scroll-caption"><span>A mechanical herbarium</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group is-reversed" style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-potter-at-dawn-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/a-summer-between-pages-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-tin-toy-regatta-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="costume-in-motion" aria-label="Explore A costume in motion">
+  <span class="art-scroll-caption"><span>A mechanical herbarium</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group is-reversed" style="--feature-stack:2.1666666666666665;--cluster-stack:1.924731182795699;--cluster-gaps:0.7419354838709677;--pair-share:0.5806451612903226"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-potter-at-dawn-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/a-summer-between-pages-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-tin-toy-regatta-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="costume-in-motion" aria-label="Explore A costume in motion">
   <img data-src="assets/scroll/costume-in-motion-480.webp" width="768" height="1152" decoding="async"  alt="A woman in an ivory blouse and a red pleated skirt changes from a standing portrait to a dance pose." draggable="false" />
-  <span class="art-scroll-caption"><span>A costume in motion</span><small>Image editing</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-red-lantern-workshop" aria-label="Explore Made by hand">
-  <img data-src="assets/scroll/the-red-lantern-workshop-640.webp" width="1152" height="768" decoding="async"  alt="A craftsperson brushes red paper onto a delicate bamboo lantern frame." draggable="false" />
-  <span class="art-scroll-caption"><span>Made by hand</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="the-bespoke-bicycle" aria-label="Explore The bespoke bicycle">
-  <img data-src="assets/scroll/the-bespoke-bicycle-320.webp" width="1152" height="768" decoding="async"  alt="An intricately crafted bicycle combines refined materials and connected mechanical components." draggable="false" />
-  <span class="art-scroll-caption"><span>The bespoke bicycle</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3 portrait-preview" type="button" data-artwork="room-under-an-umbrella" aria-label="Explore Room under an umbrella">
-  <img data-src="assets/scroll/room-under-an-umbrella-320.webp" width="768" height="1152" decoding="async"  alt="A fox in a yellow raincoat shelters a hedgehog beneath one red umbrella on a rainy lane." draggable="false" />
-  <span class="art-scroll-caption"><span>Room under an umbrella</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="the-amethyst-grotto" aria-label="Explore The amethyst grotto">
+  <span class="art-scroll-caption"><span>A costume in motion</span><small>Image editing</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="the-amethyst-grotto" aria-label="Explore The amethyst grotto">
   <img data-src="assets/scroll/the-amethyst-grotto-320.webp" width="1152" height="768" decoding="async"  alt="A stone staircase leads toward a small pavilion inside a luminous crystal cavern." draggable="false" />
-  <span class="art-scroll-caption"><span>The amethyst grotto</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 portrait-preview" type="button" data-artwork="a-dress-made-of-wind" aria-label="Explore A dress made of wind">
+  <span class="art-scroll-caption"><span>The amethyst grotto</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-red-lantern-workshop" aria-label="Explore Made by hand">
+  <img data-src="assets/scroll/the-red-lantern-workshop-640.webp" width="1152" height="768" decoding="async"  alt="A craftsperson brushes red paper onto a delicate bamboo lantern frame." draggable="false" />
+  <span class="art-scroll-caption"><span>Made by hand</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="the-bespoke-bicycle" aria-label="Explore The bespoke bicycle">
+  <img data-src="assets/scroll/the-bespoke-bicycle-320.webp" width="1152" height="768" decoding="async"  alt="An intricately crafted bicycle combines refined materials and connected mechanical components." draggable="false" />
+  <span class="art-scroll-caption"><span>The bespoke bicycle</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:768/1152" type="button" data-artwork="a-dress-made-of-wind" aria-label="Explore A dress made of wind">
   <img data-src="assets/scroll/a-dress-made-of-wind-320.webp" width="768" height="1152" decoding="async"  alt="A graphite and watercolor fashion drawing shows a woman gathering the pleats of an ivory gown." draggable="false" />
-  <span class="art-scroll-caption"><span>A dress made of wind</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6 portrait-preview" type="button" data-artwork="glass-harmonics" aria-label="Explore Glass harmonics">
+  <span class="art-scroll-caption"><span>A dress made of wind</span><small>Text to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:768/1152" type="button" data-artwork="room-under-an-umbrella" aria-label="Explore Room under an umbrella">
+  <img data-src="assets/scroll/room-under-an-umbrella-320.webp" width="768" height="1152" decoding="async"  alt="A fox in a yellow raincoat shelters a hedgehog beneath one red umbrella on a rainy lane." draggable="false" />
+  <span class="art-scroll-caption"><span>Room under an umbrella</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:768/1152" type="button" data-artwork="glass-harmonics" aria-label="Explore Glass harmonics">
   <img data-src="assets/scroll/glass-harmonics-320.webp" width="768" height="1152" decoding="async"  alt="A transparent glass violin with four strings, gold detailing and a bow on a sunlit plinth." draggable="false" />
-  <span class="art-scroll-caption"><span>Glass harmonics</span><small>Text to image</small></span></button></div></div></div><div class="art-scroll-cycle" aria-hidden="true"><div class="art-scroll-group " style="--feature-ratio:0.7272727272727273"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/a-dress-made-of-wind-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/woven-memory-320.webp" fetchpriority="low" width="1152" height="896" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/screenprint-to-woodblock-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 preserve-layout portrait-preview text-rich" type="button" data-artwork="the-night-train-letter" aria-label="Explore A letter from the night train" tabindex="-1">
+  <span class="art-scroll-caption"><span>Glass harmonics</span><small>Text to image</small></span></button></div></div></div></div></div></div><div class="art-scroll-cycle" aria-hidden="true"><div class="art-scroll-group " style="--feature-stack:2.0416666666666665;--cluster-stack:1.6666666666666665;--cluster-gaps:1;--pair-share:0.6000000000000001"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/a-dress-made-of-wind-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/woven-memory-320.webp" fetchpriority="low" width="1152" height="896" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/screenprint-to-woodblock-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0 preserve-layout text-rich" style="aspect-ratio:1024/1408" type="button" data-artwork="the-night-train-letter" aria-label="Explore A letter from the night train" tabindex="-1">
   <img data-src="assets/scroll/the-night-train-letter-480.webp" width="1024" height="1408" decoding="async"  alt="Eight lines of handwritten Chinese fill a letter beside a teacup, pen and patterned envelope." draggable="false" />
-  <span class="art-scroll-caption"><span>A letter from the night train</span><small>Text &amp; layout</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-coral-desert" aria-label="Explore The coral desert" tabindex="-1">
-  <img data-src="assets/scroll/the-coral-desert-640.webp" width="1152" height="768" decoding="async"  alt="Branching coral-like forms rise from a richly colored desert landscape." draggable="false" />
-  <span class="art-scroll-caption"><span>The coral desert</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="the-potter-at-dawn" aria-label="Explore The potter at dawn" tabindex="-1">
-  <img data-src="assets/scroll/the-potter-at-dawn-320.webp" width="1152" height="768" decoding="async"  alt="A ceramic artist shapes a clay vessel with one hand inside the rim and one supporting its outer wall." draggable="false" />
-  <span class="art-scroll-caption"><span>The potter at dawn</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="a-tide-of-ink" aria-label="Explore A tide of ink" tabindex="-1">
-  <img data-src="assets/scroll/a-tide-of-ink-320.webp" width="1024" height="1024" decoding="async"  alt="Three distinct koi circle a lotus in a detailed ink-and-gold composition." draggable="false" />
-  <span class="art-scroll-caption"><span>A tide of ink</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="cherry-blossom-bus" aria-label="Explore The blossom route" tabindex="-1">
+  <span class="art-scroll-caption"><span>A letter from the night train</span><small>Text &amp; layout</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="cherry-blossom-bus" aria-label="Explore The blossom route" tabindex="-1">
   <img data-src="assets/scroll/cherry-blossom-bus-320.webp" width="1152" height="768" decoding="async"  alt="A pastel bus with visible passengers follows a spring road beneath cherry blossoms." draggable="false" />
-  <span class="art-scroll-caption"><span>The blossom route</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 preserve-layout text-rich" type="button" data-artwork="four-materials-four-lights" aria-label="Explore Four materials, four lights" tabindex="-1">
+  <span class="art-scroll-caption"><span>The blossom route</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-coral-desert" aria-label="Explore The coral desert" tabindex="-1">
+  <img data-src="assets/scroll/the-coral-desert-640.webp" width="1152" height="768" decoding="async"  alt="Branching coral-like forms rise from a richly colored desert landscape." draggable="false" />
+  <span class="art-scroll-caption"><span>The coral desert</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="the-potter-at-dawn" aria-label="Explore The potter at dawn" tabindex="-1">
+  <img data-src="assets/scroll/the-potter-at-dawn-320.webp" width="1152" height="768" decoding="async"  alt="A ceramic artist shapes a clay vessel with one hand inside the rim and one supporting its outer wall." draggable="false" />
+  <span class="art-scroll-caption"><span>The potter at dawn</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 preserve-layout text-rich" style="aspect-ratio:1152/1152" type="button" data-artwork="four-materials-four-lights" aria-label="Explore Four materials, four lights" tabindex="-1">
   <img data-src="assets/scroll/four-materials-four-lights-320.webp" width="1152" height="1152" decoding="async"  alt="A four-panel design board shows ceramic, glass, paper and metal lamps with clear labels." draggable="false" />
-  <span class="art-scroll-caption"><span>Four materials, four lights</span><small>Multi-panel generation</small></span></button><button class="art-scroll-card tile-6 portrait-preview" type="button" data-artwork="glass-sunflower-study" aria-label="Explore A sunflower in glass" tabindex="-1">
+  <span class="art-scroll-caption"><span>Four materials, four lights</span><small>Multi-panel generation</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1024/1024" type="button" data-artwork="a-tide-of-ink" aria-label="Explore A tide of ink" tabindex="-1">
+  <img data-src="assets/scroll/a-tide-of-ink-320.webp" width="1024" height="1024" decoding="async"  alt="Three distinct koi circle a lotus in a detailed ink-and-gold composition." draggable="false" />
+  <span class="art-scroll-caption"><span>A tide of ink</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:768/1152" type="button" data-artwork="glass-sunflower-study" aria-label="Explore A sunflower in glass" tabindex="-1">
   <img data-src="assets/scroll/glass-sunflower-study-320.webp" width="768" height="1152" decoding="async"  alt="An amber glass sunflower with two green leaves casts colored light onto a dark stone surface." draggable="false" />
-  <span class="art-scroll-caption"><span>A sunflower in glass</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group is-reversed" style="--feature-ratio:0.7777777777777778"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-lacemaker-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/glass-harmonics-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-dyers-courtyard-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="the-rain-dancer" aria-label="Explore Between rain and light" tabindex="-1">
+  <span class="art-scroll-caption"><span>A sunflower in glass</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group is-reversed" style="--feature-stack:1.952380952380952;--cluster-stack:1.5757575757575757;--cluster-gaps:1.0909090909090908;--pair-share:0.45454545454545453"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-lacemaker-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/glass-harmonics-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-dyers-courtyard-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:896/1152" type="button" data-artwork="the-rain-dancer" aria-label="Explore Between rain and light" tabindex="-1">
   <img data-src="assets/scroll/the-rain-dancer-480.webp" width="896" height="1152" decoding="async"  alt="A dancer moves through a cinematic rain-soaked scene." draggable="false" />
-  <span class="art-scroll-caption"><span>Between rain and light</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-last-tram-home" aria-label="Explore The last tram home" tabindex="-1">
-  <img data-src="assets/scroll/the-last-tram-home-640.webp" width="1152" height="768" decoding="async"  alt="A warmly lit tram follows a curved rain-soaked street past a figure carrying an umbrella." draggable="false" />
-  <span class="art-scroll-caption"><span>The last tram home</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="ceramic-moonrise" aria-label="Explore Ceramic moonrise" tabindex="-1">
-  <img data-src="assets/scroll/ceramic-moonrise-320.webp" width="1024" height="1024" decoding="async"  alt="Ivory and blue ceramic crescents form a sculptural vessel around a flowering branch." draggable="false" />
-  <span class="art-scroll-caption"><span>Ceramic moonrise</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="marquetry-bestiary" aria-label="Explore A creature in wood" tabindex="-1">
-  <img data-src="assets/scroll/marquetry-bestiary-320.webp" width="1024" height="1024" decoding="async"  alt="An intricately assembled fox sculpture made from contrasting wood veneers and carved joints." draggable="false" />
-  <span class="art-scroll-caption"><span>A creature in wood</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="the-latticed-courtyard" aria-label="Explore Through the lattice" tabindex="-1">
+  <span class="art-scroll-caption"><span>Between rain and light</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="the-latticed-courtyard" aria-label="Explore Through the lattice" tabindex="-1">
   <img data-src="assets/scroll/the-latticed-courtyard-320.webp" width="1152" height="768" decoding="async"  alt="Terracotta lattice screens cast repeating shadows beside an olive tree and a reflecting pool." draggable="false" />
-  <span class="art-scroll-caption"><span>Through the lattice</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" type="button" data-artwork="brass-globe-render" aria-label="Explore From sketch to brass" tabindex="-1">
+  <span class="art-scroll-caption"><span>Through the lattice</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-last-tram-home" aria-label="Explore The last tram home" tabindex="-1">
+  <img data-src="assets/scroll/the-last-tram-home-640.webp" width="1152" height="768" decoding="async"  alt="A warmly lit tram follows a curved rain-soaked street past a figure carrying an umbrella." draggable="false" />
+  <span class="art-scroll-caption"><span>The last tram home</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1024/1024" type="button" data-artwork="ceramic-moonrise" aria-label="Explore Ceramic moonrise" tabindex="-1">
+  <img data-src="assets/scroll/ceramic-moonrise-320.webp" width="1024" height="1024" decoding="async"  alt="Ivory and blue ceramic crescents form a sculptural vessel around a flowering branch." draggable="false" />
+  <span class="art-scroll-caption"><span>Ceramic moonrise</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:1024/1024" type="button" data-artwork="brass-globe-render" aria-label="Explore From sketch to brass" tabindex="-1">
   <img data-src="assets/scroll/brass-globe-render-320.webp" width="1024" height="1024" decoding="async"  alt="An intricate globe sketch becomes a brass instrument with blue enamel and gold engraved land shapes." draggable="false" />
-  <span class="art-scroll-caption"><span>From sketch to brass</span><small>Sketch to image</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="a-summer-between-pages" aria-label="Explore A summer between pages" tabindex="-1">
+  <span class="art-scroll-caption"><span>From sketch to brass</span><small>Sketch to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1024/1024" type="button" data-artwork="marquetry-bestiary" aria-label="Explore A creature in wood" tabindex="-1">
+  <img data-src="assets/scroll/marquetry-bestiary-320.webp" width="1024" height="1024" decoding="async"  alt="An intricately assembled fox sculpture made from contrasting wood veneers and carved joints." draggable="false" />
+  <span class="art-scroll-caption"><span>A creature in wood</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1152/768" type="button" data-artwork="a-summer-between-pages" aria-label="Explore A summer between pages" tabindex="-1">
   <img data-src="assets/scroll/a-summer-between-pages-320.webp" width="1152" height="768" decoding="async"  alt="An elaborate paper greenhouse with tiny plants rises from the center fold of an open pop-up book." draggable="false" />
-  <span class="art-scroll-caption"><span>A summer between pages</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group " style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-bespoke-bicycle-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/accordion-book-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/courier-wardrobe-composition-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="paper-portrait-study" aria-label="Explore A portrait in paper" tabindex="-1">
+  <span class="art-scroll-caption"><span>A summer between pages</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group " style="--feature-stack:2.1666666666666665;--cluster-stack:1.4666666666666668;--cluster-gaps:1.2;--pair-share:0.6"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-bespoke-bicycle-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/accordion-book-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/courier-wardrobe-composition-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="paper-portrait-study" aria-label="Explore A portrait in paper" tabindex="-1">
   <img data-src="assets/scroll/paper-portrait-study-480.webp" width="768" height="1152" decoding="async"  alt="Layered terracotta, cream and blue paper forms a sculptural three-quarter portrait." draggable="false" />
-  <span class="art-scroll-caption"><span>A portrait in paper</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="rehearsal-in-red" aria-label="Explore Before the first note" tabindex="-1">
-  <img data-src="assets/scroll/rehearsal-in-red-640.webp" width="1152" height="768" decoding="async"  alt="Five jazz musicians rehearse together in a crimson recording room." draggable="false" />
-  <span class="art-scroll-caption"><span>Before the first note</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="woven-reef" aria-label="Explore A reef in thread" tabindex="-1">
-  <img data-src="assets/scroll/woven-reef-320.webp" width="1152" height="768" decoding="async"  alt="A richly textured crochet coral reef with three tiny stitched fish." draggable="false" />
-  <span class="art-scroll-caption"><span>A reef in thread</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="sand-and-silver" aria-label="Explore Sand and silver" tabindex="-1">
-  <img data-src="assets/scroll/sand-and-silver-320.webp" width="1024" height="1024" decoding="async"  alt="An articulated silver cuff with an amber stone wraps around a wrist against pale sand." draggable="false" />
-  <span class="art-scroll-caption"><span>Sand and silver</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="the-sunlit-souk" aria-label="Explore The sunlit souk" tabindex="-1">
+  <span class="art-scroll-caption"><span>A portrait in paper</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="the-sunlit-souk" aria-label="Explore The sunlit souk" tabindex="-1">
   <img data-src="assets/scroll/the-sunlit-souk-320.webp" width="1152" height="768" decoding="async"  alt="People browse a richly stocked market beneath layered balconies and awnings." draggable="false" />
-  <span class="art-scroll-caption"><span>The sunlit souk</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" type="button" data-artwork="the-tin-toy-regatta" aria-label="Explore A tiny regatta" tabindex="-1">
+  <span class="art-scroll-caption"><span>The sunlit souk</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="rehearsal-in-red" aria-label="Explore Before the first note" tabindex="-1">
+  <img data-src="assets/scroll/rehearsal-in-red-640.webp" width="1152" height="768" decoding="async"  alt="Five jazz musicians rehearse together in a crimson recording room." draggable="false" />
+  <span class="art-scroll-caption"><span>Before the first note</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="woven-reef" aria-label="Explore A reef in thread" tabindex="-1">
+  <img data-src="assets/scroll/woven-reef-320.webp" width="1152" height="768" decoding="async"  alt="A richly textured crochet coral reef with three tiny stitched fish." draggable="false" />
+  <span class="art-scroll-caption"><span>A reef in thread</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:1152/768" type="button" data-artwork="the-tin-toy-regatta" aria-label="Explore A tiny regatta" tabindex="-1">
   <img data-src="assets/scroll/the-tin-toy-regatta-320.webp" width="1152" height="768" decoding="async"  alt="Two intricately made toy sailboats with mouse sailors float on reflective water." draggable="false" />
-  <span class="art-scroll-caption"><span>A tiny regatta</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="a-shop-comes-to-life" aria-label="Explore A shop comes to life" tabindex="-1">
+  <span class="art-scroll-caption"><span>A tiny regatta</span><small>Text to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1024/1024" type="button" data-artwork="sand-and-silver" aria-label="Explore Sand and silver" tabindex="-1">
+  <img data-src="assets/scroll/sand-and-silver-320.webp" width="1024" height="1024" decoding="async"  alt="An articulated silver cuff with an amber stone wraps around a wrist against pale sand." draggable="false" />
+  <span class="art-scroll-caption"><span>Sand and silver</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1024/1024" type="button" data-artwork="a-shop-comes-to-life" aria-label="Explore A shop comes to life" tabindex="-1">
   <img data-src="assets/scroll/a-shop-comes-to-life-320.webp" width="1024" height="1024" decoding="async"  alt="An empty corner storefront becomes a flower shop, gains PETAL lettering and changes to blue-hour light." draggable="false" />
-  <span class="art-scroll-caption"><span>A shop comes to life</span><small>Multi-turn editing</small></span></button></div></div><div class="art-scroll-group is-reversed" style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/ceramic-moonrise-320.webp" fetchpriority="low" width="1024" height="1024" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/rehearsal-in-red-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-coral-desert-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="an-orchard-in-glass" aria-label="Explore An orchard in glass" tabindex="-1">
+  <span class="art-scroll-caption"><span>A shop comes to life</span><small>Multi-turn editing</small></span></button></div></div></div></div></div><div class="art-scroll-group is-reversed" style="--feature-stack:2.1666666666666665;--cluster-stack:1.5821596244131455;--cluster-gaps:1.0845070422535212;--pair-share:0.3661971830985915"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/ceramic-moonrise-320.webp" fetchpriority="low" width="1024" height="1024" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/rehearsal-in-red-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-coral-desert-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="an-orchard-in-glass" aria-label="Explore An orchard in glass" tabindex="-1">
   <img data-src="assets/scroll/an-orchard-in-glass-480.webp" width="768" height="1152" decoding="async"  alt="Pear branches and a songbird form a detailed stained-glass composition inside a tall arched window." draggable="false" />
-  <span class="art-scroll-caption"><span>An orchard in glass</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-dyers-courtyard" aria-label="Explore The dyers’ courtyard" tabindex="-1">
-  <img data-src="assets/scroll/the-dyers-courtyard-640.webp" width="1152" height="768" decoding="async"  alt="People hold a long wet cloth above a dye vat in a layered architectural courtyard." draggable="false" />
-  <span class="art-scroll-caption"><span>The dyers’ courtyard</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="a-fold-for-spring" aria-label="Explore A fold for spring" tabindex="-1">
-  <img data-src="assets/scroll/a-fold-for-spring-320.webp" width="1024" height="1024" decoding="async"  alt="A pale-blue origami crane rests on a textured presentation box with a red silk ribbon." draggable="false" />
-  <span class="art-scroll-caption"><span>A fold for spring</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="the-porcelain-tiger" aria-label="Explore The porcelain tiger" tabindex="-1">
-  <img data-src="assets/scroll/the-porcelain-tiger-320.webp" width="1152" height="896" decoding="async"  alt="A reclining white porcelain tiger is decorated with fine cobalt-blue ornament." draggable="false" />
-  <span class="art-scroll-caption"><span>The porcelain tiger</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="screenprint-to-woodblock" aria-label="Explore From paint to print" tabindex="-1">
+  <span class="art-scroll-caption"><span>An orchard in glass</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="screenprint-to-woodblock" aria-label="Explore From paint to print" tabindex="-1">
   <img data-src="assets/scroll/screenprint-to-woodblock-320.webp" width="1152" height="768" decoding="async"  alt="A fox and heron beside a bridge are reinterpreted in indigo and ochre woodcut." draggable="false" />
-  <span class="art-scroll-caption"><span>From paint to print</span><small>Image editing</small></span></button><button class="art-scroll-card tile-5 portrait-preview" type="button" data-artwork="courier-wardrobe-composition" aria-label="Explore Three references, one look" tabindex="-1">
+  <span class="art-scroll-caption"><span>From paint to print</span><small>Image editing</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-dyers-courtyard" aria-label="Explore The dyers’ courtyard" tabindex="-1">
+  <img data-src="assets/scroll/the-dyers-courtyard-640.webp" width="1152" height="768" decoding="async"  alt="People hold a long wet cloth above a dye vat in a layered architectural courtyard." draggable="false" />
+  <span class="art-scroll-caption"><span>The dyers’ courtyard</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1024/1024" type="button" data-artwork="a-fold-for-spring" aria-label="Explore A fold for spring" tabindex="-1">
+  <img data-src="assets/scroll/a-fold-for-spring-320.webp" width="1024" height="1024" decoding="async"  alt="A pale-blue origami crane rests on a textured presentation box with a red silk ribbon." draggable="false" />
+  <span class="art-scroll-caption"><span>A fold for spring</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:768/1152" type="button" data-artwork="courier-wardrobe-composition" aria-label="Explore Three references, one look" tabindex="-1">
   <img data-src="assets/scroll/courier-wardrobe-composition-320.webp" width="768" height="1152" decoding="async"  alt="A woman wears an orange technical jacket and navy crossbody satchel from separate references." draggable="false" />
-  <span class="art-scroll-caption"><span>Three references, one look</span><small>Reference composition</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="the-watchmakers-desk" aria-label="Explore The watchmaker’s desk" tabindex="-1">
+  <span class="art-scroll-caption"><span>Three references, one look</span><small>Reference composition</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1152/896" type="button" data-artwork="the-porcelain-tiger" aria-label="Explore The porcelain tiger" tabindex="-1">
+  <img data-src="assets/scroll/the-porcelain-tiger-320.webp" width="1152" height="896" decoding="async"  alt="A reclining white porcelain tiger is decorated with fine cobalt-blue ornament." draggable="false" />
+  <span class="art-scroll-caption"><span>The porcelain tiger</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1152/768" type="button" data-artwork="the-watchmakers-desk" aria-label="Explore The watchmaker’s desk" tabindex="-1">
   <img data-src="assets/scroll/the-watchmakers-desk-320.webp" width="1152" height="768" decoding="async"  alt="A watchmaker uses fine tweezers to place a small gear into an open pocket watch." draggable="false" />
-  <span class="art-scroll-caption"><span>The watchmaker’s desk</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group " style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/glass-sunflower-study-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/cherry-blossom-bus-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-rain-dancer-320.webp" fetchpriority="low" width="896" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="the-lacemaker" aria-label="Explore The lacemaker" tabindex="-1">
+  <span class="art-scroll-caption"><span>The watchmaker’s desk</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group " style="--feature-stack:2.2777777777777777;--cluster-stack:1.5333333333333332;--cluster-gaps:1.1333333333333333;--pair-share:0.39999999999999997"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/glass-sunflower-study-320.webp" fetchpriority="low" width="768" height="1152" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/cherry-blossom-bus-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-rain-dancer-320.webp" fetchpriority="low" width="896" height="1152" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="the-lacemaker" aria-label="Explore The lacemaker" tabindex="-1">
   <img data-src="assets/scroll/the-lacemaker-480.webp" width="768" height="1152" decoding="async"  alt="A woman in an ivory jacket touches her lapel beneath an intricately structured black lace hat." draggable="false" />
-  <span class="art-scroll-caption"><span>The lacemaker</span><small>Text to image</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-copper-kettle-train" aria-label="Explore The copper-kettle train" tabindex="-1">
-  <img data-src="assets/scroll/the-copper-kettle-train-640.webp" width="1152" height="768" decoding="async"  alt="A copper and teal locomotive rests on rails beneath an intricate glass-and-steel station." draggable="false" />
-  <span class="art-scroll-caption"><span>The copper-kettle train</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="accordion-book" aria-label="Explore A landscape unfolds" tabindex="-1">
-  <img data-src="assets/scroll/accordion-book-320.webp" width="1152" height="768" decoding="async"  alt="A continuous accordion book carries a mountain landscape across folds and raised paper trees." draggable="false" />
-  <span class="art-scroll-caption"><span>A landscape unfolds</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3" type="button" data-artwork="the-lacquered-dragon" aria-label="Explore Lacquer and gold" tabindex="-1">
-  <img data-src="assets/scroll/the-lacquered-dragon-320.webp" width="1152" height="896" decoding="async"  alt="A sculpted dragon has glossy lacquer scales and precise gold decoration." draggable="false" />
-  <span class="art-scroll-caption"><span>Lacquer and gold</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="woven-memory" aria-label="Explore Woven memory" tabindex="-1">
+  <span class="art-scroll-caption"><span>The lacemaker</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/896" type="button" data-artwork="woven-memory" aria-label="Explore Woven memory" tabindex="-1">
   <img data-src="assets/scroll/woven-memory-320.webp" width="1152" height="896" decoding="async"  alt="A continuous wall tapestry depicts a dense hillside town through raised embroidery and colored thread." draggable="false" />
-  <span class="art-scroll-caption"><span>Woven memory</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 portrait-preview" type="button" data-artwork="porcelain-light" aria-label="Explore A quiet light" tabindex="-1">
+  <span class="art-scroll-caption"><span>Woven memory</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-copper-kettle-train" aria-label="Explore The copper-kettle train" tabindex="-1">
+  <img data-src="assets/scroll/the-copper-kettle-train-640.webp" width="1152" height="768" decoding="async"  alt="A copper and teal locomotive rests on rails beneath an intricate glass-and-steel station." draggable="false" />
+  <span class="art-scroll-caption"><span>The copper-kettle train</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="accordion-book" aria-label="Explore A landscape unfolds" tabindex="-1">
+  <img data-src="assets/scroll/accordion-book-320.webp" width="1152" height="768" decoding="async"  alt="A continuous accordion book carries a mountain landscape across folds and raised paper trees." draggable="false" />
+  <span class="art-scroll-caption"><span>A landscape unfolds</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:768/1152" type="button" data-artwork="porcelain-light" aria-label="Explore A quiet light" tabindex="-1">
   <img data-src="assets/scroll/porcelain-light-320.webp" width="768" height="1152" decoding="async"  alt="A translucent porcelain petal shade glows above a terracotta base and a slim brass stem." draggable="false" />
-  <span class="art-scroll-caption"><span>A quiet light</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" type="button" data-artwork="mechanical-herbarium" aria-label="Explore A mechanical herbarium" tabindex="-1">
+  <span class="art-scroll-caption"><span>A quiet light</span><small>Text to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:1152/896" type="button" data-artwork="the-lacquered-dragon" aria-label="Explore Lacquer and gold" tabindex="-1">
+  <img data-src="assets/scroll/the-lacquered-dragon-320.webp" width="1152" height="896" decoding="async"  alt="A sculpted dragon has glossy lacquer scales and precise gold decoration." draggable="false" />
+  <span class="art-scroll-caption"><span>Lacquer and gold</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:1152/768" type="button" data-artwork="mechanical-herbarium" aria-label="Explore A mechanical herbarium" tabindex="-1">
   <img data-src="assets/scroll/mechanical-herbarium-320.webp" width="1152" height="768" decoding="async"  alt="Mechanical objects inspired by seeds, leaves and beetle shells are arranged in a glass museum case." draggable="false" />
-  <span class="art-scroll-caption"><span>A mechanical herbarium</span><small>Text to image</small></span></button></div></div><div class="art-scroll-group is-reversed" style="--feature-ratio:0.6666666666666666"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-potter-at-dawn-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/a-summer-between-pages-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-tin-toy-regatta-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><button class="art-scroll-card tile-0 portrait-preview" type="button" data-artwork="costume-in-motion" aria-label="Explore A costume in motion" tabindex="-1">
+  <span class="art-scroll-caption"><span>A mechanical herbarium</span><small>Text to image</small></span></button></div></div></div></div></div><div class="art-scroll-group is-reversed" style="--feature-stack:2.1666666666666665;--cluster-stack:1.924731182795699;--cluster-gaps:0.7419354838709677;--pair-share:0.5806451612903226"><div class="art-scroll-canopy" aria-hidden="true"><img data-src="assets/scroll/the-potter-at-dawn-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/a-summer-between-pages-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /><img data-src="assets/scroll/the-tin-toy-regatta-320.webp" fetchpriority="low" width="1152" height="768" decoding="async" alt="" draggable="false" /></div><div class="art-scroll-mosaic"><div class="art-scroll-feature"><button class="art-scroll-card tile-0" style="aspect-ratio:768/1152" type="button" data-artwork="costume-in-motion" aria-label="Explore A costume in motion" tabindex="-1">
   <img data-src="assets/scroll/costume-in-motion-480.webp" width="768" height="1152" decoding="async"  alt="A woman in an ivory blouse and a red pleated skirt changes from a standing portrait to a dance pose." draggable="false" />
-  <span class="art-scroll-caption"><span>A costume in motion</span><small>Image editing</small></span></button><button class="art-scroll-card tile-1" type="button" data-artwork="the-red-lantern-workshop" aria-label="Explore Made by hand" tabindex="-1">
-  <img data-src="assets/scroll/the-red-lantern-workshop-640.webp" width="1152" height="768" decoding="async"  alt="A craftsperson brushes red paper onto a delicate bamboo lantern frame." draggable="false" />
-  <span class="art-scroll-caption"><span>Made by hand</span><small>Text to image</small></span></button><button class="art-scroll-card tile-2" type="button" data-artwork="the-bespoke-bicycle" aria-label="Explore The bespoke bicycle" tabindex="-1">
-  <img data-src="assets/scroll/the-bespoke-bicycle-320.webp" width="1152" height="768" decoding="async"  alt="An intricately crafted bicycle combines refined materials and connected mechanical components." draggable="false" />
-  <span class="art-scroll-caption"><span>The bespoke bicycle</span><small>Text to image</small></span></button><button class="art-scroll-card tile-3 portrait-preview" type="button" data-artwork="room-under-an-umbrella" aria-label="Explore Room under an umbrella" tabindex="-1">
-  <img data-src="assets/scroll/room-under-an-umbrella-320.webp" width="768" height="1152" decoding="async"  alt="A fox in a yellow raincoat shelters a hedgehog beneath one red umbrella on a rainy lane." draggable="false" />
-  <span class="art-scroll-caption"><span>Room under an umbrella</span><small>Text to image</small></span></button><button class="art-scroll-card tile-4" type="button" data-artwork="the-amethyst-grotto" aria-label="Explore The amethyst grotto" tabindex="-1">
+  <span class="art-scroll-caption"><span>A costume in motion</span><small>Image editing</small></span></button><button class="art-scroll-card tile-4" style="aspect-ratio:1152/768" type="button" data-artwork="the-amethyst-grotto" aria-label="Explore The amethyst grotto" tabindex="-1">
   <img data-src="assets/scroll/the-amethyst-grotto-320.webp" width="1152" height="768" decoding="async"  alt="A stone staircase leads toward a small pavilion inside a luminous crystal cavern." draggable="false" />
-  <span class="art-scroll-caption"><span>The amethyst grotto</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5 portrait-preview" type="button" data-artwork="a-dress-made-of-wind" aria-label="Explore A dress made of wind" tabindex="-1">
+  <span class="art-scroll-caption"><span>The amethyst grotto</span><small>Text to image</small></span></button></div><div class="art-scroll-cluster"><button class="art-scroll-card tile-1" style="aspect-ratio:1152/768" type="button" data-artwork="the-red-lantern-workshop" aria-label="Explore Made by hand" tabindex="-1">
+  <img data-src="assets/scroll/the-red-lantern-workshop-640.webp" width="1152" height="768" decoding="async"  alt="A craftsperson brushes red paper onto a delicate bamboo lantern frame." draggable="false" />
+  <span class="art-scroll-caption"><span>Made by hand</span><small>Text to image</small></span></button><div class="art-scroll-pairs"><div><button class="art-scroll-card tile-2" style="aspect-ratio:1152/768" type="button" data-artwork="the-bespoke-bicycle" aria-label="Explore The bespoke bicycle" tabindex="-1">
+  <img data-src="assets/scroll/the-bespoke-bicycle-320.webp" width="1152" height="768" decoding="async"  alt="An intricately crafted bicycle combines refined materials and connected mechanical components." draggable="false" />
+  <span class="art-scroll-caption"><span>The bespoke bicycle</span><small>Text to image</small></span></button><button class="art-scroll-card tile-5" style="aspect-ratio:768/1152" type="button" data-artwork="a-dress-made-of-wind" aria-label="Explore A dress made of wind" tabindex="-1">
   <img data-src="assets/scroll/a-dress-made-of-wind-320.webp" width="768" height="1152" decoding="async"  alt="A graphite and watercolor fashion drawing shows a woman gathering the pleats of an ivory gown." draggable="false" />
-  <span class="art-scroll-caption"><span>A dress made of wind</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6 portrait-preview" type="button" data-artwork="glass-harmonics" aria-label="Explore Glass harmonics" tabindex="-1">
+  <span class="art-scroll-caption"><span>A dress made of wind</span><small>Text to image</small></span></button></div><div><button class="art-scroll-card tile-3" style="aspect-ratio:768/1152" type="button" data-artwork="room-under-an-umbrella" aria-label="Explore Room under an umbrella" tabindex="-1">
+  <img data-src="assets/scroll/room-under-an-umbrella-320.webp" width="768" height="1152" decoding="async"  alt="A fox in a yellow raincoat shelters a hedgehog beneath one red umbrella on a rainy lane." draggable="false" />
+  <span class="art-scroll-caption"><span>Room under an umbrella</span><small>Text to image</small></span></button><button class="art-scroll-card tile-6" style="aspect-ratio:768/1152" type="button" data-artwork="glass-harmonics" aria-label="Explore Glass harmonics" tabindex="-1">
   <img data-src="assets/scroll/glass-harmonics-320.webp" width="768" height="1152" decoding="async"  alt="A transparent glass violin with four strings, gold detailing and a bow on a sunlit plinth." draggable="false" />
-  <span class="art-scroll-caption"><span>Glass harmonics</span><small>Text to image</small></span></button></div></div></div></div>
+  <span class="art-scroll-caption"><span>Glass harmonics</span><small>Text to image</small></span></button></div></div></div></div></div></div></div>
   </div>
   <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
 </section>
