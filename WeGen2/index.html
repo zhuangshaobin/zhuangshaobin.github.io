@@ -2179,6 +2179,371 @@ footer > a:last-child {
   }
 }
 
+/* Art gallery: the artwork keeps its original framing. */
+.gallery-section {
+  background: #edf2ec;
+  border-block: 1px solid var(--line);
+}
+.gallery-heading {
+  align-items: end;
+  margin-bottom: 44px;
+}
+.gallery-heading h2 {
+  max-width: 760px;
+}
+.gallery-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-block: 20px;
+  border-block: 1px solid #c8d4c8;
+  margin-bottom: 28px;
+}
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.gallery-filters button {
+  background: transparent;
+  border: 1px solid #bdcdbf;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+.gallery-filters button:hover {
+  background: #dce7dc;
+}
+.gallery-filters button[aria-pressed="true"] {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+.gallery-count {
+  color: var(--body);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.gallery-grid {
+  columns: 3;
+  column-gap: 22px;
+}
+.gallery-card {
+  break-inside: avoid;
+  padding-bottom: 30px;
+}
+.gallery-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background: #d2ddd3;
+  border-radius: 3px;
+}
+.gallery-open img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s;
+}
+.gallery-open-label {
+  position: absolute;
+  inset: auto 12px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #082b22e8;
+  color: white;
+  border: 1px solid #ffffff28;
+  border-radius: 3px;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.gallery-open-label span {
+  font-size: 22px;
+  line-height: 1;
+}
+.gallery-open:hover img {
+  transform: scale(1.025);
+}
+.gallery-open:hover .gallery-open-label,
+.gallery-open:focus-visible .gallery-open-label {
+  opacity: 1;
+  transform: none;
+}
+.gallery-card figcaption {
+  padding-top: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.gallery-card h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+.gallery-card figcaption > span {
+  font-size: 12px;
+  color: var(--body);
+  text-align: right;
+}
+.gallery-note {
+  font-size: 14px;
+  color: var(--body);
+  border-top: 1px solid #c8d4c8;
+  padding-top: 22px;
+}
+body.artwork-open {
+  overflow: hidden;
+}
+.gallery-dialog {
+  width: min(1500px, 96vw);
+  max-width: none;
+  max-height: 96dvh;
+  padding: 0;
+  border: 1px solid #38584a;
+  border-radius: 6px;
+  background: #0c211b;
+  color: #f2f6ee;
+  overscroll-behavior: contain;
+}
+.gallery-dialog::backdrop {
+  background: #020b08ed;
+}
+.artwork-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 24px;
+  background: #0c211bf5;
+  border-bottom: 1px solid #ffffff20;
+  font-size: 14px;
+}
+.artwork-position {
+  min-width: 70px;
+  font-variant-numeric: tabular-nums;
+}
+.artwork-navigation {
+  display: flex;
+  gap: 8px;
+}
+.artwork-toolbar button {
+  background: transparent;
+  color: inherit;
+  padding: 9px 14px;
+  border: 1px solid #ffffff38;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.artwork-toolbar button:hover {
+  background: #ffffff15;
+}
+.artwork-toolbar button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.artwork-close {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.artwork-close span {
+  font-size: 22px;
+  line-height: 16px;
+}
+.artwork-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  height: min(72dvh, 980px);
+  padding: 18px;
+  background: #07110e;
+}
+.artwork-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.artwork-load-state {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  background: #07110ee8;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  text-align: center;
+}
+.artwork-load-state:empty {
+  display: none;
+}
+.artwork-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 26px;
+}
+.artwork-category {
+  color: #a8bfb1;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.artwork-caption h3 {
+  font-size: 24px;
+  letter-spacing: -0.04em;
+}
+.artwork-original {
+  flex-shrink: 0;
+  font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid #ffffff38;
+  border-radius: 4px;
+}
+.artwork-original:hover {
+  background: #ffffff15;
+}
+.artwork-prompt {
+  margin: 0 26px 24px;
+  border-top: 1px solid #ffffff25;
+  padding-top: 16px;
+}
+.artwork-prompt summary {
+  cursor: pointer;
+  font-size: 14px;
+  width: fit-content;
+}
+.artwork-prompt p {
+  margin-top: 14px;
+  color: #bfd0c4;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 100ch;
+}
+@media (max-width: 1000px) {
+  .gallery-grid {
+    columns: 2;
+    column-gap: 18px;
+  }
+  .gallery-toolbar {
+    align-items: flex-start;
+  }
+  .gallery-count {
+    padding-top: 10px;
+  }
+  .gallery-card figcaption {
+    display: block;
+  }
+}
+@media (max-width: 760px) {
+  .site-header nav > a[href="#capabilities"],
+  .site-header nav > a[href="#film"],
+  .site-header nav > a[href="#method"] {
+    display: none;
+  }
+  .site-header nav > a[href="#gallery"] {
+    display: inline;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-section .wrap {
+    padding-inline: 20px;
+  }
+  .gallery-heading {
+    margin-bottom: 28px;
+  }
+  .gallery-heading h2 {
+    font-size: clamp(38px, 10vw, 54px);
+  }
+  .gallery-toolbar {
+    display: block;
+  }
+  .gallery-filters {
+    gap: 7px;
+  }
+  .gallery-filters button {
+    padding: 9px 12px;
+  }
+  .gallery-count {
+    margin-top: 4px;
+  }
+  .gallery-grid {
+    columns: 1;
+  }
+  .gallery-card {
+    padding-bottom: 26px;
+  }
+  .gallery-card figcaption {
+    display: flex;
+  }
+  .gallery-dialog {
+    width: 100vw;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+  .artwork-toolbar {
+    padding: 12px;
+    gap: 8px;
+  }
+  .artwork-position {
+    min-width: 44px;
+  }
+  .artwork-toolbar button {
+    padding: 8px 10px;
+  }
+  .artwork-close {
+    gap: 5px;
+  }
+  .artwork-stage {
+    height: auto;
+    min-height: 0;
+    padding: 10px;
+  }
+  .artwork-image {
+    height: auto;
+    max-height: 70dvh;
+  }
+  .artwork-caption {
+    padding: 18px;
+    gap: 14px;
+  }
+  .artwork-caption h3 {
+    font-size: 21px;
+  }
+  .artwork-original {
+    font-size: 13px;
+    padding: 9px;
+  }
+  .artwork-prompt {
+    margin-inline: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-open img,
+  .gallery-open-label,
+  .gallery-filters button {
+    transition: none;
+  }
+}
+
 </style>
 <!-- INLINE_STYLE_END -->
     <link as="font" crossorigin="" href="assets/manrope-latin.woff2" rel="preload" type="font/woff2" />
@@ -2190,7 +2555,7 @@ footer > a:last-child {
         ><img alt="WeGen2" decoding="async" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype" width="365"
       /></a>
       <nav aria-label="Main navigation">
-        <a href="#capabilities">Work</a><a href="#film">Film</a><a href="#method">Research</a
+        <a href="#capabilities">Work</a><a href="#film">Film</a><a href="#gallery">Gallery</a><a href="#method">Research</a
         ><a class="nav-pill" href="#inference">Resources <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
@@ -2434,6 +2799,117 @@ footer > a:last-child {
             </div>
           </div>
           <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
+        </div>
+      </section>
+      <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+        <div class="wrap">
+          <div class="section-heading gallery-heading">
+            <div>
+              <p class="eyebrow">The WeGen2 gallery</p>
+              <h2 id="gallery-title">Made of imagination.</h2>
+            </div>
+            <p>Impossible worlds. Intimate moments. Intricate craft.<br />A collection of new images generated with WeGen2.</p>
+          </div>
+          <div class="gallery-toolbar">
+            <div class="gallery-filters" role="group" aria-label="Filter artworks">
+              <button type="button" data-gallery-filter="All" aria-pressed="true">All works</button>
+              <button type="button" data-gallery-filter="Imagined worlds" aria-pressed="false">Imagined worlds</button>
+              <button type="button" data-gallery-filter="Architecture" aria-pressed="false">Architecture</button>
+              <button type="button" data-gallery-filter="Material studies" aria-pressed="false">Material studies</button>
+              <button type="button" data-gallery-filter="Illustration" aria-pressed="false">Illustration</button>
+              <button type="button" data-gallery-filter="Portraits" aria-pressed="false">Portraits</button>
+            </div>
+            <p class="gallery-count" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <div class="gallery-grid">
+            <!-- INLINE_GALLERY_START -->
+<figure class="gallery-card" data-category="Imagined worlds">
+    <button class="gallery-open" type="button" data-artwork="jade-opera" aria-label="View The jade hour">
+      <img src="assets/gallery/jade-opera-480.webp" srcset="assets/gallery/jade-opera-480.webp 480w, assets/gallery/jade-opera-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1280" height="768" loading="lazy" decoding="async" alt="An ornate Chinese opera pavilion overlooks misty karst mountains, with vermilion silk and warm lanterns." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>The jade hour</h3><span>Imagined worlds</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Material studies">
+    <button class="gallery-open" type="button" data-artwork="porcelain-tide" aria-label="View The porcelain tide">
+      <img src="assets/gallery/porcelain-tide-480.webp" srcset="assets/gallery/porcelain-tide-480.webp 480w, assets/gallery/porcelain-tide-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1024" height="1024" loading="lazy" decoding="async" alt="An ivory porcelain wave curls around a tiny cobalt-blue sailboat, with fine gold seams." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>The porcelain tide</h3><span>Material studies</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Portraits">
+    <button class="gallery-open" type="button" data-artwork="red-dancer" aria-label="View A study in vermilion">
+      <img src="assets/gallery/red-dancer-480.webp" srcset="assets/gallery/red-dancer-480.webp 480w, assets/gallery/red-dancer-960.webp 768w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="768" height="1280" loading="lazy" decoding="async" alt="A woman in a sculptural red silk gown stands beside a sweeping white museum staircase." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>A study in vermilion</h3><span>Portraits</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Architecture">
+    <button class="gallery-open" type="button" data-artwork="rain-teahouse" aria-label="View After the monsoon">
+      <img src="assets/gallery/rain-teahouse-480.webp" srcset="assets/gallery/rain-teahouse-480.webp 480w, assets/gallery/rain-teahouse-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1024" height="1024" loading="lazy" decoding="async" alt="A timber tea room opens onto a rain-soaked courtyard with moss, water and an umbrella-carrying visitor." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>After the monsoon</h3><span>Architecture</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Illustration">
+    <button class="gallery-open" type="button" data-artwork="silk-herons" aria-label="View Threads of flight">
+      <img src="assets/gallery/silk-herons-480.webp" srcset="assets/gallery/silk-herons-480.webp 480w, assets/gallery/silk-herons-960.webp 768w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="768" height="1280" loading="lazy" decoding="async" alt="White herons and pale lotus flowers are depicted in intricate silk embroidery." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>Threads of flight</h3><span>Illustration</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Architecture">
+    <button class="gallery-open" type="button" data-artwork="desert-library" aria-label="View An archive of light">
+      <img src="assets/gallery/desert-library-480.webp" srcset="assets/gallery/desert-library-480.webp 480w, assets/gallery/desert-library-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1280" height="768" loading="lazy" decoding="async" alt="A sandstone library with circular arches, a spiral staircase and an olive tree reflects in a courtyard pool." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>An archive of light</h3><span>Architecture</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Material studies">
+    <button class="gallery-open" type="button" data-artwork="copper-garden" aria-label="View A garden of copper">
+      <img src="assets/gallery/copper-garden-480.webp" srcset="assets/gallery/copper-garden-480.webp 480w, assets/gallery/copper-garden-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1024" height="1024" loading="lazy" decoding="async" alt="Patinated copper leaves and delicate brass butterflies form a sculptural botanical still life." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>A garden of copper</h3><span>Material studies</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Imagined worlds">
+    <button class="gallery-open" type="button" data-artwork="night-train" aria-label="View The last mountain train">
+      <img src="assets/gallery/night-train-480.webp" srcset="assets/gallery/night-train-480.webp 480w, assets/gallery/night-train-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1280" height="768" loading="lazy" decoding="async" alt="A warmly lit mountain train crosses a stone viaduct above a snowy alpine valley at blue hour." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>The last mountain train</h3><span>Imagined worlds</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Portraits">
+    <button class="gallery-open" type="button" data-artwork="pearl-portrait" aria-label="View Pearl and shadow">
+      <img src="assets/gallery/pearl-portrait-480.webp" srcset="assets/gallery/pearl-portrait-480.webp 480w, assets/gallery/pearl-portrait-960.webp 768w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="768" height="1280" loading="lazy" decoding="async" alt="An editorial portrait with pearl earrings and a softly folded ivory organza collar against dark teal." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>Pearl and shadow</h3><span>Portraits</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Illustration">
+    <button class="gallery-open" type="button" data-artwork="saffron-kitchen" aria-label="View Sunday in saffron">
+      <img src="assets/gallery/saffron-kitchen-480.webp" srcset="assets/gallery/saffron-kitchen-480.webp 480w, assets/gallery/saffron-kitchen-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1280" height="768" loading="lazy" decoding="async" alt="A richly textured illustration of a family cooking in a blue-tiled kitchen overlooking the Mediterranean." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>Sunday in saffron</h3><span>Illustration</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Material studies">
+    <button class="gallery-open" type="button" data-artwork="paper-cosmos" aria-label="View A universe in paper">
+      <img src="assets/gallery/paper-cosmos-480.webp" srcset="assets/gallery/paper-cosmos-480.webp 480w, assets/gallery/paper-cosmos-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1024" height="1024" loading="lazy" decoding="async" alt="A layered paper diorama contains an observatory, an orbital instrument and miniature astronomers." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>A universe in paper</h3><span>Material studies</span></figcaption>
+  </figure>
+<figure class="gallery-card" data-category="Imagined worlds">
+    <button class="gallery-open" type="button" data-artwork="aurora-museum" aria-label="View The northern collection">
+      <img src="assets/gallery/aurora-museum-480.webp" srcset="assets/gallery/aurora-museum-480.webp 480w, assets/gallery/aurora-museum-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="1280" height="768" loading="lazy" decoding="async" alt="A warmly illuminated sculpture museum on a rocky coast beneath an emerald aurora." />
+      <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span>
+    </button>
+    <figcaption><h3>The northern collection</h3><span>Imagined worlds</span></figcaption>
+  </figure>
+<!-- INLINE_GALLERY_END -->
+          </div>
+          <p class="gallery-note">Selected text-to-image generations. Open an artwork to explore the full image and its prompt.</p>
         </div>
       </section>
       <section aria-labelledby="editing-title" class="editing-section section reveal" id="editing">
@@ -3001,6 +3477,31 @@ next_image.save("paper-world-night.png")</code></pre>
           * Equal contribution. † Project leader. ‡ Corresponding authors.<br />§ Work done during Shaobin Zhuang's internship at Tencent.
         </p>
       </section>
+      <dialog class="gallery-dialog" aria-labelledby="artwork-title">
+        <div class="artwork-toolbar">
+          <span class="artwork-position" aria-live="polite"></span>
+          <div class="artwork-navigation">
+            <button type="button" data-artwork-prev aria-label="Previous artwork">Previous</button
+            ><button type="button" data-artwork-next aria-label="Next artwork">Next</button>
+          </div>
+          <button type="button" class="artwork-close" aria-label="Close artwork" autofocus>Close <span aria-hidden="true">×</span></button>
+        </div>
+        <div class="artwork-stage">
+          <img class="artwork-image" alt="" decoding="async" />
+          <p class="artwork-load-state" role="status"></p>
+        </div>
+        <div class="artwork-caption">
+          <div>
+            <p class="artwork-category"></p>
+            <h3 id="artwork-title"></h3>
+          </div>
+          <a class="artwork-original" target="_blank" rel="noopener">Open full image</a>
+        </div>
+        <details class="artwork-prompt">
+          <summary>Read the prompt</summary>
+          <p></p>
+        </details>
+      </dialog>
       <dialog aria-label="Full image" class="image-dialog">
         <button aria-label="Close full image" class="dialog-close" type="button">×</button><img alt="" decoding="async" />
         <p></p>
@@ -3019,6 +3520,7 @@ next_image.save("paper-world-night.png")</code></pre>
 <script type="application/json" id="links-data">{"paper":null,"github":"https://github.com/zhuangshaobin/WeGen2","weights":"https://huggingface.co/GrayShine/WeGen2","project":"https://zhuangshaobin.github.io/WeGen2/"}</script>
 <script type="application/json" id="preview-data">{"architecture-input.webp":{"src":"assets/previews/architecture-input-480.webp","srcset":"assets/previews/architecture-input-480.webp 480w, assets/previews/architecture-input-900.webp 900w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-input.webp"},"architecture-output.webp":{"src":"assets/previews/architecture-output-480.webp","srcset":"assets/previews/architecture-output-480.webp 480w, assets/previews/architecture-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/architecture-output.webp"},"atrium-winter.webp":{"src":"assets/previews/atrium-winter-480.webp","srcset":"assets/previews/atrium-winter-480.webp 480w, assets/previews/atrium-winter-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium-winter.webp"},"atrium.webp":{"src":"assets/previews/atrium-480.webp","srcset":"assets/previews/atrium-480.webp 480w, assets/previews/atrium-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/atrium.webp"},"chat-input.webp":{"src":"assets/previews/chat-input-480.webp","srcset":"assets/previews/chat-input-480.webp 480w, assets/previews/chat-input-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-input.webp"},"chat-reply.webp":{"src":"assets/previews/chat-reply-480.webp","srcset":"assets/previews/chat-reply-480.webp 480w, assets/previews/chat-reply-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-reply.webp"},"chat-revision.webp":{"src":"assets/previews/chat-revision-480.webp","srcset":"assets/previews/chat-revision-480.webp 480w, assets/previews/chat-revision-768.webp 768w","sizes":"(max-width: 760px) 70vw, 30vw","full":"assets/chat-revision.webp"},"comic-sheet.webp":{"src":"assets/previews/comic-sheet-960.webp","srcset":"assets/previews/comic-sheet-960.webp 960w, assets/previews/comic-sheet-1440.webp 1440w, assets/previews/comic-sheet-1920.webp 1920w","sizes":"92vw","full":"assets/comic-sheet.webp"},"glass-city.webp":{"src":"assets/previews/glass-city-480.webp","srcset":"assets/previews/glass-city-480.webp 480w, assets/previews/glass-city-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-city.webp"},"glass-reef.webp":{"src":"assets/previews/glass-reef-480.webp","srcset":"assets/previews/glass-reef-480.webp 480w, assets/previews/glass-reef-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/glass-reef.webp"},"landscape-input.webp":{"src":"assets/previews/landscape-input-480.webp","srcset":"assets/previews/landscape-input-480.webp 480w, assets/previews/landscape-input-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-input.webp"},"landscape-output.webp":{"src":"assets/previews/landscape-output-480.webp","srcset":"assets/previews/landscape-output-480.webp 480w, assets/previews/landscape-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/landscape-output.webp"},"night-market.webp":{"src":"assets/previews/night-market-480.webp","srcset":"assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/night-market.webp"},"paper-night.webp":{"src":"assets/previews/paper-night-480.webp","srcset":"assets/previews/paper-night-480.webp 480w, assets/previews/paper-night-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/paper-night.webp"},"paper-world.webp":{"src":"assets/previews/paper-world-480.webp","srcset":"assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/paper-world.webp"},"poster.webp":{"src":"assets/previews/poster-480.webp","srcset":"assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/poster.webp"},"rain-portrait.webp":{"src":"assets/previews/rain-portrait-480.webp","srcset":"assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w","sizes":"(max-width: 760px) 90vw, 33vw","full":"assets/rain-portrait.webp"},"reading-guide.webp":{"src":"assets/previews/reading-guide-320.webp","srcset":"assets/previews/reading-guide-320.webp 320w","sizes":"138px","full":"assets/reading-guide.webp"},"robot-00.webp":{"src":"assets/previews/robot-00-400.webp","srcset":"assets/previews/robot-00-400.webp 400w, assets/previews/robot-00-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-00.webp"},"robot-01.webp":{"src":"assets/previews/robot-01-400.webp","srcset":"assets/previews/robot-01-400.webp 400w, assets/previews/robot-01-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-01.webp"},"robot-02.webp":{"src":"assets/previews/robot-02-400.webp","srcset":"assets/previews/robot-02-400.webp 400w, assets/previews/robot-02-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-02.webp"},"robot-03.webp":{"src":"assets/previews/robot-03-400.webp","srcset":"assets/previews/robot-03-400.webp 400w, assets/previews/robot-03-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-03.webp"},"robot-04.webp":{"src":"assets/previews/robot-04-400.webp","srcset":"assets/previews/robot-04-400.webp 400w, assets/previews/robot-04-640.webp 640w","sizes":"(max-width: 760px) 60vw, 240px","full":"assets/robot-04.webp"},"tryon-output.webp":{"src":"assets/previews/tryon-output-480.webp","srcset":"assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-output.webp"},"tryon-person.webp":{"src":"assets/previews/tryon-person-480.webp","srcset":"assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w","sizes":"(max-width: 760px) 90vw, 70vw","full":"assets/tryon-person.webp"},"tryon-ref-01.webp":{"src":"assets/previews/tryon-ref-01-240.webp","srcset":"assets/previews/tryon-ref-01-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-01.webp"},"tryon-ref-02.webp":{"src":"assets/previews/tryon-ref-02-240.webp","srcset":"assets/previews/tryon-ref-02-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-02.webp"},"tryon-ref-03.webp":{"src":"assets/previews/tryon-ref-03-240.webp","srcset":"assets/previews/tryon-ref-03-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-03.webp"},"tryon-ref-04.webp":{"src":"assets/previews/tryon-ref-04-240.webp","srcset":"assets/previews/tryon-ref-04-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-04.webp"},"tryon-ref-05.webp":{"src":"assets/previews/tryon-ref-05-240.webp","srcset":"assets/previews/tryon-ref-05-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-05.webp"},"tryon-ref-06.webp":{"src":"assets/previews/tryon-ref-06-240.webp","srcset":"assets/previews/tryon-ref-06-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-06.webp"},"tryon-ref-07.webp":{"src":"assets/previews/tryon-ref-07-240.webp","srcset":"assets/previews/tryon-ref-07-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-07.webp"},"tryon-ref-08.webp":{"src":"assets/previews/tryon-ref-08-240.webp","srcset":"assets/previews/tryon-ref-08-240.webp 240w","sizes":"(max-width: 760px) 20vw, 140px","full":"assets/tryon-ref-08.webp"},"changan-night.webp":{"src":"assets/previews/changan-night-640.webp","srcset":"assets/previews/changan-night-640.webp 640w, assets/previews/changan-night-960.webp 960w, assets/previews/changan-night-1024.webp 1024w","sizes":"(max-width: 760px) 92vw, 56vw","full":"assets/changan-night.webp"},"creation-studio.webp":{"src":"assets/previews/creation-studio-640.webp","srcset":"assets/previews/creation-studio-640.webp 640w, assets/previews/creation-studio-960.webp 960w, assets/previews/creation-studio-1024.webp 1024w","sizes":"(max-width: 760px) 92vw, 56vw","full":"assets/creation-studio.webp"}}</script>
 <script type="application/json" id="film-config-data">{"mediaPath":"assets/film-hls-v9/","mirrors":["https://raw.githubusercontent.com/zhuangshaobin/zhuangshaobin.github.io/108e2c0736641d0e71617d600c9eb0e870025c63/WeGen2/assets/film-hls-v9/","https://cdn.jsdelivr.net/gh/zhuangshaobin/zhuangshaobin.github.io@108e2c0736641d0e71617d600c9eb0e870025c63/WeGen2/assets/film-hls-v9/"],"library":"player/hls.light-1.7.4.min.js","libraryFallback":"https://cdn.jsdelivr.net/npm/hls.js@1.7.4/dist/hls.light.min.js","libraryIntegrity":"sha384-vpNtFjJmrPAaL9LfqByx3MxTVjqrtQ6Ue6UVNnFeghNrhE0uvpydDr3tkTVcBgDz","mp4Sources":{"480":"assets/wegen2-film-v9-480.mp4","720":"assets/wegen2-film-v9-720.mp4","1080":"assets/wegen2-film-v9.mp4"}}</script>
+<script type="application/json" id="gallery-data">[{"id":"jade-opera","title":"The jade hour","category":"Imagined worlds","prompt":"A majestic cinematic wide shot of an imagined Chinese opera pavilion floating above a sea of mist between enormous emerald karst mountains. A long vermilion silk canopy curves gently from the foreground terrace toward the distant pavilion; a tiny group of opera performers in exquisite traditional costumes gives a sense of scale. Wet black stone reflects warm lanterns. Layered mountains recede into pearly blue distance, while the pavilion's carved timber and copper roof catch a thin line of early sunlight. A subtle waterfall descends from a cliff. Sophisticated deep jade, ink blue, warm ivory and restrained vermilion palette. Monumental composition with a strong near-far rhythm, carefully placed human scale, atmospheric depth, exquisite physically convincing surfaces. A polished fantasy film production still, soft controlled highlights, sharp architectural details, luminous but not overexposed, no writing, no watermark.","width":1280,"height":768,"alt":"An ornate Chinese opera pavilion overlooks misty karst mountains, with vermilion silk and warm lanterns."},{"id":"porcelain-tide","title":"The porcelain tide","category":"Material studies","prompt":"An exquisite museum-quality still life of an elaborate ivory porcelain sculpture: a curling ocean wave with many delicate carved ridges forms an open ring around a small cobalt-blue sailing boat. The wave is porcelain, with thin translucent edges and tiny gold kintsugi seams. The sculpture rests on a dark blue polished stone plinth, surrounded by just a few porcelain foam fragments. Warm raking studio light reveals the fine relief; a rich midnight-blue background falls softly into shadow. Macro-level ceramic glaze detail, convincing clay thickness, exceptional craft, an elegant spiral composition, restrained blue ivory and gold, refined luxury art photography. The sculpture is the entire subject, no typography or watermark.","width":1024,"height":1024,"alt":"An ivory porcelain wave curls around a tiny cobalt-blue sailboat, with fine gold seams."},{"id":"red-dancer","title":"A study in vermilion","category":"Portraits","prompt":"A stunning high-fashion editorial photograph of an adult East Asian female dancer in a sculptural vermilion silk gown, standing on the polished dark floor of a monumental modern art museum. A single broad sweep of silk extends in a graceful arc behind her, echoing a curved white concrete staircase. Her pose is poised and natural, both hands relaxed and anatomically correct, face softly lit and beautifully detailed, black hair in a sleek bun. A dramatic beam of soft daylight enters from high windows; the rest of the architecture remains in warm-gray shadow. Restrained composition, luxurious textile folds, delicate skin texture, exquisite couture photography, calm expressive face, strong full-length silhouette. No text, no watermark.","width":768,"height":1280,"alt":"A woman in a sculptural red silk gown stands beside a sweeping white museum staircase."},{"id":"rain-teahouse","title":"After the monsoon","category":"Architecture","prompt":"A beautifully composed architectural photograph inside a contemporary Japanese and Chinese-inspired timber tea pavilion during a summer rain. The foreground is a long walnut table with a handmade dark ceramic tea set, a small branch arrangement and subtle steam. Through fully open sliding panels, a courtyard of moss, dark wet stone and bamboo surrounds a rectangular pool. Rain falls beyond the eaves; soft amber light beneath the curved timber ceiling contrasts with the deep forest-green garden. One distant visitor in a cream coat stands under a plain umbrella beyond the courtyard. Fine joinery, realistic puddles and rain, quiet luxury, cinematic interior photography, grounded natural textures, subtle reflections, carefully controlled exposure. No text, no watermark.","width":1024,"height":1024,"alt":"A timber tea room opens onto a rain-soaked courtyard with moss, water and an umbrella-carrying visitor."},{"id":"silk-herons","title":"Threads of flight","category":"Illustration","prompt":"An intricate contemporary Chinese silk-embroidery artwork, photographed straight on. Three white herons with beautifully articulated wings fly diagonally through layered lotus leaves and reeds over dark jade water. Their feathers are constructed from thousands of fine directional silk stitches, with tiny warm gold couching details. Pale pink lotus buds, turquoise ripples, mist-gray background silk and carefully spaced deep green leaves create an elegant flowing vertical composition. Each bird has a distinct natural pose and correct anatomy. Subtle relief and a soft side light reveal the handworked threads. Sophisticated museum textile art, exquisite fine detail and tonal hierarchy, harmonious colors, beautiful negative space around the birds, no words or border.","width":768,"height":1280,"alt":"White herons and pale lotus flowers are depicted in intricate silk embroidery."},{"id":"desert-library","title":"An archive of light","category":"Architecture","prompt":"An extraordinary architectural photograph of a monumental library carved into pale sandstone in a quiet desert. Looking along a shallow reflecting pool into a sequence of immense circular arches, with a spiral staircase, sculptural shelves full of books and a few small visitors in the distance. Large woven canopies cast intricate geometric shadows over the limestone floor. A single mature olive tree grows beside the water. Long late-afternoon sunlight, amber stone, deep shadow, a pale powder-blue sky framed by the roof. The design feels buildable and structurally convincing. Editorial architectural photography, meticulous material texture, elegant asymmetric balance, layered rooms and expansive spatial depth, realistic water reflections, detailed but composed, no lettering or watermark.","width":1280,"height":768,"alt":"A sandstone library with circular arches, a spiral staircase and an olive tree reflects in a courtyard pool."},{"id":"copper-garden","title":"A garden of copper","category":"Material studies","prompt":"A refined art-photography still life of botanically precise copper and patinated-bronze flowers growing from a sculptural black stone vase. Curling fern fronds, folded ginkgo leaves and delicate seed pods show fine engraved veins, verdigris edges and warm polished copper highlights. Two small mechanical butterflies rest on the leaves, made of translucent amber glass and fine brass wire. Arranged against a deep forest-green backdrop on a dark reflective tabletop, with dramatic but soft side lighting. Rich tonal depth, sophisticated asymmetrical ikebana arrangement, exceptional metal and glass craftsmanship, coherent scale, generous breathing room, premium gallery-catalog photography, no text or logos.","width":1024,"height":1024,"alt":"Patinated copper leaves and delicate brass butterflies form a sculptural botanical still life."},{"id":"night-train","title":"The last mountain train","category":"Imagined worlds","prompt":"A cinematic panoramic image of a dark green passenger train crossing a slender stone viaduct high above a deep alpine gorge at blue hour. Warm light shines from its windows. Below, a small mountain town with terracotta roofs and winding streets nestles around a river, while immense snow peaks and low clouds fill the distance. In the foreground, frost-covered pine branches frame the view. A faint warm band remains on the horizon and wisps of steam trail behind the train. Sophisticated film color grading in blue, silver and amber, extraordinary sense of depth, detailed believable railway engineering, rich miniature city details, restrained dreamy atmosphere, crystal-clear main subjects without excessive sharpening or grain. No text or watermark.","width":1280,"height":768,"alt":"A warmly lit mountain train crosses a stone viaduct above a snowy alpine valley at blue hour."},{"id":"pearl-portrait","title":"Pearl and shadow","category":"Portraits","prompt":"A beautiful editorial portrait of an adult woman with warm brown skin wearing a sculptural ivory organza collar and small hand-crafted pearl earrings. Her elegant face is shown in three-quarter view with a calm thoughtful expression, subtle natural makeup and fine skin texture. Dark softly waved hair is swept back. The organza forms translucent petal-like folds around her shoulders, with soft shadows revealing its structure. A deep muted teal studio background and a single large warm softbox create rich, controlled light. Exceptional portrait photography, refined fashion magazine art direction, clear beautiful eyes, restrained color palette, tactile fabric, no excessive skin smoothing, no text or watermark.","width":768,"height":1280,"alt":"An editorial portrait with pearl earrings and a softly folded ivory organza collar against dark teal."},{"id":"saffron-kitchen","title":"Sunday in saffron","category":"Illustration","prompt":"A wonderfully detailed hand-painted editorial illustration of a sunlit Mediterranean kitchen during a family cooking afternoon. An adult grandmother kneads dough on a blue-tiled island, a young adult man chops herbs, and a child arranges tomatoes in a bowl. Through arched windows, terraced lemon orchards descend toward a turquoise sea. Copper pans, hanging garlic, fresh basil, patterned ceramics and linen towels fill the scene with carefully placed detail. Warm ochre walls, cobalt tiles, tomato red and leaf green, sophisticated gouache texture with precise expressive drawing. Clear natural hands and believable actions, coherent perspective, charming but elegant composition, richly lived-in atmosphere, no writing or labels.","width":1280,"height":768,"alt":"A richly textured illustration of a family cooking in a blue-tiled kitchen overlooking the Mediterranean."},{"id":"paper-cosmos","title":"A universe in paper","category":"Material studies","prompt":"A meticulously handcrafted paper-sculpture diorama inside a circular midnight-blue shadow box: a small observatory stands on a pale terraced mountain, with sweeping layered paper clouds, a delicate copper-colored orbital mechanism, tiny stars and a luminous ivory moon. A tiny astronomer climbs the winding staircase toward the telescope. Every form is visibly made of folded and cut paper with crisp edges and subtle fibers; thin layered relief casts lovely shadows. Jewel-like petrol blue, ivory, warm copper and restrained sage green. Sophisticated collectible art, beautifully balanced circular composition, precise craftsmanship and believable scale, softly lit real studio photograph of paper art, no words or watermark.","width":1024,"height":1024,"alt":"A layered paper diorama contains an observatory, an orbital instrument and miniature astronomers."},{"id":"aurora-museum","title":"The northern collection","category":"Imagined worlds","prompt":"A breathtaking cinematic photograph of a contemporary sculpture museum on a rocky Nordic coast beneath a softly luminous green aurora. The museum's low sweeping roof is made of weathered copper, and its large warm glass windows reveal graceful stone sculptures and a handful of visitors. Shallow tide pools in the foreground mirror the building and sky; dark waves break softly along the edge. Snowy mountains frame the distant fjord. Deep ink-blue night, restrained emerald aurora and amber interior light. Physically believable architecture, extraordinary atmosphere and material detail, carefully controlled exposure, monumental yet quiet composition, no blown-out highlights, no writing or logos.","width":1280,"height":768,"alt":"A warmly illuminated sculpture museum on a rocky coast beneath an emerald aurora."}]</script>
 <!-- INLINE_DATA_END -->
     <!-- INLINE_APP_START -->
 <script>
@@ -3837,6 +4339,118 @@ Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
       }
     }).observe(video);
   }
+})();
+
+// The gallery shares no loading or playback state with the film player.
+(() => {
+  const works = JSON.parse(document.querySelector("#gallery-data").textContent);
+  const section = document.querySelector("#gallery");
+  const modal = document.querySelector(".gallery-dialog");
+  const image = modal.querySelector(".artwork-image");
+  const status = modal.querySelector(".artwork-load-state");
+  let selection = works;
+  let current = 0;
+  let request = 0;
+  let origin;
+  let touch;
+  const cards = [...section.querySelectorAll(".gallery-card")];
+  const filters = [...section.querySelectorAll("[data-gallery-filter]")];
+  const count = section.querySelector(".gallery-count");
+  function updateCount() {
+    count.textContent = `${selection.length} ${selection.length === 1 ? "artwork" : "artworks"}`;
+  }
+  function renderArtwork(index) {
+    current = (index + selection.length) % selection.length;
+    const work = selection[current];
+    const version = ++request;
+    const full = `assets/gallery/${work.id}.webp`;
+    image.src = `assets/gallery/${work.id}-960.webp`;
+    image.alt = work.alt;
+    image.width = work.width;
+    image.height = work.height;
+    modal.querySelector("#artwork-title").textContent = work.title;
+    modal.querySelector(".artwork-category").textContent = work.category;
+    modal.querySelector(".artwork-position").textContent = `${current + 1} / ${selection.length}`;
+    modal.querySelector(".artwork-original").href = full;
+    modal.querySelector(".artwork-prompt p").textContent = work.prompt;
+    modal.querySelector(".artwork-prompt").open = false;
+    modal.querySelector("[data-artwork-prev]").disabled = selection.length < 2;
+    modal.querySelector("[data-artwork-next]").disabled = selection.length < 2;
+    status.textContent = "Loading full image…";
+    const original = new Image();
+    original.decoding = "async";
+    original.onload = () => {
+      if (version !== request || !modal.open) return;
+      image.src = original.src;
+      status.textContent = "";
+    };
+    original.onerror = () => {
+      if (version === request && modal.open) status.textContent = "Preview shown. Use “Open full image” to retry.";
+    };
+    original.src = full;
+  }
+  filters.forEach((button) =>
+    button.addEventListener("click", () => {
+      const category = button.dataset.galleryFilter;
+      selection = works.filter((work) => category === "All" || work.category === category);
+      filters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      cards.forEach((card) => {
+        card.hidden = category !== "All" && card.dataset.category !== category;
+      });
+      updateCount();
+    })
+  );
+  section.querySelectorAll("[data-artwork]").forEach((button) =>
+    button.addEventListener("click", () => {
+      origin = button;
+      modal.showModal();
+      document.body.classList.add("artwork-open");
+      renderArtwork(selection.findIndex((work) => work.id === button.dataset.artwork));
+    })
+  );
+  modal.querySelector(".artwork-close").addEventListener("click", () => modal.close());
+  modal.querySelector("[data-artwork-prev]").addEventListener("click", () => renderArtwork(current - 1));
+  modal.querySelector("[data-artwork-next]").addEventListener("click", () => renderArtwork(current + 1));
+  modal.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    renderArtwork(current + (event.key === "ArrowLeft" ? -1 : 1));
+  });
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      const rect = modal.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) modal.close();
+    }
+  });
+  const stage = modal.querySelector(".artwork-stage");
+  stage.addEventListener(
+    "touchstart",
+    (event) => {
+      touch = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+    },
+    { passive: true }
+  );
+  stage.addEventListener(
+    "touchend",
+    (event) => {
+      if (!touch || !event.changedTouches.length) return;
+      const dx = event.changedTouches[0].clientX - touch.x;
+      const dy = event.changedTouches[0].clientY - touch.y;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) renderArtwork(current + (dx < 0 ? 1 : -1));
+      touch = null;
+    },
+    { passive: true }
+  );
+  stage.addEventListener("touchcancel", () => {
+    touch = null;
+  });
+  modal.addEventListener("close", () => {
+    request++;
+    image.removeAttribute("src");
+    document.body.classList.remove("artwork-open");
+    origin?.focus({ preventScroll: true });
+  });
+  updateCount();
 })();
 
 </script>
