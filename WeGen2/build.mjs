@@ -21,11 +21,30 @@ const scrollIds = scroll.flat();
 if (new Set(scrollIds).size !== scrollIds.length || scrollIds.some((id) => !byId.has(id))) {
   throw new Error("Artwork cases must be unique and present in the gallery");
 }
+// Upper fragments continue the same canvas behind the identity, with unrelated
+// subjects offset from the fully visible artwork below. They are decorative;
+// every original remains reachable in the interactive mosaic and viewer.
+const canopyIds = JSON.parse(read("canopy.json"));
+if (
+  canopyIds.length !== scroll.length ||
+  canopyIds.some((group) => group.length !== 3) ||
+  new Set(canopyIds.flat()).size !== canopyIds.flat().length ||
+  canopyIds.flat().some((id) => !byId.has(id))
+) {
+  throw new Error("Canopy fragments must be distinct gallery works, three per group");
+}
+const canopy = (index) =>
+  `<div class="art-scroll-canopy" aria-hidden="true">${canopyIds[index]
+    .map((id) => {
+      const item = byId.get(id);
+      return `<img data-src="assets/gallery/${escapeHtml(item.asset || id)}-480.webp" width="${item.width}" height="${item.height}" decoding="async" alt="" draggable="false" />`;
+    })
+    .join("")}</div>`;
 const scrollCards = (clone) =>
   scroll
     .map(
       (group, index) =>
-        `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="--feature-ratio:${byId.get(group[0]).width / byId.get(group[0]).height}">${group
+        `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="--feature-ratio:${byId.get(group[0]).width / byId.get(group[0]).height}">${canopy(index)}<div class="art-scroll-mosaic">${group
           .map((id, position) => {
             const item = byId.get(id);
             if (!item) throw new Error(`Missing scroll case: ${id}`);
@@ -37,7 +56,7 @@ const scrollCards = (clone) =>
   <img ${eager ? "src" : "data-src"}="assets/scroll/${asset}-${previewWidth}.webp" width="${item.width}" height="${item.height}" decoding="async" ${eager ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
   <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
           })
-          .join("")}</div>`
+          .join("")}</div></div>`
     )
     .join("");
 replaceBlock(
@@ -45,6 +64,7 @@ replaceBlock(
   `<section class="art-scroll" aria-label="A moving canvas of WeGen2 creations">
   <div class="art-scroll-light" aria-hidden="true"></div>
   <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
+    <div class="art-scroll-veil" aria-hidden="true"></div>
     <div class="art-scroll-track"><div class="art-scroll-cycle">${scrollCards(false)}</div><div class="art-scroll-cycle" aria-hidden="true">${scrollCards(true)}</div></div>
   </div>
   <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
