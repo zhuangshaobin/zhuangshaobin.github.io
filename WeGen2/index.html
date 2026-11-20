@@ -2191,6 +2191,9 @@
       .gallery-heading h2 {
         max-width: 760px;
       }
+      .gallery-section .gallery-heading > p {
+        font-size: 16px;
+      }
       .gallery-toolbar {
         display: flex;
         justify-content: space-between;
@@ -2465,7 +2468,8 @@
       }
       @media (max-width: 600px) {
         .gallery-section .wrap {
-          padding-inline: 20px;
+          width: calc(100% - 40px);
+          padding-inline: 0;
         }
         .gallery-heading {
           margin-bottom: 28px;
