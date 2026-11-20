@@ -2816,7 +2816,7 @@
       .art-scroll-group {
         display: grid;
         flex: none;
-        grid-template-columns: calc(var(--scroll-height) * 0.667) repeat(2, calc(var(--scroll-height) * 0.45));
+        grid-template-columns: calc(var(--scroll-height) * var(--feature-ratio, 0.667)) repeat(2, calc(var(--scroll-height) * 0.45));
         grid-template-rows: 1fr 1fr;
         gap: var(--scroll-gap);
         height: 100%;
@@ -2852,7 +2852,7 @@
         grid-row: 2;
       }
       .art-scroll-group.is-reversed {
-        grid-template-columns: repeat(2, calc(var(--scroll-height) * 0.45)) calc(var(--scroll-height) * 0.667);
+        grid-template-columns: repeat(2, calc(var(--scroll-height) * 0.45)) calc(var(--scroll-height) * var(--feature-ratio, 0.667));
       }
       .art-scroll-group.is-reversed .tile-0 {
         grid-column: 3;
@@ -2918,6 +2918,9 @@
       .art-scroll-card:is(:hover, :focus-visible) .art-scroll-caption {
         opacity: 1;
         transform: none;
+      }
+      .art-scroll-card.text-rich .art-scroll-caption {
+        display: none;
       }
       .art-scroll-controls {
         display: flex;
@@ -3228,18 +3231,71 @@
           <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
             <div class="art-scroll-track">
               <div class="art-scroll-cycle">
-                <div class="art-scroll-group">
-                  <button class="art-scroll-card tile-0" type="button" data-artwork="jade-orchid-couture" aria-label="Explore The jade atelier">
+                <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
+                  <button class="art-scroll-card tile-0" type="button" data-artwork="linen-and-daisies" aria-label="Explore A morning in soft light">
                     <img
-                      src="assets/scroll/jade-orchid-couture-640.webp"
+                      src="assets/scroll/linen-and-daisies-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
                       fetchpriority="high"
-                      alt="An editorial fashion portrait in a sculptural jade-green silk gown."
+                      alt="A woman in ivory linen and a blue skirt holding daisies beside an open window."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>The jade atelier</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"><span>A morning in soft light</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-1" type="button" data-artwork="seaside-picnic" aria-label="Explore A little room for summer">
+                    <img
+                      data-src="assets/scroll/seaside-picnic-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="Apricots, flowers and linen at a sunlit seaside picnic."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>A little room for summer</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-2" type="button" data-artwork="apricot-studio" aria-label="Explore Sunlight, slowly">
+                    <img
+                      data-src="assets/scroll/apricot-studio-640.webp"
+                      width="1024"
+                      height="1024"
+                      decoding="async"
+                      alt="A blue ceramic pitcher, apricots and three white cosmos blossoms in morning light."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Sunlight, slowly</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-3"
+                    type="button"
+                    data-artwork="coastal-watercolor"
+                    aria-label="Explore Postcards from a quiet coast"
+                  >
+                    <img
+                      data-src="assets/scroll/coastal-watercolor-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="A watercolor coastal town with blue boats, flowering terraces and a seaside cafe."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Postcards from a quiet coast</span><small>Text to image</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="spring-studio-fair"
+                    aria-label="Explore 春日创作集"
+                  >
+                    <img
+                      data-src="assets/scroll/spring-studio-fair-640.webp"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt="A Chinese spring creative-market poster with illustrated stalls, activity descriptions and an event schedule."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>春日创作集</span><small>Text &amp; layout</small></span></button
                   ><button
                     class="art-scroll-card tile-1"
                     type="button"
@@ -3265,54 +3321,6 @@
                       draggable="false"
                     />
                     <span class="art-scroll-caption"><span>A garden inside the mechanism</span><small>Text to image</small></span></button
-                  ><button class="art-scroll-card tile-3" type="button" data-artwork="clockwork-conservatory" aria-label="Explore A living clockwork">
-                    <img
-                      data-src="assets/scroll/clockwork-conservatory-640.webp"
-                      width="1024"
-                      height="1024"
-                      decoding="async"
-                      alt="A detailed miniature cutaway with a greenhouse, reading room and mechanical workshop."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>A living clockwork</span><small>Text to image</small></span>
-                  </button>
-                </div>
-                <div class="art-scroll-group is-reversed">
-                  <button
-                    class="art-scroll-card tile-0 preserve-layout"
-                    type="button"
-                    data-artwork="book-of-tides"
-                    aria-label="Explore The Book of Tides"
-                  >
-                    <img
-                      data-src="assets/scroll/book-of-tides-640.webp"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt="An English-language film poster with a coastal city emerging from an open book."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>The Book of Tides</span><small>Text &amp; layout</small></span></button
-                  ><button class="art-scroll-card tile-1" type="button" data-artwork="crystal-tram" aria-label="Explore The crystal tramway">
-                    <img
-                      data-src="assets/scroll/crystal-tram-640.webp"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt="A red tram crossing a richly layered aquamarine crystal city."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>The crystal tramway</span><small>Text to image</small></span></button
-                  ><button class="art-scroll-card tile-2" type="button" data-artwork="porcelain-tide" aria-label="Explore The porcelain tide">
-                    <img
-                      data-src="assets/scroll/porcelain-tide-640.webp"
-                      width="1024"
-                      height="1024"
-                      decoding="async"
-                      alt="An ivory porcelain wave curls around a tiny cobalt-blue sailboat, with fine gold seams."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>The porcelain tide</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-3 preserve-layout"
                     type="button"
@@ -3330,37 +3338,42 @@
                     <span class="art-scroll-caption"><span>A little care, a little wonder</span><small>Multi-panel generation</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group">
-                  <button class="art-scroll-card tile-0" type="button" data-artwork="red-dancer" aria-label="Explore A study in vermilion">
+                <div class="art-scroll-group" style="--feature-ratio: 0.6842105263157895">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="handwritten-invitation"
+                    aria-label="Explore 见字如面 · A handwritten invitation"
+                  >
                     <img
-                      data-src="assets/scroll/red-dancer-640.webp"
-                      width="768"
-                      height="1280"
+                      data-src="assets/scroll/handwritten-invitation-640.webp"
+                      width="832"
+                      height="1216"
                       decoding="async"
-                      alt="A woman in a sculptural red silk gown stands beside a sweeping white museum staircase."
+                      alt="A long handwritten Chinese invitation on ivory paper with a red envelope and golden ginkgo leaves."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A study in vermilion</span><small>Text to image</small></span></button
-                  ><button class="art-scroll-card tile-1" type="button" data-artwork="silk-road-station" aria-label="Explore The midnight terminus">
+                    <span class="art-scroll-caption"><span>见字如面 · A handwritten invitation</span><small>Text &amp; layout</small></span></button
+                  ><button class="art-scroll-card tile-1" type="button" data-artwork="spring-bicycle" aria-label="Explore The long way home">
                     <img
-                      data-src="assets/scroll/silk-road-station-640.webp"
+                      data-src="assets/scroll/spring-bicycle-640.webp"
                       width="1152"
                       height="768"
                       decoding="async"
-                      alt="A long train at an elaborate sandstone railway station and lantern-lit bazaar."
+                      alt="A pale blue bicycle with a flower-filled basket beside a seaside window."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>The midnight terminus</span><small>Text to image</small></span></button
-                  ><button class="art-scroll-card tile-2" type="button" data-artwork="atelier-title" aria-label="Explore A new name, the same design">
+                    <span class="art-scroll-caption"><span>The long way home</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-2" type="button" data-artwork="clockwork-conservatory" aria-label="Explore A living clockwork">
                     <img
-                      data-src="assets/scroll/atelier-title-640.webp"
+                      data-src="assets/scroll/clockwork-conservatory-640.webp"
                       width="1024"
                       height="1024"
                       decoding="async"
-                      alt="A Chinese creative poster with its main title changed to 万象展览馆."
+                      alt="A detailed miniature cutaway with a greenhouse, reading room and mechanical workshop."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A new name, the same design</span><small>Image editing</small></span></button
+                    <span class="art-scroll-caption"><span>A living clockwork</span><small>Text to image</small></span></button
                   ><button class="art-scroll-card tile-3" type="button" data-artwork="paper-cosmos" aria-label="Explore A universe in paper">
                     <img
                       data-src="assets/scroll/paper-cosmos-640.webp"
@@ -3373,39 +3386,32 @@
                     <span class="art-scroll-caption"><span>A universe in paper</span><small>Text to image</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group is-reversed">
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
                   <button
-                    class="art-scroll-card tile-0 preserve-layout"
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
                     type="button"
-                    data-artwork="mountain-letter"
-                    aria-label="Explore 山中来信 · A letter from the mountains"
+                    data-artwork="book-of-tides"
+                    aria-label="Explore The Book of Tides"
                   >
                     <img
-                      data-src="assets/scroll/mountain-letter-640.webp"
+                      data-src="assets/scroll/book-of-tides-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="A Chinese travel poster combining mountain scenery, a botanical letter and a three-day itinerary."
+                      alt="An English-language film poster with a coastal city emerging from an open book."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"
-                      ><span>山中来信 · A letter from the mountains</span><small>Text &amp; layout</small></span
-                    ></button
-                  ><button
-                    class="art-scroll-card tile-1"
-                    type="button"
-                    data-artwork="aurora-citadel"
-                    aria-label="Explore Citadel of the northern lights"
-                  >
+                    <span class="art-scroll-caption"><span>The Book of Tides</span><small>Text &amp; layout</small></span></button
+                  ><button class="art-scroll-card tile-1" type="button" data-artwork="glasshouse-morning" aria-label="Explore The greenhouse at nine">
                     <img
-                      data-src="assets/scroll/aurora-citadel-640.webp"
+                      data-src="assets/scroll/glasshouse-morning-640.webp"
                       width="1152"
                       height="768"
                       decoding="async"
-                      alt="A densely detailed fantasy citadel beneath a giant stone arch and an aurora."
+                      alt="A bright white glasshouse reading room opening onto a spring garden."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>Citadel of the northern lights</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"><span>The greenhouse at nine</span><small>Text to image</small></span></button
                   ><button class="art-scroll-card tile-2" type="button" data-artwork="ceramic-evolution" aria-label="Explore One idea, three edits">
                     <img
                       data-src="assets/scroll/ceramic-evolution-640.webp"
@@ -3433,33 +3439,45 @@
                     <span class="art-scroll-caption"><span>Seasons by the lake</span><small>Multi-panel generation</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group">
-                  <button class="art-scroll-card tile-0" type="button" data-artwork="silk-stage" aria-label="Explore The emerald stage">
+                <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="mountain-letter"
+                    aria-label="Explore 山中来信 · A letter from the mountains"
+                  >
                     <img
-                      data-src="assets/scroll/silk-stage-640.webp"
+                      data-src="assets/scroll/mountain-letter-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="A Peking opera performer with a fan, embroidered robes and an elaborate jeweled headdress."
+                      alt="A Chinese travel poster combining mountain scenery, a botanical letter and a three-day itinerary."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>The emerald stage</span><small>Text to image</small></span></button
-                  ><button
-                    class="art-scroll-card tile-1"
-                    type="button"
-                    data-artwork="gilded-library"
-                    aria-label="Explore Night in the gilded archive"
-                  >
+                    <span class="art-scroll-caption"
+                      ><span>山中来信 · A letter from the mountains</span><small>Text &amp; layout</small></span
+                    ></button
+                  ><button class="art-scroll-card tile-1" type="button" data-artwork="crystal-tram" aria-label="Explore The crystal tramway">
                     <img
-                      data-src="assets/scroll/gilded-library-640.webp"
+                      data-src="assets/scroll/crystal-tram-640.webp"
                       width="1152"
                       height="768"
                       decoding="async"
-                      alt="The sandstone library transformed with moonlight, illuminated shelves and gold detailing."
+                      alt="A red tram crossing a richly layered aquamarine crystal city."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>Night in the gilded archive</span><small>Image editing</small></span></button
-                  ><button class="art-scroll-card tile-2" type="button" data-artwork="paper-opera" aria-label="Explore An opera built from paper">
+                    <span class="art-scroll-caption"><span>The crystal tramway</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-2" type="button" data-artwork="woodcut-mountains" aria-label="Explore A journey in ink">
+                    <img
+                      data-src="assets/scroll/woodcut-mountains-640.webp"
+                      width="1280"
+                      height="768"
+                      decoding="async"
+                      alt="A woodcut-style reinterpretation of a train crossing a mountain viaduct."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>A journey in ink</span><small>Image editing</small></span></button
+                  ><button class="art-scroll-card tile-3" type="button" data-artwork="paper-opera" aria-label="Explore An opera built from paper">
                     <img
                       data-src="assets/scroll/paper-opera-640.webp"
                       width="1152"
@@ -3468,7 +3486,40 @@
                       alt="A paper-diorama reinterpretation of an elaborate opera-house scene."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>An opera built from paper</span><small>Reference composition</small></span></button
+                    <span class="art-scroll-caption"><span>An opera built from paper</span><small>Reference composition</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
+                  <button class="art-scroll-card tile-0" type="button" data-artwork="jade-orchid-couture" aria-label="Explore The jade atelier">
+                    <img
+                      data-src="assets/scroll/jade-orchid-couture-640.webp"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt="An editorial fashion portrait in a sculptural jade-green silk gown."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The jade atelier</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-1" type="button" data-artwork="silk-road-station" aria-label="Explore The midnight terminus">
+                    <img
+                      data-src="assets/scroll/silk-road-station-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="A long train at an elaborate sandstone railway station and lantern-lit bazaar."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The midnight terminus</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-2" type="button" data-artwork="porcelain-tide" aria-label="Explore The porcelain tide">
+                    <img
+                      data-src="assets/scroll/porcelain-tide-640.webp"
+                      width="1024"
+                      height="1024"
+                      decoding="async"
+                      alt="An ivory porcelain wave curls around a tiny cobalt-blue sailboat, with fine gold seams."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The porcelain tide</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-3"
                     type="button"
@@ -3486,17 +3537,70 @@
                     <span class="art-scroll-caption"><span>From a line to a lakeside retreat</span><small>Sketch to image</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group is-reversed">
-                  <button class="art-scroll-card tile-0" type="button" data-artwork="orchid-portrait" aria-label="Explore A portrait in living color">
+                <div class="art-scroll-group" style="--feature-ratio: 1">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="night-bookshop"
+                    aria-label="Explore Stories after dark"
+                  >
                     <img
-                      data-src="assets/scroll/orchid-portrait-640.webp"
+                      data-src="assets/scroll/night-bookshop-640.webp"
+                      width="1024"
+                      height="1024"
+                      decoding="async"
+                      alt="An illustrated Chinese bookshop poster with four lines of event typography."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Stories after dark</span><small>Text &amp; layout</small></span></button
+                  ><button
+                    class="art-scroll-card tile-1"
+                    type="button"
+                    data-artwork="gilded-library"
+                    aria-label="Explore Night in the gilded archive"
+                  >
+                    <img
+                      data-src="assets/scroll/gilded-library-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="The sandstone library transformed with moonlight, illuminated shelves and gold detailing."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Night in the gilded archive</span><small>Image editing</small></span></button
+                  ><button class="art-scroll-card tile-2" type="button" data-artwork="red-dancer" aria-label="Explore A study in vermilion">
+                    <img
+                      data-src="assets/scroll/red-dancer-640.webp"
+                      width="768"
+                      height="1280"
+                      decoding="async"
+                      alt="A woman in a sculptural red silk gown stands beside a sweeping white museum staircase."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>A study in vermilion</span><small>Text to image</small></span></button
+                  ><button class="art-scroll-card tile-3" type="button" data-artwork="rain-painting" aria-label="Explore A rain-soaked canvas">
+                    <img
+                      data-src="assets/scroll/rain-painting-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="A portrait combining a source identity with botanical forms and an emerald-and-copper palette."
+                      alt="An oil-painted interpretation of a woman with an orange umbrella on a rainy street."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A portrait in living color</span><small>Reference composition</small></span></button
+                    <span class="art-scroll-caption"><span>A rain-soaked canvas</span><small>Reference composition</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
+                  <button class="art-scroll-card tile-0" type="button" data-artwork="silk-stage" aria-label="Explore The emerald stage">
+                    <img
+                      data-src="assets/scroll/silk-stage-640.webp"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt="A Peking opera performer with a fan, embroidered robes and an elaborate jeweled headdress."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The emerald stage</span><small>Text to image</small></span></button
                   ><button class="art-scroll-card tile-1" type="button" data-artwork="atelier-study" aria-label="Explore An artist’s sanctuary">
                     <img
                       data-src="assets/scroll/atelier-study-640.webp"
@@ -3507,47 +3611,119 @@
                       draggable="false"
                     />
                     <span class="art-scroll-caption"><span>An artist’s sanctuary</span><small>Text to image</small></span></button
-                  ><button class="art-scroll-card tile-2" type="button" data-artwork="rain-painting" aria-label="Explore A rain-soaked canvas">
+                  ><button
+                    class="art-scroll-card tile-2"
+                    type="button"
+                    data-artwork="orchid-portrait"
+                    aria-label="Explore A portrait in living color"
+                  >
                     <img
-                      data-src="assets/scroll/rain-painting-640.webp"
+                      data-src="assets/scroll/orchid-portrait-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="An oil-painted interpretation of a woman with an orange umbrella on a rainy street."
+                      alt="A portrait combining a source identity with botanical forms and an emerald-and-copper palette."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A rain-soaked canvas</span><small>Reference composition</small></span></button
-                  ><button class="art-scroll-card tile-3" type="button" data-artwork="woodcut-mountains" aria-label="Explore A journey in ink">
+                    <span class="art-scroll-caption"><span>A portrait in living color</span><small>Reference composition</small></span></button
+                  ><button class="art-scroll-card tile-3" type="button" data-artwork="atelier-title" aria-label="Explore A new name, the same design">
                     <img
-                      data-src="assets/scroll/woodcut-mountains-640.webp"
-                      width="1280"
-                      height="768"
+                      data-src="assets/scroll/atelier-title-640.webp"
+                      width="1024"
+                      height="1024"
                       decoding="async"
-                      alt="A woodcut-style reinterpretation of a train crossing a mountain viaduct."
+                      alt="A Chinese creative poster with its main title changed to 万象展览馆."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A journey in ink</span><small>Image editing</small></span>
+                    <span class="art-scroll-caption"><span>A new name, the same design</span><small>Image editing</small></span>
                   </button>
                 </div>
               </div>
               <div class="art-scroll-cycle" aria-hidden="true">
-                <div class="art-scroll-group">
+                <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
                   <button
                     class="art-scroll-card tile-0"
                     type="button"
-                    data-artwork="jade-orchid-couture"
-                    aria-label="Explore The jade atelier"
+                    data-artwork="linen-and-daisies"
+                    aria-label="Explore A morning in soft light"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/jade-orchid-couture-640.webp"
+                      data-src="assets/scroll/linen-and-daisies-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="An editorial fashion portrait in a sculptural jade-green silk gown."
+                      alt="A woman in ivory linen and a blue skirt holding daisies beside an open window."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>The jade atelier</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"><span>A morning in soft light</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-1"
+                    type="button"
+                    data-artwork="seaside-picnic"
+                    aria-label="Explore A little room for summer"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/seaside-picnic-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="Apricots, flowers and linen at a sunlit seaside picnic."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>A little room for summer</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-2"
+                    type="button"
+                    data-artwork="apricot-studio"
+                    aria-label="Explore Sunlight, slowly"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/apricot-studio-640.webp"
+                      width="1024"
+                      height="1024"
+                      decoding="async"
+                      alt="A blue ceramic pitcher, apricots and three white cosmos blossoms in morning light."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Sunlight, slowly</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-3"
+                    type="button"
+                    data-artwork="coastal-watercolor"
+                    aria-label="Explore Postcards from a quiet coast"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/coastal-watercolor-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="A watercolor coastal town with blue boats, flowering terraces and a seaside cafe."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Postcards from a quiet coast</span><small>Text to image</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="spring-studio-fair"
+                    aria-label="Explore 春日创作集"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/spring-studio-fair-640.webp"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt="A Chinese spring creative-market poster with illustrated stalls, activity descriptions and an event schedule."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>春日创作集</span><small>Text &amp; layout</small></span></button
                   ><button
                     class="art-scroll-card tile-1"
                     type="button"
@@ -3581,73 +3757,6 @@
                     />
                     <span class="art-scroll-caption"><span>A garden inside the mechanism</span><small>Text to image</small></span></button
                   ><button
-                    class="art-scroll-card tile-3"
-                    type="button"
-                    data-artwork="clockwork-conservatory"
-                    aria-label="Explore A living clockwork"
-                    tabindex="-1"
-                  >
-                    <img
-                      data-src="assets/scroll/clockwork-conservatory-640.webp"
-                      width="1024"
-                      height="1024"
-                      decoding="async"
-                      alt="A detailed miniature cutaway with a greenhouse, reading room and mechanical workshop."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>A living clockwork</span><small>Text to image</small></span>
-                  </button>
-                </div>
-                <div class="art-scroll-group is-reversed">
-                  <button
-                    class="art-scroll-card tile-0 preserve-layout"
-                    type="button"
-                    data-artwork="book-of-tides"
-                    aria-label="Explore The Book of Tides"
-                    tabindex="-1"
-                  >
-                    <img
-                      data-src="assets/scroll/book-of-tides-640.webp"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt="An English-language film poster with a coastal city emerging from an open book."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>The Book of Tides</span><small>Text &amp; layout</small></span></button
-                  ><button
-                    class="art-scroll-card tile-1"
-                    type="button"
-                    data-artwork="crystal-tram"
-                    aria-label="Explore The crystal tramway"
-                    tabindex="-1"
-                  >
-                    <img
-                      data-src="assets/scroll/crystal-tram-640.webp"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt="A red tram crossing a richly layered aquamarine crystal city."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>The crystal tramway</span><small>Text to image</small></span></button
-                  ><button
-                    class="art-scroll-card tile-2"
-                    type="button"
-                    data-artwork="porcelain-tide"
-                    aria-label="Explore The porcelain tide"
-                    tabindex="-1"
-                  >
-                    <img
-                      data-src="assets/scroll/porcelain-tide-640.webp"
-                      width="1024"
-                      height="1024"
-                      decoding="async"
-                      alt="An ivory porcelain wave curls around a tiny cobalt-blue sailboat, with fine gold seams."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>The porcelain tide</span><small>Text to image</small></span></button
-                  ><button
                     class="art-scroll-card tile-3 preserve-layout"
                     type="button"
                     data-artwork="garden-comic"
@@ -3665,55 +3774,55 @@
                     <span class="art-scroll-caption"><span>A little care, a little wonder</span><small>Multi-panel generation</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group">
+                <div class="art-scroll-group" style="--feature-ratio: 0.6842105263157895">
                   <button
-                    class="art-scroll-card tile-0"
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
                     type="button"
-                    data-artwork="red-dancer"
-                    aria-label="Explore A study in vermilion"
+                    data-artwork="handwritten-invitation"
+                    aria-label="Explore 见字如面 · A handwritten invitation"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/red-dancer-640.webp"
-                      width="768"
-                      height="1280"
+                      data-src="assets/scroll/handwritten-invitation-640.webp"
+                      width="832"
+                      height="1216"
                       decoding="async"
-                      alt="A woman in a sculptural red silk gown stands beside a sweeping white museum staircase."
+                      alt="A long handwritten Chinese invitation on ivory paper with a red envelope and golden ginkgo leaves."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A study in vermilion</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"><span>见字如面 · A handwritten invitation</span><small>Text &amp; layout</small></span></button
                   ><button
                     class="art-scroll-card tile-1"
                     type="button"
-                    data-artwork="silk-road-station"
-                    aria-label="Explore The midnight terminus"
+                    data-artwork="spring-bicycle"
+                    aria-label="Explore The long way home"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/silk-road-station-640.webp"
+                      data-src="assets/scroll/spring-bicycle-640.webp"
                       width="1152"
                       height="768"
                       decoding="async"
-                      alt="A long train at an elaborate sandstone railway station and lantern-lit bazaar."
+                      alt="A pale blue bicycle with a flower-filled basket beside a seaside window."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>The midnight terminus</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"><span>The long way home</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-2"
                     type="button"
-                    data-artwork="atelier-title"
-                    aria-label="Explore A new name, the same design"
+                    data-artwork="clockwork-conservatory"
+                    aria-label="Explore A living clockwork"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/atelier-title-640.webp"
+                      data-src="assets/scroll/clockwork-conservatory-640.webp"
                       width="1024"
                       height="1024"
                       decoding="async"
-                      alt="A Chinese creative poster with its main title changed to 万象展览馆."
+                      alt="A detailed miniature cutaway with a greenhouse, reading room and mechanical workshop."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A new name, the same design</span><small>Image editing</small></span></button
+                    <span class="art-scroll-caption"><span>A living clockwork</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-3"
                     type="button"
@@ -3732,41 +3841,39 @@
                     <span class="art-scroll-caption"><span>A universe in paper</span><small>Text to image</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group is-reversed">
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
                   <button
-                    class="art-scroll-card tile-0 preserve-layout"
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
                     type="button"
-                    data-artwork="mountain-letter"
-                    aria-label="Explore 山中来信 · A letter from the mountains"
+                    data-artwork="book-of-tides"
+                    aria-label="Explore The Book of Tides"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/mountain-letter-640.webp"
+                      data-src="assets/scroll/book-of-tides-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="A Chinese travel poster combining mountain scenery, a botanical letter and a three-day itinerary."
+                      alt="An English-language film poster with a coastal city emerging from an open book."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"
-                      ><span>山中来信 · A letter from the mountains</span><small>Text &amp; layout</small></span
-                    ></button
+                    <span class="art-scroll-caption"><span>The Book of Tides</span><small>Text &amp; layout</small></span></button
                   ><button
                     class="art-scroll-card tile-1"
                     type="button"
-                    data-artwork="aurora-citadel"
-                    aria-label="Explore Citadel of the northern lights"
+                    data-artwork="glasshouse-morning"
+                    aria-label="Explore The greenhouse at nine"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/aurora-citadel-640.webp"
+                      data-src="assets/scroll/glasshouse-morning-640.webp"
                       width="1152"
                       height="768"
                       decoding="async"
-                      alt="A densely detailed fantasy citadel beneath a giant stone arch and an aurora."
+                      alt="A bright white glasshouse reading room opening onto a spring garden."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>Citadel of the northern lights</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"><span>The greenhouse at nine</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-2"
                     type="button"
@@ -3801,17 +3908,159 @@
                     <span class="art-scroll-caption"><span>Seasons by the lake</span><small>Multi-panel generation</small></span>
                   </button>
                 </div>
-                <div class="art-scroll-group">
-                  <button class="art-scroll-card tile-0" type="button" data-artwork="silk-stage" aria-label="Explore The emerald stage" tabindex="-1">
+                <div class="art-scroll-group" style="--feature-ratio: 0.6666666666666666">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="mountain-letter"
+                    aria-label="Explore 山中来信 · A letter from the mountains"
+                    tabindex="-1"
+                  >
                     <img
-                      data-src="assets/scroll/silk-stage-640.webp"
+                      data-src="assets/scroll/mountain-letter-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="A Peking opera performer with a fan, embroidered robes and an elaborate jeweled headdress."
+                      alt="A Chinese travel poster combining mountain scenery, a botanical letter and a three-day itinerary."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>The emerald stage</span><small>Text to image</small></span></button
+                    <span class="art-scroll-caption"
+                      ><span>山中来信 · A letter from the mountains</span><small>Text &amp; layout</small></span
+                    ></button
+                  ><button
+                    class="art-scroll-card tile-1"
+                    type="button"
+                    data-artwork="crystal-tram"
+                    aria-label="Explore The crystal tramway"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/crystal-tram-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="A red tram crossing a richly layered aquamarine crystal city."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The crystal tramway</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-2"
+                    type="button"
+                    data-artwork="woodcut-mountains"
+                    aria-label="Explore A journey in ink"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/woodcut-mountains-640.webp"
+                      width="1280"
+                      height="768"
+                      decoding="async"
+                      alt="A woodcut-style reinterpretation of a train crossing a mountain viaduct."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>A journey in ink</span><small>Image editing</small></span></button
+                  ><button
+                    class="art-scroll-card tile-3"
+                    type="button"
+                    data-artwork="paper-opera"
+                    aria-label="Explore An opera built from paper"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/paper-opera-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="A paper-diorama reinterpretation of an elaborate opera-house scene."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>An opera built from paper</span><small>Reference composition</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
+                  <button
+                    class="art-scroll-card tile-0"
+                    type="button"
+                    data-artwork="jade-orchid-couture"
+                    aria-label="Explore The jade atelier"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/jade-orchid-couture-640.webp"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt="An editorial fashion portrait in a sculptural jade-green silk gown."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The jade atelier</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-1"
+                    type="button"
+                    data-artwork="silk-road-station"
+                    aria-label="Explore The midnight terminus"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/silk-road-station-640.webp"
+                      width="1152"
+                      height="768"
+                      decoding="async"
+                      alt="A long train at an elaborate sandstone railway station and lantern-lit bazaar."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The midnight terminus</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-2"
+                    type="button"
+                    data-artwork="porcelain-tide"
+                    aria-label="Explore The porcelain tide"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/porcelain-tide-640.webp"
+                      width="1024"
+                      height="1024"
+                      decoding="async"
+                      alt="An ivory porcelain wave curls around a tiny cobalt-blue sailboat, with fine gold seams."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The porcelain tide</span><small>Text to image</small></span></button
+                  ><button
+                    class="art-scroll-card tile-3"
+                    type="button"
+                    data-artwork="cabin-sketch"
+                    aria-label="Explore From a line to a lakeside retreat"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/cabin-sketch-640.webp"
+                      width="1280"
+                      height="896"
+                      decoding="async"
+                      alt="An autumn lakeside timber house rendered from an architectural sketch."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>From a line to a lakeside retreat</span><small>Sketch to image</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group" style="--feature-ratio: 1">
+                  <button
+                    class="art-scroll-card tile-0 preserve-layout text-rich"
+                    type="button"
+                    data-artwork="night-bookshop"
+                    aria-label="Explore Stories after dark"
+                    tabindex="-1"
+                  >
+                    <img
+                      data-src="assets/scroll/night-bookshop-640.webp"
+                      width="1024"
+                      height="1024"
+                      decoding="async"
+                      alt="An illustrated Chinese bookshop poster with four lines of event typography."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>Stories after dark</span><small>Text &amp; layout</small></span></button
                   ><button
                     class="art-scroll-card tile-1"
                     type="button"
@@ -3831,54 +4080,48 @@
                   ><button
                     class="art-scroll-card tile-2"
                     type="button"
-                    data-artwork="paper-opera"
-                    aria-label="Explore An opera built from paper"
+                    data-artwork="red-dancer"
+                    aria-label="Explore A study in vermilion"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/paper-opera-640.webp"
-                      width="1152"
-                      height="768"
+                      data-src="assets/scroll/red-dancer-640.webp"
+                      width="768"
+                      height="1280"
                       decoding="async"
-                      alt="A paper-diorama reinterpretation of an elaborate opera-house scene."
+                      alt="A woman in a sculptural red silk gown stands beside a sweeping white museum staircase."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>An opera built from paper</span><small>Reference composition</small></span></button
+                    <span class="art-scroll-caption"><span>A study in vermilion</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-3"
                     type="button"
-                    data-artwork="cabin-sketch"
-                    aria-label="Explore From a line to a lakeside retreat"
+                    data-artwork="rain-painting"
+                    aria-label="Explore A rain-soaked canvas"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/cabin-sketch-640.webp"
-                      width="1280"
-                      height="896"
-                      decoding="async"
-                      alt="An autumn lakeside timber house rendered from an architectural sketch."
-                      draggable="false"
-                    />
-                    <span class="art-scroll-caption"><span>From a line to a lakeside retreat</span><small>Sketch to image</small></span>
-                  </button>
-                </div>
-                <div class="art-scroll-group is-reversed">
-                  <button
-                    class="art-scroll-card tile-0"
-                    type="button"
-                    data-artwork="orchid-portrait"
-                    aria-label="Explore A portrait in living color"
-                    tabindex="-1"
-                  >
-                    <img
-                      data-src="assets/scroll/orchid-portrait-640.webp"
+                      data-src="assets/scroll/rain-painting-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="A portrait combining a source identity with botanical forms and an emerald-and-copper palette."
+                      alt="An oil-painted interpretation of a woman with an orange umbrella on a rainy street."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A portrait in living color</span><small>Reference composition</small></span></button
+                    <span class="art-scroll-caption"><span>A rain-soaked canvas</span><small>Reference composition</small></span>
+                  </button>
+                </div>
+                <div class="art-scroll-group is-reversed" style="--feature-ratio: 0.6666666666666666">
+                  <button class="art-scroll-card tile-0" type="button" data-artwork="silk-stage" aria-label="Explore The emerald stage" tabindex="-1">
+                    <img
+                      data-src="assets/scroll/silk-stage-640.webp"
+                      width="768"
+                      height="1152"
+                      decoding="async"
+                      alt="A Peking opera performer with a fan, embroidered robes and an elaborate jeweled headdress."
+                      draggable="false"
+                    />
+                    <span class="art-scroll-caption"><span>The emerald stage</span><small>Text to image</small></span></button
                   ><button
                     class="art-scroll-card tile-1"
                     type="button"
@@ -3898,35 +4141,35 @@
                   ><button
                     class="art-scroll-card tile-2"
                     type="button"
-                    data-artwork="rain-painting"
-                    aria-label="Explore A rain-soaked canvas"
+                    data-artwork="orchid-portrait"
+                    aria-label="Explore A portrait in living color"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/rain-painting-640.webp"
+                      data-src="assets/scroll/orchid-portrait-640.webp"
                       width="768"
                       height="1152"
                       decoding="async"
-                      alt="An oil-painted interpretation of a woman with an orange umbrella on a rainy street."
+                      alt="A portrait combining a source identity with botanical forms and an emerald-and-copper palette."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A rain-soaked canvas</span><small>Reference composition</small></span></button
+                    <span class="art-scroll-caption"><span>A portrait in living color</span><small>Reference composition</small></span></button
                   ><button
                     class="art-scroll-card tile-3"
                     type="button"
-                    data-artwork="woodcut-mountains"
-                    aria-label="Explore A journey in ink"
+                    data-artwork="atelier-title"
+                    aria-label="Explore A new name, the same design"
                     tabindex="-1"
                   >
                     <img
-                      data-src="assets/scroll/woodcut-mountains-640.webp"
-                      width="1280"
-                      height="768"
+                      data-src="assets/scroll/atelier-title-640.webp"
+                      width="1024"
+                      height="1024"
                       decoding="async"
-                      alt="A woodcut-style reinterpretation of a train crossing a mountain viaduct."
+                      alt="A Chinese creative poster with its main title changed to 万象展览馆."
                       draggable="false"
                     />
-                    <span class="art-scroll-caption"><span>A journey in ink</span><small>Image editing</small></span>
+                    <span class="art-scroll-caption"><span>A new name, the same design</span><small>Image editing</small></span>
                   </button>
                 </div>
               </div>
@@ -4128,6 +4371,179 @@
           </div>
           <div class="gallery-grid">
             <!-- INLINE_GALLERY_START -->
+            <figure class="gallery-card" data-category="Text to image">
+              <button class="gallery-open" type="button" data-artwork="linen-and-daisies" aria-label="Explore A morning in soft light">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/linen-and-daisies-480.webp"
+                    srcset="assets/gallery/linen-and-daisies-480.webp 480w, assets/gallery/linen-and-daisies-960.webp 768w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="768"
+                    height="1152"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A woman in ivory linen and a blue skirt holding daisies beside an open window."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>A morning in soft light</h3>
+                <span>Text to image</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text &amp; layout">
+              <button class="gallery-open" type="button" data-artwork="spring-studio-fair" aria-label="Explore 春日创作集">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/spring-studio-fair-480.webp"
+                    srcset="assets/gallery/spring-studio-fair-480.webp 480w, assets/gallery/spring-studio-fair-960.webp 768w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="768"
+                    height="1152"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A Chinese spring creative-market poster with illustrated stalls, activity descriptions and an event schedule."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>春日创作集</h3>
+                <span>Text &amp; layout</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text to image">
+              <button class="gallery-open" type="button" data-artwork="seaside-picnic" aria-label="Explore A little room for summer">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/seaside-picnic-480.webp"
+                    srcset="assets/gallery/seaside-picnic-480.webp 480w, assets/gallery/seaside-picnic-960.webp 960w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="1152"
+                    height="768"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Apricots, flowers and linen at a sunlit seaside picnic."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>A little room for summer</h3>
+                <span>Text to image</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text to image">
+              <button class="gallery-open" type="button" data-artwork="coastal-watercolor" aria-label="Explore Postcards from a quiet coast">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/coastal-watercolor-480.webp"
+                    srcset="assets/gallery/coastal-watercolor-480.webp 480w, assets/gallery/coastal-watercolor-960.webp 960w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="1152"
+                    height="768"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A watercolor coastal town with blue boats, flowering terraces and a seaside cafe."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>Postcards from a quiet coast</h3>
+                <span>Text to image</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text &amp; layout">
+              <button
+                class="gallery-open"
+                type="button"
+                data-artwork="handwritten-invitation"
+                aria-label="Explore 见字如面 · A handwritten invitation"
+              >
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/handwritten-invitation-480.webp"
+                    srcset="assets/gallery/handwritten-invitation-480.webp 480w, assets/gallery/handwritten-invitation-960.webp 832w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="832"
+                    height="1216"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A long handwritten Chinese invitation on ivory paper with a red envelope and golden ginkgo leaves."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>见字如面 · A handwritten invitation</h3>
+                <span>Text &amp; layout</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text to image">
+              <button class="gallery-open" type="button" data-artwork="spring-bicycle" aria-label="Explore The long way home">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/spring-bicycle-480.webp"
+                    srcset="assets/gallery/spring-bicycle-480.webp 480w, assets/gallery/spring-bicycle-960.webp 960w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="1152"
+                    height="768"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A pale blue bicycle with a flower-filled basket beside a seaside window."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>The long way home</h3>
+                <span>Text to image</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text to image">
+              <button class="gallery-open" type="button" data-artwork="apricot-studio" aria-label="Explore Sunlight, slowly">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/apricot-studio-480.webp"
+                    srcset="assets/gallery/apricot-studio-480.webp 480w, assets/gallery/apricot-studio-960.webp 960w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="1024"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A blue ceramic pitcher, apricots and three white cosmos blossoms in morning light."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>Sunlight, slowly</h3>
+                <span>Text to image</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-card" data-category="Text to image">
+              <button class="gallery-open" type="button" data-artwork="glasshouse-morning" aria-label="Explore The greenhouse at nine">
+                <span class="gallery-main-image"
+                  ><img
+                    src="assets/gallery/glasshouse-morning-480.webp"
+                    srcset="assets/gallery/glasshouse-morning-480.webp 480w, assets/gallery/glasshouse-morning-960.webp 960w"
+                    sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
+                    width="1152"
+                    height="768"
+                    loading="lazy"
+                    decoding="async"
+                    alt="A bright white glasshouse reading room opening onto a spring garden."
+                  />
+                  <span class="gallery-open-label" aria-hidden="true">View artwork <span>+</span></span></span
+                >
+              </button>
+              <figcaption>
+                <h3>The greenhouse at nine</h3>
+                <span>Text to image</span>
+              </figcaption>
+            </figure>
             <figure class="gallery-card" data-category="Text to image">
               <button class="gallery-open" type="button" data-artwork="jade-orchid-couture" aria-label="Explore The jade atelier">
                 <span class="gallery-main-image"
@@ -6082,6 +6498,85 @@ next_image.save("paper-world-night.png")</code></pre>
     </script>
     <script type="application/json" id="gallery-data">
       [
+        {
+          "id": "linen-and-daisies",
+          "title": "A morning in soft light",
+          "task": "Text to image",
+          "width": 768,
+          "height": 1152,
+          "alt": "A woman in ivory linen and a blue skirt holding daisies beside an open window.",
+          "description": "A natural-light portrait with delicate linen, translucent curtains and a seaside breeze.",
+          "prompt": "A refined airy fashion portrait of an adult East Asian woman standing beside a sunlit open French window in a peaceful seaside cottage. She wears a beautifully textured ivory linen blouse with loose sleeves and a pale sky-blue flowing skirt. Her hair is loosely tied, natural luminous skin with visible fine texture, a relaxed genuine expression. She gently holds one small bouquet of white daisies at waist height with both natural anatomically correct hands. Gauzy white curtains move slightly in the breeze; soft foliage shadows cross a cream wall, with a glimpse of blue sea and a small bowl of apricots in the background. Photograph from knees up. Gentle morning daylight, clean white highlights that retain detail, pastel blue and butter yellow, soft elegant magazine photography, intricate linen fibers and flower petals, no text or logos."
+        },
+        {
+          "id": "spring-studio-fair",
+          "title": "春日创作集",
+          "task": "Text & layout",
+          "width": 768,
+          "height": 1152,
+          "alt": "A Chinese spring creative-market poster with illustrated stalls, activity descriptions and an event schedule.",
+          "description": "A spring event poster combining Chinese typography, miniature garden illustrations and a detailed program.",
+          "prompt": "一张设计精美的中文生活方式市集海报，竖版奶油白底。精致的等距微缩花园由淡蓝展台、粉色花树、黄色遮阳伞、陶器、书本、花束和咖啡组成。大标题准确写“春日创作集”，下面写“把灵感带到阳光下”和“四月十二日·湖畔花园”。中间四个图文模块分别写：“手作与器物”“陶器·纸艺·生活小物”；“书籍与插画”“独立出版·原创作品”；“花草与香气”“时令鲜花·植物手作”；“咖啡与甜点”“现磨咖啡·新鲜面包”。下方三行日程：“十点开场”“十四点分享会”“十七点音乐时光”。最底部写“免费入场·欢迎带上朋友”。所有文字完整清晰，字号较大，文字与精美微缩物件相互呼应，不要添加其他文字。清新、优雅、丰富的专业平面设计。"
+        },
+        {
+          "id": "seaside-picnic",
+          "title": "A little room for summer",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "Apricots, flowers and linen at a sunlit seaside picnic.",
+          "description": "Airy coastal photography with natural light, tactile linen and clear blue water.",
+          "prompt": "A beautiful sunlit lifestyle photograph of a quiet Mediterranean seaside picnic, airy and fresh, not dark or dramatic. A pale lemon-yellow linen cloth lies on smooth white limestone beside clear shallow turquoise water. On the cloth: a small ceramic plate of ripe apricots, a glass carafe of water, two softly folded white napkins, a straw sunhat and a bunch of white cosmos flowers in a tiny blue vase. Every object has coherent geometry and realistic contact shadows. A flowering bougainvillea branch frames the upper left; distant cream houses and a small moored blue boat form a softly detailed background. Sparkling water, delicate leaf shadows, natural skin-free still life, finely resolved woven fibers and translucent fruit. Pastel yellow, chalk white, clear sky blue and soft coral. Premium editorial photography with natural high-key exposure and retained highlight detail. No people, no words, no logos."
+        },
+        {
+          "id": "coastal-watercolor",
+          "title": "Postcards from a quiet coast",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "A watercolor coastal town with blue boats, flowering terraces and a seaside cafe.",
+          "description": "Delicate watercolor washes, hand-drawn architecture and a bright pastel coastal scene.",
+          "prompt": "A sophisticated hand-painted watercolor and colored-pencil illustration of a tiny sunlit coastal town in spring. White cottages with powder-blue shutters climb a gentle hillside; winding pale stone stairs connect them, flowering pink bougainvillea grows over walls, little cafes have striped butter-yellow awnings, a narrow harbor contains three small blue fishing boats, and terracotta pots with daisies populate the foreground. A few clearly separate small human figures stroll naturally. Intricate but coherent architectural details, delicate pencil contours, visible paper grain and translucent watercolor washes. Fresh ivory, sky blue, dusty rose, soft sage and apricot. Warm peaceful storybook atmosphere, luminous restrained color, visually rich and meticulously composed, no dark fantasy elements and no text anywhere."
+        },
+        {
+          "id": "handwritten-invitation",
+          "title": "见字如面 · A handwritten invitation",
+          "task": "Text & layout",
+          "width": 832,
+          "height": 1216,
+          "alt": "A long handwritten Chinese invitation on ivory paper with a red envelope and golden ginkgo leaves.",
+          "description": "A handwritten Chinese letter, with full sentences integrated into a warm photographic still life."
+        },
+        {
+          "id": "spring-bicycle",
+          "title": "The long way home",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "A pale blue bicycle with a flower-filled basket beside a seaside window.",
+          "description": "Spring blossoms, woven wicker and a pastel bicycle in bright coastal light.",
+          "prompt": "An exquisite fresh spring lifestyle photograph of a pale sky-blue vintage bicycle leaning against a cream stucco wall under a flowering cherry tree. The wicker front basket holds a bouquet of white daisies and pink ranunculus. Exactly two coherent bicycle wheels, a single frame, one saddle and one pair of handlebars, viewed from the side with natural perspective. Petals lie on the quiet stone lane, a pale green wooden window is partly open, a tiny ceramic pot and climbing jasmine add carefully arranged details. Beyond the wall is a glimpse of the sparkling sea. Soft morning sunlight, luminous pastel colors, beautifully tactile woven wicker and chalky plaster, breezy peaceful atmosphere, light editorial color grading, realistic photography. No text, no people, no dark cinematic treatment."
+        },
+        {
+          "id": "apricot-studio",
+          "title": "Sunlight, slowly",
+          "task": "Text to image",
+          "width": 1024,
+          "height": 1024,
+          "alt": "A blue ceramic pitcher, apricots and three white cosmos blossoms in morning light.",
+          "description": "A restrained editorial still life with soft colors and carefully resolved materials.",
+          "prompt": "An extraordinarily elegant fresh still-life editorial photograph. On a pale warm travertine table, arrange a sculptural matte sky-blue ceramic pitcher, one shallow cream bowl containing five ripe apricots, a folded butter-yellow linen napkin and a clear cylindrical glass holding three tiny white cosmos blossoms. A delicate branch of green leaves enters from above, casting soft overlapping shadows. Background is a softly lit warm ivory plaster wall with a narrow band of blue sky. Exact believable object geometry, fine ceramic glaze, tiny skin textures on fruit, realistic glass and water refraction, subtle natural irregularities. Art-directed asymmetrical composition with generous breathing room, luminous natural morning light, pastel colors, sophisticated contemporary lifestyle magazine photography. No lettering or logos."
+        },
+        {
+          "id": "glasshouse-morning",
+          "title": "The greenhouse at nine",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "A bright white glasshouse reading room opening onto a spring garden.",
+          "description": "Airy interior photography with sunlit glazing, soft linen and botanical detail.",
+          "prompt": "A bright sophisticated architectural photograph of a small glasshouse reading room in a spring garden. Slender white-painted metal window frames, an ivory curved reading chair, a natural oak side table with an open blank book, pale blue linen cushions, a large ceramic pot of delicate green leaves, and tiny white flowers placed sparingly throughout the room. The glass roof shows a clear powder-blue sky; open double doors reveal a lush but softly focused flower garden and pale gravel path. Beautiful geometric window shadows fall across a warm limestone floor. Fine wood grain, woven linen, clear glass joints, realistic furniture geometry, calm balanced composition and fresh natural daylight. Airy elegant lifestyle editorial, every highlight retains texture, no dramatic green darkness and no words."
+        },
         {
           "id": "jade-orchid-couture",
           "title": "The jade atelier",

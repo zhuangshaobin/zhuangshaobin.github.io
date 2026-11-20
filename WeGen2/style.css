@@ -2793,7 +2793,7 @@ body.artwork-open {
 .art-scroll-group {
   display: grid;
   flex: none;
-  grid-template-columns: calc(var(--scroll-height) * 0.667) repeat(2, calc(var(--scroll-height) * 0.45));
+  grid-template-columns: calc(var(--scroll-height) * var(--feature-ratio, 0.667)) repeat(2, calc(var(--scroll-height) * 0.45));
   grid-template-rows: 1fr 1fr;
   gap: var(--scroll-gap);
   height: 100%;
@@ -2829,7 +2829,7 @@ body.artwork-open {
   grid-row: 2;
 }
 .art-scroll-group.is-reversed {
-  grid-template-columns: repeat(2, calc(var(--scroll-height) * 0.45)) calc(var(--scroll-height) * 0.667);
+  grid-template-columns: repeat(2, calc(var(--scroll-height) * 0.45)) calc(var(--scroll-height) * var(--feature-ratio, 0.667));
 }
 .art-scroll-group.is-reversed .tile-0 {
   grid-column: 3;
@@ -2895,6 +2895,9 @@ body.artwork-open {
 .art-scroll-card:is(:hover, :focus-visible) .art-scroll-caption {
   opacity: 1;
   transform: none;
+}
+.art-scroll-card.text-rich .art-scroll-caption {
+  display: none;
 }
 .art-scroll-controls {
   display: flex;

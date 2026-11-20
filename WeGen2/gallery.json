@@ -1,5 +1,84 @@
 [
   {
+    "id": "linen-and-daisies",
+    "title": "A morning in soft light",
+    "task": "Text to image",
+    "width": 768,
+    "height": 1152,
+    "alt": "A woman in ivory linen and a blue skirt holding daisies beside an open window.",
+    "description": "A natural-light portrait with delicate linen, translucent curtains and a seaside breeze.",
+    "prompt": "A refined airy fashion portrait of an adult East Asian woman standing beside a sunlit open French window in a peaceful seaside cottage. She wears a beautifully textured ivory linen blouse with loose sleeves and a pale sky-blue flowing skirt. Her hair is loosely tied, natural luminous skin with visible fine texture, a relaxed genuine expression. She gently holds one small bouquet of white daisies at waist height with both natural anatomically correct hands. Gauzy white curtains move slightly in the breeze; soft foliage shadows cross a cream wall, with a glimpse of blue sea and a small bowl of apricots in the background. Photograph from knees up. Gentle morning daylight, clean white highlights that retain detail, pastel blue and butter yellow, soft elegant magazine photography, intricate linen fibers and flower petals, no text or logos."
+  },
+  {
+    "id": "spring-studio-fair",
+    "title": "春日创作集",
+    "task": "Text & layout",
+    "width": 768,
+    "height": 1152,
+    "alt": "A Chinese spring creative-market poster with illustrated stalls, activity descriptions and an event schedule.",
+    "description": "A spring event poster combining Chinese typography, miniature garden illustrations and a detailed program.",
+    "prompt": "一张设计精美的中文生活方式市集海报，竖版奶油白底。精致的等距微缩花园由淡蓝展台、粉色花树、黄色遮阳伞、陶器、书本、花束和咖啡组成。大标题准确写“春日创作集”，下面写“把灵感带到阳光下”和“四月十二日·湖畔花园”。中间四个图文模块分别写：“手作与器物”“陶器·纸艺·生活小物”；“书籍与插画”“独立出版·原创作品”；“花草与香气”“时令鲜花·植物手作”；“咖啡与甜点”“现磨咖啡·新鲜面包”。下方三行日程：“十点开场”“十四点分享会”“十七点音乐时光”。最底部写“免费入场·欢迎带上朋友”。所有文字完整清晰，字号较大，文字与精美微缩物件相互呼应，不要添加其他文字。清新、优雅、丰富的专业平面设计。"
+  },
+  {
+    "id": "seaside-picnic",
+    "title": "A little room for summer",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "Apricots, flowers and linen at a sunlit seaside picnic.",
+    "description": "Airy coastal photography with natural light, tactile linen and clear blue water.",
+    "prompt": "A beautiful sunlit lifestyle photograph of a quiet Mediterranean seaside picnic, airy and fresh, not dark or dramatic. A pale lemon-yellow linen cloth lies on smooth white limestone beside clear shallow turquoise water. On the cloth: a small ceramic plate of ripe apricots, a glass carafe of water, two softly folded white napkins, a straw sunhat and a bunch of white cosmos flowers in a tiny blue vase. Every object has coherent geometry and realistic contact shadows. A flowering bougainvillea branch frames the upper left; distant cream houses and a small moored blue boat form a softly detailed background. Sparkling water, delicate leaf shadows, natural skin-free still life, finely resolved woven fibers and translucent fruit. Pastel yellow, chalk white, clear sky blue and soft coral. Premium editorial photography with natural high-key exposure and retained highlight detail. No people, no words, no logos."
+  },
+  {
+    "id": "coastal-watercolor",
+    "title": "Postcards from a quiet coast",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "A watercolor coastal town with blue boats, flowering terraces and a seaside cafe.",
+    "description": "Delicate watercolor washes, hand-drawn architecture and a bright pastel coastal scene.",
+    "prompt": "A sophisticated hand-painted watercolor and colored-pencil illustration of a tiny sunlit coastal town in spring. White cottages with powder-blue shutters climb a gentle hillside; winding pale stone stairs connect them, flowering pink bougainvillea grows over walls, little cafes have striped butter-yellow awnings, a narrow harbor contains three small blue fishing boats, and terracotta pots with daisies populate the foreground. A few clearly separate small human figures stroll naturally. Intricate but coherent architectural details, delicate pencil contours, visible paper grain and translucent watercolor washes. Fresh ivory, sky blue, dusty rose, soft sage and apricot. Warm peaceful storybook atmosphere, luminous restrained color, visually rich and meticulously composed, no dark fantasy elements and no text anywhere."
+  },
+  {
+    "id": "handwritten-invitation",
+    "title": "见字如面 · A handwritten invitation",
+    "task": "Text & layout",
+    "width": 832,
+    "height": 1216,
+    "alt": "A long handwritten Chinese invitation on ivory paper with a red envelope and golden ginkgo leaves.",
+    "description": "A handwritten Chinese letter, with full sentences integrated into a warm photographic still life."
+  },
+  {
+    "id": "spring-bicycle",
+    "title": "The long way home",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "A pale blue bicycle with a flower-filled basket beside a seaside window.",
+    "description": "Spring blossoms, woven wicker and a pastel bicycle in bright coastal light.",
+    "prompt": "An exquisite fresh spring lifestyle photograph of a pale sky-blue vintage bicycle leaning against a cream stucco wall under a flowering cherry tree. The wicker front basket holds a bouquet of white daisies and pink ranunculus. Exactly two coherent bicycle wheels, a single frame, one saddle and one pair of handlebars, viewed from the side with natural perspective. Petals lie on the quiet stone lane, a pale green wooden window is partly open, a tiny ceramic pot and climbing jasmine add carefully arranged details. Beyond the wall is a glimpse of the sparkling sea. Soft morning sunlight, luminous pastel colors, beautifully tactile woven wicker and chalky plaster, breezy peaceful atmosphere, light editorial color grading, realistic photography. No text, no people, no dark cinematic treatment."
+  },
+  {
+    "id": "apricot-studio",
+    "title": "Sunlight, slowly",
+    "task": "Text to image",
+    "width": 1024,
+    "height": 1024,
+    "alt": "A blue ceramic pitcher, apricots and three white cosmos blossoms in morning light.",
+    "description": "A restrained editorial still life with soft colors and carefully resolved materials.",
+    "prompt": "An extraordinarily elegant fresh still-life editorial photograph. On a pale warm travertine table, arrange a sculptural matte sky-blue ceramic pitcher, one shallow cream bowl containing five ripe apricots, a folded butter-yellow linen napkin and a clear cylindrical glass holding three tiny white cosmos blossoms. A delicate branch of green leaves enters from above, casting soft overlapping shadows. Background is a softly lit warm ivory plaster wall with a narrow band of blue sky. Exact believable object geometry, fine ceramic glaze, tiny skin textures on fruit, realistic glass and water refraction, subtle natural irregularities. Art-directed asymmetrical composition with generous breathing room, luminous natural morning light, pastel colors, sophisticated contemporary lifestyle magazine photography. No lettering or logos."
+  },
+  {
+    "id": "glasshouse-morning",
+    "title": "The greenhouse at nine",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "A bright white glasshouse reading room opening onto a spring garden.",
+    "description": "Airy interior photography with sunlit glazing, soft linen and botanical detail.",
+    "prompt": "A bright sophisticated architectural photograph of a small glasshouse reading room in a spring garden. Slender white-painted metal window frames, an ivory curved reading chair, a natural oak side table with an open blank book, pale blue linen cushions, a large ceramic pot of delicate green leaves, and tiny white flowers placed sparingly throughout the room. The glass roof shows a clear powder-blue sky; open double doors reveal a lush but softly focused flower garden and pale gravel path. Beautiful geometric window shadows fall across a warm limestone floor. Fine wood grain, woven linen, clear glass joints, realistic furniture geometry, calm balanced composition and fresh natural daylight. Airy elegant lifestyle editorial, every highlight retains texture, no dramatic green darkness and no words."
+  },
+  {
     "id": "jade-orchid-couture",
     "title": "The jade atelier",
     "task": "Text to image",

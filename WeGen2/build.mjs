@@ -20,14 +20,14 @@ const scrollCards = (clone) =>
   scroll
     .map(
       (group, index) =>
-        `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}">${group
+        `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="--feature-ratio:${byId.get(group[0]).width / byId.get(group[0]).height}">${group
           .map((id, position) => {
             const item = byId.get(id);
             if (!item) throw new Error(`Missing scroll case: ${id}`);
             const asset = escapeHtml(item.asset || item.id);
             const eager = !clone && index === 0 && position === 0;
             const contain = ["Text & layout", "Multi-panel generation"].includes(item.task);
-            return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
+            return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.task === "Text & layout" ? " text-rich" : ""}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
   <img ${eager ? "src" : "data-src"}="assets/scroll/${asset}-640.webp" width="${item.width}" height="${item.height}" decoding="async" ${eager ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
   <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
           })
