@@ -12,7 +12,11 @@ function replaceBlock(name, content) {
   if (!pattern.test(html)) throw new Error(`Missing inline ${name} markers`);
   html = html.replace(pattern, () => `<!-- INLINE_${name}_START -->\n${content}\n<!-- INLINE_${name}_END -->`);
 }
-replaceBlock("STYLE", `<style>\n${read("style.css")}\n</style>`);
+replaceBlock(
+  "STYLE",
+  `<style>\n${read("style.css")}
+${read("editorial.css")}\n</style>`
+);
 const gallery = JSON.parse(read("gallery.json"));
 const scroll = JSON.parse(read("scroll.json"));
 const byId = new Map(gallery.map((item) => [item.id, item]));

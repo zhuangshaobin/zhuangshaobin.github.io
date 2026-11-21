@@ -3312,3 +3312,25 @@ body.artwork-open {
     padding-top: 24px;
   }
 }
+
+.artwork-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+.artwork-prompt-actions button {
+  background: transparent;
+  padding: 4px 0;
+  border-bottom: 1px solid #80958a;
+  font-size: 14px;
+  color: #163e30;
+}
+.artwork-prompt-actions button:hover {
+  color: #087c4d;
+  border-bottom-color: currentColor;
+}
+.artwork-copy-state {
+  font-size: 13px;
+  color: #62766a;
+}

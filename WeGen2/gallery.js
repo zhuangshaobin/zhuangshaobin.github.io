@@ -48,16 +48,15 @@
     prompt.hidden = !frame.prompt;
     const task = selection[current].task || "";
     prompt.querySelector("summary").textContent =
-      frame.role === "input"
-        ? "Source prompt"
-        : task === "Reference composition"
-          ? "Composition prompt"
-          : /editing/i.test(task)
-            ? "Edit instruction"
-            : "Generation prompt";
+      frame.role !== "input" && task === "Reference composition"
+        ? "Original composition prompt"
+        : frame.role !== "input" && frames.length > 1
+          ? "Original editing prompt"
+          : "Original generation prompt";
+    modal.querySelector(".artwork-copy-state").textContent = "";
     modal.querySelector(".artwork-size").textContent = `${frame.width.toLocaleString("en-US")} × ${frame.height.toLocaleString("en-US")}`;
     prompt.querySelector("p").textContent = frame.prompt || "";
-    prompt.open = false;
+    prompt.open = Boolean(frame.prompt);
     status.textContent = "Loading full image…";
     const original = new Image();
     loader = original;
@@ -133,6 +132,17 @@
     modal.showModal();
     document.body.classList.add("artwork-open");
     renderArtwork(selection.findIndex((work) => work.id === button.dataset.artwork));
+  });
+  modal.querySelector("[data-copy-prompt]").addEventListener("click", async () => {
+    const version = request;
+    const value = prompt.querySelector("p").textContent;
+    const feedback = modal.querySelector(".artwork-copy-state");
+    try {
+      await navigator.clipboard.writeText(value);
+      if (version === request) feedback.textContent = "Copied";
+    } catch {
+      if (version === request) feedback.textContent = "Select the text to copy.";
+    }
   });
   modal.querySelector(".artwork-close").addEventListener("click", () => modal.close());
   modal.querySelector("[data-artwork-prev]").addEventListener("click", () => renderArtwork(current - 1));

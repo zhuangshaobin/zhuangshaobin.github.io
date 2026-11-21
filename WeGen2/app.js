@@ -207,22 +207,26 @@ function drawReference() {
     bh = (y1 - y0) * im.height;
   const startX = button.right - parent.left,
     startY = button.top - parent.top + button.height / 2;
-  const endX = im.left - parent.left + item.anchor[0] * im.width,
-    endY = im.top - parent.top + item.anchor[1] * im.height;
+  const endX = bx - 3,
+    endY = by + bh / 2;
   const middle = (startX + endX) / 2;
   const path = `M${startX},${startY} C${middle},${startY} ${middle},${endY} ${endX},${endY}`;
-  lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#ffffffdd", "stroke-width": 5, "stroke-linecap": "round" }));
-  lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#0db16e", "stroke-width": 2.2, "stroke-linecap": "round" }));
+  // On narrow screens the selected source and result outline communicate the
+  // relationship without drawing a line across the other reference images.
+  if (matchMedia("(min-width: 761px)").matches) {
+    lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#fafbf7df", "stroke-width": 4, "stroke-linecap": "round" }));
+    lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#16885a", "stroke-width": 1.5, "stroke-linecap": "round" }));
+  }
   lineCanvas.append(
     svgNode("rect", {
       x: bx - 3,
       y: by - 3,
       width: bw + 6,
       height: bh + 6,
-      rx: Math.min(15, bh / 3),
+      rx: Math.min(6, bh / 3),
       fill: "#0db16e0a",
       stroke: "#ffffffdf",
-      "stroke-width": 5,
+      "stroke-width": 4,
     })
   );
   lineCanvas.append(
@@ -231,13 +235,15 @@ function drawReference() {
       y: by - 3,
       width: bw + 6,
       height: bh + 6,
-      rx: Math.min(15, bh / 3),
+      rx: Math.min(6, bh / 3),
       fill: "none",
-      stroke: "#0db16e",
-      "stroke-width": 2.2,
+      stroke: "#16885a",
+      "stroke-width": 1.5,
     })
   );
-  lineCanvas.append(svgNode("circle", { cx: endX, cy: endY, r: 4, fill: "#0db16e", stroke: "white", "stroke-width": 2 }));
+  if (matchMedia("(min-width: 761px)").matches) {
+    lineCanvas.append(svgNode("circle", { cx: endX, cy: endY, r: 3, fill: "#16885a", stroke: "white", "stroke-width": 1.5 }));
+  }
 }
 function selectReference(id) {
   activeReference = id;
