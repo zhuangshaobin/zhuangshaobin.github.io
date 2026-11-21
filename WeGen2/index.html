@@ -3336,6 +3336,1239 @@ body.artwork-open {
   }
 }
 
+.artwork-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+.artwork-prompt-actions button {
+  background: transparent;
+  padding: 4px 0;
+  border-bottom: 1px solid #80958a;
+  font-size: 14px;
+  color: #163e30;
+}
+.artwork-prompt-actions button:hover {
+  color: #087c4d;
+  border-bottom-color: currentColor;
+}
+.artwork-copy-state {
+  font-size: 13px;
+  color: #62766a;
+}
+
+/* A shared editorial grid. Images retain their own proportions; the controls
+   and captions sit outside the work. Canvas geometry and player stay intact. */
+:root {
+  --paper: #fafbf7;
+  --ink: #163e30;
+  --body: #496052;
+  --muted: #617064;
+  --line: #ced8cd;
+  --gutter: clamp(22px, 4.4vw, 80px);
+  --rail: clamp(120px, 12vw, 176px);
+  --editorial-gap: clamp(24px, 3.5vw, 52px);
+  --serif: Georgia, "Times New Roman", serif;
+}
+.release-design h2 {
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+.release-design .section {
+  padding-block: 88px;
+}
+.release-design .eyebrow {
+  font: 500 14px/1.55 var(--sans);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.release-design .section-heading {
+  display: grid;
+  grid-template-columns: var(--rail) 1.35fr 1fr;
+  align-items: start;
+  gap: var(--editorial-gap);
+  margin-bottom: 36px;
+}
+.release-design .section-heading > .eyebrow {
+  margin: 5px 0 0;
+  max-width: 160px;
+}
+.release-design .section-heading > p:not(.eyebrow) {
+  max-width: 370px;
+  font: 16px/1.65 var(--sans);
+  color: var(--body);
+  margin: 5px 0 0;
+}
+.release-design .fine-print,
+.release-design .small-copy {
+  font-size: 14px;
+  line-height: 1.65;
+}
+.release-design .text-link {
+  font-size: 14px;
+  gap: 12px;
+  padding-bottom: 4px;
+}
+.release-design .site-header {
+  height: 72px;
+  background: var(--paper);
+}
+.release-design .site-header nav {
+  font-size: 14px;
+  font-weight: 500;
+  gap: 32px;
+}
+.release-design .nav-pill {
+  border-radius: 3px;
+  padding: 10px 18px;
+}
+.release-design .hero-topline .brand-eyebrow,
+.release-design .hero-topline > span {
+  font: 500 13px/1.5 var(--sans);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.release-design .hero-copy .hero-resources .resource-pill {
+  border-radius: 3px;
+  border-color: #9fb8a7;
+}
+.release-design .hero-introduction .resource-unavailable small {
+  font-size: 11px;
+}
+.release-design .art-scroll-controls {
+  font-size: 14px;
+}
+.release-design .art-scroll-controls p {
+  font-family: var(--serif);
+  font-size: 18px;
+}
+.release-design .art-scroll-light {
+  background: none;
+}
+
+/* Model facts are an introduction, not a row of feature cards. */
+.release-design .intro {
+  padding: 54px 0 56px;
+  border: 0;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+.release-design .intro-copy > p {
+  max-width: 560px;
+  font: 26px/1.45 var(--serif);
+  color: var(--ink);
+}
+.release-design .model-stats {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  padding-top: 6px;
+}
+.release-design .model-stats dt {
+  font-size: 40px;
+  letter-spacing: -0.045em;
+}
+.release-design .model-stats dt span {
+  font-size: 26px;
+}
+.release-design .model-stats dd {
+  font-size: 14px;
+  max-width: 170px;
+  margin-top: 12px;
+}
+
+/* Three different tasks share an axis, not an artificial image box. */
+.release-design .gallery-section {
+  background: transparent;
+  padding-top: 54px;
+}
+.release-design .gallery-section .wrap {
+  border-top: 1px solid var(--line);
+  padding-top: 38px;
+}
+.release-design .gallery-heading h2 {
+  max-width: none;
+}
+.release-design .gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.16fr 0.92fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: start;
+}
+.release-design .gallery-card {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.release-design .gallery-capability {
+  font: 26px/1.25 var(--serif);
+  color: var(--ink);
+  padding: 0 0 18px;
+  margin: 0;
+  border: 0;
+}
+.release-design .gallery-open {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  text-align: left;
+}
+.release-design .gallery-main-image {
+  aspect-ratio: auto;
+  background: transparent;
+  border-radius: 0;
+}
+.release-design .gallery-card .gallery-main-image > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+  border-radius: 0;
+}
+.release-design .gallery-open-label {
+  border: 0;
+  border-radius: 0;
+  inset: auto 0 0;
+  padding: 13px 16px;
+  background: #143b30eb;
+}
+.release-design .gallery-mini-strip {
+  background: transparent;
+  padding: 18px 0 0;
+  gap: 10px;
+  align-items: start;
+}
+.release-design .gallery-mini-strip img {
+  width: 100%;
+  height: 76px;
+  object-fit: contain;
+  background: #edf0e9;
+  border: 0;
+  border-radius: 0;
+}
+.release-design .gallery-mini-strip > span:not(.gallery-result-label) {
+  align-items: stretch;
+  text-align: left;
+  gap: 8px;
+}
+.release-design .gallery-mini-strip span span {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--body);
+}
+.release-design .gallery-result-label {
+  text-align: left;
+  font-size: 13px;
+  color: var(--muted);
+}
+.release-design .gallery-card figcaption {
+  display: block;
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 14px;
+}
+.release-design .gallery-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.release-design .gallery-card figcaption > span {
+  font-size: 14px;
+  text-align: left;
+  margin-top: 6px;
+}
+.release-design .gallery-note {
+  border: 0;
+  padding: 0;
+  font-size: 14px;
+  max-width: 700px;
+}
+
+/* A quiet cinema interlude. Playback remains progressively streamed. */
+.release-design .film-section {
+  background: #123a2d;
+  color: #eff4eb;
+  padding-block: 48px 36px;
+}
+.release-design .film-section .section-heading {
+  align-items: center;
+  margin-bottom: 28px;
+}
+.release-design .film-section h2 {
+  font: 32px/1.2 var(--serif);
+  letter-spacing: -0.02em;
+}
+.release-design .film-section .eyebrow {
+  color: #bcd2be;
+}
+.release-design .film-section .section-heading > p:not(.eyebrow) {
+  color: #c5d4c6;
+  font-size: 15px;
+}
+.release-design .film-shell {
+  border: 0;
+  border-radius: 0;
+  background: #123a2d;
+}
+.release-design .film-start {
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 26px;
+  background: none;
+}
+.release-design .film-start button {
+  border-radius: 3px;
+  box-shadow: none;
+  padding: 12px 20px;
+  gap: 12px;
+  background: #f6f9f0;
+  border: 0;
+  font-size: 16px;
+}
+.release-design .film-start p:empty {
+  display: none;
+}
+.release-design .film-start p {
+  text-align: left;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.release-design .film-under {
+  padding-block: 22px 16px;
+  align-items: flex-start;
+  gap: 24px;
+}
+.release-design .film-chapters {
+  gap: 26px;
+}
+.release-design .film-chapters button {
+  flex-direction: column;
+  align-items: start;
+  gap: 3px;
+  font-family: var(--sans);
+}
+.release-design .film-chapters button small {
+  font-size: 12px;
+  color: #bcd2be;
+}
+.release-design .film-chapters button span {
+  font-size: 14px;
+}
+.release-design .film-downloads {
+  max-width: none;
+  gap: 20px;
+  font-size: 14px;
+}
+.release-design .film-quality select {
+  font-size: 14px;
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid #93ad99;
+  border-radius: 0;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23d7e6d6' stroke-width='1.5'/%3E%3C/svg%3E")
+    no-repeat right 6px center / 10px 7px;
+  padding: 6px 22px 6px 6px;
+}
+.release-design .film-quality select option {
+  background: #123a2d;
+  color: white;
+}
+.release-design .film-section .fine-print {
+  font-size: 13px;
+  color: #b9ccbb;
+}
+
+/* Full images and a common top edge make a deliberate photographic spread. */
+.release-design .creation-section {
+  padding-block: 86px 44px;
+}
+.release-design .creation-section .eyebrow {
+  display: block;
+}
+.release-design .creation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.05fr;
+  gap: 22px;
+  align-items: start;
+}
+.release-design .creation-grid .portrait {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  padding: 0;
+}
+.release-design .creation-grid .poster {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  padding: 0;
+}
+.release-design .creation-grid .paper-world {
+  grid-column: 3;
+  grid-row: 1;
+  padding: 0;
+}
+.release-design .creation-grid .market {
+  grid-column: 3;
+  grid-row: 2;
+  padding: 0;
+  align-self: start;
+}
+.release-design .creation-grid img {
+  border-radius: 0;
+  width: 100%;
+  height: auto;
+}
+.release-design .creation-grid figcaption {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 12px;
+  gap: 4px;
+}
+.release-design .creation-grid figcaption > span {
+  font-size: 13px;
+}
+.release-design .creation-grid figcaption strong {
+  font: 21px/1.3 var(--serif);
+}
+.release-design .word-section {
+  background: transparent;
+  color: var(--ink);
+  padding-block: 50px 88px;
+}
+.release-design .word-layout {
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 70px;
+  align-items: start;
+}
+.release-design .word-copy {
+  max-width: 370px;
+}
+.release-design .word-copy .eyebrow {
+  color: var(--green);
+}
+.release-design .word-copy h2 {
+  margin: 24px 0;
+  font: 42px/1.1 var(--serif);
+  letter-spacing: -0.035em;
+}
+.release-design .word-copy > p:not(.eyebrow) {
+  font-size: 16px;
+  color: var(--body);
+}
+.release-design .word-copy .small-copy {
+  font-size: 14px !important;
+  color: var(--muted) !important;
+}
+.release-design .word-copy > .text-link {
+  color: var(--ink);
+}
+.release-design .word-detail {
+  border-color: var(--line);
+  grid-template-columns: 128px 1fr;
+  max-width: none;
+  gap: 20px;
+}
+.release-design .word-detail img {
+  width: 128px;
+  border-radius: 0;
+}
+.release-design .word-detail p {
+  font-size: 14px;
+  color: var(--body);
+}
+.release-design .dense-figure img {
+  border-radius: 0;
+}
+.release-design .dense-figure figcaption {
+  color: var(--muted);
+  font: 14px/1.6 var(--sans);
+}
+
+/* Editing controls align with the image edge, without an enclosing panel. */
+.release-design .editing-section {
+  background: #eef2ea;
+}
+.release-design .edit-tabs {
+  gap: 28px;
+  margin-bottom: 18px;
+}
+.release-design .edit-tabs button {
+  font-size: 14px;
+  padding-block: 14px;
+}
+.release-design .comparison {
+  border-radius: 0;
+  background: #e3e9df;
+}
+.release-design .comparison-label {
+  font: 14px/1.3 var(--sans);
+  border: 0;
+  border-radius: 2px;
+  padding: 7px 12px;
+}
+.release-design .comparison-hint {
+  font: 14px/1.6 var(--sans);
+  padding-top: 14px;
+}
+.release-design .reference-stage {
+  padding: 0;
+  gap: 40px;
+  background: transparent;
+  border-radius: 0;
+  grid-template-columns: 1.25fr 1fr;
+}
+.release-design .reference-inputs {
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 20px;
+}
+.release-design .reference-grid {
+  gap: 16px 12px;
+}
+.release-design .reference-card {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+.release-design .reference-card > span {
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 10px 0;
+  border: 0;
+}
+.release-design .reference-card[aria-pressed="true"] {
+  box-shadow: none;
+  border-color: var(--green);
+  background: #e9f2e6;
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+.release-design .source-person img,
+.release-design .reference-result img {
+  border-radius: 0;
+}
+.release-design .reference-result {
+  width: 100%;
+  margin: 0;
+}
+.release-design .source-person figcaption,
+.release-design .reference-result figcaption {
+  font: 14px/1.5 var(--sans);
+}
+.release-design .reference-controls {
+  padding-block: 20px;
+}
+.release-design .reference-controls p,
+.release-design .reference-controls .text-link {
+  font-size: 14px;
+}
+
+/* Continued context: large enough to read, with chronological captions. */
+.release-design .context-section {
+  display: block;
+  padding-top: 32px;
+}
+.release-design .context-section .section-heading {
+  display: grid;
+  margin-bottom: 36px;
+}
+.release-design .context-section .section-heading > p {
+  max-width: 370px;
+}
+.release-design .chat-sequence {
+  gap: 28px;
+  max-width: 1000px;
+  margin-left: auto;
+}
+.release-design .chat-sequence img {
+  box-shadow: none;
+  border-radius: 0;
+  border-color: var(--line);
+}
+.release-design .chat-sequence figcaption {
+  font-size: 14px;
+  gap: 12px;
+}
+.release-design .chat-sequence figcaption b {
+  font: 14px/1.5 var(--sans);
+  color: var(--green);
+}
+.release-design .stories-section {
+  background: #edf1e9;
+  border: 0;
+}
+.release-design .comic-sheet img {
+  border-radius: 0;
+}
+.release-design .comic-sheet figcaption {
+  font: 14px/1.6 var(--sans);
+}
+.release-design .sequence-details {
+  margin-top: 26px;
+}
+.release-design .sequence-details summary {
+  font-size: 16px;
+  padding-block: 20px;
+}
+.release-design .robot-grid {
+  gap: 14px;
+}
+.release-design .robot-grid img {
+  border-radius: 0;
+}
+.release-design .robot-grid figcaption,
+.release-design .sequence-details .fine-print {
+  font: 14px/1.6 var(--sans);
+}
+
+/* Research is presented as a plate and its reading notes. */
+.release-design .method-section {
+  background: var(--paper);
+  padding-bottom: 56px;
+}
+.release-design .method-switcher {
+  display: flex;
+  gap: 32px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  overflow: visible;
+}
+.release-design .method-switcher button {
+  padding: 15px 0;
+  font-size: 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: transparent;
+  color: var(--muted);
+}
+.release-design .method-switcher button[aria-selected="true"] {
+  border-color: var(--green);
+  color: var(--ink);
+  background: transparent;
+}
+.release-design .model-stage {
+  grid-template-columns: 0.65fr 1.7fr;
+  gap: 60px;
+  padding: 38px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.release-design .method-copy h3 {
+  font: 30px/1.17 var(--serif);
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+.release-design .method-copy p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.release-design .method-counter.sr-only {
+  position: absolute;
+  margin: 0;
+}
+.release-design .foundation-note {
+  margin: 0;
+  border-block: 1px solid var(--line);
+  padding: 18px 0;
+}
+.release-design .foundation-note p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.release-design .foundation-note span {
+  font-size: 14px;
+}
+.release-design .results-section {
+  display: grid;
+  grid-template-columns: 0.65fr 1.7fr;
+  gap: 60px;
+  padding-top: 16px;
+  align-items: center;
+}
+.release-design .results-copy h2 {
+  font: 40px/1.12 var(--serif);
+  letter-spacing: -0.035em;
+  margin: 22px 0;
+}
+.release-design .results-copy > p:not(.eyebrow) {
+  font-size: 16px;
+}
+.release-design .results-copy .small-copy {
+  font-size: 14px !important;
+}
+.release-design .benchmark-figure {
+  min-width: 0;
+}
+.release-design .benchmark-figure img {
+  border-radius: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.release-design .benchmark-figure figcaption {
+  font: 14px/1.5 var(--sans);
+  text-align: left;
+  padding-top: 14px;
+}
+
+/* A usable resource desk and the people behind the work. */
+.release-design .inference-section {
+  background: #123a2d;
+  padding-block: 68px;
+}
+.release-design .inference-section .section-heading {
+  grid-template-columns: var(--rail) 1fr auto;
+  align-items: center;
+}
+.release-design .resource-links {
+  font-size: 16px;
+  gap: 24px;
+}
+.release-design .resource-links .resource-unavailable small {
+  font-size: 12px;
+}
+.release-design .code-layout {
+  grid-template-columns: 1.2fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+.release-design .code-card {
+  border: 0;
+  border-radius: 0;
+  background: #0d2e24;
+}
+.release-design .code-heading {
+  padding: 18px 24px;
+  font-size: 14px;
+}
+.release-design .copy-code {
+  font-size: 14px;
+  border-radius: 2px;
+}
+.release-design .code-card pre {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 26px;
+}
+.release-design .inference-copy {
+  padding-top: 18px;
+}
+.release-design .inference-copy h3 {
+  font: 32px/1.2 var(--serif);
+  letter-spacing: -0.025em;
+  max-width: 360px;
+}
+.release-design .inference-copy > p {
+  font-size: 16px;
+}
+.release-design .inference-copy dl > div {
+  font-size: 14px;
+}
+.release-design .inference-copy .fine-print {
+  font-size: 14px;
+}
+.release-design .authors-section {
+  display: grid;
+  grid-template-columns: var(--rail) 1fr;
+  gap: 22px var(--editorial-gap);
+  padding-block: 64px;
+}
+.release-design .authors-section > .eyebrow {
+  grid-column: 1;
+  grid-row: 1 / 5;
+}
+.release-design .authors-section > :not(.eyebrow):not(.sr-only) {
+  grid-column: 2;
+}
+.release-design .authors-section .paper-title {
+  font: 32px/1.25 var(--serif);
+  letter-spacing: -0.02em;
+  max-width: 760px;
+  margin: 0;
+}
+.release-design .authors {
+  font-size: 16px;
+  line-height: 1.9;
+}
+.release-design .authors sup {
+  font-size: 11px;
+}
+.release-design .affiliations {
+  font-size: 14px;
+  gap: 8px 22px;
+  margin: 0;
+}
+.release-design .contribution-note {
+  font-size: 13px;
+  margin: 0;
+}
+.release-design footer p,
+.release-design footer > a:last-child {
+  font: 14px/1.6 var(--sans);
+}
+.release-design .image-dialog {
+  background: #fafbf7;
+  color: var(--ink);
+  border: 0;
+  border-radius: 2px;
+  padding: 58px 24px 24px;
+}
+.release-design .image-dialog::backdrop {
+  background: #10291feb;
+}
+.release-design .image-dialog p,
+.release-design .dialog-original {
+  font-size: 14px;
+  color: var(--body);
+}
+.release-design .dialog-close {
+  color: var(--ink);
+  border: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --rail: 120px;
+    --editorial-gap: 28px;
+  }
+  .release-design .section {
+    padding-block: 68px;
+  }
+  .release-design .intro {
+    gap: 50px;
+  }
+  .release-design .intro-copy > p {
+    font-size: 24px;
+  }
+  .release-design .model-stats {
+    gap: 18px;
+  }
+  .release-design .gallery-grid {
+    gap: 22px;
+  }
+  .release-design .gallery-mini-strip img {
+    height: 64px;
+  }
+  .release-design .film-under {
+    flex-wrap: wrap;
+  }
+  .release-design .film-downloads {
+    justify-content: start;
+  }
+  .release-design .word-layout {
+    gap: 44px;
+  }
+  .release-design .reference-stage {
+    gap: 30px;
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .release-design .reference-inputs {
+    display: block;
+  }
+  .release-design .source-person {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 22px;
+  }
+  .release-design .reference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .release-design .reference-card img {
+    max-height: 125px;
+  }
+  .release-design .model-stage,
+  .release-design .results-section {
+    gap: 35px;
+    grid-template-columns: 0.75fr 1.65fr;
+  }
+  .release-design .code-layout {
+    gap: 35px;
+  }
+  .release-design .inference-section .section-heading {
+    grid-template-columns: 120px 1fr;
+  }
+  .release-design .resource-links {
+    grid-column: 2;
+  }
+}
+@media (max-width: 760px) {
+  .release-design .site-header {
+    height: 64px;
+  }
+  .release-design .site-header .wordmark img {
+    width: 126px;
+  }
+  .release-design .site-header nav {
+    gap: 20px;
+  }
+  .release-design .site-header nav > a[href="#gallery"] {
+    display: inline;
+  }
+  .release-design .nav-pill {
+    padding: 9px 12px;
+  }
+  .release-design .section {
+    padding-block: 58px;
+  }
+  .release-design .section-heading,
+  .release-design .context-section .section-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .release-design .section-heading > .eyebrow {
+    max-width: none;
+    margin: 0 0 5px;
+  }
+  .release-design .section-heading > p:not(.eyebrow) {
+    max-width: 540px;
+    margin: 0;
+  }
+  .release-design .intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-block: 36px;
+  }
+  .release-design .intro-copy > p {
+    max-width: 580px;
+    font-size: 24px;
+  }
+  .release-design .model-stats dd {
+    font-size: 13px;
+  }
+  .release-design .model-stats dt {
+    font-size: 36px;
+  }
+  .release-design .gallery-section .wrap {
+    width: calc(100% - var(--gutter) * 2);
+    padding-top: 28px;
+  }
+  .release-design .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 22px;
+  }
+  .release-design .gallery-card:last-child {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 22px;
+  }
+  .release-design .gallery-card:last-child .gallery-capability {
+    grid-column: 1/-1;
+  }
+  .release-design .gallery-card:last-child figcaption {
+    align-self: end;
+  }
+  .release-design .film-section {
+    padding-block: 32px;
+  }
+  .release-design .film-section .section-heading {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+  .release-design .film-section .section-heading > .eyebrow {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 13px;
+  }
+  .release-design .film-section .section-heading > p:not(.eyebrow) {
+    grid-column: 1/-1;
+  }
+  .release-design .film-section h2 {
+    font-size: 26px;
+  }
+  .release-design .film-start {
+    padding: 14px;
+  }
+  .release-design .film-start button {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+  .release-design .film-start button > span:first-child {
+    font-size: 21px;
+  }
+  .release-design .film-chapters {
+    gap: 24px;
+  }
+  .release-design .film-downloads {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .release-design .creation-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+  }
+  .release-design .creation-grid .portrait {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .release-design .creation-grid .poster {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .release-design .creation-grid .paper-world {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .release-design .creation-grid .market {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .release-design .creation-grid figcaption strong {
+    font-size: 20px;
+  }
+  .release-design .word-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .release-design .word-copy {
+    max-width: none;
+  }
+  .release-design .word-copy h2 {
+    font-size: 34px;
+    max-width: 480px;
+    margin: 16px 0;
+  }
+  .release-design .word-copy > p:not(.eyebrow) {
+    max-width: 540px;
+  }
+  .release-design .word-detail {
+    max-width: 360px;
+    margin-top: 26px;
+    padding-top: 20px;
+  }
+  .release-design .dense-figure {
+    grid-row: 2;
+  }
+  .release-design .edit-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 24px;
+    margin-inline: 0;
+  }
+  .release-design .edit-tabs button {
+    flex: none;
+  }
+  .release-design .comparison-label {
+    top: 12px;
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+  .release-design .before-label {
+    left: 12px;
+  }
+  .release-design .after-label {
+    right: 12px;
+  }
+  .release-design .reference-stage {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .release-design .source-person {
+    grid-template-columns: 64px 1fr;
+    gap: 10px;
+  }
+  .release-design .reference-grid {
+    gap: 12px 8px;
+  }
+  .release-design .reference-card > span {
+    font-size: 12px;
+    padding-block: 8px;
+  }
+  .release-design .reference-result {
+    position: static;
+  }
+  .release-design .reference-controls {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .release-design .chat-sequence {
+    gap: 16px;
+    margin: 0;
+  }
+  .release-design .chat-sequence figcaption {
+    display: block;
+    font-size: 13px;
+  }
+  .release-design .chat-sequence figcaption b {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .release-design .robot-grid {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  .release-design .robot-grid figure {
+    min-width: 220px;
+  }
+  .release-design .method-switcher {
+    gap: 28px;
+  }
+  .release-design .model-stage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 26px;
+  }
+  .release-design .method-copy h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .release-design .method-copy p {
+    max-width: 550px;
+  }
+  .release-design .foundation-note {
+    display: block;
+  }
+  .release-design .foundation-note p {
+    margin-bottom: 10px;
+  }
+  .release-design .results-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 16px;
+  }
+  .release-design .results-copy h2 {
+    font-size: 34px;
+    margin: 16px 0;
+  }
+  .release-design .results-copy > p:not(.eyebrow) {
+    max-width: 550px;
+  }
+  .release-design .inference-section .section-heading {
+    grid-template-columns: 1fr;
+  }
+  .release-design .resource-links {
+    grid-column: 1;
+    margin-top: 8px;
+  }
+  .release-design .code-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .release-design .code-card pre {
+    font-size: 13px;
+    padding: 20px;
+  }
+  .release-design .inference-copy h3 {
+    max-width: none;
+  }
+  .release-design .authors-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .release-design .authors-section > .eyebrow {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .release-design .authors-section > :not(.eyebrow):not(.sr-only) {
+    grid-column: 1;
+  }
+  .release-design .authors-section .paper-title {
+    font-size: 28px;
+  }
+  .release-design footer.wrap {
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+}
+@media (max-width: 480px) {
+  .release-design .gallery-grid {
+    display: block;
+  }
+  .release-design .gallery-card {
+    margin-bottom: 40px;
+  }
+  .release-design .gallery-card:last-child {
+    display: block;
+    margin-bottom: 0;
+  }
+  .release-design .gallery-mini-strip img {
+    height: 84px;
+  }
+  .release-design .gallery-capability {
+    font-size: 26px;
+    padding-bottom: 14px;
+  }
+  .release-design .gallery-main-image {
+    max-height: none;
+  }
+  .release-design .film-section .section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .release-design .film-chapters {
+    gap: 16px;
+  }
+  .release-design .film-chapters button span {
+    font-size: 13px;
+  }
+  .release-design .film-start button {
+    padding: 8px 12px;
+  }
+  .release-design .creation-grid {
+    display: block;
+  }
+  .release-design .creation-grid figure {
+    margin-bottom: 28px;
+  }
+  .release-design .reference-stage {
+    display: block;
+  }
+  .release-design .reference-inputs {
+    margin-bottom: 24px;
+  }
+  .release-design .source-person {
+    grid-template-columns: 85px 1fr;
+  }
+  .release-design .reference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .release-design .reference-card > span {
+    font-size: 14px;
+  }
+  .release-design .reference-result {
+    position: static;
+  }
+  .release-design .reference-lines {
+    display: block;
+  }
+  .release-design .chat-sequence {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .release-design .chat-sequence figcaption {
+    font-size: 12px;
+  }
+  .release-design .model-stats {
+    gap: 12px;
+  }
+  .release-design .model-stats dd {
+    font-size: 12px;
+  }
+  .release-design .method-switcher {
+    gap: 24px;
+  }
+  .release-design .method-switcher button {
+    font-size: 14px;
+  }
+}
+
 </style>
 <!-- INLINE_STYLE_END -->
     <link as="font" crossorigin="" href="assets/manrope-latin.woff2" rel="preload" type="font/woff2" />
@@ -3347,8 +4580,7 @@ body.artwork-open {
         ><img alt="WeGen2" decoding="async" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype" width="365"
       /></a>
       <nav aria-label="Main navigation">
-        <a href="#capabilities">Work</a><a href="#film">Film</a><a href="#gallery">Gallery</a><a href="#method">Research</a
-        ><a class="nav-pill" href="#inference">Resources <span aria-hidden="true">↗</span></a>
+        <a href="#gallery">Work</a><a href="#film">Film</a><a href="#method">Research</a><a class="nav-pill" href="#inference">Resources</a>
       </nav>
     </header>
     <main id="main">
@@ -3660,94 +4892,11 @@ body.artwork-open {
   <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
 </section>
 <!-- INLINE_SCROLL_END -->
-        <div class="brand-footer">
-          <nav aria-label="Explore capabilities" class="work-index">
-            <a href="#capabilities"><span>01</span> Generate</a><a href="#editing"><span>02</span> Edit</a
-            ><a href="#references"><span>03</span> Compose</a><a href="#context"><span>04</span> Continue</a>
-          </nav>
-          <a class="brand-play" href="#film"><span aria-hidden="true">▷</span> Watch the film <small>01:52</small></a>
-        </div>
       </section>
-      <section aria-labelledby="capability-title" class="creation-section wrap section" id="capabilities">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Selected generations</p>
-            <h2 id="capability-title">An idea. A visual world.</h2>
-          </div>
-          <p>Photographic light. Tactile materials. Intricate illustrations. Explore each image at full resolution.</p>
-        </div>
-        <div class="creation-grid">
-          <figure class="portrait">
-            <img
-              alt="A photographic portrait with an orange umbrella, rain reflections, flowers and a red tram."
-              data-full="assets/rain-portrait.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="1152"
-              loading="lazy"
-              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
-              src="assets/previews/rain-portrait-480.webp"
-              srcset="assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w"
-              width="768"
-            />
-            <figcaption><b class="work-number">01</b><span>Photographic detail</span><strong>A moment in the rain</strong></figcaption>
-          </figure>
-          <figure class="poster">
-            <img
-              alt="The Lantern Wood, a fantasy film poster generated with integrated English lettering."
-              data-full="assets/poster.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="1216"
-              loading="lazy"
-              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
-              src="assets/previews/poster-480.webp"
-              srcset="assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w"
-              width="832"
-            />
-            <figcaption><b class="work-number">02</b><span>Illustration &amp; typography</span><strong>The Lantern Wood</strong></figcaption>
-          </figure>
-
-          <figure class="paper-world">
-            <img
-              alt="A paper mountain city with a red train on a curved viaduct."
-              data-full="assets/paper-world.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="768"
-              loading="lazy"
-              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
-              src="assets/previews/paper-world-480.webp"
-              srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
-              width="1536"
-            />
-            <figcaption><b class="work-number">03</b><span>Material &amp; craft</span><strong>A world made of paper</strong></figcaption>
-          </figure>
-          <figure class="market">
-            <img
-              alt="An intricate oil painting of a lantern-lit night market, stone bridges and glass pavilions."
-              data-full="assets/night-market.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="768"
-              loading="lazy"
-              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
-              src="assets/previews/night-market-480.webp"
-              srcset="assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w"
-              width="1152"
-            />
-            <figcaption><b class="work-number">04</b><span>Painterly scenes</span><strong>Light after dark</strong></figcaption>
-          </figure>
-        </div>
-      </section>
-      <section aria-labelledby="intro-title" class="intro wrap">
+      <section aria-labelledby="intro-title" class="intro wrap" id="about">
         <div class="intro-copy">
           <h2 class="sr-only" id="intro-title">A unified model for visual creation.</h2>
-          <p>Words, reference images, and conversation history—connected in one native pixel-space model.</p>
+          <p>WeGen2 brings words, images, and conversation history into one native pixel-space model for visual creation.</p>
         </div>
         <dl class="model-stats">
           <div>
@@ -3762,73 +4911,16 @@ body.artwork-open {
             <dt>11</dt>
             <dd>Generation, editing &amp; composition benchmarks</dd>
           </div>
-          <div>
-            <dt class="stat-word">Native<br />pixels</dt>
-            <dd>Directly between RGB and the backbone</dd>
-          </div>
         </dl>
       </section>
-      <section aria-labelledby="film-title" class="film-section section" id="film">
-        <div class="wrap">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">The film / 01:52</p>
-              <h2 id="film-title">Meet WeGen2.</h2>
-            </div>
-            <p>A closer look at the work, the possibilities, and the model behind them.</p>
-          </div>
-          <div class="film-shell">
-            <video
-              aria-label="WeGen2 showcase and model introduction"
-              class="showcase-film"
-              controls=""
-              height="1080"
-              playsinline=""
-              poster="assets/film-poster-v9.webp"
-              preload="none"
-              width="1920"
-            >
-              <source src="assets/wegen2-film-v9-720.mp4" type="video/mp4" />
-              <track kind="captions" label="English descriptions" src="assets/film-captions-v9.vtt" srclang="en" />
-              Your browser does not support embedded video. <a href="assets/wegen2-film-v9.mp4">Download the film</a>.
-            </video>
-            <div class="film-start" hidden="">
-              <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
-              <p aria-live="polite" id="film-load-status" role="status"></p>
-            </div>
-          </div>
-          <p aria-live="polite" class="film-playback-status" hidden="" role="status"></p>
-          <div class="film-under">
-            <div aria-label="Film chapters" class="film-chapters">
-              <button data-seek="0" type="button">01 <span>Create</span></button><button data-seek="29" type="button">02 <span>Compose</span></button
-              ><button data-seek="63" type="button">03 <span>The model</span></button
-              ><button data-seek="89" type="button">04 <span>PHT</span></button>
-            </div>
-            <div class="film-downloads">
-              <label class="film-quality"
-                >Quality
-                <select aria-label="Video quality" id="film-quality">
-                  <option value="auto">Auto</option>
-                  <option value="720">720p</option>
-                  <option value="1080">1080p</option>
-                  <option value="480">480p</option>
-                  <option value="360">360p</option>
-                </select></label
-              >
-              <a download="" href="assets/wegen2-film-v9.mp4">Download 1080p ↗</a><a href="film-transcript.html?v=film9">Visual transcript ↗</a>
-            </div>
-          </div>
-          <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
-        </div>
-      </section>
-      <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <section aria-labelledby="gallery-title" class="section gallery-section" id="gallery">
         <div class="wrap">
           <div class="section-heading gallery-heading">
+            <p class="eyebrow">Three ways to create</p>
             <div>
-              <p class="eyebrow">Capability highlights</p>
               <h2 id="gallery-title">Create. Edit. Combine.</h2>
             </div>
-            <p>Dense text. Evolving scenes. Multiple references.</p>
+            <p>A handwritten letter, an evolving storefront, and an outfit assembled from references. Open each to see how it was made.</p>
           </div>
           <div class="gallery-grid">
             <!-- INLINE_GALLERY_START -->
@@ -3861,17 +4953,194 @@ body.artwork-open {
   </figure>
 <!-- INLINE_GALLERY_END -->
           </div>
-          <p class="gallery-note">
-            Selected WeGen2 examples. Open a case to inspect original images, references, editing steps and the instructions used.
-          </p>
+          <p class="gallery-note">Open a work for the full image, its references and editing steps, and the original model prompts.</p>
         </div>
       </section>
+      <section aria-labelledby="film-title" class="film-section section" id="film">
+        <div class="wrap">
+          <div class="section-heading">
+            <p class="eyebrow">The film · 01:52</p>
+            <div>
+              <h2 id="film-title">WeGen2 in motion.</h2>
+            </div>
+            <p>From the images to the model behind them.</p>
+          </div>
+          <div class="film-shell">
+            <video
+              aria-label="WeGen2 showcase and model introduction"
+              class="showcase-film"
+              controls=""
+              height="1080"
+              playsinline=""
+              poster="assets/film-poster-v9.webp"
+              preload="none"
+              width="1920"
+            >
+              <source src="assets/wegen2-film-v9-720.mp4" type="video/mp4" />
+              <track kind="captions" label="English descriptions" src="assets/film-captions-v9.vtt" srclang="en" />
+              Your browser does not support embedded video. <a href="assets/wegen2-film-v9.mp4">Download the film</a>.
+            </video>
+            <div class="film-start" hidden="">
+              <button id="film-start-button" type="button"><span aria-hidden="true">▷</span><span class="film-start-label">Play film</span></button>
+              <p aria-live="polite" id="film-load-status" role="status"></p>
+            </div>
+          </div>
+          <p aria-live="polite" class="film-playback-status" hidden="" role="status"></p>
+          <div class="film-under">
+            <div aria-label="Film chapters" class="film-chapters">
+              <button data-seek="0" type="button"><small>00:00</small><span>Create</span></button
+              ><button data-seek="29" type="button"><small>00:29</small><span>Compose</span></button
+              ><button data-seek="63" type="button"><small>01:03</small><span>The model</span></button
+              ><button data-seek="89" type="button"><small>01:29</small><span>PHT</span></button>
+            </div>
+            <div class="film-downloads">
+              <label class="film-quality"
+                >Quality
+                <select aria-label="Video quality" id="film-quality">
+                  <option value="auto">Auto</option>
+                  <option value="720">720p</option>
+                  <option value="1080">1080p</option>
+                  <option value="480">480p</option>
+                  <option value="360">360p</option>
+                </select></label
+              >
+              <a download="" href="assets/wegen2-film-v9.mp4">Download 1080p</a><a href="film-transcript.html?v=film9">Visual transcript</a>
+            </div>
+          </div>
+          <p class="fine-print">Model-generated images, presented through editorial motion design. Original instrumental score.</p>
+        </div>
+      </section>
+      <section aria-labelledby="capability-title" class="creation-section wrap section" id="capabilities">
+        <div class="section-heading">
+          <p class="eyebrow">Selected generations</p>
+          <div>
+            <h2 id="capability-title">Light, texture &amp; imagination.</h2>
+          </div>
+          <p>Portraiture, poster design, paper craft, and painting. Four ways to build a visual world.</p>
+        </div>
+        <div class="creation-grid">
+          <figure class="portrait">
+            <img
+              alt="A photographic portrait with an orange umbrella, rain reflections, flowers and a red tram."
+              data-full="assets/rain-portrait.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1152"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/rain-portrait-480.webp"
+              srcset="assets/previews/rain-portrait-480.webp 480w, assets/previews/rain-portrait-768.webp 768w"
+              width="768"
+            />
+            <figcaption><span>Photographic detail</span><strong>A moment in the rain</strong></figcaption>
+          </figure>
+          <figure class="poster">
+            <img
+              alt="The Lantern Wood, a fantasy film poster generated with integrated English lettering."
+              data-full="assets/poster.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1216"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/poster-480.webp"
+              srcset="assets/previews/poster-480.webp 480w, assets/previews/poster-832.webp 832w"
+              width="832"
+            />
+            <figcaption><span>Illustration &amp; typography</span><strong>The Lantern Wood</strong></figcaption>
+          </figure>
+          <figure class="paper-world">
+            <img
+              alt="A paper mountain city with a red train on a curved viaduct."
+              data-full="assets/paper-world.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="768"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/paper-world-480.webp"
+              srcset="assets/previews/paper-world-480.webp 480w, assets/previews/paper-world-960.webp 960w"
+              width="1536"
+            />
+            <figcaption><span>Material &amp; craft</span><strong>A world made of paper</strong></figcaption>
+          </figure>
+          <figure class="market">
+            <img
+              alt="An intricate oil painting of a lantern-lit night market, stone bridges and glass pavilions."
+              data-full="assets/night-market.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="768"
+              loading="lazy"
+              sizes="(max-width: 600px) 90vw, (max-width: 900px) 44vw, 38vw"
+              src="assets/previews/night-market-480.webp"
+              srcset="assets/previews/night-market-480.webp 480w, assets/previews/night-market-960.webp 960w"
+              width="1152"
+            />
+            <figcaption><span>Painterly scenes</span><strong>Light after dark</strong></figcaption>
+          </figure>
+        </div>
+      </section>
+      <section aria-labelledby="words-title" class="word-section section reveal" id="words">
+        <div class="wrap word-layout">
+          <div class="word-copy">
+            <p class="eyebrow">Text &amp; image</p>
+            <h2 id="words-title">Lettering belongs in the picture.</h2>
+            <p>Chinese headlines, imagined landscapes, architecture, and fashion—composed together in one generated image.</p>
+            <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
+            <button class="text-link" data-open-image="creation-studio.webp" type="button">
+              Explore the full image <span aria-hidden="true"></span>
+            </button>
+            <div class="word-detail">
+              <img
+                alt="A Chinese illustrated reading guide generated from one text prompt."
+                data-full="assets/reading-guide.webp"
+                data-zoom=""
+                decoding="async"
+                fetchpriority="low"
+                height="1024"
+                loading="lazy"
+                sizes="138px"
+                src="assets/previews/reading-guide-320.webp"
+                srcset="assets/previews/reading-guide-320.webp 320w"
+                width="1024"
+              />
+              <p>Another format: an illustrated reading guide.</p>
+            </div>
+          </div>
+          <figure class="dense-figure">
+            <img
+              alt="A WeGen2 creation-studio poster with six miniature scenes and Chinese text about generation, editing, and composition."
+              data-full="assets/creation-studio.webp"
+              data-zoom=""
+              decoding="async"
+              fetchpriority="low"
+              height="1024"
+              loading="lazy"
+              sizes="(max-width: 760px) 92vw, 56vw"
+              src="assets/previews/creation-studio-640.webp"
+              srcset="
+                assets/previews/creation-studio-640.webp   640w,
+                assets/previews/creation-studio-960.webp   960w,
+                assets/previews/creation-studio-1024.webp 1024w
+              "
+              width="1024"
+            />
+            <figcaption>Chinese text &amp; illustrated information design</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section aria-labelledby="editing-title" class="editing-section section reveal" id="editing">
         <div class="wrap">
           <div class="section-heading">
+            <p class="eyebrow">Image editing</p>
             <div>
-              <p class="eyebrow">01 / Image editing</p>
-              <h2 id="editing-title">Edit with intent.</h2>
+              <h2 id="editing-title">Change the scene.</h2>
             </div>
             <p id="edit-description">A reference image guides the next creation.</p>
           </div>
@@ -3927,11 +5196,11 @@ body.artwork-open {
       </section>
       <section aria-labelledby="reference-title" class="references-section section wrap" id="references">
         <div class="section-heading">
+          <p class="eyebrow">Reference composition</p>
           <div>
-            <p class="eyebrow">02 / Visual composition</p>
-            <h2 id="reference-title">Many references.<br />One composition.</h2>
+            <h2 id="reference-title">A wardrobe, brought together.</h2>
           </div>
-          <p>A person. Eight visual references. One shared context. Select a garment or accessory to explore its correspondence.</p>
+          <p>One person and eight visual references. Select a garment or accessory to trace it into the result.</p>
         </div>
         <div class="reference-stage">
           <div class="reference-inputs">
@@ -3950,9 +5219,6 @@ body.artwork-open {
                 width="832"
               />
               <figcaption>Source person</figcaption>
-              <div class="reference-source-note">
-                <strong>8</strong><span>visual references<br />in one context</span>
-              </div>
             </figure>
             <div class="reference-grid">
               <button aria-pressed="false" class="reference-card" data-reference="1" type="button">
@@ -3967,7 +5233,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-01-240.webp"
                   srcset="assets/previews/tryon-ref-01-240.webp 240w"
                   width="800"
-                /><span><b>01</b> Ivory blazer</span></button
+                /><span> Ivory blazer</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="2" type="button">
                 <img
                   alt="Reference 2: White T-shirt"
@@ -3980,7 +5246,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-02-240.webp"
                   srcset="assets/previews/tryon-ref-02-240.webp 240w"
                   width="800"
-                /><span><b>02</b> White T-shirt</span></button
+                /><span> White T-shirt</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="3" type="button">
                 <img
                   alt="Reference 3: Blue jeans"
@@ -3993,7 +5259,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-03-240.webp"
                   srcset="assets/previews/tryon-ref-03-240.webp 240w"
                   width="800"
-                /><span><b>03</b> Blue jeans</span></button
+                /><span> Blue jeans</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="4" type="button">
                 <img
                   alt="Reference 4: White sneakers"
@@ -4006,7 +5272,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-04-240.webp"
                   srcset="assets/previews/tryon-ref-04-240.webp 240w"
                   width="800"
-                /><span><b>04</b> White sneakers</span></button
+                /><span> White sneakers</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="5" type="button">
                 <img
                   alt="Reference 5: Burgundy bag"
@@ -4019,7 +5285,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-05-240.webp"
                   srcset="assets/previews/tryon-ref-05-240.webp 240w"
                   width="800"
-                /><span><b>05</b> Burgundy bag</span></button
+                /><span> Burgundy bag</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="6" type="button">
                 <img
                   alt="Reference 6: Black belt"
@@ -4032,7 +5298,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-06-240.webp"
                   srcset="assets/previews/tryon-ref-06-240.webp 240w"
                   width="800"
-                /><span><b>06</b> Black belt</span></button
+                /><span> Black belt</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="7" type="button">
                 <img
                   alt="Reference 7: Dark glasses"
@@ -4045,7 +5311,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-07-240.webp"
                   srcset="assets/previews/tryon-ref-07-240.webp 240w"
                   width="800"
-                /><span><b>07</b> Dark glasses</span></button
+                /><span> Dark glasses</span></button
               ><button aria-pressed="false" class="reference-card" data-reference="8" type="button">
                 <img
                   alt="Reference 8: Fine necklace"
@@ -4058,7 +5324,7 @@ body.artwork-open {
                   src="assets/previews/tryon-ref-08-240.webp"
                   srcset="assets/previews/tryon-ref-08-240.webp 240w"
                   width="800"
-                /><span><b>08</b> Fine necklace</span>
+                /><span> Fine necklace</span>
               </button>
             </div>
           </div>
@@ -4083,63 +5349,15 @@ body.artwork-open {
         </div>
         <div class="reference-controls">
           <p aria-live="polite" id="reference-status" role="status">Select a reference to explore the outfit.</p>
-          <button class="text-link" id="clear-reference" type="button">Clear selection ↗</button>
+          <button class="text-link" id="clear-reference" type="button">Clear selection</button>
         </div>
       </section>
-      <section aria-labelledby="words-title" class="word-section section reveal" id="words">
-        <div class="wrap word-layout">
-          <div class="word-copy">
-            <p class="eyebrow">03 / Text &amp; image</p>
-            <h2 id="words-title">Words,<br />in the world.</h2>
-            <p>Chinese headlines, imagined landscapes, architecture, and fashion—composed together in one generated image.</p>
-            <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
-            <button class="text-link" data-open-image="creation-studio.webp" type="button">
-              Explore the full image <span aria-hidden="true">↗</span>
-            </button>
-            <div class="word-detail">
-              <img
-                alt="A Chinese illustrated reading guide generated from one text prompt."
-                data-full="assets/reading-guide.webp"
-                data-zoom=""
-                decoding="async"
-                fetchpriority="low"
-                height="1024"
-                loading="lazy"
-                sizes="138px"
-                src="assets/previews/reading-guide-320.webp"
-                srcset="assets/previews/reading-guide-320.webp 320w"
-                width="1024"
-              />
-              <p>Another format: an illustrated reading guide.</p>
-            </div>
-          </div>
-          <figure class="dense-figure">
-            <img
-              alt="A WeGen2 creation-studio poster with six miniature scenes and Chinese text about generation, editing, and composition."
-              data-full="assets/creation-studio.webp"
-              data-zoom=""
-              decoding="async"
-              fetchpriority="low"
-              height="1024"
-              loading="lazy"
-              sizes="(max-width: 760px) 92vw, 56vw"
-              src="assets/previews/creation-studio-640.webp"
-              srcset="
-                assets/previews/creation-studio-640.webp   640w,
-                assets/previews/creation-studio-960.webp   960w,
-                assets/previews/creation-studio-1024.webp 1024w
-              "
-              width="1024"
-            />
-            <figcaption>Chinese text &amp; illustrated information design</figcaption>
-          </figure>
-        </div>
-      </section>
+
       <section aria-labelledby="context-title" class="context-section section wrap" id="context">
         <div class="section-heading">
+          <p class="eyebrow">Multi-turn editing</p>
           <div>
-            <p class="eyebrow">04 / Continued creation</p>
-            <h2 id="context-title">The next turn<br />starts here.</h2>
+            <h2 id="context-title">Rewrite the conversation.</h2>
           </div>
           <p>Add a reply. Then revise the conversation. Each image becomes context for the next edit.</p>
         </div>
@@ -4197,9 +5415,9 @@ body.artwork-open {
       <section aria-labelledby="story-title" class="stories-section section reveal" id="stories">
         <div class="wrap">
           <div class="section-heading">
+            <p class="eyebrow">Visual storytelling</p>
             <div>
-              <p class="eyebrow">05 / Visual sequences</p>
-              <h2 id="story-title">Stories take shape.</h2>
+              <h2 id="story-title">Eight panels, one story.</h2>
             </div>
             <p id="comic-description">A fox, a little robot, and a cake. An illustrated story unfolds across eight sequentially generated panels.</p>
           </div>
@@ -4314,20 +5532,20 @@ body.artwork-open {
       <section aria-labelledby="method-title" class="method-section section reveal" id="method">
         <div class="wrap">
           <div class="section-heading">
+            <p class="eyebrow">Inside the model</p>
             <div>
-              <p class="eyebrow">Inside the model</p>
-              <h2 id="method-title">One model.<br />Native pixels.</h2>
+              <h2 id="method-title">Working in native pixels.</h2>
             </div>
             <p>Understanding and generation work together, with dedicated generation pathways and shared and routed experts.</p>
           </div>
           <div aria-label="Model features" class="method-switcher" role="tablist">
-            <button aria-selected="true" data-method="pixels" role="tab">01 / Native pixels</button
-            ><button aria-selected="false" data-method="mot" role="tab" tabindex="-1">02 / A-MoT</button
-            ><button aria-selected="false" data-method="moe" role="tab" tabindex="-1">03 / A-MoE</button>
+            <button aria-selected="true" data-method="pixels" role="tab">Native pixels</button
+            ><button aria-selected="false" data-method="mot" role="tab" tabindex="-1">A-MoT</button
+            ><button aria-selected="false" data-method="moe" role="tab" tabindex="-1">A-MoE</button>
           </div>
           <div class="model-stage" id="method-panel" role="tabpanel">
             <div class="method-copy">
-              <span class="method-counter" id="method-number">01</span>
+              <span class="method-counter sr-only" id="method-number">01</span>
               <h3 id="method-heading">Directly in image space.</h3>
               <p id="method-description">
                 Learned patch modules connect RGB images and the backbone. No separate pretrained vision encoder or latent autoencoder is used at
@@ -4349,8 +5567,8 @@ body.artwork-open {
       </section>
       <section aria-labelledby="results-title" class="section results-section wrap reveal" id="results">
         <div class="results-copy">
-          <p class="eyebrow">Research, measured</p>
-          <h2 id="results-title">Across<br />11 benchmarks.</h2>
+          <p class="eyebrow">Evaluation</p>
+          <h2 id="results-title">Measured across 11 benchmarks.</h2>
           <p>Top-tier results across generation, editing, and composition.</p>
           <p class="small-copy">
             Each benchmark uses its own metric. See the report for individual scores, comparison settings, and prompt-enhancement reporting.
@@ -4364,9 +5582,9 @@ body.artwork-open {
       <section class="section inference-section reveal" id="inference">
         <div class="wrap">
           <div class="section-heading">
+            <p class="eyebrow">Resources</p>
             <div>
-              <p class="eyebrow">Resources</p>
-              <h2>Create with WeGen2.</h2>
+              <h2>Start creating.</h2>
             </div>
             <div class="resource-links" hidden="" id="resource-links"></div>
           </div>
@@ -4408,8 +5626,7 @@ next_image.save("paper-world-night.png")</code></pre>
                 </div>
               </dl>
               <p class="fine-print">Memory requirements depend on image size, context length, and runtime configuration.</p>
-              <a class="text-link" data-resource="github" href="https://github.com/zhuangshaobin/WeGen2">Read the inference guide ↗</a>
-              <p class="fine-print release-note">Code in private preview. Weights and final licensing forthcoming.</p>
+              <a class="text-link" data-resource="github" href="https://github.com/zhuangshaobin/WeGen2">Read the inference guide</a>
             </div>
           </div>
           <p aria-live="polite" id="copy-status" role="status"></p>
@@ -4431,37 +5648,41 @@ next_image.save("paper-world-night.png")</code></pre>
           * Equal contribution. † Project leader. ‡ Corresponding authors.<br />§ Work done during Shaobin Zhuang's internship at Tencent.
         </p>
       </section>
-      <dialog class="gallery-dialog" aria-labelledby="artwork-title">
+      <dialog aria-labelledby="artwork-title" class="gallery-dialog">
         <header class="artwork-toolbar">
           <p class="artwork-collection">WeGen2 <span>Collection</span></p>
-          <span class="artwork-position" aria-live="polite"></span>
-          <nav class="artwork-navigation" aria-label="Browse artworks">
-            <button type="button" data-artwork-prev aria-label="Previous case">Previous</button>
-            <button type="button" data-artwork-next aria-label="Next case">Next</button>
+          <span aria-live="polite" class="artwork-position"></span>
+          <nav aria-label="Browse artworks" class="artwork-navigation">
+            <button aria-label="Previous case" data-artwork-prev="" type="button">Previous</button>
+            <button aria-label="Next case" data-artwork-next="" type="button">Next</button>
           </nav>
-          <button type="button" class="artwork-close" aria-label="Close artwork" autofocus>
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          <button aria-label="Close artwork" autofocus="" class="artwork-close" type="button">
+            <svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"></path></svg>
           </button>
         </header>
         <div class="artwork-layout">
           <div class="artwork-media">
             <div class="artwork-stage" id="artwork-stage">
-              <img class="artwork-image" alt="" decoding="async" />
+              <img alt="" class="artwork-image" decoding="async" />
               <p class="artwork-load-state" role="status"></p>
             </div>
-            <div class="artwork-frames" role="tablist" aria-label="Case images" hidden></div>
+            <div aria-label="Case images" class="artwork-frames" hidden="" role="tablist"></div>
           </div>
-          <aside class="artwork-caption" aria-label="About this artwork">
+          <aside aria-label="About this artwork" class="artwork-caption">
             <p class="artwork-category"></p>
             <h3 id="artwork-title"></h3>
             <p class="artwork-description"></p>
             <details class="artwork-prompt">
-              <summary>Generation prompt</summary>
+              <summary>Original generation prompt</summary>
               <p></p>
+              <div class="artwork-prompt-actions">
+                <button data-copy-prompt="" type="button">Copy prompt</button>
+                <span aria-live="polite" class="artwork-copy-state" role="status"></span>
+              </div>
             </details>
             <div class="artwork-footnote">
-              <span class="artwork-size" aria-label="Image dimensions"></span>
-              <a class="artwork-original" target="_blank" rel="noopener">Open full image</a>
+              <span aria-label="Image dimensions" class="artwork-size"></span>
+              <a class="artwork-original" rel="noopener" target="_blank">Open full image</a>
             </div>
           </aside>
         </div>
@@ -4697,22 +5918,26 @@ function drawReference() {
     bh = (y1 - y0) * im.height;
   const startX = button.right - parent.left,
     startY = button.top - parent.top + button.height / 2;
-  const endX = im.left - parent.left + item.anchor[0] * im.width,
-    endY = im.top - parent.top + item.anchor[1] * im.height;
+  const endX = bx - 3,
+    endY = by + bh / 2;
   const middle = (startX + endX) / 2;
   const path = `M${startX},${startY} C${middle},${startY} ${middle},${endY} ${endX},${endY}`;
-  lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#ffffffdd", "stroke-width": 5, "stroke-linecap": "round" }));
-  lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#0db16e", "stroke-width": 2.2, "stroke-linecap": "round" }));
+  // On narrow screens the selected source and result outline communicate the
+  // relationship without drawing a line across the other reference images.
+  if (matchMedia("(min-width: 761px)").matches) {
+    lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#fafbf7df", "stroke-width": 4, "stroke-linecap": "round" }));
+    lineCanvas.append(svgNode("path", { d: path, fill: "none", stroke: "#16885a", "stroke-width": 1.5, "stroke-linecap": "round" }));
+  }
   lineCanvas.append(
     svgNode("rect", {
       x: bx - 3,
       y: by - 3,
       width: bw + 6,
       height: bh + 6,
-      rx: Math.min(15, bh / 3),
+      rx: Math.min(6, bh / 3),
       fill: "#0db16e0a",
       stroke: "#ffffffdf",
-      "stroke-width": 5,
+      "stroke-width": 4,
     })
   );
   lineCanvas.append(
@@ -4721,13 +5946,15 @@ function drawReference() {
       y: by - 3,
       width: bw + 6,
       height: bh + 6,
-      rx: Math.min(15, bh / 3),
+      rx: Math.min(6, bh / 3),
       fill: "none",
-      stroke: "#0db16e",
-      "stroke-width": 2.2,
+      stroke: "#16885a",
+      "stroke-width": 1.5,
     })
   );
-  lineCanvas.append(svgNode("circle", { cx: endX, cy: endY, r: 4, fill: "#0db16e", stroke: "white", "stroke-width": 2 }));
+  if (matchMedia("(min-width: 761px)").matches) {
+    lineCanvas.append(svgNode("circle", { cx: endX, cy: endY, r: 3, fill: "#16885a", stroke: "white", "stroke-width": 1.5 }));
+  }
 }
 function selectReference(id) {
   activeReference = id;
@@ -5355,16 +6582,15 @@ Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
     prompt.hidden = !frame.prompt;
     const task = selection[current].task || "";
     prompt.querySelector("summary").textContent =
-      frame.role === "input"
-        ? "Source prompt"
-        : task === "Reference composition"
-          ? "Composition prompt"
-          : /editing/i.test(task)
-            ? "Edit instruction"
-            : "Generation prompt";
+      frame.role !== "input" && task === "Reference composition"
+        ? "Original composition prompt"
+        : frame.role !== "input" && frames.length > 1
+          ? "Original editing prompt"
+          : "Original generation prompt";
+    modal.querySelector(".artwork-copy-state").textContent = "";
     modal.querySelector(".artwork-size").textContent = `${frame.width.toLocaleString("en-US")} × ${frame.height.toLocaleString("en-US")}`;
     prompt.querySelector("p").textContent = frame.prompt || "";
-    prompt.open = false;
+    prompt.open = Boolean(frame.prompt);
     status.textContent = "Loading full image…";
     const original = new Image();
     loader = original;
@@ -5440,6 +6666,17 @@ Promise.resolve(JSON.parse(document.querySelector("#links-data").textContent))
     modal.showModal();
     document.body.classList.add("artwork-open");
     renderArtwork(selection.findIndex((work) => work.id === button.dataset.artwork));
+  });
+  modal.querySelector("[data-copy-prompt]").addEventListener("click", async () => {
+    const version = request;
+    const value = prompt.querySelector("p").textContent;
+    const feedback = modal.querySelector(".artwork-copy-state");
+    try {
+      await navigator.clipboard.writeText(value);
+      if (version === request) feedback.textContent = "Copied";
+    } catch {
+      if (version === request) feedback.textContent = "Select the text to copy.";
+    }
   });
   modal.querySelector(".artwork-close").addEventListener("click", () => modal.close());
   modal.querySelector("[data-artwork-prev]").addEventListener("click", () => renderArtwork(current - 1));
