@@ -3358,18 +3358,57 @@
         color: #62766a;
       }
 
-      /* A shared editorial grid. Images retain their own proportions; the controls
-   and captions sit outside the work. Canvas geometry and player stay intact. */
+      /* Two full-image ribbons share one scroll phase. The upper works are never
+   fitted into arbitrary cells: their native ratios determine their widths. */
+      .art-scroll-group {
+        padding-top: calc(var(--hero-overlap) + 15px);
+      }
+      .art-scroll-upper-track,
+      .art-scroll-upper-cycle {
+        display: flex;
+        width: max-content;
+        height: calc(var(--hero-overlap) + 15px);
+        gap: 0;
+      }
+      .art-scroll-upper-track {
+        position: absolute;
+        inset: 0 auto auto 0;
+        transform: translate3d(0, 0, 0);
+      }
+      .art-scroll-upper-cycle {
+        flex: none;
+        margin-right: calc(-1 * var(--upper-cycle-overlap, 0px));
+      }
+      .art-scroll-upper-card {
+        width: auto;
+        height: 100%;
+      }
+      .art-scroll[data-playing="true"] .art-scroll-upper-track,
+      .art-scroll.is-dragging .art-scroll-upper-track {
+        will-change: transform;
+      }
+      @media (max-width: 760px) {
+        .art-scroll-group {
+          padding-top: calc(var(--hero-overlap) + 9px);
+        }
+        .art-scroll-upper-track,
+        .art-scroll-upper-cycle {
+          height: calc(var(--hero-overlap) + 9px);
+        }
+      }
+
+      /* WeGen2: clear typography, full-image compositions and restrained controls.
+   The visual works carry the color; type and navigation share one grid. */
       :root {
-        --paper: #fafbf7;
-        --ink: #163e30;
-        --body: #496052;
-        --muted: #617064;
-        --line: #ced8cd;
+        --paper: #fcfdfa;
+        --ink: #192b23;
+        --body: #4c5e54;
+        --muted: #637168;
+        --line: #d7ddd6;
         --gutter: clamp(22px, 4.4vw, 80px);
         --rail: clamp(120px, 12vw, 176px);
         --editorial-gap: clamp(24px, 3.5vw, 52px);
-        --serif: Georgia, "Times New Roman", serif;
+        --serif: var(--sans);
       }
       .release-design h2 {
         font-size: clamp(34px, 3.6vw, 54px);
@@ -3591,7 +3630,7 @@
 
       /* A quiet cinema interlude. Playback remains progressively streamed. */
       .release-design .film-section {
-        background: #123a2d;
+        background: #14231c;
         color: #eff4eb;
         padding-block: 48px 36px;
       }
@@ -3613,7 +3652,7 @@
       .release-design .film-shell {
         border: 0;
         border-radius: 0;
-        background: #123a2d;
+        background: #14231c;
       }
       .release-design .film-start {
         justify-content: flex-end;
@@ -3676,7 +3715,7 @@
         padding: 6px 22px 6px 6px;
       }
       .release-design .film-quality select option {
-        background: #123a2d;
+        background: #14231c;
         color: white;
       }
       .release-design .film-section .fine-print {
@@ -3793,7 +3832,7 @@
 
       /* Editing controls align with the image edge, without an enclosing panel. */
       .release-design .editing-section {
-        background: #eef2ea;
+        background: #f0f3ee;
       }
       .release-design .edit-tabs {
         gap: 28px;
@@ -3902,7 +3941,7 @@
         color: var(--green);
       }
       .release-design .stories-section {
-        background: #edf1e9;
+        background: #f0f3ee;
         border: 0;
       }
       .release-design .comic-sheet img {
@@ -4024,7 +4063,7 @@
 
       /* A usable resource desk and the people behind the work. */
       .release-design .inference-section {
-        background: #123a2d;
+        background: #14231c;
         padding-block: 68px;
       }
       .release-design .inference-section .section-heading {
@@ -4046,7 +4085,7 @@
       .release-design .code-card {
         border: 0;
         border-radius: 0;
-        background: #0d2e24;
+        background: #0e1914;
       }
       .release-design .code-heading {
         padding: 18px 24px;
@@ -4568,6 +4607,790 @@
           font-size: 14px;
         }
       }
+
+      /* The opening is a masthead followed by an unobscured, edge-to-edge canvas. */
+      .release-design .site-header {
+        height: 64px;
+        border-color: var(--line);
+        backdrop-filter: none;
+      }
+      .release-design .site-header .wordmark img {
+        width: 118px;
+      }
+      .nav-menu-toggle {
+        display: none;
+      }
+      .release-design .nav-pill {
+        border-radius: 0;
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+      .release-design .brand-hero {
+        --hero-overlap: 160px;
+        padding-top: 26px;
+      }
+      .release-design .hero-copy {
+        padding-bottom: 0;
+        pointer-events: auto;
+      }
+      .release-design .hero-topline {
+        padding-bottom: 21px;
+      }
+      .release-design .hero-topline .brand-eyebrow {
+        color: var(--ink);
+      }
+      .release-design .hero-topline > span {
+        color: var(--muted);
+      }
+      .release-design .hero-introduction {
+        grid-template-columns: 1.12fr 1fr;
+        gap: 48px;
+        padding: 0 0 34px;
+      }
+      .release-design .hero-introduction .hero-wordmark {
+        width: min(100%, 568px);
+        margin: 0 0 0 -6px;
+      }
+      .release-design .hero-introduction .hero-under {
+        align-items: end;
+        gap: 24px;
+      }
+      .release-design .hero-introduction .brand-line {
+        font-size: clamp(26px, 2.8vw, 42px);
+        line-height: 1.06;
+        letter-spacing: -0.045em;
+        font-weight: 500;
+      }
+      .release-design .hero-copy .brand-line span {
+        color: var(--ink);
+      }
+      .release-design .hero-introduction .hero-description {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 14px;
+      }
+      .release-design .hero-introduction .hero-resources {
+        gap: 0;
+      }
+      .release-design .hero-copy .hero-resources .resource-pill {
+        border-radius: 0;
+        border: 1px solid var(--line);
+        margin-top: -1px;
+        background: transparent;
+      }
+      .release-design .hero-copy .hero-resources a:hover {
+        background: var(--ink);
+        color: white;
+      }
+      .release-design .art-scroll {
+        margin-top: 0;
+      }
+      .release-design .art-scroll-veil,
+      .release-design .art-scroll-light {
+        display: none;
+      }
+      .release-design .art-scroll-viewport {
+        height: calc(var(--hero-overlap) + var(--scroll-height));
+        padding: 0;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+      .release-design .art-scroll-track,
+      .release-design .art-scroll-cycle {
+        height: calc(var(--hero-overlap) + var(--scroll-height));
+      }
+      .release-design .art-scroll-group {
+        padding-top: var(--hero-overlap);
+      }
+      .release-design .art-scroll-upper-track,
+      .release-design .art-scroll-upper-cycle {
+        height: var(--hero-overlap);
+      }
+      .release-design .art-scroll-upper-track {
+        z-index: 1;
+      }
+      .release-design .art-scroll-controls {
+        padding-block: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+      .release-design .art-scroll-controls p {
+        font: 14px/1.5 var(--sans);
+        color: var(--muted);
+      }
+      .release-design .art-scroll-controls a {
+        color: var(--ink);
+      }
+
+      /* An introduction, followed by three deliberately composed demonstrations. */
+      .release-design .intro {
+        padding-block: 44px 46px;
+        gap: 68px;
+      }
+      .release-design .intro-copy > p {
+        font: 400 clamp(22px, 2.1vw, 30px)/1.38 var(--sans);
+        letter-spacing: -0.035em;
+        max-width: 610px;
+      }
+      .release-design .model-stats {
+        padding-top: 4px;
+        gap: 24px;
+      }
+      .release-design .model-stats dt {
+        font-size: 46px;
+        font-weight: 500;
+      }
+      .release-design .model-stats dd {
+        margin-top: 6px;
+      }
+      .release-design h2 {
+        font-size: clamp(34px, 4.3vw, 62px);
+        font-weight: 500;
+        line-height: 1.04;
+        letter-spacing: -0.055em;
+      }
+      .release-design .section {
+        padding-block: 64px;
+      }
+      .release-design .section-heading {
+        grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.75fr);
+        gap: 12px 60px;
+        align-items: end;
+        margin-bottom: 34px;
+      }
+      .release-design .section-heading > .eyebrow {
+        grid-column: 1 / -1;
+        margin: 0 0 12px;
+        max-width: none;
+        color: var(--muted);
+      }
+      .release-design .section-heading > p:not(.eyebrow) {
+        margin: 0;
+        max-width: 380px;
+        font-size: 16px;
+      }
+      .release-design .eyebrow {
+        font-size: 14px;
+      }
+      .release-design .gallery-section {
+        padding-top: 12px;
+      }
+      .release-design .gallery-section .wrap {
+        padding-top: 32px;
+      }
+      .release-design .gallery-grid {
+        grid-template-columns: 0.9fr 1.1fr 1fr;
+        gap: 28px;
+      }
+      .release-design .gallery-capability {
+        font: 500 22px/1.25 var(--sans);
+        letter-spacing: -0.04em;
+        padding: 18px 0;
+        border-top: 1px solid var(--ink);
+      }
+      .release-design .gallery-mini-strip {
+        gap: 12px;
+        padding-top: 14px;
+      }
+      .release-design .gallery-mini-strip img {
+        height: clamp(80px, 7vw, 108px);
+        background: transparent;
+      }
+      .release-design .gallery-card figcaption {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-color: var(--line);
+      }
+      .release-design .gallery-card h3 {
+        font-size: 18px;
+      }
+      .release-design .gallery-open-label {
+        background: #14231ce8;
+      }
+      .release-design .gallery-note {
+        max-width: 740px;
+        margin-top: 24px;
+        color: var(--muted);
+      }
+
+      /* The film marks a pause; individual works resume on a neutral surface. */
+      .release-design .film-section {
+        padding-block: 40px 24px;
+      }
+      .release-design .film-section h2 {
+        font: 500 38px/1.08 var(--sans);
+        letter-spacing: -0.045em;
+      }
+      .release-design .film-section .section-heading {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 40px;
+      }
+      .release-design .film-section .section-heading > .eyebrow {
+        margin-bottom: 4px;
+        color: #a7b9ac;
+      }
+      .release-design .film-section .section-heading > p:not(.eyebrow) {
+        justify-self: end;
+      }
+      .release-design .film-start button {
+        border-radius: 0;
+      }
+      .release-design .film-under {
+        border-top: 1px solid #b6c7bb3b;
+      }
+      .release-design .creation-section {
+        padding-bottom: 40px;
+      }
+      .release-design .creation-grid {
+        gap: 24px;
+        grid-template-columns: 1fr 1fr 1.05fr;
+      }
+      .release-design .creation-grid figcaption strong {
+        font: 500 18px/1.35 var(--sans);
+        letter-spacing: -0.025em;
+      }
+      .release-design .creation-grid figcaption {
+        padding-top: 10px;
+        gap: 4px;
+      }
+      .release-design .word-section {
+        padding-block: 24px 64px;
+      }
+      .release-design .word-layout {
+        grid-template-columns: 0.65fr 1.35fr;
+        gap: 60px;
+        padding-top: 32px;
+      }
+      .release-design .word-copy h2 {
+        font: 500 clamp(34px, 3.8vw, 54px)/1.05 var(--sans);
+        letter-spacing: -0.05em;
+        margin: 24px 0;
+      }
+      .release-design .word-detail {
+        grid-template-columns: 110px 1fr;
+        gap: 18px;
+      }
+      .release-design .word-detail img {
+        width: 110px;
+      }
+      .release-design .editing-section {
+        background: #edf2ec;
+      }
+      .release-design .edit-tabs {
+        gap: 28px;
+        border-bottom: 1px solid #c6d2c6;
+        margin-bottom: 24px;
+      }
+      .release-design .edit-tabs button {
+        border-radius: 0;
+      }
+      .release-design .comparison {
+        max-width: 1120px;
+        margin-inline: auto;
+        background: #e5ebe3;
+      }
+      .release-design .comparison-label {
+        border-radius: 0;
+        background: #fcfdfaf2;
+        color: var(--ink);
+      }
+      .release-design .comparison-hint {
+        max-width: 1120px;
+        margin-inline: auto;
+      }
+      .release-design .reference-stage {
+        gap: 48px;
+        grid-template-columns: 1.3fr 1fr;
+      }
+      .release-design .reference-card {
+        border: 0;
+      }
+      .release-design .reference-card > span {
+        font-size: 13px;
+        padding-top: 10px;
+      }
+      .release-design .reference-card img {
+        background: transparent;
+      }
+      .release-design .reference-controls {
+        border-bottom: 1px solid var(--line);
+      }
+      .release-design .context-section {
+        padding-top: 26px;
+      }
+      .release-design .context-section .section-heading {
+        grid-template-columns: 1.45fr 0.75fr;
+        gap: 12px 60px;
+      }
+      .release-design .chat-sequence {
+        margin-inline: auto;
+        max-width: 1030px;
+        gap: 32px;
+      }
+      .release-design .chat-sequence figcaption {
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+      .release-design .stories-section {
+        background: transparent;
+        padding-top: 28px;
+      }
+      .release-design .stories-section .wrap {
+        border-top: 1px solid var(--line);
+        padding-top: 32px;
+      }
+
+      /* Research and resources use the same typography, with quieter media framing. */
+      .release-design .method-section {
+        background: #eef2ed;
+        padding-bottom: 40px;
+      }
+      .release-design .method-section .section-heading {
+        align-items: start;
+      }
+      .release-design .method-switcher {
+        border-color: #c6d2c6;
+      }
+      .release-design .model-stage {
+        grid-template-columns: 0.7fr 1.5fr;
+        padding-block: 30px;
+        gap: 52px;
+      }
+      .release-design .method-copy h3 {
+        font: 500 30px/1.15 var(--sans);
+        letter-spacing: -0.04em;
+      }
+      .release-design .foundation-note {
+        border-bottom: 0;
+      }
+      .release-design .results-section {
+        padding-top: 56px;
+        grid-template-columns: 0.7fr 1.5fr;
+        gap: 52px;
+      }
+      .release-design .results-copy h2 {
+        font: 500 clamp(34px, 3.6vw, 52px)/1.05 var(--sans);
+        letter-spacing: -0.05em;
+      }
+      .release-design .inference-section {
+        padding-block: 56px;
+      }
+      .release-design .inference-section .section-heading {
+        grid-template-columns: 1.2fr 1fr;
+      }
+      .release-design .inference-section .section-heading > .eyebrow {
+        color: #a7b9ac;
+      }
+      .release-design .resource-links {
+        justify-self: end;
+        grid-column: 2;
+        grid-row: 2;
+        gap: 0;
+        border: 1px solid #80978a;
+      }
+      .release-design .resource-links > * {
+        padding: 12px 20px;
+        border: 0;
+        border-left: 1px solid #80978a;
+      }
+      .release-design .resource-links > :first-child {
+        border-left: 0;
+      }
+      .release-design .inference-copy h3 {
+        font: 500 28px/1.2 var(--sans);
+        letter-spacing: -0.04em;
+      }
+      .release-design .code-card {
+        border: 1px solid #52665a;
+        background: transparent;
+      }
+      .release-design .code-heading {
+        border-color: #52665a;
+      }
+      .release-design .authors-section .paper-title {
+        font: 500 30px/1.2 var(--sans);
+        letter-spacing: -0.04em;
+      }
+      .release-design .authors-section {
+        padding-block: 54px;
+      }
+      .release-design footer.wrap {
+        padding-block: 24px;
+      }
+
+      /* The viewer is a full image plate beside readable production notes. */
+      .release-design .gallery-dialog {
+        background: var(--paper);
+        color: var(--ink);
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .release-design .gallery-dialog::backdrop {
+        background: #102019e8;
+        backdrop-filter: none;
+      }
+      .release-design .artwork-toolbar {
+        background: var(--paper);
+        border-color: var(--line);
+      }
+      .release-design .artwork-media {
+        background: #e5eae3;
+      }
+      .release-design .artwork-caption {
+        padding: 32px 28px 24px;
+        border-left: 1px solid var(--line);
+      }
+      .release-design .artwork-category {
+        font-size: 13px;
+        letter-spacing: 0;
+        text-transform: none;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+      .release-design .artwork-caption h3 {
+        font: 500 34px/1.08 var(--sans);
+        letter-spacing: -0.045em;
+        text-wrap: pretty;
+      }
+      .release-design .artwork-description {
+        line-height: 1.6;
+        margin-top: 20px;
+        color: var(--body);
+      }
+      .release-design .artwork-prompt {
+        margin-top: 24px;
+        border-color: var(--line);
+      }
+      .release-design .artwork-prompt p {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--body);
+      }
+      .release-design .artwork-prompt-actions {
+        margin-top: 22px;
+      }
+      .release-design .artwork-prompt-actions button {
+        border: 1px solid #aebdb1;
+        padding: 9px 12px;
+        border-radius: 0;
+        background: transparent;
+      }
+      .release-design .artwork-prompt-actions button:hover {
+        background: var(--ink);
+        color: white;
+      }
+      .release-design .artwork-original {
+        font-size: 14px;
+      }
+      .release-design .artwork-frames {
+        padding-top: 16px;
+        border-top: 1px solid #c9d3c9;
+      }
+
+      @media (max-width: 1100px) {
+        .release-design .hero-introduction {
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+        }
+        .release-design .hero-introduction .hero-wordmark {
+          width: 100%;
+        }
+        .release-design .section-heading,
+        .release-design .context-section .section-heading {
+          column-gap: 32px;
+        }
+        .release-design .gallery-grid {
+          gap: 22px;
+        }
+        .release-design .word-layout {
+          gap: 36px;
+        }
+        .release-design .reference-stage {
+          gap: 30px;
+          grid-template-columns: 1.2fr 1fr;
+        }
+        .release-design .model-stage,
+        .release-design .results-section {
+          gap: 30px;
+        }
+      }
+      @media (max-width: 760px) {
+        .release-design .site-header {
+          height: 60px;
+        }
+        .release-design .site-header .wordmark img {
+          width: 108px;
+        }
+        .release-design .site-header nav {
+          gap: 18px;
+        }
+        .release-design .nav-menu-toggle {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          min-height: 44px;
+          padding: 8px 12px;
+          font: 14px var(--sans);
+          color: var(--ink);
+          background: transparent;
+          border: 1px solid var(--line);
+          border-radius: 0;
+        }
+        .nav-menu-toggle > span {
+          position: relative;
+          width: 14px;
+          height: 12px;
+          border-block: 1px solid currentColor;
+        }
+        .nav-menu-toggle[aria-expanded="true"] > span {
+          border-bottom: 0;
+          height: 1px;
+        }
+        .release-design .site-header #site-navigation {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          padding: 12px var(--gutter) 20px;
+          background: var(--paper);
+          border-bottom: 1px solid var(--line);
+          grid-template-columns: 1fr 1fr;
+          gap: 0 20px;
+        }
+        .release-design .nav-menu-toggle[aria-expanded="true"] + #site-navigation {
+          display: grid;
+        }
+        .release-design .site-header #site-navigation a {
+          display: block;
+          padding: 14px 0;
+          border: 0;
+          border-bottom: 1px solid var(--line);
+          font-size: 16px;
+        }
+        .release-design .brand-hero {
+          --hero-overlap: 140px;
+          padding-top: 22px;
+        }
+        .release-design .hero-topline {
+          padding-bottom: 20px;
+        }
+        .release-design .hero-introduction {
+          display: block;
+          padding-bottom: 26px;
+        }
+        .release-design .hero-introduction .hero-wordmark {
+          width: min(100%, 460px);
+          margin-left: -4px;
+        }
+        .release-design .hero-introduction .hero-under {
+          display: block;
+          padding-top: 22px;
+        }
+        .release-design .hero-introduction .hero-statement {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+        }
+        .release-design .hero-introduction .brand-line {
+          font-size: 27px;
+        }
+        .release-design .hero-introduction .hero-description {
+          margin: 0;
+          font-size: 14px;
+          max-width: 180px;
+        }
+        .release-design .hero-introduction .hero-resources {
+          display: flex;
+          flex-direction: row;
+          margin-top: 22px;
+        }
+        .release-design .hero-copy .hero-resources .resource-pill {
+          flex: 1;
+          min-width: 0;
+          margin: 0 0 0 -1px;
+          min-height: 40px;
+        }
+        .release-design .hero-copy .hero-resources .resource-pill:first-child {
+          margin-left: 0;
+        }
+        .release-design .art-scroll-controls {
+          padding-block: 16px;
+        }
+        .release-design .art-scroll-controls p {
+          display: none;
+        }
+        .release-design .art-scroll-controls > div {
+          justify-content: space-between;
+          width: 100%;
+        }
+        .release-design .intro {
+          padding-block: 34px;
+          gap: 28px;
+        }
+        .release-design .intro-copy > p {
+          font-size: 24px;
+        }
+        .release-design .model-stats dt {
+          font-size: 36px;
+        }
+        .release-design .section {
+          padding-block: 44px;
+        }
+        .release-design .section-heading,
+        .release-design .context-section .section-heading {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .release-design .section-heading > .eyebrow {
+          margin-bottom: 4px;
+        }
+        .release-design h2 {
+          font-size: 38px;
+          max-width: 580px;
+        }
+        .release-design .gallery-section {
+          padding-top: 10px;
+        }
+        .release-design .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .release-design .gallery-card:last-child {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-template-columns: 0.7fr 1fr;
+          gap: 0 24px;
+          align-items: start;
+        }
+        .release-design .gallery-card:last-child .gallery-capability {
+          grid-column: 1;
+        }
+        .release-design .gallery-card:last-child .gallery-open {
+          grid-column: 2;
+          grid-row: 1 / 3;
+        }
+        .release-design .gallery-card:last-child figcaption {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .release-design .film-section .section-heading {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .release-design .film-section .section-heading > p:not(.eyebrow) {
+          justify-self: start;
+        }
+        .release-design .film-section h2 {
+          font-size: 34px;
+        }
+        .release-design .creation-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 24px 16px;
+        }
+        .release-design .creation-grid .portrait,
+        .release-design .creation-grid .poster,
+        .release-design .creation-grid .paper-world,
+        .release-design .creation-grid .market {
+          grid-column: auto;
+          grid-row: auto;
+        }
+        .release-design .word-layout {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .release-design .word-copy {
+          max-width: 570px;
+        }
+        .release-design .word-copy h2 {
+          font-size: 38px;
+          max-width: 500px;
+        }
+        .release-design .word-detail {
+          max-width: 450px;
+        }
+        .release-design .edit-tabs {
+          gap: 24px;
+        }
+        .release-design .reference-stage {
+          grid-template-columns: 1.1fr 1fr;
+          gap: 24px;
+        }
+        .release-design .chat-sequence {
+          gap: 16px;
+        }
+        .release-design .context-section {
+          padding-top: 20px;
+        }
+        .release-design .model-stage,
+        .release-design .results-section {
+          grid-template-columns: 1fr;
+        }
+        .release-design .results-copy h2 {
+          max-width: 570px;
+          font-size: 38px;
+        }
+        .release-design .inference-section .section-heading {
+          grid-template-columns: 1fr;
+        }
+        .release-design .resource-links {
+          grid-column: 1;
+          grid-row: auto;
+          justify-self: start;
+          margin-top: 10px;
+        }
+        .release-design .authors-section .paper-title {
+          font-size: 28px;
+        }
+        .release-design .artwork-caption {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding: 26px 24px;
+        }
+      }
+      @media (max-width: 480px) {
+        .release-design .gallery-grid {
+          display: block;
+        }
+        .release-design .gallery-card:last-child {
+          display: block;
+        }
+        .release-design .gallery-mini-strip img {
+          height: 90px;
+        }
+        .release-design .gallery-capability {
+          font-size: 23px;
+        }
+        .release-design .creation-grid {
+          display: grid;
+        }
+        .release-design .creation-grid figure {
+          margin-bottom: 0;
+        }
+        .release-design .creation-grid figcaption strong {
+          font-size: 16px;
+        }
+        .release-design .creation-grid figcaption > span {
+          font-size: 12px;
+        }
+        .release-design .reference-stage {
+          display: block;
+        }
+        .release-design .chat-sequence {
+          gap: 8px;
+        }
+        .release-design .chat-sequence figcaption {
+          font-size: 12px;
+        }
+        .release-design .model-stats {
+          gap: 14px;
+        }
+        .release-design .model-stats dd {
+          font-size: 13px;
+        }
+        .release-design .resource-links > * {
+          padding: 12px 16px;
+        }
+      }
     </style>
     <!-- INLINE_STYLE_END -->
     <link as="font" crossorigin="" href="assets/manrope-latin.woff2" rel="preload" type="font/woff2" />
@@ -4578,7 +5401,10 @@
       <a aria-label="WeGen2 home" class="wordmark" href="#main"
         ><img alt="WeGen2" decoding="async" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype" width="365"
       /></a>
-      <nav aria-label="Main navigation">
+      <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+        Menu<span aria-hidden="true"></span>
+      </button>
+      <nav aria-label="Main navigation" id="site-navigation">
         <a href="#gallery">Work</a><a href="#film">Film</a><a href="#method">Research</a><a class="nav-pill" href="#inference">Resources</a>
       </nav>
     </header>
@@ -4653,8 +5479,8 @@
             </h1>
             <div class="hero-under">
               <div class="hero-statement">
-                <p class="brand-line">One model.<br /><span>Many worlds.</span></p>
-                <p class="hero-description">Generate, edit, and compose.<br />Keep creating in context.</p>
+                <p class="brand-line">Many worlds.<br /><span>One model.</span></p>
+                <p class="hero-description">From a first idea to the next edit.</p>
               </div>
               <nav aria-label="Project resources" class="hero-resources">
                 <span
@@ -4690,39 +5516,348 @@
           <div class="art-scroll-light" aria-hidden="true"></div>
           <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
             <div class="art-scroll-veil" aria-hidden="true"></div>
+            <div class="art-scroll-upper-track">
+              <div class="art-scroll-upper-cycle">
+                <button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="conservatory-of-glass"
+                  aria-label="Explore A conservatory of glass"
+                >
+                  <img
+                    src="assets/canvas/conservatory-of-glass-320.webp"
+                    srcset="
+                      assets/canvas/conservatory-of-glass-320.webp 320w,
+                      assets/canvas/conservatory-of-glass-480.webp 480w,
+                      assets/canvas/conservatory-of-glass-640.webp 640w
+                    "
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    fetchpriority="high"
+                    alt="Aquamarine glass, fine brass ribs and miniature plants in a sunlit conservatory."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="lemon-riviera"
+                  aria-label="Explore A table by the sea"
+                >
+                  <img
+                    src="assets/canvas/lemon-riviera-320.webp"
+                    srcset="
+                      assets/canvas/lemon-riviera-320.webp 320w,
+                      assets/canvas/lemon-riviera-480.webp 480w,
+                      assets/canvas/lemon-riviera-640.webp 640w
+                    "
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="An amber pitcher, lemon water, figs and flowers on a blue tiled seaside table."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 896/1152"
+                  type="button"
+                  data-artwork="moss-observatory"
+                  aria-label="Explore The moss observatory"
+                >
+                  <img
+                    src="assets/canvas/moss-observatory-320.webp"
+                    srcset="
+                      assets/canvas/moss-observatory-320.webp 320w,
+                      assets/canvas/moss-observatory-480.webp 480w,
+                      assets/canvas/moss-observatory-640.webp 640w
+                    "
+                    sizes="(max-width: 760px) 109px, (max-width: 1000px) 125px, 125px"
+                    width="896"
+                    height="1152"
+                    decoding="async"
+                    alt="A tiny library and telescope inside a glass terrarium with a winding wooden staircase."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="clockwork-orchard"
+                  aria-label="Explore The clockwork orchard"
+                >
+                  <img
+                    data-src="assets/canvas/clockwork-orchard-320.webp"
+                    data-srcset="assets/canvas/clockwork-orchard-320.webp 320w, assets/canvas/clockwork-orchard-480.webp 480w, assets/canvas/clockwork-orchard-640.webp 640w"
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="A miniature paper orchard, railway and blue river inside an open brass pocket watch."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="tidal-research"
+                  aria-label="Explore Tidal research station"
+                >
+                  <img
+                    data-src="assets/canvas/tidal-research-320.webp"
+                    data-srcset="assets/canvas/tidal-research-320.webp 320w, assets/canvas/tidal-research-480.webp 480w, assets/canvas/tidal-research-640.webp 640w"
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="Glass corridors join a futuristic marine research station above clear turquoise tidal waters."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1024/1024"
+                  type="button"
+                  data-artwork="rainy-record-store"
+                  aria-label="Explore After the last record"
+                >
+                  <img
+                    data-src="assets/canvas/rainy-record-store-320.webp"
+                    data-srcset="assets/canvas/rainy-record-store-320.webp 320w, assets/canvas/rainy-record-store-480.webp 480w, assets/canvas/rainy-record-store-640.webp 640w"
+                    sizes="(max-width: 760px) 140px, (max-width: 1000px) 160px, 160px"
+                    width="1024"
+                    height="1024"
+                    decoding="async"
+                    alt="A record-store owner hands a vinyl sleeve to a customer while rain falls outside."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1024/1408"
+                  type="button"
+                  data-artwork="ceramic-workshop"
+                  aria-label="Explore Clay, light, and patient hands"
+                >
+                  <img
+                    data-src="assets/canvas/ceramic-workshop-320.webp"
+                    data-srcset="assets/canvas/ceramic-workshop-320.webp 320w, assets/canvas/ceramic-workshop-480.webp 480w, assets/canvas/ceramic-workshop-640.webp 640w"
+                    sizes="(max-width: 760px) 102px, (max-width: 1000px) 117px, 117px"
+                    width="1024"
+                    height="1408"
+                    decoding="async"
+                    alt="A ceramic artist paints blue flowers on a pale celadon vessel at her studio workbench."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1024/1408"
+                  type="button"
+                  data-artwork="shadow-theatre"
+                  aria-label="Explore The theatre of shadows"
+                >
+                  <img
+                    data-src="assets/canvas/shadow-theatre-320.webp"
+                    data-srcset="assets/canvas/shadow-theatre-320.webp 320w, assets/canvas/shadow-theatre-480.webp 480w, assets/canvas/shadow-theatre-640.webp 640w"
+                    sizes="(max-width: 760px) 102px, (max-width: 1000px) 117px, 117px"
+                    width="1024"
+                    height="1408"
+                    decoding="async"
+                    alt="A paper-art exhibition poster with a terracotta fox, layered miniature buildings and English lettering."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1408/1024"
+                  type="button"
+                  data-artwork="cloud-bookbindery"
+                  aria-label="Explore The cloud bookbindery"
+                >
+                  <img
+                    data-src="assets/canvas/cloud-bookbindery-320.webp"
+                    data-srcset="assets/canvas/cloud-bookbindery-320.webp 320w, assets/canvas/cloud-bookbindery-480.webp 480w, assets/canvas/cloud-bookbindery-640.webp 640w"
+                    sizes="(max-width: 760px) 193px, (max-width: 1000px) 220px, 220px"
+                    width="1408"
+                    height="1024"
+                    decoding="async"
+                    alt="A brass robot and a little sheep bind books in a tree workshop above the clouds."
+                    draggable="false"
+                  />
+                </button>
+              </div>
+              <div class="art-scroll-upper-cycle" aria-hidden="true">
+                <button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="conservatory-of-glass"
+                  aria-label="Explore A conservatory of glass"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/conservatory-of-glass-320.webp"
+                    data-srcset="assets/canvas/conservatory-of-glass-320.webp 320w, assets/canvas/conservatory-of-glass-480.webp 480w, assets/canvas/conservatory-of-glass-640.webp 640w"
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="Aquamarine glass, fine brass ribs and miniature plants in a sunlit conservatory."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="lemon-riviera"
+                  aria-label="Explore A table by the sea"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/lemon-riviera-320.webp"
+                    data-srcset="assets/canvas/lemon-riviera-320.webp 320w, assets/canvas/lemon-riviera-480.webp 480w, assets/canvas/lemon-riviera-640.webp 640w"
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="An amber pitcher, lemon water, figs and flowers on a blue tiled seaside table."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 896/1152"
+                  type="button"
+                  data-artwork="moss-observatory"
+                  aria-label="Explore The moss observatory"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/moss-observatory-320.webp"
+                    data-srcset="assets/canvas/moss-observatory-320.webp 320w, assets/canvas/moss-observatory-480.webp 480w, assets/canvas/moss-observatory-640.webp 640w"
+                    sizes="(max-width: 760px) 109px, (max-width: 1000px) 125px, 125px"
+                    width="896"
+                    height="1152"
+                    decoding="async"
+                    alt="A tiny library and telescope inside a glass terrarium with a winding wooden staircase."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="clockwork-orchard"
+                  aria-label="Explore The clockwork orchard"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/clockwork-orchard-320.webp"
+                    data-srcset="assets/canvas/clockwork-orchard-320.webp 320w, assets/canvas/clockwork-orchard-480.webp 480w, assets/canvas/clockwork-orchard-640.webp 640w"
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="A miniature paper orchard, railway and blue river inside an open brass pocket watch."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1152/768"
+                  type="button"
+                  data-artwork="tidal-research"
+                  aria-label="Explore Tidal research station"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/tidal-research-320.webp"
+                    data-srcset="assets/canvas/tidal-research-320.webp 320w, assets/canvas/tidal-research-480.webp 480w, assets/canvas/tidal-research-640.webp 640w"
+                    sizes="(max-width: 760px) 210px, (max-width: 1000px) 240px, 240px"
+                    width="1152"
+                    height="768"
+                    decoding="async"
+                    alt="Glass corridors join a futuristic marine research station above clear turquoise tidal waters."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1024/1024"
+                  type="button"
+                  data-artwork="rainy-record-store"
+                  aria-label="Explore After the last record"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/rainy-record-store-320.webp"
+                    data-srcset="assets/canvas/rainy-record-store-320.webp 320w, assets/canvas/rainy-record-store-480.webp 480w, assets/canvas/rainy-record-store-640.webp 640w"
+                    sizes="(max-width: 760px) 140px, (max-width: 1000px) 160px, 160px"
+                    width="1024"
+                    height="1024"
+                    decoding="async"
+                    alt="A record-store owner hands a vinyl sleeve to a customer while rain falls outside."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1024/1408"
+                  type="button"
+                  data-artwork="ceramic-workshop"
+                  aria-label="Explore Clay, light, and patient hands"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/ceramic-workshop-320.webp"
+                    data-srcset="assets/canvas/ceramic-workshop-320.webp 320w, assets/canvas/ceramic-workshop-480.webp 480w, assets/canvas/ceramic-workshop-640.webp 640w"
+                    sizes="(max-width: 760px) 102px, (max-width: 1000px) 117px, 117px"
+                    width="1024"
+                    height="1408"
+                    decoding="async"
+                    alt="A ceramic artist paints blue flowers on a pale celadon vessel at her studio workbench."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1024/1408"
+                  type="button"
+                  data-artwork="shadow-theatre"
+                  aria-label="Explore The theatre of shadows"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/shadow-theatre-320.webp"
+                    data-srcset="assets/canvas/shadow-theatre-320.webp 320w, assets/canvas/shadow-theatre-480.webp 480w, assets/canvas/shadow-theatre-640.webp 640w"
+                    sizes="(max-width: 760px) 102px, (max-width: 1000px) 117px, 117px"
+                    width="1024"
+                    height="1408"
+                    decoding="async"
+                    alt="A paper-art exhibition poster with a terracotta fox, layered miniature buildings and English lettering."
+                    draggable="false"
+                  /></button
+                ><button
+                  class="art-scroll-card art-scroll-upper-card"
+                  style="aspect-ratio: 1408/1024"
+                  type="button"
+                  data-artwork="cloud-bookbindery"
+                  aria-label="Explore The cloud bookbindery"
+                  tabindex="-1"
+                >
+                  <img
+                    data-src="assets/canvas/cloud-bookbindery-320.webp"
+                    data-srcset="assets/canvas/cloud-bookbindery-320.webp 320w, assets/canvas/cloud-bookbindery-480.webp 480w, assets/canvas/cloud-bookbindery-640.webp 640w"
+                    sizes="(max-width: 760px) 193px, (max-width: 1000px) 220px, 220px"
+                    width="1408"
+                    height="1024"
+                    decoding="async"
+                    alt="A brass robot and a little sheep bind books in a tree workshop above the clouds."
+                    draggable="false"
+                  />
+                </button>
+              </div>
+            </div>
             <div class="art-scroll-track">
               <div class="art-scroll-cycle">
                 <div
                   class="art-scroll-group"
                   style="--feature-stack: 2.75; --cluster-stack: 1.6666666666666665; --cluster-gaps: 1; --pair-share: 0.6000000000000001"
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/a-dress-made-of-wind-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/woven-memory-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="896"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/screenprint-to-woodblock-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -4733,7 +5868,13 @@
                         aria-label="Explore A letter from the night train"
                       >
                         <img
-                          src="assets/scroll/the-night-train-letter-480.webp"
+                          src="assets/canvas/the-night-train-letter-320.webp"
+                          srcset="
+                            assets/canvas/the-night-train-letter-320.webp 320w,
+                            assets/canvas/the-night-train-letter-480.webp 480w,
+                            assets/canvas/the-night-train-letter-640.webp 640w
+                          "
+                          sizes="(max-width: 760px) 126.55px, (min-width: 1700px) 163.64px, clamp(130.91px, 10.545vw, 157.09px)"
                           width="1024"
                           height="1408"
                           decoding="async"
@@ -4750,7 +5891,13 @@
                         aria-label="Explore A garden made of paper"
                       >
                         <img
-                          data-src="assets/scroll/paper-garden-festival-320.webp"
+                          src="assets/canvas/paper-garden-festival-320.webp"
+                          srcset="
+                            assets/canvas/paper-garden-festival-320.webp 320w,
+                            assets/canvas/paper-garden-festival-480.webp 480w,
+                            assets/canvas/paper-garden-festival-640.webp 640w
+                          "
+                          sizes="(max-width: 760px) 126.55px, (min-width: 1700px) 163.64px, clamp(130.91px, 10.545vw, 157.09px)"
                           width="1024"
                           height="1408"
                           decoding="async"
@@ -4769,7 +5916,13 @@
                         aria-label="Explore The coral desert"
                       >
                         <img
-                          data-src="assets/scroll/the-coral-desert-640.webp"
+                          src="assets/canvas/the-coral-desert-320.webp"
+                          srcset="
+                            assets/canvas/the-coral-desert-320.webp 320w,
+                            assets/canvas/the-coral-desert-480.webp 480w,
+                            assets/canvas/the-coral-desert-640.webp 640w
+                          "
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -4788,7 +5941,13 @@
                             aria-label="Explore The potter at dawn"
                           >
                             <img
-                              data-src="assets/scroll/the-potter-at-dawn-320.webp"
+                              src="assets/canvas/the-potter-at-dawn-320.webp"
+                              srcset="
+                                assets/canvas/the-potter-at-dawn-320.webp 320w,
+                                assets/canvas/the-potter-at-dawn-480.webp 480w,
+                                assets/canvas/the-potter-at-dawn-640.webp 640w
+                              "
+                              sizes="(max-width: 760px) 125.28px, (min-width: 1700px) 162.00px, clamp(129.60px, 10.440vw, 155.52px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -4804,7 +5963,13 @@
                             aria-label="Explore Four materials, four lights"
                           >
                             <img
-                              data-src="assets/scroll/four-materials-four-lights-320.webp"
+                              src="assets/canvas/four-materials-four-lights-320.webp"
+                              srcset="
+                                assets/canvas/four-materials-four-lights-320.webp 320w,
+                                assets/canvas/four-materials-four-lights-480.webp 480w,
+                                assets/canvas/four-materials-four-lights-640.webp 640w
+                              "
+                              sizes="(max-width: 760px) 125.28px, (min-width: 1700px) 162.00px, clamp(129.60px, 10.440vw, 155.52px)"
                               width="1152"
                               height="1152"
                               decoding="async"
@@ -4823,7 +5988,13 @@
                             aria-label="Explore A tide of ink"
                           >
                             <img
-                              data-src="assets/scroll/a-tide-of-ink-320.webp"
+                              src="assets/canvas/a-tide-of-ink-320.webp"
+                              srcset="
+                                assets/canvas/a-tide-of-ink-320.webp 320w,
+                                assets/canvas/a-tide-of-ink-480.webp 480w,
+                                assets/canvas/a-tide-of-ink-640.webp 640w
+                              "
+                              sizes="(max-width: 760px) 83.52px, (min-width: 1700px) 108.00px, clamp(86.40px, 6.960vw, 103.68px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -4839,7 +6010,13 @@
                             aria-label="Explore A sunflower in glass"
                           >
                             <img
-                              data-src="assets/scroll/glass-sunflower-study-320.webp"
+                              src="assets/canvas/glass-sunflower-study-320.webp"
+                              srcset="
+                                assets/canvas/glass-sunflower-study-320.webp 320w,
+                                assets/canvas/glass-sunflower-study-480.webp 480w,
+                                assets/canvas/glass-sunflower-study-640.webp 640w
+                              "
+                              sizes="(max-width: 760px) 83.52px, (min-width: 1700px) 108.00px, clamp(86.40px, 6.960vw, 103.68px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -4862,33 +6039,6 @@
                     --pair-share: 0.45454545454545453;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/the-lacemaker-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/glass-harmonics-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-dyers-courtyard-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -4899,7 +6049,9 @@
                         aria-label="Explore An evening at the bookshop"
                       >
                         <img
-                          data-src="assets/scroll/evening-at-the-bookshop-480.webp"
+                          data-src="assets/canvas/evening-at-the-bookshop-320.webp"
+                          data-srcset="assets/canvas/evening-at-the-bookshop-320.webp 320w, assets/canvas/evening-at-the-bookshop-480.webp 480w, assets/canvas/evening-at-the-bookshop-640.webp 640w"
+                          sizes="(max-width: 760px) 249.65px, (min-width: 1700px) 322.83px, clamp(258.26px, 20.804vw, 309.91px)"
                           width="1408"
                           height="1024"
                           decoding="async"
@@ -4915,7 +6067,9 @@
                         aria-label="Explore Through the lattice"
                       >
                         <img
-                          data-src="assets/scroll/the-latticed-courtyard-320.webp"
+                          data-src="assets/canvas/the-latticed-courtyard-320.webp"
+                          data-srcset="assets/canvas/the-latticed-courtyard-320.webp 320w, assets/canvas/the-latticed-courtyard-480.webp 480w, assets/canvas/the-latticed-courtyard-640.webp 640w"
+                          sizes="(max-width: 760px) 249.65px, (min-width: 1700px) 322.83px, clamp(258.26px, 20.804vw, 309.91px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -4934,7 +6088,9 @@
                         aria-label="Explore The last tram home"
                       >
                         <img
-                          data-src="assets/scroll/the-last-tram-home-640.webp"
+                          data-src="assets/canvas/the-last-tram-home-320.webp"
+                          data-srcset="assets/canvas/the-last-tram-home-320.webp 320w, assets/canvas/the-last-tram-home-480.webp 480w, assets/canvas/the-last-tram-home-640.webp 640w"
+                          sizes="(max-width: 760px) 220.85px, (min-width: 1700px) 285.58px, clamp(228.46px, 18.404vw, 274.15px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -4953,7 +6109,9 @@
                             aria-label="Explore Ceramic moonrise"
                           >
                             <img
-                              data-src="assets/scroll/ceramic-moonrise-320.webp"
+                              data-src="assets/canvas/ceramic-moonrise-320.webp"
+                              data-srcset="assets/canvas/ceramic-moonrise-320.webp 320w, assets/canvas/ceramic-moonrise-480.webp 480w, assets/canvas/ceramic-moonrise-640.webp 640w"
+                              sizes="(max-width: 760px) 100.38px, (min-width: 1700px) 129.81px, clamp(103.85px, 8.365vw, 124.62px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -4969,7 +6127,9 @@
                             aria-label="Explore From sketch to brass"
                           >
                             <img
-                              data-src="assets/scroll/brass-globe-render-320.webp"
+                              data-src="assets/canvas/brass-globe-render-320.webp"
+                              data-srcset="assets/canvas/brass-globe-render-320.webp 320w, assets/canvas/brass-globe-render-480.webp 480w, assets/canvas/brass-globe-render-640.webp 640w"
+                              sizes="(max-width: 760px) 100.38px, (min-width: 1700px) 129.81px, clamp(103.85px, 8.365vw, 124.62px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -4988,7 +6148,9 @@
                             aria-label="Explore A creature in wood"
                           >
                             <img
-                              data-src="assets/scroll/marquetry-bestiary-320.webp"
+                              data-src="assets/canvas/marquetry-bestiary-320.webp"
+                              data-srcset="assets/canvas/marquetry-bestiary-320.webp 320w, assets/canvas/marquetry-bestiary-480.webp 480w, assets/canvas/marquetry-bestiary-640.webp 640w"
+                              sizes="(max-width: 760px) 120.46px, (min-width: 1700px) 155.77px, clamp(124.62px, 10.038vw, 149.54px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5004,7 +6166,9 @@
                             aria-label="Explore A summer between pages"
                           >
                             <img
-                              data-src="assets/scroll/a-summer-between-pages-320.webp"
+                              data-src="assets/canvas/a-summer-between-pages-320.webp"
+                              data-srcset="assets/canvas/a-summer-between-pages-320.webp 320w, assets/canvas/a-summer-between-pages-480.webp 480w, assets/canvas/a-summer-between-pages-640.webp 640w"
+                              sizes="(max-width: 760px) 120.46px, (min-width: 1700px) 155.77px, clamp(124.62px, 10.038vw, 149.54px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5022,33 +6186,6 @@
                   class="art-scroll-group"
                   style="--feature-stack: 2.875; --cluster-stack: 1.4666666666666668; --cluster-gaps: 1.2; --pair-share: 0.6"
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/the-bespoke-bicycle-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/accordion-book-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/courier-wardrobe-composition-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -5059,7 +6196,9 @@
                         aria-label="Explore A portrait in paper"
                       >
                         <img
-                          data-src="assets/scroll/paper-portrait-study-480.webp"
+                          data-src="assets/canvas/paper-portrait-study-320.webp"
+                          data-srcset="assets/canvas/paper-portrait-study-320.webp 320w, assets/canvas/paper-portrait-study-480.webp 480w, assets/canvas/paper-portrait-study-640.webp 640w"
+                          sizes="(max-width: 760px) 121.04px, (min-width: 1700px) 156.52px, clamp(125.22px, 10.087vw, 150.26px)"
                           width="768"
                           height="1152"
                           decoding="async"
@@ -5075,7 +6214,9 @@
                         aria-label="Explore Dear tomorrow"
                       >
                         <img
-                          data-src="assets/scroll/tomorrow-blackboard-320.webp"
+                          data-src="assets/canvas/tomorrow-blackboard-320.webp"
+                          data-srcset="assets/canvas/tomorrow-blackboard-320.webp 320w, assets/canvas/tomorrow-blackboard-480.webp 480w, assets/canvas/tomorrow-blackboard-640.webp 640w"
+                          sizes="(max-width: 760px) 121.04px, (min-width: 1700px) 156.52px, clamp(125.22px, 10.087vw, 150.26px)"
                           width="1024"
                           height="1408"
                           decoding="async"
@@ -5094,7 +6235,9 @@
                         aria-label="Explore Before the first note"
                       >
                         <img
-                          data-src="assets/scroll/rehearsal-in-red-640.webp"
+                          data-src="assets/canvas/rehearsal-in-red-320.webp"
+                          data-srcset="assets/canvas/rehearsal-in-red-320.webp 320w, assets/canvas/rehearsal-in-red-480.webp 480w, assets/canvas/rehearsal-in-red-640.webp 640w"
+                          sizes="(max-width: 760px) 237.27px, (min-width: 1700px) 306.82px, clamp(245.45px, 19.773vw, 294.55px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5113,7 +6256,9 @@
                             aria-label="Explore A reef in thread"
                           >
                             <img
-                              data-src="assets/scroll/woven-reef-320.webp"
+                              data-src="assets/canvas/woven-reef-320.webp"
+                              data-srcset="assets/canvas/woven-reef-320.webp 320w, assets/canvas/woven-reef-480.webp 480w, assets/canvas/woven-reef-640.webp 640w"
+                              sizes="(max-width: 760px) 142.36px, (min-width: 1700px) 184.09px, clamp(147.27px, 11.864vw, 176.73px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5129,7 +6274,9 @@
                             aria-label="Explore A tiny regatta"
                           >
                             <img
-                              data-src="assets/scroll/the-tin-toy-regatta-320.webp"
+                              data-src="assets/canvas/the-tin-toy-regatta-320.webp"
+                              data-srcset="assets/canvas/the-tin-toy-regatta-320.webp 320w, assets/canvas/the-tin-toy-regatta-480.webp 480w, assets/canvas/the-tin-toy-regatta-640.webp 640w"
+                              sizes="(max-width: 760px) 142.36px, (min-width: 1700px) 184.09px, clamp(147.27px, 11.864vw, 176.73px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5148,7 +6295,9 @@
                             aria-label="Explore Sand and silver"
                           >
                             <img
-                              data-src="assets/scroll/sand-and-silver-320.webp"
+                              data-src="assets/canvas/sand-and-silver-320.webp"
+                              data-srcset="assets/canvas/sand-and-silver-320.webp 320w, assets/canvas/sand-and-silver-480.webp 480w, assets/canvas/sand-and-silver-640.webp 640w"
+                              sizes="(max-width: 760px) 94.91px, (min-width: 1700px) 122.73px, clamp(98.18px, 7.909vw, 117.82px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5164,7 +6313,9 @@
                             aria-label="Explore A shop comes to life"
                           >
                             <img
-                              data-src="assets/scroll/a-shop-comes-to-life-320.webp"
+                              data-src="assets/canvas/a-shop-comes-to-life-320.webp"
+                              data-srcset="assets/canvas/a-shop-comes-to-life-320.webp 320w, assets/canvas/a-shop-comes-to-life-480.webp 480w, assets/canvas/a-shop-comes-to-life-640.webp 640w"
+                              sizes="(max-width: 760px) 94.91px, (min-width: 1700px) 122.73px, clamp(98.18px, 7.909vw, 117.82px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5187,33 +6338,6 @@
                     --pair-share: 0.3661971830985915;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/ceramic-moonrise-320.webp"
-                      fetchpriority="low"
-                      width="1024"
-                      height="1024"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/rehearsal-in-red-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-coral-desert-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -5224,7 +6348,9 @@
                         aria-label="Explore Mountain jasmine tea"
                       >
                         <img
-                          data-src="assets/scroll/mountain-jasmine-tea-480.webp"
+                          data-src="assets/canvas/mountain-jasmine-tea-320.webp"
+                          data-srcset="assets/canvas/mountain-jasmine-tea-320.webp 320w, assets/canvas/mountain-jasmine-tea-480.webp 480w, assets/canvas/mountain-jasmine-tea-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1024"
                           height="1024"
                           decoding="async"
@@ -5240,7 +6366,9 @@
                         aria-label="Explore From paint to print"
                       >
                         <img
-                          data-src="assets/scroll/screenprint-to-woodblock-320.webp"
+                          data-src="assets/canvas/screenprint-to-woodblock-320.webp"
+                          data-srcset="assets/canvas/screenprint-to-woodblock-320.webp 320w, assets/canvas/screenprint-to-woodblock-480.webp 480w, assets/canvas/screenprint-to-woodblock-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5259,7 +6387,9 @@
                         aria-label="Explore The dyers’ courtyard"
                       >
                         <img
-                          data-src="assets/scroll/the-dyers-courtyard-640.webp"
+                          data-src="assets/canvas/the-dyers-courtyard-320.webp"
+                          data-srcset="assets/canvas/the-dyers-courtyard-320.webp 320w, assets/canvas/the-dyers-courtyard-480.webp 480w, assets/canvas/the-dyers-courtyard-640.webp 640w"
+                          sizes="(max-width: 760px) 219.95px, (min-width: 1700px) 284.42px, clamp(227.54px, 18.329vw, 273.04px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5278,7 +6408,9 @@
                             aria-label="Explore A fold for spring"
                           >
                             <img
-                              data-src="assets/scroll/a-fold-for-spring-320.webp"
+                              data-src="assets/canvas/a-fold-for-spring-320.webp"
+                              data-srcset="assets/canvas/a-fold-for-spring-320.webp 320w, assets/canvas/a-fold-for-spring-480.webp 480w, assets/canvas/a-fold-for-spring-640.webp 640w"
+                              sizes="(max-width: 760px) 80.55px, (min-width: 1700px) 104.15px, clamp(83.32px, 6.712vw, 99.99px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5294,7 +6426,9 @@
                             aria-label="Explore Three references, one look"
                           >
                             <img
-                              data-src="assets/scroll/courier-wardrobe-composition-320.webp"
+                              data-src="assets/canvas/courier-wardrobe-composition-320.webp"
+                              data-srcset="assets/canvas/courier-wardrobe-composition-320.webp 320w, assets/canvas/courier-wardrobe-composition-480.webp 480w, assets/canvas/courier-wardrobe-composition-640.webp 640w"
+                              sizes="(max-width: 760px) 80.55px, (min-width: 1700px) 104.15px, clamp(83.32px, 6.712vw, 99.99px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -5313,7 +6447,9 @@
                             aria-label="Explore The porcelain tiger"
                           >
                             <img
-                              data-src="assets/scroll/the-porcelain-tiger-320.webp"
+                              data-src="assets/canvas/the-porcelain-tiger-320.webp"
+                              data-srcset="assets/canvas/the-porcelain-tiger-320.webp 320w, assets/canvas/the-porcelain-tiger-480.webp 480w, assets/canvas/the-porcelain-tiger-640.webp 640w"
+                              sizes="(max-width: 760px) 139.41px, (min-width: 1700px) 180.27px, clamp(144.21px, 11.617vw, 173.06px)"
                               width="1152"
                               height="896"
                               decoding="async"
@@ -5329,7 +6465,9 @@
                             aria-label="Explore The watchmaker’s desk"
                           >
                             <img
-                              data-src="assets/scroll/the-watchmakers-desk-320.webp"
+                              data-src="assets/canvas/the-watchmakers-desk-320.webp"
+                              data-srcset="assets/canvas/the-watchmakers-desk-320.webp 320w, assets/canvas/the-watchmakers-desk-480.webp 480w, assets/canvas/the-watchmakers-desk-640.webp 640w"
+                              sizes="(max-width: 760px) 139.41px, (min-width: 1700px) 180.27px, clamp(144.21px, 11.617vw, 173.06px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5352,33 +6490,6 @@
                     --pair-share: 0.39999999999999997;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/glass-sunflower-study-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/cherry-blossom-bus-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-rain-dancer-320.webp"
-                      fetchpriority="low"
-                      width="896"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -5389,7 +6500,9 @@
                         aria-label="Explore The lacemaker"
                       >
                         <img
-                          data-src="assets/scroll/the-lacemaker-480.webp"
+                          data-src="assets/canvas/the-lacemaker-320.webp"
+                          data-srcset="assets/canvas/the-lacemaker-320.webp 320w, assets/canvas/the-lacemaker-480.webp 480w, assets/canvas/the-lacemaker-640.webp 640w"
+                          sizes="(max-width: 760px) 152.78px, (min-width: 1700px) 197.56px, clamp(158.05px, 12.732vw, 189.66px)"
                           width="768"
                           height="1152"
                           decoding="async"
@@ -5405,7 +6518,9 @@
                         aria-label="Explore Woven memory"
                       >
                         <img
-                          data-src="assets/scroll/woven-memory-320.webp"
+                          data-src="assets/canvas/woven-memory-320.webp"
+                          data-srcset="assets/canvas/woven-memory-320.webp 320w, assets/canvas/woven-memory-480.webp 480w, assets/canvas/woven-memory-640.webp 640w"
+                          sizes="(max-width: 760px) 152.78px, (min-width: 1700px) 197.56px, clamp(158.05px, 12.732vw, 189.66px)"
                           width="1152"
                           height="896"
                           decoding="async"
@@ -5424,7 +6539,9 @@
                         aria-label="Explore The copper-kettle train"
                       >
                         <img
-                          data-src="assets/scroll/the-copper-kettle-train-640.webp"
+                          data-src="assets/canvas/the-copper-kettle-train-320.webp"
+                          data-srcset="assets/canvas/the-copper-kettle-train-320.webp 320w, assets/canvas/the-copper-kettle-train-480.webp 480w, assets/canvas/the-copper-kettle-train-640.webp 640w"
+                          sizes="(max-width: 760px) 226.96px, (min-width: 1700px) 293.48px, clamp(234.78px, 18.913vw, 281.74px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5443,7 +6560,9 @@
                             aria-label="Explore A landscape unfolds"
                           >
                             <img
-                              data-src="assets/scroll/accordion-book-320.webp"
+                              data-src="assets/canvas/accordion-book-320.webp"
+                              data-srcset="assets/canvas/accordion-book-320.webp 320w, assets/canvas/accordion-book-480.webp 480w, assets/canvas/accordion-book-640.webp 640w"
+                              sizes="(max-width: 760px) 90.78px, (min-width: 1700px) 117.39px, clamp(93.91px, 7.565vw, 112.70px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5459,7 +6578,9 @@
                             aria-label="Explore A quiet light"
                           >
                             <img
-                              data-src="assets/scroll/porcelain-light-320.webp"
+                              data-src="assets/canvas/porcelain-light-320.webp"
+                              data-srcset="assets/canvas/porcelain-light-320.webp 320w, assets/canvas/porcelain-light-480.webp 480w, assets/canvas/porcelain-light-640.webp 640w"
+                              sizes="(max-width: 760px) 90.78px, (min-width: 1700px) 117.39px, clamp(93.91px, 7.565vw, 112.70px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -5478,7 +6599,9 @@
                             aria-label="Explore Lacquer and gold"
                           >
                             <img
-                              data-src="assets/scroll/the-lacquered-dragon-320.webp"
+                              data-src="assets/canvas/the-lacquered-dragon-320.webp"
+                              data-srcset="assets/canvas/the-lacquered-dragon-320.webp 320w, assets/canvas/the-lacquered-dragon-480.webp 480w, assets/canvas/the-lacquered-dragon-640.webp 640w"
+                              sizes="(max-width: 760px) 136.17px, (min-width: 1700px) 176.09px, clamp(140.87px, 11.348vw, 169.04px)"
                               width="1152"
                               height="896"
                               decoding="async"
@@ -5494,7 +6617,9 @@
                             aria-label="Explore A mechanical herbarium"
                           >
                             <img
-                              data-src="assets/scroll/mechanical-herbarium-320.webp"
+                              data-src="assets/canvas/mechanical-herbarium-320.webp"
+                              data-srcset="assets/canvas/mechanical-herbarium-320.webp 320w, assets/canvas/mechanical-herbarium-480.webp 480w, assets/canvas/mechanical-herbarium-640.webp 640w"
+                              sizes="(max-width: 760px) 136.17px, (min-width: 1700px) 176.09px, clamp(140.87px, 11.348vw, 169.04px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5517,33 +6642,6 @@
                     --pair-share: 0.5806451612903226;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/the-potter-at-dawn-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/a-summer-between-pages-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-tin-toy-regatta-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -5554,7 +6652,9 @@
                         aria-label="Explore A costume in motion"
                       >
                         <img
-                          data-src="assets/scroll/costume-in-motion-480.webp"
+                          data-src="assets/canvas/costume-in-motion-320.webp"
+                          data-srcset="assets/canvas/costume-in-motion-320.webp 320w, assets/canvas/costume-in-motion-480.webp 480w, assets/canvas/costume-in-motion-640.webp 640w"
+                          sizes="(max-width: 760px) 160.62px, (min-width: 1700px) 207.69px, clamp(166.15px, 13.385vw, 199.38px)"
                           width="768"
                           height="1152"
                           decoding="async"
@@ -5570,7 +6670,9 @@
                         aria-label="Explore The amethyst grotto"
                       >
                         <img
-                          data-src="assets/scroll/the-amethyst-grotto-320.webp"
+                          data-src="assets/canvas/the-amethyst-grotto-320.webp"
+                          data-srcset="assets/canvas/the-amethyst-grotto-320.webp 320w, assets/canvas/the-amethyst-grotto-480.webp 480w, assets/canvas/the-amethyst-grotto-640.webp 640w"
+                          sizes="(max-width: 760px) 160.62px, (min-width: 1700px) 207.69px, clamp(166.15px, 13.385vw, 199.38px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5589,7 +6691,9 @@
                         aria-label="Explore Made by hand"
                       >
                         <img
-                          data-src="assets/scroll/the-red-lantern-workshop-640.webp"
+                          data-src="assets/canvas/the-red-lantern-workshop-320.webp"
+                          data-srcset="assets/canvas/the-red-lantern-workshop-320.webp 320w, assets/canvas/the-red-lantern-workshop-480.webp 480w, assets/canvas/the-red-lantern-workshop-640.webp 640w"
+                          sizes="(max-width: 760px) 180.80px, (min-width: 1700px) 233.80px, clamp(187.04px, 15.067vw, 224.45px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5608,7 +6712,9 @@
                             aria-label="Explore The bespoke bicycle"
                           >
                             <img
-                              data-src="assets/scroll/the-bespoke-bicycle-320.webp"
+                              data-src="assets/canvas/the-bespoke-bicycle-320.webp"
+                              data-srcset="assets/canvas/the-bespoke-bicycle-320.webp 320w, assets/canvas/the-bespoke-bicycle-480.webp 480w, assets/canvas/the-bespoke-bicycle-640.webp 640w"
+                              sizes="(max-width: 760px) 104.98px, (min-width: 1700px) 135.75px, clamp(108.60px, 8.749vw, 130.32px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5624,7 +6730,9 @@
                             aria-label="Explore A dress made of wind"
                           >
                             <img
-                              data-src="assets/scroll/a-dress-made-of-wind-320.webp"
+                              data-src="assets/canvas/a-dress-made-of-wind-320.webp"
+                              data-srcset="assets/canvas/a-dress-made-of-wind-320.webp 320w, assets/canvas/a-dress-made-of-wind-480.webp 480w, assets/canvas/a-dress-made-of-wind-640.webp 640w"
+                              sizes="(max-width: 760px) 104.98px, (min-width: 1700px) 135.75px, clamp(108.60px, 8.749vw, 130.32px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -5643,7 +6751,9 @@
                             aria-label="Explore Room under an umbrella"
                           >
                             <img
-                              data-src="assets/scroll/room-under-an-umbrella-320.webp"
+                              data-src="assets/canvas/room-under-an-umbrella-320.webp"
+                              data-srcset="assets/canvas/room-under-an-umbrella-320.webp 320w, assets/canvas/room-under-an-umbrella-480.webp 480w, assets/canvas/room-under-an-umbrella-640.webp 640w"
+                              sizes="(max-width: 760px) 75.82px, (min-width: 1700px) 98.04px, clamp(78.44px, 6.318vw, 94.12px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -5659,7 +6769,9 @@
                             aria-label="Explore Glass harmonics"
                           >
                             <img
-                              data-src="assets/scroll/glass-harmonics-320.webp"
+                              data-src="assets/canvas/glass-harmonics-320.webp"
+                              data-srcset="assets/canvas/glass-harmonics-320.webp 320w, assets/canvas/glass-harmonics-480.webp 480w, assets/canvas/glass-harmonics-640.webp 640w"
+                              sizes="(max-width: 760px) 75.82px, (min-width: 1700px) 98.04px, clamp(78.44px, 6.318vw, 94.12px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -5682,33 +6794,6 @@
                     --pair-share: 0.6000000000000001;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/paper-portrait-study-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/an-orchard-in-glass-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-lacquered-dragon-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="896"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -5719,7 +6804,9 @@
                         aria-label="Explore The blossom route"
                       >
                         <img
-                          data-src="assets/scroll/cherry-blossom-bus-480.webp"
+                          data-src="assets/canvas/cherry-blossom-bus-320.webp"
+                          data-srcset="assets/canvas/cherry-blossom-bus-320.webp 320w, assets/canvas/cherry-blossom-bus-480.webp 480w, assets/canvas/cherry-blossom-bus-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5735,7 +6822,9 @@
                         aria-label="Explore A water drop’s journey"
                       >
                         <img
-                          data-src="assets/scroll/journey-of-a-water-drop-320.webp"
+                          data-src="assets/canvas/journey-of-a-water-drop-320.webp"
+                          data-srcset="assets/canvas/journey-of-a-water-drop-320.webp 320w, assets/canvas/journey-of-a-water-drop-480.webp 480w, assets/canvas/journey-of-a-water-drop-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1024"
                           height="1024"
                           decoding="async"
@@ -5754,7 +6843,9 @@
                         aria-label="Explore Between rain and light"
                       >
                         <img
-                          data-src="assets/scroll/the-rain-dancer-640.webp"
+                          data-src="assets/canvas/the-rain-dancer-320.webp"
+                          data-srcset="assets/canvas/the-rain-dancer-320.webp 320w, assets/canvas/the-rain-dancer-480.webp 480w, assets/canvas/the-rain-dancer-640.webp 640w"
+                          sizes="(max-width: 760px) 152.25px, (min-width: 1700px) 196.88px, clamp(157.50px, 12.688vw, 189.00px)"
                           width="896"
                           height="1152"
                           decoding="async"
@@ -5773,7 +6864,9 @@
                             aria-label="Explore The sunlit souk"
                           >
                             <img
-                              data-src="assets/scroll/the-sunlit-souk-320.webp"
+                              data-src="assets/canvas/the-sunlit-souk-320.webp"
+                              data-srcset="assets/canvas/the-sunlit-souk-320.webp 320w, assets/canvas/the-sunlit-souk-480.webp 480w, assets/canvas/the-sunlit-souk-640.webp 640w"
+                              sizes="(max-width: 760px) 91.35px, (min-width: 1700px) 118.13px, clamp(94.50px, 7.613vw, 113.40px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5789,7 +6882,9 @@
                             aria-label="Explore The seed library"
                           >
                             <img
-                              data-src="assets/scroll/the-seed-library-320.webp"
+                              data-src="assets/canvas/the-seed-library-320.webp"
+                              data-srcset="assets/canvas/the-seed-library-320.webp 320w, assets/canvas/the-seed-library-480.webp 480w, assets/canvas/the-seed-library-640.webp 640w"
+                              sizes="(max-width: 760px) 91.35px, (min-width: 1700px) 118.13px, clamp(94.50px, 7.613vw, 113.40px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5808,7 +6903,9 @@
                             aria-label="Explore An orchard in glass"
                           >
                             <img
-                              data-src="assets/scroll/an-orchard-in-glass-320.webp"
+                              data-src="assets/canvas/an-orchard-in-glass-320.webp"
+                              data-srcset="assets/canvas/an-orchard-in-glass-320.webp 320w, assets/canvas/an-orchard-in-glass-480.webp 480w, assets/canvas/an-orchard-in-glass-640.webp 640w"
+                              sizes="(max-width: 760px) 60.90px, (min-width: 1700px) 78.75px, clamp(63.00px, 5.075vw, 75.60px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -5824,7 +6921,9 @@
                             aria-label="Explore A recipe for summer"
                           >
                             <img
-                              data-src="assets/scroll/a-recipe-for-summer-320.webp"
+                              data-src="assets/canvas/a-recipe-for-summer-320.webp"
+                              data-srcset="assets/canvas/a-recipe-for-summer-320.webp 320w, assets/canvas/a-recipe-for-summer-480.webp 480w, assets/canvas/a-recipe-for-summer-640.webp 640w"
+                              sizes="(max-width: 760px) 60.90px, (min-width: 1700px) 78.75px, clamp(63.00px, 5.075vw, 75.60px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5844,33 +6943,6 @@
                   class="art-scroll-group"
                   style="--feature-stack: 2.75; --cluster-stack: 1.6666666666666665; --cluster-gaps: 1; --pair-share: 0.6000000000000001"
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/a-dress-made-of-wind-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/woven-memory-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="896"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/screenprint-to-woodblock-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -5882,7 +6954,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-night-train-letter-480.webp"
+                          data-src="assets/canvas/the-night-train-letter-320.webp"
+                          data-srcset="assets/canvas/the-night-train-letter-320.webp 320w, assets/canvas/the-night-train-letter-480.webp 480w, assets/canvas/the-night-train-letter-640.webp 640w"
+                          sizes="(max-width: 760px) 126.55px, (min-width: 1700px) 163.64px, clamp(130.91px, 10.545vw, 157.09px)"
                           width="1024"
                           height="1408"
                           decoding="async"
@@ -5899,7 +6973,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/paper-garden-festival-320.webp"
+                          data-src="assets/canvas/paper-garden-festival-320.webp"
+                          data-srcset="assets/canvas/paper-garden-festival-320.webp 320w, assets/canvas/paper-garden-festival-480.webp 480w, assets/canvas/paper-garden-festival-640.webp 640w"
+                          sizes="(max-width: 760px) 126.55px, (min-width: 1700px) 163.64px, clamp(130.91px, 10.545vw, 157.09px)"
                           width="1024"
                           height="1408"
                           decoding="async"
@@ -5919,7 +6995,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-coral-desert-640.webp"
+                          data-src="assets/canvas/the-coral-desert-320.webp"
+                          data-srcset="assets/canvas/the-coral-desert-320.webp 320w, assets/canvas/the-coral-desert-480.webp 480w, assets/canvas/the-coral-desert-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -5939,7 +7017,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-potter-at-dawn-320.webp"
+                              data-src="assets/canvas/the-potter-at-dawn-320.webp"
+                              data-srcset="assets/canvas/the-potter-at-dawn-320.webp 320w, assets/canvas/the-potter-at-dawn-480.webp 480w, assets/canvas/the-potter-at-dawn-640.webp 640w"
+                              sizes="(max-width: 760px) 125.28px, (min-width: 1700px) 162.00px, clamp(129.60px, 10.440vw, 155.52px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -5956,7 +7036,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/four-materials-four-lights-320.webp"
+                              data-src="assets/canvas/four-materials-four-lights-320.webp"
+                              data-srcset="assets/canvas/four-materials-four-lights-320.webp 320w, assets/canvas/four-materials-four-lights-480.webp 480w, assets/canvas/four-materials-four-lights-640.webp 640w"
+                              sizes="(max-width: 760px) 125.28px, (min-width: 1700px) 162.00px, clamp(129.60px, 10.440vw, 155.52px)"
                               width="1152"
                               height="1152"
                               decoding="async"
@@ -5976,7 +7058,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/a-tide-of-ink-320.webp"
+                              data-src="assets/canvas/a-tide-of-ink-320.webp"
+                              data-srcset="assets/canvas/a-tide-of-ink-320.webp 320w, assets/canvas/a-tide-of-ink-480.webp 480w, assets/canvas/a-tide-of-ink-640.webp 640w"
+                              sizes="(max-width: 760px) 83.52px, (min-width: 1700px) 108.00px, clamp(86.40px, 6.960vw, 103.68px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -5993,7 +7077,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/glass-sunflower-study-320.webp"
+                              data-src="assets/canvas/glass-sunflower-study-320.webp"
+                              data-srcset="assets/canvas/glass-sunflower-study-320.webp 320w, assets/canvas/glass-sunflower-study-480.webp 480w, assets/canvas/glass-sunflower-study-640.webp 640w"
+                              sizes="(max-width: 760px) 83.52px, (min-width: 1700px) 108.00px, clamp(86.40px, 6.960vw, 103.68px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -6016,33 +7102,6 @@
                     --pair-share: 0.45454545454545453;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/the-lacemaker-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/glass-harmonics-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-dyers-courtyard-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -6054,7 +7113,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/evening-at-the-bookshop-480.webp"
+                          data-src="assets/canvas/evening-at-the-bookshop-320.webp"
+                          data-srcset="assets/canvas/evening-at-the-bookshop-320.webp 320w, assets/canvas/evening-at-the-bookshop-480.webp 480w, assets/canvas/evening-at-the-bookshop-640.webp 640w"
+                          sizes="(max-width: 760px) 249.65px, (min-width: 1700px) 322.83px, clamp(258.26px, 20.804vw, 309.91px)"
                           width="1408"
                           height="1024"
                           decoding="async"
@@ -6071,7 +7132,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-latticed-courtyard-320.webp"
+                          data-src="assets/canvas/the-latticed-courtyard-320.webp"
+                          data-srcset="assets/canvas/the-latticed-courtyard-320.webp 320w, assets/canvas/the-latticed-courtyard-480.webp 480w, assets/canvas/the-latticed-courtyard-640.webp 640w"
+                          sizes="(max-width: 760px) 249.65px, (min-width: 1700px) 322.83px, clamp(258.26px, 20.804vw, 309.91px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6091,7 +7154,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-last-tram-home-640.webp"
+                          data-src="assets/canvas/the-last-tram-home-320.webp"
+                          data-srcset="assets/canvas/the-last-tram-home-320.webp 320w, assets/canvas/the-last-tram-home-480.webp 480w, assets/canvas/the-last-tram-home-640.webp 640w"
+                          sizes="(max-width: 760px) 220.85px, (min-width: 1700px) 285.58px, clamp(228.46px, 18.404vw, 274.15px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6111,7 +7176,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/ceramic-moonrise-320.webp"
+                              data-src="assets/canvas/ceramic-moonrise-320.webp"
+                              data-srcset="assets/canvas/ceramic-moonrise-320.webp 320w, assets/canvas/ceramic-moonrise-480.webp 480w, assets/canvas/ceramic-moonrise-640.webp 640w"
+                              sizes="(max-width: 760px) 100.38px, (min-width: 1700px) 129.81px, clamp(103.85px, 8.365vw, 124.62px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -6128,7 +7195,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/brass-globe-render-320.webp"
+                              data-src="assets/canvas/brass-globe-render-320.webp"
+                              data-srcset="assets/canvas/brass-globe-render-320.webp 320w, assets/canvas/brass-globe-render-480.webp 480w, assets/canvas/brass-globe-render-640.webp 640w"
+                              sizes="(max-width: 760px) 100.38px, (min-width: 1700px) 129.81px, clamp(103.85px, 8.365vw, 124.62px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -6148,7 +7217,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/marquetry-bestiary-320.webp"
+                              data-src="assets/canvas/marquetry-bestiary-320.webp"
+                              data-srcset="assets/canvas/marquetry-bestiary-320.webp 320w, assets/canvas/marquetry-bestiary-480.webp 480w, assets/canvas/marquetry-bestiary-640.webp 640w"
+                              sizes="(max-width: 760px) 120.46px, (min-width: 1700px) 155.77px, clamp(124.62px, 10.038vw, 149.54px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -6165,7 +7236,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/a-summer-between-pages-320.webp"
+                              data-src="assets/canvas/a-summer-between-pages-320.webp"
+                              data-srcset="assets/canvas/a-summer-between-pages-320.webp 320w, assets/canvas/a-summer-between-pages-480.webp 480w, assets/canvas/a-summer-between-pages-640.webp 640w"
+                              sizes="(max-width: 760px) 120.46px, (min-width: 1700px) 155.77px, clamp(124.62px, 10.038vw, 149.54px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6183,33 +7256,6 @@
                   class="art-scroll-group"
                   style="--feature-stack: 2.875; --cluster-stack: 1.4666666666666668; --cluster-gaps: 1.2; --pair-share: 0.6"
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/the-bespoke-bicycle-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/accordion-book-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/courier-wardrobe-composition-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -6221,7 +7267,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/paper-portrait-study-480.webp"
+                          data-src="assets/canvas/paper-portrait-study-320.webp"
+                          data-srcset="assets/canvas/paper-portrait-study-320.webp 320w, assets/canvas/paper-portrait-study-480.webp 480w, assets/canvas/paper-portrait-study-640.webp 640w"
+                          sizes="(max-width: 760px) 121.04px, (min-width: 1700px) 156.52px, clamp(125.22px, 10.087vw, 150.26px)"
                           width="768"
                           height="1152"
                           decoding="async"
@@ -6238,7 +7286,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/tomorrow-blackboard-320.webp"
+                          data-src="assets/canvas/tomorrow-blackboard-320.webp"
+                          data-srcset="assets/canvas/tomorrow-blackboard-320.webp 320w, assets/canvas/tomorrow-blackboard-480.webp 480w, assets/canvas/tomorrow-blackboard-640.webp 640w"
+                          sizes="(max-width: 760px) 121.04px, (min-width: 1700px) 156.52px, clamp(125.22px, 10.087vw, 150.26px)"
                           width="1024"
                           height="1408"
                           decoding="async"
@@ -6258,7 +7308,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/rehearsal-in-red-640.webp"
+                          data-src="assets/canvas/rehearsal-in-red-320.webp"
+                          data-srcset="assets/canvas/rehearsal-in-red-320.webp 320w, assets/canvas/rehearsal-in-red-480.webp 480w, assets/canvas/rehearsal-in-red-640.webp 640w"
+                          sizes="(max-width: 760px) 237.27px, (min-width: 1700px) 306.82px, clamp(245.45px, 19.773vw, 294.55px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6278,7 +7330,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/woven-reef-320.webp"
+                              data-src="assets/canvas/woven-reef-320.webp"
+                              data-srcset="assets/canvas/woven-reef-320.webp 320w, assets/canvas/woven-reef-480.webp 480w, assets/canvas/woven-reef-640.webp 640w"
+                              sizes="(max-width: 760px) 142.36px, (min-width: 1700px) 184.09px, clamp(147.27px, 11.864vw, 176.73px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6295,7 +7349,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-tin-toy-regatta-320.webp"
+                              data-src="assets/canvas/the-tin-toy-regatta-320.webp"
+                              data-srcset="assets/canvas/the-tin-toy-regatta-320.webp 320w, assets/canvas/the-tin-toy-regatta-480.webp 480w, assets/canvas/the-tin-toy-regatta-640.webp 640w"
+                              sizes="(max-width: 760px) 142.36px, (min-width: 1700px) 184.09px, clamp(147.27px, 11.864vw, 176.73px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6315,7 +7371,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/sand-and-silver-320.webp"
+                              data-src="assets/canvas/sand-and-silver-320.webp"
+                              data-srcset="assets/canvas/sand-and-silver-320.webp 320w, assets/canvas/sand-and-silver-480.webp 480w, assets/canvas/sand-and-silver-640.webp 640w"
+                              sizes="(max-width: 760px) 94.91px, (min-width: 1700px) 122.73px, clamp(98.18px, 7.909vw, 117.82px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -6332,7 +7390,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/a-shop-comes-to-life-320.webp"
+                              data-src="assets/canvas/a-shop-comes-to-life-320.webp"
+                              data-srcset="assets/canvas/a-shop-comes-to-life-320.webp 320w, assets/canvas/a-shop-comes-to-life-480.webp 480w, assets/canvas/a-shop-comes-to-life-640.webp 640w"
+                              sizes="(max-width: 760px) 94.91px, (min-width: 1700px) 122.73px, clamp(98.18px, 7.909vw, 117.82px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -6355,33 +7415,6 @@
                     --pair-share: 0.3661971830985915;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/ceramic-moonrise-320.webp"
-                      fetchpriority="low"
-                      width="1024"
-                      height="1024"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/rehearsal-in-red-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-coral-desert-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -6393,7 +7426,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/mountain-jasmine-tea-480.webp"
+                          data-src="assets/canvas/mountain-jasmine-tea-320.webp"
+                          data-srcset="assets/canvas/mountain-jasmine-tea-320.webp 320w, assets/canvas/mountain-jasmine-tea-480.webp 480w, assets/canvas/mountain-jasmine-tea-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1024"
                           height="1024"
                           decoding="async"
@@ -6410,7 +7445,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/screenprint-to-woodblock-320.webp"
+                          data-src="assets/canvas/screenprint-to-woodblock-320.webp"
+                          data-srcset="assets/canvas/screenprint-to-woodblock-320.webp 320w, assets/canvas/screenprint-to-woodblock-480.webp 480w, assets/canvas/screenprint-to-woodblock-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6430,7 +7467,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-dyers-courtyard-640.webp"
+                          data-src="assets/canvas/the-dyers-courtyard-320.webp"
+                          data-srcset="assets/canvas/the-dyers-courtyard-320.webp 320w, assets/canvas/the-dyers-courtyard-480.webp 480w, assets/canvas/the-dyers-courtyard-640.webp 640w"
+                          sizes="(max-width: 760px) 219.95px, (min-width: 1700px) 284.42px, clamp(227.54px, 18.329vw, 273.04px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6450,7 +7489,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/a-fold-for-spring-320.webp"
+                              data-src="assets/canvas/a-fold-for-spring-320.webp"
+                              data-srcset="assets/canvas/a-fold-for-spring-320.webp 320w, assets/canvas/a-fold-for-spring-480.webp 480w, assets/canvas/a-fold-for-spring-640.webp 640w"
+                              sizes="(max-width: 760px) 80.55px, (min-width: 1700px) 104.15px, clamp(83.32px, 6.712vw, 99.99px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -6467,7 +7508,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/courier-wardrobe-composition-320.webp"
+                              data-src="assets/canvas/courier-wardrobe-composition-320.webp"
+                              data-srcset="assets/canvas/courier-wardrobe-composition-320.webp 320w, assets/canvas/courier-wardrobe-composition-480.webp 480w, assets/canvas/courier-wardrobe-composition-640.webp 640w"
+                              sizes="(max-width: 760px) 80.55px, (min-width: 1700px) 104.15px, clamp(83.32px, 6.712vw, 99.99px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -6487,7 +7530,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-porcelain-tiger-320.webp"
+                              data-src="assets/canvas/the-porcelain-tiger-320.webp"
+                              data-srcset="assets/canvas/the-porcelain-tiger-320.webp 320w, assets/canvas/the-porcelain-tiger-480.webp 480w, assets/canvas/the-porcelain-tiger-640.webp 640w"
+                              sizes="(max-width: 760px) 139.41px, (min-width: 1700px) 180.27px, clamp(144.21px, 11.617vw, 173.06px)"
                               width="1152"
                               height="896"
                               decoding="async"
@@ -6504,7 +7549,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-watchmakers-desk-320.webp"
+                              data-src="assets/canvas/the-watchmakers-desk-320.webp"
+                              data-srcset="assets/canvas/the-watchmakers-desk-320.webp 320w, assets/canvas/the-watchmakers-desk-480.webp 480w, assets/canvas/the-watchmakers-desk-640.webp 640w"
+                              sizes="(max-width: 760px) 139.41px, (min-width: 1700px) 180.27px, clamp(144.21px, 11.617vw, 173.06px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6527,33 +7574,6 @@
                     --pair-share: 0.39999999999999997;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/glass-sunflower-study-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/cherry-blossom-bus-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-rain-dancer-320.webp"
-                      fetchpriority="low"
-                      width="896"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -6565,7 +7585,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-lacemaker-480.webp"
+                          data-src="assets/canvas/the-lacemaker-320.webp"
+                          data-srcset="assets/canvas/the-lacemaker-320.webp 320w, assets/canvas/the-lacemaker-480.webp 480w, assets/canvas/the-lacemaker-640.webp 640w"
+                          sizes="(max-width: 760px) 152.78px, (min-width: 1700px) 197.56px, clamp(158.05px, 12.732vw, 189.66px)"
                           width="768"
                           height="1152"
                           decoding="async"
@@ -6582,7 +7604,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/woven-memory-320.webp"
+                          data-src="assets/canvas/woven-memory-320.webp"
+                          data-srcset="assets/canvas/woven-memory-320.webp 320w, assets/canvas/woven-memory-480.webp 480w, assets/canvas/woven-memory-640.webp 640w"
+                          sizes="(max-width: 760px) 152.78px, (min-width: 1700px) 197.56px, clamp(158.05px, 12.732vw, 189.66px)"
                           width="1152"
                           height="896"
                           decoding="async"
@@ -6602,7 +7626,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-copper-kettle-train-640.webp"
+                          data-src="assets/canvas/the-copper-kettle-train-320.webp"
+                          data-srcset="assets/canvas/the-copper-kettle-train-320.webp 320w, assets/canvas/the-copper-kettle-train-480.webp 480w, assets/canvas/the-copper-kettle-train-640.webp 640w"
+                          sizes="(max-width: 760px) 226.96px, (min-width: 1700px) 293.48px, clamp(234.78px, 18.913vw, 281.74px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6622,7 +7648,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/accordion-book-320.webp"
+                              data-src="assets/canvas/accordion-book-320.webp"
+                              data-srcset="assets/canvas/accordion-book-320.webp 320w, assets/canvas/accordion-book-480.webp 480w, assets/canvas/accordion-book-640.webp 640w"
+                              sizes="(max-width: 760px) 90.78px, (min-width: 1700px) 117.39px, clamp(93.91px, 7.565vw, 112.70px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6639,7 +7667,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/porcelain-light-320.webp"
+                              data-src="assets/canvas/porcelain-light-320.webp"
+                              data-srcset="assets/canvas/porcelain-light-320.webp 320w, assets/canvas/porcelain-light-480.webp 480w, assets/canvas/porcelain-light-640.webp 640w"
+                              sizes="(max-width: 760px) 90.78px, (min-width: 1700px) 117.39px, clamp(93.91px, 7.565vw, 112.70px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -6659,7 +7689,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-lacquered-dragon-320.webp"
+                              data-src="assets/canvas/the-lacquered-dragon-320.webp"
+                              data-srcset="assets/canvas/the-lacquered-dragon-320.webp 320w, assets/canvas/the-lacquered-dragon-480.webp 480w, assets/canvas/the-lacquered-dragon-640.webp 640w"
+                              sizes="(max-width: 760px) 136.17px, (min-width: 1700px) 176.09px, clamp(140.87px, 11.348vw, 169.04px)"
                               width="1152"
                               height="896"
                               decoding="async"
@@ -6676,7 +7708,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/mechanical-herbarium-320.webp"
+                              data-src="assets/canvas/mechanical-herbarium-320.webp"
+                              data-srcset="assets/canvas/mechanical-herbarium-320.webp 320w, assets/canvas/mechanical-herbarium-480.webp 480w, assets/canvas/mechanical-herbarium-640.webp 640w"
+                              sizes="(max-width: 760px) 136.17px, (min-width: 1700px) 176.09px, clamp(140.87px, 11.348vw, 169.04px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6699,33 +7733,6 @@
                     --pair-share: 0.5806451612903226;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/the-potter-at-dawn-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/a-summer-between-pages-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-tin-toy-regatta-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="768"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -6737,7 +7744,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/costume-in-motion-480.webp"
+                          data-src="assets/canvas/costume-in-motion-320.webp"
+                          data-srcset="assets/canvas/costume-in-motion-320.webp 320w, assets/canvas/costume-in-motion-480.webp 480w, assets/canvas/costume-in-motion-640.webp 640w"
+                          sizes="(max-width: 760px) 160.62px, (min-width: 1700px) 207.69px, clamp(166.15px, 13.385vw, 199.38px)"
                           width="768"
                           height="1152"
                           decoding="async"
@@ -6754,7 +7763,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-amethyst-grotto-320.webp"
+                          data-src="assets/canvas/the-amethyst-grotto-320.webp"
+                          data-srcset="assets/canvas/the-amethyst-grotto-320.webp 320w, assets/canvas/the-amethyst-grotto-480.webp 480w, assets/canvas/the-amethyst-grotto-640.webp 640w"
+                          sizes="(max-width: 760px) 160.62px, (min-width: 1700px) 207.69px, clamp(166.15px, 13.385vw, 199.38px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6774,7 +7785,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-red-lantern-workshop-640.webp"
+                          data-src="assets/canvas/the-red-lantern-workshop-320.webp"
+                          data-srcset="assets/canvas/the-red-lantern-workshop-320.webp 320w, assets/canvas/the-red-lantern-workshop-480.webp 480w, assets/canvas/the-red-lantern-workshop-640.webp 640w"
+                          sizes="(max-width: 760px) 180.80px, (min-width: 1700px) 233.80px, clamp(187.04px, 15.067vw, 224.45px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6794,7 +7807,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-bespoke-bicycle-320.webp"
+                              data-src="assets/canvas/the-bespoke-bicycle-320.webp"
+                              data-srcset="assets/canvas/the-bespoke-bicycle-320.webp 320w, assets/canvas/the-bespoke-bicycle-480.webp 480w, assets/canvas/the-bespoke-bicycle-640.webp 640w"
+                              sizes="(max-width: 760px) 104.98px, (min-width: 1700px) 135.75px, clamp(108.60px, 8.749vw, 130.32px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6811,7 +7826,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/a-dress-made-of-wind-320.webp"
+                              data-src="assets/canvas/a-dress-made-of-wind-320.webp"
+                              data-srcset="assets/canvas/a-dress-made-of-wind-320.webp 320w, assets/canvas/a-dress-made-of-wind-480.webp 480w, assets/canvas/a-dress-made-of-wind-640.webp 640w"
+                              sizes="(max-width: 760px) 104.98px, (min-width: 1700px) 135.75px, clamp(108.60px, 8.749vw, 130.32px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -6831,7 +7848,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/room-under-an-umbrella-320.webp"
+                              data-src="assets/canvas/room-under-an-umbrella-320.webp"
+                              data-srcset="assets/canvas/room-under-an-umbrella-320.webp 320w, assets/canvas/room-under-an-umbrella-480.webp 480w, assets/canvas/room-under-an-umbrella-640.webp 640w"
+                              sizes="(max-width: 760px) 75.82px, (min-width: 1700px) 98.04px, clamp(78.44px, 6.318vw, 94.12px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -6848,7 +7867,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/glass-harmonics-320.webp"
+                              data-src="assets/canvas/glass-harmonics-320.webp"
+                              data-srcset="assets/canvas/glass-harmonics-320.webp 320w, assets/canvas/glass-harmonics-480.webp 480w, assets/canvas/glass-harmonics-640.webp 640w"
+                              sizes="(max-width: 760px) 75.82px, (min-width: 1700px) 98.04px, clamp(78.44px, 6.318vw, 94.12px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -6871,33 +7892,6 @@
                     --pair-share: 0.6000000000000001;
                   "
                 >
-                  <div class="art-scroll-canopy" aria-hidden="true">
-                    <img
-                      data-src="assets/scroll/paper-portrait-study-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/an-orchard-in-glass-320.webp"
-                      fetchpriority="low"
-                      width="768"
-                      height="1152"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    /><img
-                      data-src="assets/scroll/the-lacquered-dragon-320.webp"
-                      fetchpriority="low"
-                      width="1152"
-                      height="896"
-                      decoding="async"
-                      alt=""
-                      draggable="false"
-                    />
-                  </div>
                   <div class="art-scroll-mosaic">
                     <div class="art-scroll-feature">
                       <button
@@ -6909,7 +7903,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/cherry-blossom-bus-480.webp"
+                          data-src="assets/canvas/cherry-blossom-bus-320.webp"
+                          data-srcset="assets/canvas/cherry-blossom-bus-320.webp 320w, assets/canvas/cherry-blossom-bus-480.webp 480w, assets/canvas/cherry-blossom-bus-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1152"
                           height="768"
                           decoding="async"
@@ -6926,7 +7922,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/journey-of-a-water-drop-320.webp"
+                          data-src="assets/canvas/journey-of-a-water-drop-320.webp"
+                          data-srcset="assets/canvas/journey-of-a-water-drop-320.webp 320w, assets/canvas/journey-of-a-water-drop-480.webp 480w, assets/canvas/journey-of-a-water-drop-640.webp 640w"
+                          sizes="(max-width: 760px) 208.80px, (min-width: 1700px) 270.00px, clamp(216.00px, 17.400vw, 259.20px)"
                           width="1024"
                           height="1024"
                           decoding="async"
@@ -6946,7 +7944,9 @@
                         tabindex="-1"
                       >
                         <img
-                          data-src="assets/scroll/the-rain-dancer-640.webp"
+                          data-src="assets/canvas/the-rain-dancer-320.webp"
+                          data-srcset="assets/canvas/the-rain-dancer-320.webp 320w, assets/canvas/the-rain-dancer-480.webp 480w, assets/canvas/the-rain-dancer-640.webp 640w"
+                          sizes="(max-width: 760px) 152.25px, (min-width: 1700px) 196.88px, clamp(157.50px, 12.688vw, 189.00px)"
                           width="896"
                           height="1152"
                           decoding="async"
@@ -6966,7 +7966,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-sunlit-souk-320.webp"
+                              data-src="assets/canvas/the-sunlit-souk-320.webp"
+                              data-srcset="assets/canvas/the-sunlit-souk-320.webp 320w, assets/canvas/the-sunlit-souk-480.webp 480w, assets/canvas/the-sunlit-souk-640.webp 640w"
+                              sizes="(max-width: 760px) 91.35px, (min-width: 1700px) 118.13px, clamp(94.50px, 7.613vw, 113.40px)"
                               width="1152"
                               height="768"
                               decoding="async"
@@ -6983,7 +7985,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/the-seed-library-320.webp"
+                              data-src="assets/canvas/the-seed-library-320.webp"
+                              data-srcset="assets/canvas/the-seed-library-320.webp 320w, assets/canvas/the-seed-library-480.webp 480w, assets/canvas/the-seed-library-640.webp 640w"
+                              sizes="(max-width: 760px) 91.35px, (min-width: 1700px) 118.13px, clamp(94.50px, 7.613vw, 113.40px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -7003,7 +8007,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/an-orchard-in-glass-320.webp"
+                              data-src="assets/canvas/an-orchard-in-glass-320.webp"
+                              data-srcset="assets/canvas/an-orchard-in-glass-320.webp 320w, assets/canvas/an-orchard-in-glass-480.webp 480w, assets/canvas/an-orchard-in-glass-640.webp 640w"
+                              sizes="(max-width: 760px) 60.90px, (min-width: 1700px) 78.75px, clamp(63.00px, 5.075vw, 75.60px)"
                               width="768"
                               height="1152"
                               decoding="async"
@@ -7020,7 +8026,9 @@
                             tabindex="-1"
                           >
                             <img
-                              data-src="assets/scroll/a-recipe-for-summer-320.webp"
+                              data-src="assets/canvas/a-recipe-for-summer-320.webp"
+                              data-srcset="assets/canvas/a-recipe-for-summer-320.webp 320w, assets/canvas/a-recipe-for-summer-480.webp 480w, assets/canvas/a-recipe-for-summer-640.webp 640w"
+                              sizes="(max-width: 760px) 60.90px, (min-width: 1700px) 78.75px, clamp(63.00px, 5.075vw, 75.60px)"
                               width="1024"
                               height="1024"
                               decoding="async"
@@ -7038,7 +8046,7 @@
             </div>
           </div>
           <div class="art-scroll-controls">
-            <p>Many worlds. One model.</p>
+            <p>A collection of imagined worlds.</p>
             <div>
               <span class="art-scroll-hint">Drag to explore</span
               ><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion">
@@ -7076,7 +8084,7 @@
             <div>
               <h2 id="gallery-title">Create. Edit. Combine.</h2>
             </div>
-            <p>A handwritten letter, an evolving storefront, and an outfit assembled from references. Open each to see how it was made.</p>
+            <p>Write an image into being. Change it in conversation. Bring different references together.</p>
           </div>
           <div class="gallery-grid">
             <!-- INLINE_GALLERY_START -->
@@ -7085,12 +8093,11 @@
               <button class="gallery-open" type="button" data-artwork="the-night-train-letter" aria-label="Explore A letter from the night train">
                 <span class="gallery-main-image"
                   ><img
-                    src="assets/gallery/the-night-train-letter-480.webp"
-                    srcset="assets/gallery/the-night-train-letter-480.webp 480w, assets/gallery/the-night-train-letter-960.webp 960w"
+                    data-src="assets/canvas/the-night-train-letter-480.webp"
+                    data-srcset="assets/canvas/the-night-train-letter-480.webp 480w, assets/gallery/the-night-train-letter-960.webp 960w"
                     sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
                     width="1024"
                     height="1408"
-                    loading="lazy"
                     decoding="async"
                     alt="Eight lines of handwritten Chinese fill a letter beside a teacup, pen and patterned envelope."
                   />
@@ -7107,12 +8114,11 @@
               <button class="gallery-open" type="button" data-artwork="a-shop-comes-to-life" aria-label="Explore A shop comes to life">
                 <span class="gallery-main-image"
                   ><img
-                    src="assets/gallery/a-shop-comes-to-life-480.webp"
-                    srcset="assets/gallery/a-shop-comes-to-life-480.webp 480w, assets/gallery/a-shop-comes-to-life-960.webp 960w"
+                    data-src="assets/canvas/a-shop-comes-to-life-480.webp"
+                    data-srcset="assets/canvas/a-shop-comes-to-life-480.webp 480w, assets/gallery/a-shop-comes-to-life-960.webp 960w"
                     sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
                     width="1024"
                     height="1024"
-                    loading="lazy"
                     decoding="async"
                     alt="An empty corner storefront becomes a flower shop, gains PETAL lettering and changes to blue-hour light."
                   />
@@ -7121,31 +8127,20 @@
                 <span class="gallery-mini-strip" aria-hidden="true"
                   ><span
                     ><img
-                      src="assets/gallery/a-shop-comes-to-life-reference-01-160.webp"
+                      data-src="assets/gallery/a-shop-comes-to-life-reference-01-160.webp"
                       width="1024"
                       height="1024"
-                      loading="lazy"
                       decoding="async"
                       alt=""
                     /><span>Empty storefront</span></span
                   ><span
-                    ><img
-                      src="assets/gallery/a-shop-comes-to-life-frame-01-160.webp"
-                      width="1024"
-                      height="1024"
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
-                    /><span>Flower display</span></span
+                    ><img data-src="assets/gallery/a-shop-comes-to-life-frame-01-160.webp" width="1024" height="1024" decoding="async" alt="" /><span
+                      >Flower display</span
+                    ></span
                   ><span
-                    ><img
-                      src="assets/gallery/a-shop-comes-to-life-frame-02-160.webp"
-                      width="1024"
-                      height="1024"
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
-                    /><span>Add lettering</span></span
+                    ><img data-src="assets/gallery/a-shop-comes-to-life-frame-02-160.webp" width="1024" height="1024" decoding="async" alt="" /><span
+                      >Add lettering</span
+                    ></span
                   ><span class="gallery-result-label">Blue hour above</span></span
                 >
               </button>
@@ -7159,12 +8154,11 @@
               <button class="gallery-open" type="button" data-artwork="courier-wardrobe-composition" aria-label="Explore Three references, one look">
                 <span class="gallery-main-image"
                   ><img
-                    src="assets/gallery/courier-wardrobe-composition-480.webp"
-                    srcset="assets/gallery/courier-wardrobe-composition-480.webp 480w, assets/gallery/courier-wardrobe-composition-960.webp 768w"
+                    data-src="assets/canvas/courier-wardrobe-composition-480.webp"
+                    data-srcset="assets/canvas/courier-wardrobe-composition-480.webp 480w, assets/gallery/courier-wardrobe-composition-960.webp 768w"
                     sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw"
                     width="768"
                     height="1152"
-                    loading="lazy"
                     decoding="async"
                     alt="A woman wears an orange technical jacket and navy crossbody satchel from separate references."
                   />
@@ -7173,28 +8167,25 @@
                 <span class="gallery-mini-strip" aria-hidden="true"
                   ><span
                     ><img
-                      src="assets/gallery/courier-wardrobe-composition-reference-01-160.webp"
+                      data-src="assets/gallery/courier-wardrobe-composition-reference-01-160.webp"
                       width="768"
                       height="1152"
-                      loading="lazy"
                       decoding="async"
                       alt=""
                     /><span>Person</span></span
                   ><span
                     ><img
-                      src="assets/gallery/courier-wardrobe-composition-reference-02-160.webp"
+                      data-src="assets/gallery/courier-wardrobe-composition-reference-02-160.webp"
                       width="1024"
                       height="1024"
-                      loading="lazy"
                       decoding="async"
                       alt=""
                     /><span>Jacket</span></span
                   ><span
                     ><img
-                      src="assets/gallery/courier-wardrobe-composition-reference-03-160.webp"
+                      data-src="assets/gallery/courier-wardrobe-composition-reference-03-160.webp"
                       width="1024"
                       height="1024"
-                      loading="lazy"
                       decoding="async"
                       alt=""
                     /><span>Bag</span></span
@@ -7227,7 +8218,7 @@
               controls=""
               height="1080"
               playsinline=""
-              poster="assets/film-poster-v9.webp"
+              data-poster="assets/film-poster-v9.webp"
               preload="none"
               width="1920"
             >
@@ -7345,8 +8336,8 @@
           <div class="word-copy">
             <p class="eyebrow">Text &amp; image</p>
             <h2 id="words-title">Lettering belongs in the picture.</h2>
-            <p>Chinese headlines, imagined landscapes, architecture, and fashion—composed together in one generated image.</p>
-            <p class="small-copy">Generated from one text prompt. The scenes, layout, and lettering are all part of the model output.</p>
+            <p>A landscape, its lettering and its layout, composed together in one image.</p>
+            <p class="small-copy">The lettering is generated with the image. Open the work to inspect the details.</p>
             <button class="text-link" data-open-image="creation-studio.webp" type="button">
               Explore the full image <span aria-hidden="true"></span>
             </button>
@@ -7953,7 +8944,7 @@ next_image.save("paper-world-night.png")</code></pre>
         ><img alt="WeGen2" decoding="async" height="88" src="assets/wegen2-wordmark.svg?v=20261119roundtype" width="365"
       /></a>
       <p>Native pixels. Multimodal context. Visual creation.</p>
-      <a href="#main">Back to top ↑</a>
+      <a href="#main">Back to top</a>
     </footer>
     <!-- INLINE_DATA_START -->
     <script type="application/json" id="reference-data">
@@ -8936,6 +9927,114 @@ next_image.save("paper-world-night.png")</code></pre>
           "prompt": "一张精美的饮品制作指南，正方形杂志内页设计。左半边是一幅写实摄影，透明玻璃壶盛着琥珀色柠檬茶，旁边有切开的柠檬、透明冰块、薄荷、茶叶和蓝色杯垫，桌面干净精致，光线柔和，物品层次丰富。右半边是一整块平整的浅米白色文字栏，完全没有纹理，整齐左对齐的深绿色中号黑体，行距舒展，清晰印刷字形。右侧顶部大标题“夏日柠檬茶”，副标题“把清凉装进杯子里”。下面依次排列四个完整段落：“材料：柠檬半个、红茶一包、冰块适量。”“泡茶：热水泡茶三分钟，放凉备用。”“切片：柠檬切片，轻轻压出果汁。”“调配：加入茶汤和冰块，搅拌均匀。”最后一行“慢慢享用，一杯清爽的夏天。”所有文字都放在右侧，字形完整、清晰、正确，没有其他文字。视觉精致优雅。",
           "preserveLayout": true,
           "featured": false
+        },
+        {
+          "id": "conservatory-of-glass",
+          "title": "A conservatory of glass",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "Aquamarine glass, fine brass ribs and miniature plants in a sunlit conservatory.",
+          "description": "Blown glass, brass ribs, translucent plants and refracted light form a miniature architectural study.",
+          "prompt": "An exceptionally refined architectural editorial photograph of an elaborate miniature Victorian glass conservatory built entirely from pale aquamarine blown glass. Slender brass ribs support clear curved glass roofs; dozens of detailed translucent botanical specimens grow inside. A tiny spiral stair, rainwater channels and a shallow reflecting pool make the structure convincing. Set on a white limestone tabletop beside a real fresh fern frond and soft water shadows. Morning sunlight refracts delicately through the roof; preserve controlled highlights and rich detail in the glass. Pale seafoam, porcelain white and restrained brass, joyful and fresh, exquisite material separation. No writing, no people, no overexposure.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "lemon-riviera",
+          "title": "A table by the sea",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "An amber pitcher, lemon water, figs and flowers on a blue tiled seaside table.",
+          "description": "A coastal still life built around glass, linen, glazed tiles and the warmth of afternoon light.",
+          "prompt": "A sophisticated summer still-life photograph for a design magazine, viewed obliquely over a blue-and-white tiled outdoor table on the Italian coast. A sculptural translucent amber pitcher, two clear ribbed glasses of lemon iced tea with believable ice, a folded pale blue linen napkin, sliced ripe lemons on a handmade ceramic plate, a tiny vase of white cosmos flowers and a basket of green figs form a richly layered yet composed still life. Sunlight through woven shade paints crisp organic shadows. In the background a quiet turquoise sea and pale pink coastal walls. Beautiful tactile imperfections, clean realistic glass reflections and refractions, soft film grain, precisely controlled exposure, light fresh art direction. No lettering or people.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "moss-observatory",
+          "title": "The moss observatory",
+          "task": "Text to image",
+          "width": 896,
+          "height": 1152,
+          "alt": "A tiny library and telescope inside a glass terrarium with a winding wooden staircase.",
+          "description": "An illustrated cutaway connects a tiny library, a spiral stair and a glass observatory.",
+          "prompt": "An exquisite cutaway architectural illustration of a tiny astronomical observatory built inside a huge weathered pear-shaped terrarium. A copper telescope sits beneath a movable glass dome at the top; winding wooden stairs lead down past a library of miniature books, a botanical laboratory, a warm kitchen and a moss garden at the bottom. Clear plausible stair connections, detailed furniture and little amber lamps; all rooms are visible in one coherent sectional view. Hand-painted gouache and delicate pencil, luminous sage, apricot, deep teal and warm ivory. The terrarium rests on a stone ledge with tiny ferns around it. Intricate, enchanting, beautifully designed, no people and no text.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "clockwork-orchard",
+          "title": "The clockwork orchard",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "A miniature paper orchard, railway and blue river inside an open brass pocket watch.",
+          "description": "Folded paper landscapes meet brass clockwork in a miniature orchard railway.",
+          "prompt": "A masterfully crafted wide-format paper sculpture of an elaborate orchard inside an opened vintage mechanical pocket watch. The watch case lies open on a dark moss-green surface. Tiny folded peach trees grow between interlocking brass gears, delicate cream paper ladders climb terraces, and a blue paper stream flows under a miniature arched bridge. A small cable tram carries baskets of fruit along a clearly supported track. Detailed visible paper edges and fine metallic machining, miniature macro photography, soft dramatic side lighting, apricot, teal, forest green and brass. Every object feels physically constructed, precise and richly layered; no letters or numbers.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "tidal-research",
+          "title": "Tidal research station",
+          "task": "Text to image",
+          "width": 1152,
+          "height": 768,
+          "alt": "Glass corridors join a futuristic marine research station above clear turquoise tidal waters.",
+          "description": "Sculptural coastal architecture, transparent corridors and a submerged landscape in one imagined research station.",
+          "prompt": "A cinematic realistic architectural photograph of a beautifully engineered ocean research station at the moment of low tide. Sculptural ivory pavilions rest on elegant piers over interlocking shallow tidal pools, connected by curved walkways and one glazed laboratory bridge. Clear turquoise water reveals sea grass, smooth rocks and fine sand ripples; warm interior lights contrast with cool dawn. A small research sailboat with a furled sail is tied to a dock, and a flock of distant birds is represented only by tiny silhouettes. Precise architecture, complex but coherent reflections, atmospheric coastal mist, exceptional landscape composition, a believable and hopeful near-future world. No signs or writing.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "rainy-record-store",
+          "title": "After the last record",
+          "task": "Text to image",
+          "width": 1024,
+          "height": 1024,
+          "alt": "A record-store owner hands a vinyl sleeve to a customer while rain falls outside.",
+          "description": "Warm shop lighting, a rainy street and an exchange across the counter share one cinematic scene.",
+          "prompt": "A richly composed cinematic photograph through the window of an independent vinyl record store on a rainy evening. An adult East Asian shopkeeper carefully returns a record to its sleeve behind a wooden counter; one adult customer in a mustard coat listens at a turntable. Correct natural hands, realistic vinyl record and tonearm. Shelves of vividly colored record sleeves without legible lettering, warm globe lamps, a large fern and old wooden speakers give the interior extraordinary texture. Outside, rain beads on the glass, a bicycle leans against the facade and the wet street catches warm red and teal reflections. Layers of glass, reflection and interior depth remain coherent. Contemporary film still, no signage, no readable text.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "ceramic-workshop",
+          "title": "Clay, light, and patient hands",
+          "task": "Text to image",
+          "width": 1024,
+          "height": 1408,
+          "alt": "A ceramic artist paints blue flowers on a pale celadon vessel at her studio workbench.",
+          "description": "A quiet studio portrait: a fine brush, hand-painted ceramic, worn wood and soft window light.",
+          "prompt": "A refined candid editorial photograph of an adult female ceramic artist in a sunlit workshop. The camera clearly shows exactly two natural hands: her left hand steadies a pale celadon bowl on the workbench while her right hand holds a fine brush painting a single cobalt botanical motif on its exterior. Believable finger anatomy and brush contact. The richly layered studio contains shelves of varied finished ceramics, sketches without lettering, glaze samples, a worn linen apron, dust in the slanting light and a flowering branch in a tall vase. Beautiful skin tones, tactile clay, subtle glaze reflections, quiet concentration, fresh pale celadon, cobalt and warm terracotta. Complex photographic scene with a clear human gesture, no text.",
+          "preserveLayout": false,
+          "featured": false
+        },
+        {
+          "id": "shadow-theatre",
+          "title": "The theatre of shadows",
+          "task": "Text & layout",
+          "width": 1024,
+          "height": 1408,
+          "alt": "A paper-art exhibition poster with a terracotta fox, layered miniature buildings and English lettering.",
+          "description": "A fox-shaped paper city becomes an exhibition poster, including its title, subtitle and dates.",
+          "prompt": "An extraordinary cultural exhibition poster made from layered cut paper. A giant graceful red-orange fox silhouette contains an intricate midnight city of tiny arches, staircases, trees, moonlit windows and teal rooftops; this is a deliberate graphic double-exposure composition, not anatomical realism. Cream paper edges, deep ultramarine shadows and one pale yellow moon give exceptional tactile depth. A strong typographic block occupies the bottom quarter with exactly four large readable lines. The only lettering reads: \"THE THEATRE OF SHADOWS\" \"Small worlds. Extraordinary stories.\" \"PAPER ART EXHIBITION\" \"14 NOVEMBER — 22 DECEMBER\". Sophisticated museum-poster design, elegant restrained typography and precise spelling, no extra lettering.",
+          "preserveLayout": true,
+          "featured": false
+        },
+        {
+          "id": "cloud-bookbindery",
+          "title": "The cloud bookbindery",
+          "task": "Text to image",
+          "width": 1408,
+          "height": 1024,
+          "alt": "A brass robot and a little sheep bind books in a tree workshop above the clouds.",
+          "description": "A storybook workshop with illustrated characters, bookbinding tools and floating islands beyond the window.",
+          "prompt": "An exceptionally detailed animated-film environment: a magical bookbinding workshop inside a huge tree above a sea of softly lit clouds. Two distinct characters work together: a small brass robot with two simple arms stitches the spine of an oversized open book, while a round woolly sheep in a tiny blue apron holds a roll of patterned paper. Correct clear limb counts, consistent scale and purposeful contact with the tools. Spools, a book press, neatly stacked colored paper, hanging drying sheets, little ladders and amber lamps create a visually rich coherent workshop. A giant arched window reveals floating islands and the sunrise. Refined hand-painted animation art, teal shadows, coral and warm cream, exquisite materials and storytelling, no writing.",
+          "preserveLayout": false,
+          "featured": false
         }
       ]
     </script>
@@ -8943,6 +10042,27 @@ next_image.save("paper-world-night.png")</code></pre>
     <!-- INLINE_APP_START -->
     <script>
       "use strict";
+      const navigationToggle = document.querySelector(".nav-menu-toggle");
+      const mainNavigation = document.querySelector("#site-navigation");
+      function closeNavigation() {
+        navigationToggle.setAttribute("aria-expanded", "false");
+      }
+      navigationToggle.addEventListener("click", () => {
+        navigationToggle.setAttribute("aria-expanded", String(navigationToggle.getAttribute("aria-expanded") !== "true"));
+      });
+      mainNavigation.addEventListener("click", (event) => {
+        if (event.target.closest("a")) closeNavigation();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && navigationToggle.getAttribute("aria-expanded") === "true") {
+          closeNavigation();
+          navigationToggle.focus();
+        }
+      });
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".site-header")) closeNavigation();
+      });
+      matchMedia("(max-width: 760px)").addEventListener("change", closeNavigation);
       const imagePreviews = JSON.parse(document.querySelector("#preview-data").textContent);
       function setPreview(image, filename, sizes) {
         const preview = imagePreviews[filename];
@@ -9419,6 +10539,18 @@ next_image.save("paper-world-night.png")</code></pre>
         const quality = document.querySelector("#film-quality");
         const status = document.querySelector(".film-playback-status");
         const config = JSON.parse(document.querySelector("#film-config-data").textContent);
+        if (video.dataset.poster) {
+          const posterObserver = new IntersectionObserver(
+            ([entry]) => {
+              if (!entry.isIntersecting) return;
+              video.poster = video.dataset.poster;
+              delete video.dataset.poster;
+              posterObserver.disconnect();
+            },
+            { rootMargin: "400px 0px" }
+          );
+          posterObserver.observe(video);
+        }
         const mediaRoot = new URL(config.mediaPath, document.baseURI).href;
         const origins = [mediaRoot, ...config.mirrors];
         let preferredOrigin = 0;
@@ -9776,6 +10908,25 @@ next_image.save("paper-world-night.png")</code></pre>
         const frameList = modal.querySelector(".artwork-frames");
         const stage = modal.querySelector(".artwork-stage");
         const prompt = modal.querySelector(".artwork-prompt");
+        // Browser-native lazy loading can fetch the entire next section during the
+        // opening canvas. Only release these previews when visitors approach it.
+        const previewObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const img = entry.target;
+              if (img.dataset.srcset) {
+                img.srcset = img.dataset.srcset;
+                delete img.dataset.srcset;
+              }
+              img.src = img.dataset.src;
+              delete img.dataset.src;
+              previewObserver.unobserve(img);
+            }
+          },
+          { rootMargin: "200px 0px" }
+        );
+        section.querySelectorAll("img[data-src]").forEach((img) => previewObserver.observe(img));
         let selection = highlights,
           current = 0,
           frameIndex = 0,
@@ -9978,13 +11129,11 @@ next_image.save("paper-world-night.png")</code></pre>
         const root = document.querySelector(".art-scroll");
         if (!root) return;
         const viewport = root.querySelector(".art-scroll-viewport");
-        const hero = root.closest(".brand-hero");
-        const copy = hero.querySelector(".hero-copy");
-        const fitCopy = () => hero.style.setProperty("--hero-overlap", `${copy.getBoundingClientRect().height}px`);
-        fitCopy();
-        new ResizeObserver(fitCopy).observe(copy);
         const track = root.querySelector(".art-scroll-track");
         const cycle = track.firstElementChild;
+        const upperTrack = root.querySelector(".art-scroll-upper-track");
+        const upperCycle = upperTrack.firstElementChild;
+        let upperPeriod = 1;
         const toggle = root.querySelector("[data-scroll-toggle]");
         const motion = matchMedia("(prefers-reduced-motion: reduce)");
         let offset = 0,
@@ -10006,19 +11155,25 @@ next_image.save("paper-world-night.png")</code></pre>
               if (!entry.isIntersecting) continue;
               const img = entry.target;
               if (img.dataset.src) {
+                if (img.dataset.srcset) {
+                  img.srcset = img.dataset.srcset;
+                  delete img.dataset.srcset;
+                }
                 img.src = img.dataset.src;
                 delete img.dataset.src;
               }
               loader.unobserve(img);
             }
           },
-          { root: viewport, rootMargin: "0px 220px", threshold: 0 }
+          { root: viewport, rootMargin: "0px 64px", threshold: 0 }
         );
         const observeImages = (parent) => parent.querySelectorAll("img[data-src]").forEach((img) => loader.observe(img));
         observeImages(track);
+        observeImages(upperTrack);
 
         function paint() {
           track.style.transform = `translate3d(${-offset}px,0,0)`;
+          upperTrack.style.transform = `translate3d(${-(offset / period) * upperPeriod}px,0,0)`;
         }
         function resize() {
           const old = period;
@@ -10029,6 +11184,9 @@ next_image.save("paper-world-night.png")</code></pre>
           const deviceScale = window.devicePixelRatio || 1;
           period = Math.floor(measured * deviceScale) / deviceScale;
           track.style.setProperty("--cycle-overlap", `${measured - period}px`);
+          const upperMeasured = upperCycle.getBoundingClientRect().width;
+          upperPeriod = Math.floor(upperMeasured * deviceScale) / deviceScale;
+          upperTrack.style.setProperty("--upper-cycle-overlap", `${upperMeasured - upperPeriod}px`);
           offset = modulo((offset * period) / old);
           const copies = Math.max(2, Math.ceil(viewport.clientWidth / period) + 1);
           while (track.children.length < copies) {
@@ -10036,6 +11194,14 @@ next_image.save("paper-world-night.png")</code></pre>
             clone.setAttribute("aria-hidden", "true");
             clone.querySelectorAll("button").forEach((b) => (b.tabIndex = -1));
             track.append(clone);
+            observeImages(clone);
+          }
+          const upperCopies = Math.max(2, Math.ceil(viewport.clientWidth / upperPeriod) + 1);
+          while (upperTrack.children.length < upperCopies) {
+            const clone = upperCycle.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            clone.querySelectorAll("button").forEach((b) => (b.tabIndex = -1));
+            upperTrack.append(clone);
             observeImages(clone);
           }
           paint();
@@ -10079,6 +11245,7 @@ next_image.save("paper-world-night.png")</code></pre>
         ).observe(viewport);
         new MutationObserver(update).observe(document.body, { attributes: true, attributeFilter: ["class"] });
         new ResizeObserver(resize).observe(cycle);
+        new ResizeObserver(resize).observe(upperCycle);
         viewport.addEventListener("pointerenter", (e) => {
           if (e.pointerType === "mouse") {
             hovered = true;
@@ -10099,7 +11266,9 @@ next_image.save("paper-world-night.png")</code></pre>
           const a = button.getBoundingClientRect(),
             b = viewport.getBoundingClientRect();
           if (a.left < b.left - 1 || a.right > b.right + 1) {
-            offset = Math.max(0, Math.min(period - b.width, offset + a.left - b.left - (b.width - a.width) / 2));
+            const upper = upperTrack.contains(button);
+            const scale = upper ? upperPeriod / period : 1;
+            offset = modulo(offset + (a.left - b.left - (b.width - a.width) / 2) / scale);
             paint();
           }
         });

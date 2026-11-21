@@ -674,5 +674,113 @@
     "prompt": "一张精美的饮品制作指南，正方形杂志内页设计。左半边是一幅写实摄影，透明玻璃壶盛着琥珀色柠檬茶，旁边有切开的柠檬、透明冰块、薄荷、茶叶和蓝色杯垫，桌面干净精致，光线柔和，物品层次丰富。右半边是一整块平整的浅米白色文字栏，完全没有纹理，整齐左对齐的深绿色中号黑体，行距舒展，清晰印刷字形。右侧顶部大标题“夏日柠檬茶”，副标题“把清凉装进杯子里”。下面依次排列四个完整段落：“材料：柠檬半个、红茶一包、冰块适量。”“泡茶：热水泡茶三分钟，放凉备用。”“切片：柠檬切片，轻轻压出果汁。”“调配：加入茶汤和冰块，搅拌均匀。”最后一行“慢慢享用，一杯清爽的夏天。”所有文字都放在右侧，字形完整、清晰、正确，没有其他文字。视觉精致优雅。",
     "preserveLayout": true,
     "featured": false
+  },
+  {
+    "id": "conservatory-of-glass",
+    "title": "A conservatory of glass",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "Aquamarine glass, fine brass ribs and miniature plants in a sunlit conservatory.",
+    "description": "Blown glass, brass ribs, translucent plants and refracted light form a miniature architectural study.",
+    "prompt": "An exceptionally refined architectural editorial photograph of an elaborate miniature Victorian glass conservatory built entirely from pale aquamarine blown glass. Slender brass ribs support clear curved glass roofs; dozens of detailed translucent botanical specimens grow inside. A tiny spiral stair, rainwater channels and a shallow reflecting pool make the structure convincing. Set on a white limestone tabletop beside a real fresh fern frond and soft water shadows. Morning sunlight refracts delicately through the roof; preserve controlled highlights and rich detail in the glass. Pale seafoam, porcelain white and restrained brass, joyful and fresh, exquisite material separation. No writing, no people, no overexposure.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "lemon-riviera",
+    "title": "A table by the sea",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "An amber pitcher, lemon water, figs and flowers on a blue tiled seaside table.",
+    "description": "A coastal still life built around glass, linen, glazed tiles and the warmth of afternoon light.",
+    "prompt": "A sophisticated summer still-life photograph for a design magazine, viewed obliquely over a blue-and-white tiled outdoor table on the Italian coast. A sculptural translucent amber pitcher, two clear ribbed glasses of lemon iced tea with believable ice, a folded pale blue linen napkin, sliced ripe lemons on a handmade ceramic plate, a tiny vase of white cosmos flowers and a basket of green figs form a richly layered yet composed still life. Sunlight through woven shade paints crisp organic shadows. In the background a quiet turquoise sea and pale pink coastal walls. Beautiful tactile imperfections, clean realistic glass reflections and refractions, soft film grain, precisely controlled exposure, light fresh art direction. No lettering or people.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "moss-observatory",
+    "title": "The moss observatory",
+    "task": "Text to image",
+    "width": 896,
+    "height": 1152,
+    "alt": "A tiny library and telescope inside a glass terrarium with a winding wooden staircase.",
+    "description": "An illustrated cutaway connects a tiny library, a spiral stair and a glass observatory.",
+    "prompt": "An exquisite cutaway architectural illustration of a tiny astronomical observatory built inside a huge weathered pear-shaped terrarium. A copper telescope sits beneath a movable glass dome at the top; winding wooden stairs lead down past a library of miniature books, a botanical laboratory, a warm kitchen and a moss garden at the bottom. Clear plausible stair connections, detailed furniture and little amber lamps; all rooms are visible in one coherent sectional view. Hand-painted gouache and delicate pencil, luminous sage, apricot, deep teal and warm ivory. The terrarium rests on a stone ledge with tiny ferns around it. Intricate, enchanting, beautifully designed, no people and no text.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "clockwork-orchard",
+    "title": "The clockwork orchard",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "A miniature paper orchard, railway and blue river inside an open brass pocket watch.",
+    "description": "Folded paper landscapes meet brass clockwork in a miniature orchard railway.",
+    "prompt": "A masterfully crafted wide-format paper sculpture of an elaborate orchard inside an opened vintage mechanical pocket watch. The watch case lies open on a dark moss-green surface. Tiny folded peach trees grow between interlocking brass gears, delicate cream paper ladders climb terraces, and a blue paper stream flows under a miniature arched bridge. A small cable tram carries baskets of fruit along a clearly supported track. Detailed visible paper edges and fine metallic machining, miniature macro photography, soft dramatic side lighting, apricot, teal, forest green and brass. Every object feels physically constructed, precise and richly layered; no letters or numbers.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "tidal-research",
+    "title": "Tidal research station",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 768,
+    "alt": "Glass corridors join a futuristic marine research station above clear turquoise tidal waters.",
+    "description": "Sculptural coastal architecture, transparent corridors and a submerged landscape in one imagined research station.",
+    "prompt": "A cinematic realistic architectural photograph of a beautifully engineered ocean research station at the moment of low tide. Sculptural ivory pavilions rest on elegant piers over interlocking shallow tidal pools, connected by curved walkways and one glazed laboratory bridge. Clear turquoise water reveals sea grass, smooth rocks and fine sand ripples; warm interior lights contrast with cool dawn. A small research sailboat with a furled sail is tied to a dock, and a flock of distant birds is represented only by tiny silhouettes. Precise architecture, complex but coherent reflections, atmospheric coastal mist, exceptional landscape composition, a believable and hopeful near-future world. No signs or writing.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "rainy-record-store",
+    "title": "After the last record",
+    "task": "Text to image",
+    "width": 1024,
+    "height": 1024,
+    "alt": "A record-store owner hands a vinyl sleeve to a customer while rain falls outside.",
+    "description": "Warm shop lighting, a rainy street and an exchange across the counter share one cinematic scene.",
+    "prompt": "A richly composed cinematic photograph through the window of an independent vinyl record store on a rainy evening. An adult East Asian shopkeeper carefully returns a record to its sleeve behind a wooden counter; one adult customer in a mustard coat listens at a turntable. Correct natural hands, realistic vinyl record and tonearm. Shelves of vividly colored record sleeves without legible lettering, warm globe lamps, a large fern and old wooden speakers give the interior extraordinary texture. Outside, rain beads on the glass, a bicycle leans against the facade and the wet street catches warm red and teal reflections. Layers of glass, reflection and interior depth remain coherent. Contemporary film still, no signage, no readable text.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "ceramic-workshop",
+    "title": "Clay, light, and patient hands",
+    "task": "Text to image",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A ceramic artist paints blue flowers on a pale celadon vessel at her studio workbench.",
+    "description": "A quiet studio portrait: a fine brush, hand-painted ceramic, worn wood and soft window light.",
+    "prompt": "A refined candid editorial photograph of an adult female ceramic artist in a sunlit workshop. The camera clearly shows exactly two natural hands: her left hand steadies a pale celadon bowl on the workbench while her right hand holds a fine brush painting a single cobalt botanical motif on its exterior. Believable finger anatomy and brush contact. The richly layered studio contains shelves of varied finished ceramics, sketches without lettering, glaze samples, a worn linen apron, dust in the slanting light and a flowering branch in a tall vase. Beautiful skin tones, tactile clay, subtle glaze reflections, quiet concentration, fresh pale celadon, cobalt and warm terracotta. Complex photographic scene with a clear human gesture, no text.",
+    "preserveLayout": false,
+    "featured": false
+  },
+  {
+    "id": "shadow-theatre",
+    "title": "The theatre of shadows",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A paper-art exhibition poster with a terracotta fox, layered miniature buildings and English lettering.",
+    "description": "A fox-shaped paper city becomes an exhibition poster, including its title, subtitle and dates.",
+    "prompt": "An extraordinary cultural exhibition poster made from layered cut paper. A giant graceful red-orange fox silhouette contains an intricate midnight city of tiny arches, staircases, trees, moonlit windows and teal rooftops; this is a deliberate graphic double-exposure composition, not anatomical realism. Cream paper edges, deep ultramarine shadows and one pale yellow moon give exceptional tactile depth. A strong typographic block occupies the bottom quarter with exactly four large readable lines. The only lettering reads: \"THE THEATRE OF SHADOWS\" \"Small worlds. Extraordinary stories.\" \"PAPER ART EXHIBITION\" \"14 NOVEMBER — 22 DECEMBER\". Sophisticated museum-poster design, elegant restrained typography and precise spelling, no extra lettering.",
+    "preserveLayout": true,
+    "featured": false
+  },
+  {
+    "id": "cloud-bookbindery",
+    "title": "The cloud bookbindery",
+    "task": "Text to image",
+    "width": 1408,
+    "height": 1024,
+    "alt": "A brass robot and a little sheep bind books in a tree workshop above the clouds.",
+    "description": "A storybook workshop with illustrated characters, bookbinding tools and floating islands beyond the window.",
+    "prompt": "An exceptionally detailed animated-film environment: a magical bookbinding workshop inside a huge tree above a sea of softly lit clouds. Two distinct characters work together: a small brass robot with two simple arms stitches the spine of an oversized open book, while a round woolly sheep in a tiny blue apron holds a roll of patterned paper. Correct clear limb counts, consistent scale and purposeful contact with the tools. Spools, a book press, neatly stacked colored paper, hanging drying sheets, little ladders and amber lamps create a visually rich coherent workshop. A giant arched window reveals floating islands and the sunrise. Refined hand-painted animation art, teal shadows, coral and warm cream, exquisite materials and storytelling, no writing.",
+    "preserveLayout": false,
+    "featured": false
   }
 ]

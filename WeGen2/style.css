@@ -3334,3 +3334,42 @@ body.artwork-open {
   font-size: 13px;
   color: #62766a;
 }
+
+/* Two full-image ribbons share one scroll phase. The upper works are never
+   fitted into arbitrary cells: their native ratios determine their widths. */
+.art-scroll-group {
+  padding-top: calc(var(--hero-overlap) + 15px);
+}
+.art-scroll-upper-track,
+.art-scroll-upper-cycle {
+  display: flex;
+  width: max-content;
+  height: calc(var(--hero-overlap) + 15px);
+  gap: 0;
+}
+.art-scroll-upper-track {
+  position: absolute;
+  inset: 0 auto auto 0;
+  transform: translate3d(0, 0, 0);
+}
+.art-scroll-upper-cycle {
+  flex: none;
+  margin-right: calc(-1 * var(--upper-cycle-overlap, 0px));
+}
+.art-scroll-upper-card {
+  width: auto;
+  height: 100%;
+}
+.art-scroll[data-playing="true"] .art-scroll-upper-track,
+.art-scroll.is-dragging .art-scroll-upper-track {
+  will-change: transform;
+}
+@media (max-width: 760px) {
+  .art-scroll-group {
+    padding-top: calc(var(--hero-overlap) + 9px);
+  }
+  .art-scroll-upper-track,
+  .art-scroll-upper-cycle {
+    height: calc(var(--hero-overlap) + 9px);
+  }
+}

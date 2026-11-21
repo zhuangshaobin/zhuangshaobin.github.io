@@ -9,6 +9,25 @@
   const frameList = modal.querySelector(".artwork-frames");
   const stage = modal.querySelector(".artwork-stage");
   const prompt = modal.querySelector(".artwork-prompt");
+  // Browser-native lazy loading can fetch the entire next section during the
+  // opening canvas. Only release these previews when visitors approach it.
+  const previewObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const img = entry.target;
+        if (img.dataset.srcset) {
+          img.srcset = img.dataset.srcset;
+          delete img.dataset.srcset;
+        }
+        img.src = img.dataset.src;
+        delete img.dataset.src;
+        previewObserver.unobserve(img);
+      }
+    },
+    { rootMargin: "200px 0px" }
+  );
+  section.querySelectorAll("img[data-src]").forEach((img) => previewObserver.observe(img));
   let selection = highlights,
     current = 0,
     frameIndex = 0,

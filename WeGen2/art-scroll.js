@@ -3,13 +3,11 @@
   const root = document.querySelector(".art-scroll");
   if (!root) return;
   const viewport = root.querySelector(".art-scroll-viewport");
-  const hero = root.closest(".brand-hero");
-  const copy = hero.querySelector(".hero-copy");
-  const fitCopy = () => hero.style.setProperty("--hero-overlap", `${copy.getBoundingClientRect().height}px`);
-  fitCopy();
-  new ResizeObserver(fitCopy).observe(copy);
   const track = root.querySelector(".art-scroll-track");
   const cycle = track.firstElementChild;
+  const upperTrack = root.querySelector(".art-scroll-upper-track");
+  const upperCycle = upperTrack.firstElementChild;
+  let upperPeriod = 1;
   const toggle = root.querySelector("[data-scroll-toggle]");
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   let offset = 0,
@@ -31,19 +29,25 @@
         if (!entry.isIntersecting) continue;
         const img = entry.target;
         if (img.dataset.src) {
+          if (img.dataset.srcset) {
+            img.srcset = img.dataset.srcset;
+            delete img.dataset.srcset;
+          }
           img.src = img.dataset.src;
           delete img.dataset.src;
         }
         loader.unobserve(img);
       }
     },
-    { root: viewport, rootMargin: "0px 220px", threshold: 0 }
+    { root: viewport, rootMargin: "0px 64px", threshold: 0 }
   );
   const observeImages = (parent) => parent.querySelectorAll("img[data-src]").forEach((img) => loader.observe(img));
   observeImages(track);
+  observeImages(upperTrack);
 
   function paint() {
     track.style.transform = `translate3d(${-offset}px,0,0)`;
+    upperTrack.style.transform = `translate3d(${-(offset / period) * upperPeriod}px,0,0)`;
   }
   function resize() {
     const old = period;
@@ -54,6 +58,9 @@
     const deviceScale = window.devicePixelRatio || 1;
     period = Math.floor(measured * deviceScale) / deviceScale;
     track.style.setProperty("--cycle-overlap", `${measured - period}px`);
+    const upperMeasured = upperCycle.getBoundingClientRect().width;
+    upperPeriod = Math.floor(upperMeasured * deviceScale) / deviceScale;
+    upperTrack.style.setProperty("--upper-cycle-overlap", `${upperMeasured - upperPeriod}px`);
     offset = modulo((offset * period) / old);
     const copies = Math.max(2, Math.ceil(viewport.clientWidth / period) + 1);
     while (track.children.length < copies) {
@@ -61,6 +68,14 @@
       clone.setAttribute("aria-hidden", "true");
       clone.querySelectorAll("button").forEach((b) => (b.tabIndex = -1));
       track.append(clone);
+      observeImages(clone);
+    }
+    const upperCopies = Math.max(2, Math.ceil(viewport.clientWidth / upperPeriod) + 1);
+    while (upperTrack.children.length < upperCopies) {
+      const clone = upperCycle.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("button").forEach((b) => (b.tabIndex = -1));
+      upperTrack.append(clone);
       observeImages(clone);
     }
     paint();
@@ -104,6 +119,7 @@
   ).observe(viewport);
   new MutationObserver(update).observe(document.body, { attributes: true, attributeFilter: ["class"] });
   new ResizeObserver(resize).observe(cycle);
+  new ResizeObserver(resize).observe(upperCycle);
   viewport.addEventListener("pointerenter", (e) => {
     if (e.pointerType === "mouse") {
       hovered = true;
@@ -124,7 +140,9 @@
     const a = button.getBoundingClientRect(),
       b = viewport.getBoundingClientRect();
     if (a.left < b.left - 1 || a.right > b.right + 1) {
-      offset = Math.max(0, Math.min(period - b.width, offset + a.left - b.left - (b.width - a.width) / 2));
+      const upper = upperTrack.contains(button);
+      const scale = upper ? upperPeriod / period : 1;
+      offset = modulo(offset + (a.left - b.left - (b.width - a.width) / 2) / scale);
       paint();
     }
   });

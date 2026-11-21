@@ -5,6 +5,18 @@
   const quality = document.querySelector("#film-quality");
   const status = document.querySelector(".film-playback-status");
   const config = JSON.parse(document.querySelector("#film-config-data").textContent);
+  if (video.dataset.poster) {
+    const posterObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        video.poster = video.dataset.poster;
+        delete video.dataset.poster;
+        posterObserver.disconnect();
+      },
+      { rootMargin: "400px 0px" }
+    );
+    posterObserver.observe(video);
+  }
   const mediaRoot = new URL(config.mediaPath, document.baseURI).href;
   const origins = [mediaRoot, ...config.mirrors];
   let preferredOrigin = 0;

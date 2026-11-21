@@ -1,4 +1,25 @@
 "use strict";
+const navigationToggle = document.querySelector(".nav-menu-toggle");
+const mainNavigation = document.querySelector("#site-navigation");
+function closeNavigation() {
+  navigationToggle.setAttribute("aria-expanded", "false");
+}
+navigationToggle.addEventListener("click", () => {
+  navigationToggle.setAttribute("aria-expanded", String(navigationToggle.getAttribute("aria-expanded") !== "true"));
+});
+mainNavigation.addEventListener("click", (event) => {
+  if (event.target.closest("a")) closeNavigation();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navigationToggle.getAttribute("aria-expanded") === "true") {
+    closeNavigation();
+    navigationToggle.focus();
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".site-header")) closeNavigation();
+});
+matchMedia("(max-width: 760px)").addEventListener("change", closeNavigation);
 const imagePreviews = JSON.parse(document.querySelector("#preview-data").textContent);
 function setPreview(image, filename, sizes) {
   const preview = imagePreviews[filename];

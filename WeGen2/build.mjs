@@ -25,25 +25,26 @@ const scrollIds = scroll.flat();
 if (new Set(scrollIds).size !== scrollIds.length || scrollIds.some((id) => !byId.has(id))) {
   throw new Error("Artwork cases must be unique and present in the gallery");
 }
-// Upper fragments continue the same canvas behind the identity, with unrelated
-// subjects offset from the fully visible artwork below. They are decorative;
-// every original remains reachable in the interactive mosaic and viewer.
-const canopyIds = JSON.parse(read("canopy.json"));
-if (
-  canopyIds.length !== scroll.length ||
-  canopyIds.some((group) => group.length !== 3) ||
-  new Set(canopyIds.flat()).size !== canopyIds.flat().length ||
-  canopyIds.flat().some((id) => !byId.has(id))
-) {
-  throw new Error("Canopy fragments must be distinct gallery works, three per group");
+// The upper ribbon uses original image ratios at a common height. A separate
+// repeat period lets it cover the whole band without cropping or letterboxing.
+const canopyIds = JSON.parse(read("canopy.json")).flat();
+if (new Set(canopyIds).size !== canopyIds.length || canopyIds.some((id) => !byId.has(id))) {
+  throw new Error("Upper-ribbon works must be distinct and present in the gallery");
 }
-const canopy = (index) =>
-  `<div class="art-scroll-canopy" aria-hidden="true">${canopyIds[index]
-    .map((id) => {
+const preview = (item, width) => `assets/canvas/${escapeHtml(item.asset || item.id)}-${width}.webp`;
+const responsive = (item) => [320, 480, 640].map((w) => `${preview(item, w)} ${w}w`).join(", ");
+const canopy = (clone) =>
+  canopyIds
+    .map((id, index) => {
       const item = byId.get(id);
-      return `<img data-src="assets/scroll/${escapeHtml(item.asset || id)}-320.webp" fetchpriority="low" width="${item.width}" height="${item.height}" decoding="async" alt="" draggable="false" />`;
+      const eager = !clone && index < 3;
+      const ratio = item.width / item.height;
+      const sizes = `(max-width: 760px) ${Math.ceil(140 * ratio)}px, (max-width: 1000px) ${Math.ceil(160 * ratio)}px, ${Math.ceil(160 * ratio)}px`;
+      return `<button class="art-scroll-card art-scroll-upper-card" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
+      <img ${eager ? "src" : "data-src"}="${preview(item, 320)}" ${eager ? "srcset" : "data-srcset"}="${responsive(item)}" sizes="${sizes}" width="${item.width}" height="${item.height}" decoding="async"${eager && index === 0 ? ' fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
+    </button>`;
     })
-    .join("")}</div>`;
+    .join("");
 const scrollCards = (clone) =>
   scroll
     .map((group, index) => {
@@ -61,17 +62,22 @@ const scrollCards = (clone) =>
         const item = byId.get(id);
         if (!item) throw new Error(`Missing scroll case: ${id}`);
         const asset = escapeHtml(item.asset || item.id);
-        const eager = !clone && index === 0 && position === 0;
+        const eager = !clone && index === 0;
         const contain = item.preserveLayout || ["Text & layout", "Multi-panel generation"].includes(item.task);
-        const previewWidth = position === 0 ? 480 : position === 1 ? 640 : 320;
+        const factor = (compact ? [0, 2] : [0, 4]).includes(position)
+          ? 1 / (1 / ratios[0] + 1 / ratios[compact ? 2 : 4])
+          : compact
+            ? 1 / (1 / ratios[1] + 1 / ratios[3])
+            : (1 / (1 / ratios[1] + 1 / pairRatio)) * (position === 1 ? 1 : [2, 5].includes(position) ? leftPair / pairRatio : rightPair / pairRatio);
+        const sizes = `(max-width: 760px) ${(348 * factor).toFixed(2)}px, (min-width: 1700px) ${(450 * factor).toFixed(2)}px, clamp(${(360 * factor).toFixed(2)}px, ${(29 * factor).toFixed(3)}vw, ${(432 * factor).toFixed(2)}px)`;
         return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.task === "Text & layout" || item.preserveLayout ? " text-rich" : ""}" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
-  <img ${eager ? "src" : "data-src"}="assets/scroll/${asset}-${previewWidth}.webp" width="${item.width}" height="${item.height}" decoding="async" ${eager ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
+  <img ${eager ? "src" : "data-src"}="${preview(item, 320)}" ${eager ? "srcset" : "data-srcset"}="${responsive(item)}" sizes="${sizes}" width="${item.width}" height="${item.height}" decoding="async" ${eager && position === 0 ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
   <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
       });
       const mosaic = compact
         ? `<div class="art-scroll-feature">${cards[0]}${cards[2]}</div><div class="art-scroll-cluster">${cards[1]}${cards[3]}</div>`
         : `<div class="art-scroll-feature">${cards[0]}${cards[4]}</div><div class="art-scroll-cluster">${cards[1]}<div class="art-scroll-pairs"><div>${cards[2]}${cards[5]}</div><div>${cards[3]}${cards[6]}</div></div></div>`;
-      return `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="${dimensions}">${canopy(index)}<div class="art-scroll-mosaic">${mosaic}</div></div>`;
+      return `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="${dimensions}"><div class="art-scroll-mosaic">${mosaic}</div></div>`;
     })
     .join("");
 replaceBlock(
@@ -80,9 +86,10 @@ replaceBlock(
   <div class="art-scroll-light" aria-hidden="true"></div>
   <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
     <div class="art-scroll-veil" aria-hidden="true"></div>
+    <div class="art-scroll-upper-track"><div class="art-scroll-upper-cycle">${canopy(false)}</div><div class="art-scroll-upper-cycle" aria-hidden="true">${canopy(true)}</div></div>
     <div class="art-scroll-track"><div class="art-scroll-cycle">${scrollCards(false)}</div><div class="art-scroll-cycle" aria-hidden="true">${scrollCards(true)}</div></div>
   </div>
-  <div class="art-scroll-controls"><p>Many worlds. One model.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
+  <div class="art-scroll-controls"><p>A collection of imagined worlds.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
 </section>`
 );
 replaceBlock(
@@ -101,14 +108,14 @@ replaceBlock(
               .slice(0, -1)
               .map(
                 (frame) =>
-                  `<span><img src="assets/gallery/${escapeHtml(frame.asset)}-160.webp" width="${frame.width}" height="${frame.height}" loading="lazy" decoding="async" alt="" /><span>${escapeHtml(frame.label)}</span></span>`
+                  `<span><img data-src="assets/gallery/${escapeHtml(frame.asset)}-160.webp" width="${frame.width}" height="${frame.height}" decoding="async" alt="" /><span>${escapeHtml(frame.label)}</span></span>`
               )
               .join("")}<span class="gallery-result-label">${escapeHtml(frames.at(-1).label)} above</span></span>`
           : "";
       return `<figure class="gallery-card" data-category="${task}">
     <p class="gallery-capability">${escapeHtml(capability)}</p>
     <button class="gallery-open" type="button" data-artwork="${id}" aria-label="Explore ${escapeHtml(item.title)}">
-      <span class="gallery-main-image"><img src="assets/gallery/${asset}-480.webp" srcset="assets/gallery/${asset}-480.webp 480w, assets/gallery/${asset}-960.webp ${Math.min(960, item.width)}w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="${item.width}" height="${item.height}" loading="lazy" decoding="async" alt="${escapeHtml(item.alt)}" />
+      <span class="gallery-main-image"><img data-src="${preview(item, 480)}" data-srcset="${preview(item, 480)} 480w, assets/gallery/${asset}-960.webp ${Math.min(960, item.width)}w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 1000px) 46vw, 30vw" width="${item.width}" height="${item.height}" decoding="async" alt="${escapeHtml(item.alt)}" />
       <span class="gallery-open-label" aria-hidden="true">${frames.length > 1 ? "Explore the process" : "View artwork"} <span>+</span></span></span>
       ${miniatures}
     </button>
