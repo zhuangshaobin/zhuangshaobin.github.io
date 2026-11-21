@@ -2641,9 +2641,9 @@ footer > a:last-child {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 21% 37%, #fafcf8bf 0%, #fafcf870 20%, transparent 45%),
-    radial-gradient(ellipse at 72% 40%, #fafcf8b3 0%, transparent 40%),
-    linear-gradient(180deg, #fafcf8 0%, #fafcf8c2 22%, #fafcf8d4 62%, #fafcf880 78%, #fafcf800 100%);
+    radial-gradient(ellipse at 21% 37%, #fcfdfabf 0%, #fcfdfa70 20%, transparent 45%),
+    radial-gradient(ellipse at 72% 40%, #fcfdfab3 0%, transparent 40%),
+    linear-gradient(180deg, #fcfdfa 0%, #fcfdfac2 22%, #fcfdfad4 62%, #fcfdfa80 78%, #fcfdfa00 100%);
 }
 .art-scroll-mosaic {
   display: flex;
@@ -2957,8 +2957,8 @@ footer > a:last-child {
   .art-scroll-veil {
     height: calc(var(--hero-overlap) + 55px);
     background:
-      radial-gradient(ellipse at 46% 33%, #fafcf8bf 0%, transparent 62%),
-      linear-gradient(180deg, #fafcf8, #fafcf8bf 29%, #fafcf8eb 75%, #fafcf800 100%);
+      radial-gradient(ellipse at 46% 33%, #fcfdfabf 0%, transparent 62%),
+      linear-gradient(180deg, #fcfdfa, #fcfdfabf 29%, #fcfdfaeb 75%, #fcfdfa00 100%);
   }
 }
 

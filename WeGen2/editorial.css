@@ -1209,7 +1209,7 @@
   }
 }
 
-/* The opening is a masthead followed by an unobscured, edge-to-edge canvas. */
+/* The masthead blends into the continuous, edge-to-edge artwork canvas. */
 .release-design .site-header {
   height: 64px;
   border-color: var(--line);
@@ -1287,7 +1287,10 @@
 .release-design .art-scroll {
   margin-top: 0;
 }
-.release-design .art-scroll-veil,
+.release-design .art-scroll-veil {
+  display: block;
+  z-index: 2;
+}
 .release-design .art-scroll-light {
   display: none;
 }
