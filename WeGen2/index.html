@@ -22,11 +22,24 @@
     <!-- INLINE_STYLE_START -->
 <style>
 @font-face {
-  font-family: Manrope;
-  src: url("assets/manrope-latin.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Geist";
   font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
+  src: url(assets/fonts/geist-latin-variable.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(assets/fonts/geist-mono-latin-variable.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
 }
 :root {
   --paper: #fafbf7;
@@ -38,8 +51,8 @@
   --line: #d2ddd3;
   --mint: #eaf2e8;
   --dark: #0c2c22;
-  --sans: Manrope, Arial, Helvetica, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --sans: "Geist", Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
   --gutter: clamp(24px, 4.4vw, 80px);
 }
 * {
@@ -54,6 +67,10 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
 }
 button,
@@ -107,11 +124,11 @@ h2 {
   font-size: clamp(44px, 5.1vw, 76px);
   line-height: 1.05;
   font-weight: 550;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.028em;
 }
 h3 {
   font-weight: 600;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.02em;
 }
 h2 em {
   font-style: normal;
@@ -152,7 +169,7 @@ select:focus-visible,
 }
 .eyebrow,
 .brand-eyebrow {
-  font: 11px/1.5 var(--mono);
+  font: 11px/1.5 var(--sans);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--green);
@@ -250,7 +267,7 @@ select:focus-visible,
   align-items: center;
 }
 .hero-topline > span {
-  font: 10px/1.5 var(--mono);
+  font: 10px/1.5 var(--sans);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
@@ -348,7 +365,7 @@ select:focus-visible,
   align-items: center;
 }
 .work-index span {
-  font: 9px var(--mono);
+  font: 9px var(--sans);
   color: var(--muted);
 }
 .work-index a:hover {
@@ -366,7 +383,7 @@ select:focus-visible,
   line-height: 1;
 }
 .brand-play small {
-  font: 9px var(--mono);
+  font: 9px var(--sans);
   color: var(--muted);
   margin-left: 8px;
 }
@@ -405,7 +422,7 @@ select:focus-visible,
   font-size: clamp(23px, 2.2vw, 34px);
   margin: 0;
   font-weight: 550;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.02em;
 }
 .creation-section .section-heading > p {
   max-width: 370px;
@@ -449,7 +466,7 @@ select:focus-visible,
 }
 .work-number {
   grid-row: 1/3;
-  font: 10px var(--mono);
+  font: 10px var(--sans);
   padding-top: 2px;
   color: var(--muted);
 }
@@ -486,7 +503,7 @@ select:focus-visible,
   font-size: 46px;
   line-height: 1.05;
   font-weight: 500;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.028em;
 }
 .model-stats dt span {
   font-size: 26px;
@@ -602,7 +619,7 @@ select:focus-visible,
   background: transparent;
   padding: 5px 0;
   color: #9fc0aa;
-  font: 10px var(--mono);
+  font: 10px var(--sans);
 }
 .film-chapters button span {
   font: 12px var(--sans);
@@ -716,7 +733,7 @@ select:focus-visible,
   border: 1px solid #ffffff30;
   padding: 7px 11px;
   border-radius: 3px;
-  font: 10px var(--mono);
+  font: 10px var(--sans);
 }
 .before-label {
   left: 20px;
@@ -740,7 +757,7 @@ select:focus-visible,
   outline-offset: 5px;
 }
 .comparison-hint {
-  font: 10px/1.6 var(--mono);
+  font: 10px/1.6 var(--sans);
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -801,7 +818,7 @@ select:focus-visible,
   color: var(--body);
 }
 .reference-card > span b {
-  font: 8px var(--mono);
+  font: 8px var(--sans);
   color: var(--muted);
   padding-top: 1px;
   font-weight: 400;
@@ -821,7 +838,7 @@ select:focus-visible,
 .source-person figcaption,
 .reference-result figcaption {
   margin-top: 10px;
-  font: 10px/1.5 var(--mono);
+  font: 10px/1.5 var(--sans);
   color: var(--muted);
 }
 .reference-source-note {
@@ -930,7 +947,7 @@ select:focus-visible,
   border-radius: 4px;
 }
 .dense-figure figcaption {
-  font: 10px/1.6 var(--mono);
+  font: 10px/1.6 var(--sans);
   margin-top: 14px;
   color: #a9c5af;
 }
@@ -975,7 +992,7 @@ select:focus-visible,
   color: var(--body);
 }
 .chat-sequence figcaption b {
-  font: 9px var(--mono);
+  font: 9px var(--sans);
   color: var(--muted);
 }
 .stories-section {
@@ -991,7 +1008,7 @@ select:focus-visible,
   border-radius: 5px;
 }
 .comic-sheet figcaption {
-  font: 10px/1.7 var(--mono);
+  font: 10px/1.7 var(--sans);
   padding-top: 15px;
   color: var(--muted);
 }
@@ -1031,7 +1048,7 @@ select:focus-visible,
   border-radius: 3px;
 }
 .robot-grid figcaption {
-  font: 10px var(--mono);
+  font: 10px var(--sans);
   color: var(--muted);
   padding-top: 10px;
 }
@@ -1077,7 +1094,7 @@ select:focus-visible,
   background: #fcfdf9;
 }
 .method-counter {
-  font: 12px var(--mono);
+  font: 12px var(--sans);
   color: var(--muted);
   display: block;
   margin-bottom: 24px;
@@ -1143,7 +1160,7 @@ select:focus-visible,
   border-radius: 50%;
 }
 .benchmark-figure figcaption {
-  font: 10px var(--mono);
+  font: 10px var(--sans);
   text-align: center;
   padding-top: 20px;
   color: var(--muted);
@@ -1212,7 +1229,7 @@ select:focus-visible,
   align-items: center;
   padding: 15px 23px;
   border-bottom: 1px solid #345344;
-  font: 11px var(--mono);
+  font: 11px var(--sans);
   color: #a9c1ad;
 }
 .copy-code {
@@ -1331,7 +1348,7 @@ footer p {
   color: var(--muted);
 }
 footer > a:last-child {
-  font: 10px var(--mono);
+  font: 10px var(--sans);
   white-space: nowrap;
 }
 .image-dialog {
@@ -3174,7 +3191,7 @@ body.artwork-open {
   font-size: clamp(30px, 2.5vw, 40px);
   font-weight: 400;
   line-height: 1.12;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 .artwork-description {
@@ -3467,7 +3484,7 @@ body.artwork-open {
 }
 .release-design .hero-topline .brand-eyebrow,
 .release-design .hero-topline > span {
-  font: 500 13px/1.5 var(--sans);
+  font: 500 14px/1.5 var(--sans);
   text-transform: none;
   letter-spacing: 0;
 }
@@ -4658,8 +4675,8 @@ body.artwork-open {
 }
 .release-design .hero-introduction .brand-line {
   font-size: clamp(26px, 2.8vw, 42px);
-  line-height: 1.06;
-  letter-spacing: -0.045em;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
   font-weight: 500;
 }
 .release-design .hero-copy .brand-line span {
@@ -4667,8 +4684,9 @@ body.artwork-open {
 }
 .release-design .hero-introduction .hero-description {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 15px;
   margin-top: 14px;
+  line-height: 1.6;
 }
 .release-design .hero-introduction .hero-resources {
   gap: 0;
@@ -4731,8 +4749,8 @@ body.artwork-open {
   gap: 68px;
 }
 .release-design .intro-copy > p {
-  font: 400 clamp(22px, 2.1vw, 30px)/1.38 var(--sans);
-  letter-spacing: -0.035em;
+  font: 400 clamp(22px, 2.1vw, 30px)/1.45 var(--sans);
+  letter-spacing: -0.018em;
   max-width: 610px;
 }
 .release-design .model-stats {
@@ -4742,6 +4760,8 @@ body.artwork-open {
 .release-design .model-stats dt {
   font-size: 46px;
   font-weight: 500;
+  letter-spacing: -0.025em;
+  font-variant-numeric: lining-nums;
 }
 .release-design .model-stats dd {
   margin-top: 6px;
@@ -4749,8 +4769,8 @@ body.artwork-open {
 .release-design h2 {
   font-size: clamp(34px, 4.3vw, 62px);
   font-weight: 500;
-  line-height: 1.04;
-  letter-spacing: -0.055em;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
 }
 .release-design .section {
   padding-block: 64px;
@@ -4766,6 +4786,8 @@ body.artwork-open {
   margin: 0 0 12px;
   max-width: none;
   color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 .release-design .section-heading > p:not(.eyebrow) {
   margin: 0;
@@ -4786,8 +4808,8 @@ body.artwork-open {
   gap: 28px;
 }
 .release-design .gallery-capability {
-  font: 500 22px/1.25 var(--sans);
-  letter-spacing: -0.04em;
+  font: 550 22px/1.2 var(--sans);
+  letter-spacing: -0.02em;
   padding: 18px 0;
   border-top: 1px solid var(--ink);
 }
@@ -4806,6 +4828,9 @@ body.artwork-open {
 }
 .release-design .gallery-card h3 {
   font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 .release-design .gallery-open-label {
   background: #14231ce8;
@@ -4821,8 +4846,8 @@ body.artwork-open {
   padding-block: 40px 24px;
 }
 .release-design .film-section h2 {
-  font: 500 38px/1.08 var(--sans);
-  letter-spacing: -0.045em;
+  font: 500 38px/1.12 var(--sans);
+  letter-spacing: -0.028em;
 }
 .release-design .film-section .section-heading {
   grid-template-columns: 1fr 1fr;
@@ -4865,8 +4890,8 @@ body.artwork-open {
   padding-top: 32px;
 }
 .release-design .word-copy h2 {
-  font: 500 clamp(34px, 3.8vw, 54px)/1.05 var(--sans);
-  letter-spacing: -0.05em;
+  font: 500 clamp(34px, 3.8vw, 54px)/1.12 var(--sans);
+  letter-spacing: -0.028em;
   margin: 24px 0;
 }
 .release-design .word-detail {
@@ -4960,8 +4985,8 @@ body.artwork-open {
   gap: 52px;
 }
 .release-design .method-copy h3 {
-  font: 500 30px/1.15 var(--sans);
-  letter-spacing: -0.04em;
+  font: 500 30px/1.2 var(--sans);
+  letter-spacing: -0.02em;
 }
 .release-design .foundation-note {
   border-bottom: 0;
@@ -4972,8 +4997,8 @@ body.artwork-open {
   gap: 52px;
 }
 .release-design .results-copy h2 {
-  font: 500 clamp(34px, 3.6vw, 52px)/1.05 var(--sans);
-  letter-spacing: -0.05em;
+  font: 500 clamp(34px, 3.6vw, 52px)/1.12 var(--sans);
+  letter-spacing: -0.028em;
 }
 .release-design .inference-section {
   padding-block: 56px;
@@ -5001,7 +5026,7 @@ body.artwork-open {
 }
 .release-design .inference-copy h3 {
   font: 500 28px/1.2 var(--sans);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 .release-design .code-card {
   border: 1px solid #52665a;
@@ -5012,7 +5037,7 @@ body.artwork-open {
 }
 .release-design .authors-section .paper-title {
   font: 500 30px/1.2 var(--sans);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 .release-design .authors-section {
   padding-block: 54px;
@@ -5051,12 +5076,12 @@ body.artwork-open {
   margin-bottom: 16px;
 }
 .release-design .artwork-caption h3 {
-  font: 500 34px/1.08 var(--sans);
-  letter-spacing: -0.045em;
+  font: 500 34px/1.2 var(--sans);
+  letter-spacing: -0.02em;
   text-wrap: pretty;
 }
 .release-design .artwork-description {
-  line-height: 1.6;
+  line-height: 1.65;
   margin-top: 20px;
   color: var(--body);
 }
@@ -5065,8 +5090,8 @@ body.artwork-open {
   border-color: var(--line);
 }
 .release-design .artwork-prompt p {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--body);
 }
 .release-design .artwork-prompt-actions {
@@ -5390,14 +5415,33 @@ body.artwork-open {
   .release-design .model-stats dd {
     font-size: 13px;
   }
+  .release-design .resource-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    width: 100%;
+    font-size: 14px;
+  }
   .release-design .resource-links > * {
-    padding: 12px 16px;
+    min-width: 0;
+    padding: 12px 8px;
+    justify-content: center;
+  }
+  .release-design .resource-links .resource-unavailable {
+    display: grid;
+    grid-template-columns: 16px max-content;
+    align-content: center;
+    gap: 4px 5px;
+  }
+  .release-design .resource-links .resource-unavailable small {
+    grid-column: 1 / -1;
+    text-align: center;
   }
 }
 
 </style>
 <!-- INLINE_STYLE_END -->
-    <link as="font" crossorigin="" href="assets/manrope-latin.woff2" rel="preload" type="font/woff2" />
+    <link as="font" crossorigin="" href="assets/fonts/geist-latin-variable.woff2" rel="preload" type="font/woff2" />
   </head>
   <body class="release-design">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -6870,7 +6914,7 @@ new ResizeObserver(drawReference).observe(stage);
 output.addEventListener("load", drawReference);
 
 const diagramStart =
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g font-family="Manrope,Arial,Helvetica,sans-serif" fill="#073f32">';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" aria-hidden="true"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 6 4 1 7" fill="none" stroke="#51705c" stroke-width="1.5"/></marker></defs><g style="font-family:var(--sans)" fill="#073f32">';
 const diagramEnd = "</g></svg>";
 const box = (x, y, w, h, label, fill = "#f8fcf5", stroke = "#b7cdb5", size = 17) =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="15" fill="${fill}" stroke="${stroke}"/><text x="${x + w / 2}" y="${y + h / 2 + 6}" text-anchor="middle" font-size="${size}">${label}</text>`;
