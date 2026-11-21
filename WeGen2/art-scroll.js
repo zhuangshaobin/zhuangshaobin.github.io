@@ -47,8 +47,13 @@
   }
   function resize() {
     const old = period;
-    period = cycle.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0);
-    if (!period) return;
+    const measured = cycle.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0);
+    if (!measured) return;
+    // Align each repeat to physical pixels. The subpixel overlap prevents a
+    // bright hairline or a change in rasterization when the canvas wraps.
+    const deviceScale = window.devicePixelRatio || 1;
+    period = Math.floor(measured * deviceScale) / deviceScale;
+    track.style.setProperty("--cycle-overlap", `${measured - period}px`);
     offset = modulo((offset * period) / old);
     const copies = Math.max(2, Math.ceil(viewport.clientWidth / period) + 1);
     while (track.children.length < copies) {

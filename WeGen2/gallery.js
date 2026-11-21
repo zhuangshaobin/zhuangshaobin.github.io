@@ -46,7 +46,16 @@
     });
     modal.querySelector(".artwork-original").href = full;
     prompt.hidden = !frame.prompt;
-    prompt.querySelector("summary").textContent = frame.role === "input" ? "Read the source prompt" : "Read the instruction";
+    const task = selection[current].task || "";
+    prompt.querySelector("summary").textContent =
+      frame.role === "input"
+        ? "Source prompt"
+        : task === "Reference composition"
+          ? "Composition prompt"
+          : /editing/i.test(task)
+            ? "Edit instruction"
+            : "Generation prompt";
+    modal.querySelector(".artwork-size").textContent = `${frame.width.toLocaleString("en-US")} × ${frame.height.toLocaleString("en-US")}`;
     prompt.querySelector("p").textContent = frame.prompt || "";
     prompt.open = false;
     status.textContent = "Loading full image…";
@@ -67,6 +76,8 @@
   function renderArtwork(index) {
     current = (index + selection.length) % selection.length;
     const work = selection[current];
+    modal.scrollTop = 0;
+    modal.querySelector(".artwork-caption").scrollTop = 0;
     frames = work.frames || [
       { asset: work.asset || work.id, label: "Result", role: "output", width: work.width, height: work.height, alt: work.alt, prompt: work.prompt },
     ];
@@ -161,6 +172,8 @@
     touch = null;
   });
   modal.addEventListener("close", () => {
+    // A queued close event must not clear an artwork that has already reopened.
+    if (modal.open) return;
     request++;
     if (loader) {
       loader.onload = null;
