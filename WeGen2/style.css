@@ -2725,6 +2725,12 @@ footer > a:last-child {
   -webkit-user-drag: none;
   color: transparent;
 }
+.art-scroll-card .art-scroll-atlas {
+  position: absolute;
+  max-width: none;
+  object-fit: fill;
+  pointer-events: none;
+}
 .art-scroll-card:focus-visible {
   outline: 3px solid #08b86c;
   outline-offset: -4px;

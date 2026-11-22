@@ -22,26 +22,88 @@
     dragged = false,
     suppressClick = false;
   const modulo = (value) => ((value % period) + period) % period;
-
+  const sheets = new Map();
+  const nearby = new Set();
+  let detailTimer = 0,
+    detailRequests = 0;
+  const wantsDetail = () => devicePixelRatio > 1.25 && !navigator.connection?.saveData;
+  function scheduleDetails() {
+    clearTimeout(detailTimer);
+    detailTimer = setTimeout(loadDetails, 200);
+  }
+  function loadDetails() {
+    if (!wantsDetail() || !visible || document.hidden || document.body.classList.contains("artwork-open")) return;
+    const wanted = new Set([...nearby].map((card) => card.querySelector("img").dataset.atlas));
+    // Finish the visible, light previews before spending bandwidth on detail.
+    if ([...wanted].some((id) => !sheets.get(id)?.ready)) return;
+    for (const id of wanted) {
+      const sheet = sheets.get(id);
+      if (detailRequests >= 2) break;
+      if (sheet.detailStarted) continue;
+      sheet.detailStarted = true;
+      detailRequests++;
+      const image = new Image();
+      image.decoding = "async";
+      image.fetchPriority = "low";
+      image.onload = async () => {
+        try {
+          await image.decode();
+          sheet.detailReady = true;
+          root.querySelectorAll(`img[data-atlas="${id}"]`).forEach((img) => {
+            if (img.hasAttribute("src")) img.src = sheet.detail;
+          });
+        } catch {
+          // Keep the complete preview if a detail image cannot be decoded.
+        } finally {
+          detailRequests--;
+          scheduleDetails();
+        }
+      };
+      image.onerror = () => {
+        detailRequests--;
+        scheduleDetails();
+      };
+      image.src = sheet.detail;
+    }
+  }
+  function loadPreview(img) {
+    const id = img.dataset.atlas;
+    let sheet = sheets.get(id);
+    if (!sheet) {
+      sheet = { preview: img.dataset.src || img.getAttribute("src"), detail: img.dataset.detail };
+      sheets.set(id, sheet);
+    }
+    img.src = sheet.detailReady ? sheet.detail : sheet.preview;
+    delete img.dataset.src;
+    if (sheet.started) return;
+    sheet.started = true;
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => {
+      sheet.ready = true;
+      scheduleDetails();
+    };
+    image.onerror = () => {
+      sheet.started = false;
+    };
+    image.src = sheet.preview;
+  }
   const loader = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        const img = entry.target;
-        if (img.dataset.src) {
-          if (img.dataset.srcset) {
-            img.srcset = img.dataset.srcset;
-            delete img.dataset.srcset;
-          }
-          img.src = img.dataset.src;
-          delete img.dataset.src;
+        if (entry.isIntersecting) {
+          nearby.add(entry.target);
+          loadPreview(entry.target.querySelector("img"));
+        } else {
+          nearby.delete(entry.target);
         }
-        loader.unobserve(img);
       }
+      scheduleDetails();
     },
     { root: viewport, rootMargin: "0px 64px", threshold: 0 }
   );
-  const observeImages = (parent) => parent.querySelectorAll("img[data-src]").forEach((img) => loader.observe(img));
+  // Observe the artwork bounds, not the larger image sheet clipped inside it.
+  const observeImages = (parent) => parent.querySelectorAll("[data-artwork]").forEach((card) => loader.observe(card));
   observeImages(track);
   observeImages(upperTrack);
 
@@ -99,6 +161,7 @@
     toggle.setAttribute("aria-pressed", String(paused));
     toggle.setAttribute("aria-label", paused ? "Play artwork motion" : "Pause artwork motion");
     toggle.querySelector("span").textContent = paused ? "Play" : "Pause";
+    scheduleDetails();
     if (canMove()) frame = requestAnimationFrame(tick);
   }
   toggle.addEventListener("click", () => {

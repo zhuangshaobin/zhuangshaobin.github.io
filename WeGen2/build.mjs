@@ -32,16 +32,22 @@ if (new Set(canopyIds).size !== canopyIds.length || canopyIds.some((id) => !byId
   throw new Error("Upper-ribbon works must be distinct and present in the gallery");
 }
 const preview = (item, width) => `assets/canvas/${escapeHtml(item.asset || item.id)}-${width}.webp`;
-const responsive = (item) => [320, 480, 640].map((w) => `${preview(item, w)} ${w}w`).join(", ");
+const atlas = JSON.parse(read("canvas-atlas.json"));
+const atlasGroups = new Map(atlas.groups.map((group) => [group.id, group]));
+const canvasImage = (item, eager, priority = false) => {
+  const tile = atlas.items[item.id];
+  if (!tile) throw new Error(`Rebuild canvas atlases for ${item.id}`);
+  const group = atlasGroups.get(tile.group);
+  const style = `width:${(100 * group.width) / tile.width}%;height:${(100 * group.height) / tile.height}%;left:${(-100 * tile.x) / tile.width}%;top:${(-100 * tile.y) / tile.height}%`;
+  return `<img class="art-scroll-atlas" data-atlas="${group.id}" data-detail="${group.detail}" style="${style}" ${eager ? "src" : "data-src"}="${group.preview}" width="${item.width}" height="${item.height}" decoding="async"${priority ? ' fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />`;
+};
 const canopy = (clone) =>
   canopyIds
     .map((id, index) => {
       const item = byId.get(id);
       const eager = !clone && index < 3;
-      const ratio = item.width / item.height;
-      const sizes = `(max-width: 760px) ${Math.ceil(140 * ratio)}px, (max-width: 1000px) ${Math.ceil(160 * ratio)}px, ${Math.ceil(160 * ratio)}px`;
       return `<button class="art-scroll-card art-scroll-upper-card" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
-      <img ${eager ? "src" : "data-src"}="${preview(item, 320)}" ${eager ? "srcset" : "data-srcset"}="${responsive(item)}" sizes="${sizes}" width="${item.width}" height="${item.height}" decoding="async"${eager && index === 0 ? ' fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
+      ${canvasImage(item, eager, eager && index === 0)}
     </button>`;
     })
     .join("");
@@ -66,18 +72,10 @@ const scrollCards = (clone) =>
       const cards = group.map((id, position) => {
         const item = byId.get(id);
         if (!item) throw new Error(`Missing scroll case: ${id}`);
-        const asset = escapeHtml(item.asset || item.id);
         const eager = !clone && index === 0;
         const contain = item.preserveLayout || ["Text & layout", "Multi-panel generation"].includes(item.task);
-        const factor = featurePositions.includes(position)
-          ? 1 / stackHeight(featurePositions)
-          : compact
-            ? 1 / (1 / ratios[1] + 1 / ratios[3])
-            : (1 / (1 / ratios[1] + 1 / pairRatio)) *
-              (position === 1 ? 1 : leftPositions.includes(position) ? leftPair / pairRatio : rightPair / pairRatio);
-        const sizes = `(max-width: 760px) ${(328 * factor).toFixed(2)}px, (min-width: 1700px) ${(416 * factor).toFixed(2)}px, clamp(${(330 * factor).toFixed(2)}px, ${(26.5 * factor).toFixed(3)}vw, ${(400 * factor).toFixed(2)}px)`;
         return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.task === "Text & layout" || item.preserveLayout ? " text-rich" : ""}" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
-  <img ${eager ? "src" : "data-src"}="${preview(item, 320)}" ${eager ? "srcset" : "data-srcset"}="${responsive(item)}" sizes="${sizes}" width="${item.width}" height="${item.height}" decoding="async" ${eager && position === 0 ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
+  ${canvasImage(item, eager, eager && position === 0)}
   <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
       });
       const mosaic = compact
