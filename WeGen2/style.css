@@ -2557,7 +2557,7 @@ footer > a:last-child {
   padding-top: 15px;
 }
 .art-scroll {
-  --scroll-height: clamp(360px, 29vw, 432px);
+  --scroll-height: clamp(330px, 26.5vw, 400px);
   --scroll-gap: 0px;
   --tile-height: calc((var(--scroll-height) - var(--scroll-gap) * 2) / 3);
   --feature-height: calc(var(--tile-height) * 2 + var(--scroll-gap));
@@ -2833,7 +2833,7 @@ footer > a:last-child {
 }
 @media (min-width: 1700px) {
   .art-scroll {
-    --scroll-height: 450px;
+    --scroll-height: 416px;
   }
 }
 @media (max-width: 1000px) {
@@ -2902,7 +2902,7 @@ footer > a:last-child {
     min-height: 42px;
   }
   .art-scroll {
-    --scroll-height: 348px;
+    --scroll-height: 328px;
     --scroll-gap: 0px;
   }
   .art-scroll-viewport {
