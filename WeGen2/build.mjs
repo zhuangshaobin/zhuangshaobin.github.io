@@ -1,4 +1,5 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 // Keep critical presentation and interactions in the HTML response.
@@ -18,6 +19,18 @@ replaceBlock(
 ${read("editorial.css")}\n</style>`
 );
 const gallery = JSON.parse(read("gallery.json"));
+// Browsing the canvas only needs an index. Fetch each exact, original record
+// on intent/open instead of sending every prompt with the first screen.
+mkdirSync(join(root, "assets/cases"), { recursive: true });
+const galleryIndex = gallery.map((item) => {
+  const data = JSON.stringify(item);
+  const hash = createHash("sha256").update(data).digest("hex").slice(0, 12);
+  const detailUrl = `assets/cases/${item.id}-${hash}.json`;
+  writeFileSync(join(root, detailUrl), JSON.stringify(item, null, 2) + "\n");
+  const { prompt, description, alt, frames, ...index } = item;
+  if (frames) index.frames = frames.map(({ prompt, alt, ...frame }) => frame);
+  return { ...index, detailUrl };
+});
 const scroll = JSON.parse(read("scroll.json"));
 const byId = new Map(gallery.map((item) => [item.id, item]));
 if (scroll.some((group) => ![4, 7, 10].includes(group.length))) throw new Error("Each artwork group needs four, seven or ten cases");
@@ -38,8 +51,9 @@ const canvasImage = (item, eager, priority = false) => {
   const tile = atlas.items[item.id];
   if (!tile) throw new Error(`Rebuild canvas atlases for ${item.id}`);
   const group = atlasGroups.get(tile.group);
-  const style = `width:${(100 * group.width) / tile.width}%;height:${(100 * group.height) / tile.height}%;left:${(-100 * tile.x) / tile.width}%;top:${(-100 * tile.y) / tile.height}%`;
-  return `<img class="art-scroll-atlas" data-atlas="${group.id}" data-detail="${group.detail}" style="${style}" ${eager ? "src" : "data-src"}="${group.preview}" width="${item.width}" height="${item.height}" decoding="async"${priority ? ' fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />`;
+  const percent = (value) => Number(value.toFixed(6));
+  const style = `width:${percent((100 * group.width) / tile.width)}%;height:${percent((100 * group.height) / tile.height)}%;left:${percent((-100 * tile.x) / tile.width)}%;top:${percent((-100 * tile.y) / tile.height)}%`;
+  return `<picture><source type="image/avif" ${eager ? "srcset" : "data-srcset"}="${group.previewAvif}" data-detail="${group.detailAvif}" /><img class="art-scroll-atlas" data-atlas="${group.id}" data-detail="${group.detail}" style="${style}" ${eager ? "src" : "data-src"}="${group.preview}" width="${item.width}" height="${item.height}" decoding="async"${priority ? ' fetchpriority="high"' : ""} alt="" draggable="false" /></picture>`;
 };
 const canopy = (clone) =>
   canopyIds
@@ -90,11 +104,12 @@ replaceBlock(
   <div class="art-scroll-light" aria-hidden="true"></div>
   <div class="art-scroll-viewport" tabindex="0" aria-label="Artwork panorama. Drag to explore, or use the left and right arrow keys.">
     <div class="art-scroll-veil" aria-hidden="true"></div>
-    <div class="art-scroll-upper-track"><div class="art-scroll-upper-cycle">${canopy(false)}</div><div class="art-scroll-upper-cycle" aria-hidden="true">${canopy(true)}</div></div>
-    <div class="art-scroll-track"><div class="art-scroll-cycle">${scrollCards(false)}</div><div class="art-scroll-cycle" aria-hidden="true">${scrollCards(true)}</div></div>
+    <div class="art-scroll-upper-track"><div class="art-scroll-upper-cycle">${canopy(false)}</div></div>
+    <div class="art-scroll-track"><div class="art-scroll-cycle">${scrollCards(false)}</div></div>
   </div>
   <div class="art-scroll-controls"><p>A collection of imagined worlds.</p><div><span class="art-scroll-hint">Drag to explore</span><button type="button" data-scroll-toggle aria-pressed="false" aria-label="Pause artwork motion"><i aria-hidden="true"></i><span>Pause</span></button><a href="#gallery">Explore capabilities</a></div></div>
-</section>`
+</section>
+<script id="canvas-controller">${read("art-scroll.js")}</script>`
 );
 replaceBlock(
   "GALLERY",
@@ -138,13 +153,11 @@ replaceBlock(
     ["gallery", "gallery.json"],
   ]
     .map(
-      ([id, file]) => `<script type="application/json" id="${id}-data">${JSON.stringify(JSON.parse(read(file))).replaceAll("<", "\\u003c")}</script>`
+      ([id, file]) =>
+        `<script type="application/json" id="${id}-data">${JSON.stringify(id === "gallery" ? galleryIndex : JSON.parse(read(file))).replaceAll("<", "\\u003c")}</script>`
     )
     .join("\n")
 );
-replaceBlock(
-  "APP",
-  `<script>\n${read("app.js") + "\n" + read("film-player.js") + "\n" + read("gallery.js") + "\n" + read("art-scroll.js")}\n</script>`
-);
+replaceBlock("APP", `<script>\n${read("app.js") + "\n" + read("film-player.js") + "\n" + read("gallery.js")}\n</script>`);
 writeFileSync(join(root, "index.html"), html);
 console.log("Prepared standalone WeGen2 HTML");
