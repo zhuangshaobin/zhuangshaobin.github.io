@@ -2612,7 +2612,7 @@ footer > a:last-child {
   will-change: transform;
 }
 .art-scroll-group {
-  --feature-width: calc((var(--scroll-height) - var(--scroll-gap)) / var(--feature-stack));
+  --feature-width: calc((var(--scroll-height) - var(--scroll-gap) * var(--feature-gaps, 1)) / var(--feature-stack));
   --cluster-width: calc((var(--scroll-height) - var(--scroll-gap) * var(--cluster-gaps)) / var(--cluster-stack));
   display: flex;
   flex: none;

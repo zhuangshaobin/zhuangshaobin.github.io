@@ -695,5 +695,241 @@
     "prompt": "A refined candid editorial photograph of an adult female ceramic artist in a sunlit workshop. The camera clearly shows exactly two natural hands: her left hand steadies a pale celadon bowl on the workbench while her right hand holds a fine brush painting a single cobalt botanical motif on its exterior. Believable finger anatomy and brush contact. The richly layered studio contains shelves of varied finished ceramics, sketches without lettering, glaze samples, a worn linen apron, dust in the slanting light and a flowering branch in a tall vase. Beautiful skin tones, tactile clay, subtle glaze reflections, quiet concentration, fresh pale celadon, cobalt and warm terracotta. Complex photographic scene with a clear human gesture, no text.",
     "preserveLayout": false,
     "featured": false
+  },
+  {
+    "id": "the-paper-couture-portrait",
+    "title": "The paper couture portrait",
+    "task": "Text to image",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A woman wears a cobalt folded-paper coat and holds an ivory clutch beside a curved staircase.",
+    "description": "Sculptural paper couture, precise hand placement and a richly textured architectural portrait.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "A remarkable high-fashion editorial portrait of one adult East Asian woman with short black hair, shown from head to mid-calf in an elaborate cobalt-blue sculptural coat made from layered folded paper. The coat has a tailored ivory bodice, two attached sleeves, overlapping fan pleats and a sweeping asymmetric hem; crisp paper edges cast fine coherent shadows. Her right hand rests naturally at her waist while her left hand holds one small ivory paper clutch. A monumental curved white staircase and subtle blue shadows form the architectural studio background. Exquisitely natural face and hands, calm confident expression, couture craft and tactile paper fibres, no text."
+  },
+  {
+    "id": "the-orchid-railway",
+    "title": "The orchid railway",
+    "task": "Text to image",
+    "width": 1408,
+    "height": 1024,
+    "alt": "A green train curves through giant orchids and ferns above a glass platform.",
+    "description": "A miniature railway threaded through a botanical conservatory, with continuous tracks and layered architectural detail.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "An intricate, elegant fantasy conservatory built around a tiny elevated railway. A single dark-green passenger train follows a connected curved brass track through giant white orchids, layered fern fronds and translucent glass walkways. The track has continuous supporting columns and passes through a clearly open arched station before bending toward the background. A mature woman in a pale linen dress stands on the near station platform holding a closed yellow umbrella, with natural proportions. Sophisticated architectural model photography, diffused daylight, botanical detail, brass, ivory and emerald palette, deep coherent perspective, no lettering."
+  },
+  {
+    "id": "a-conversation-in-glass",
+    "title": "A conversation in glass",
+    "task": "Reference composition",
+    "width": 1408,
+    "height": 1024,
+    "alt": "A porcelain lamp and glass sunflower share a dark console against a pale blue wall.",
+    "description": "Two independent object references brought into one product photograph with coordinated light.",
+    "preserveLayout": true,
+    "featured": false,
+    "frames": [
+      {
+        "asset": "a-conversation-in-glass-reference-01",
+        "label": "Input 1",
+        "role": "input",
+        "width": 768,
+        "height": 1152,
+        "alt": "A translucent porcelain petal shade glows above a terracotta base and a slim brass stem.",
+        "prompt": "An extraordinary premium product photograph of a sculptural table lamp inspired by a folded petal. Its broad translucent ivory porcelain shade curves gracefully around a warm concealed light source, supported by a single continuous slender dark-brass stem that rises from a low terracotta ceramic base. Fine porcelain translucency, subtle hand-shaped edges, precisely connected shade, stem and base, delicate warm light spilling onto a dark slate table. A softly textured pale-blue wall behind it creates a refined cool-warm contrast. Beautiful asymmetrical industrial design, convincing physical construction and exquisite material detail, no words or lettering."
+      },
+      {
+        "asset": "a-conversation-in-glass-reference-02",
+        "label": "Input 2",
+        "role": "input",
+        "width": 768,
+        "height": 1152,
+        "alt": "An amber glass sunflower with two green leaves casts colored light onto a dark stone surface.",
+        "prompt": "A spectacular museum photograph of a single life-size sunflower made entirely from transparent amber and pale-green cut glass. Exactly one circular central seed head is surrounded by a coherent radial ring of glass petals; one continuous green glass stem has exactly two broad serrated leaves and rises from a clear faceted geometric base. Fine internal bubbles and polished faceted edges, physically convincing refraction, a luminous amber caustic projected onto the dark gray stone beneath it. Restrained warm side light, no other flowers, exquisite precision and balanced vertical composition, no text."
+      },
+      {
+        "asset": "a-conversation-in-glass",
+        "label": "Result",
+        "role": "output",
+        "width": 1408,
+        "height": 1024,
+        "alt": "A porcelain lamp and glass sunflower share a dark console against a pale blue wall.",
+        "prompt": "Create a sophisticated product photograph combining the two supplied objects without changing their designs. On the LEFT place the porcelain lamp from image 1, retaining its ivory petal shade, single brass stem and terracotta base. On the RIGHT place the glass sunflower from image 2, retaining its amber flower head, green stem, exactly two leaves and faceted clear base. Both complete objects stand separately on a dark slate console against a softly lit pale-blue wall. The lamp is lit and its light reflects naturally in the glass flower. No additional lamps, flowers, objects or lettering."
+      }
+    ]
+  },
+  {
+    "id": "a-room-for-chinese-craft",
+    "title": "A room for Chinese craft",
+    "task": "Reference composition",
+    "width": 1152,
+    "height": 1152,
+    "alt": "A blue-and-white porcelain tiger rests below a circular red lacquer dragon panel.",
+    "description": "Ceramic and lacquer references arranged as one coherent museum display, preserving their distinctive forms.",
+    "preserveLayout": true,
+    "featured": false,
+    "frames": [
+      {
+        "asset": "a-room-for-chinese-craft-reference-01",
+        "label": "Input 1",
+        "role": "input",
+        "width": 1152,
+        "height": 896,
+        "alt": "A reclining white porcelain tiger is decorated with fine cobalt-blue ornament.",
+        "prompt": "An exquisite museum photograph of an elegant reclining tiger sculpture made from glossy ivory porcelain, decorated with intricate cobalt-blue floral patterns that follow its anatomy and curved body. One clearly connected head, natural ears and facial features, coherent folded legs and a single curving tail attached at the rear. The floral painting bends over the ceramic surfaces and catches tiny specular highlights. Dark blue lacquer display plinth, warm gray plaster background and soft directional light. Sophisticated Chinese contemporary craft, crisp glaze, fine hand-painted details, no lettering."
+      },
+      {
+        "asset": "a-room-for-chinese-craft-reference-02",
+        "label": "Input 2",
+        "role": "input",
+        "width": 1152,
+        "height": 896,
+        "alt": "A sculpted dragon has glossy lacquer scales and precise gold decoration.",
+        "prompt": "A magnificent close photograph of a Chinese lacquer art panel depicting one elegant dragon flowing through clouds. The dragon has one unmistakable head, a continuous sinuous body and one tapering tail; its claws emerge naturally from the visible body while other parts disappear behind layered clouds. Deep cinnabar-red carved lacquer, fine black-and-gold inlay, delicate individual scales and whiskers, and precise relief-carved cloud edges create extraordinary tactile depth. The panel is presented on a dark neutral background with controlled raking light that reveals its craftsmanship. No duplicated heads, detached limbs or floating ornaments, no lettering."
+      },
+      {
+        "asset": "a-room-for-chinese-craft",
+        "label": "Result",
+        "role": "output",
+        "width": 1152,
+        "height": 1152,
+        "alt": "A blue-and-white porcelain tiger rests below a circular red lacquer dragon panel.",
+        "prompt": "Photograph a refined museum display containing exactly the two artworks in the reference images. The blue-and-white porcelain tiger from image 1 rests on a low indigo plinth in the foreground, preserving its reclining pose, single tail and floral decoration. The red circular lacquer dragon panel from image 2 hangs centrally on the warm-gray wall behind it, preserving its one dragon, cloud carving, gold details and circular shape. Keep both complete artworks unobstructed and distinct. Controlled gallery spotlights, exquisite ceramic and lacquer material detail, deep elegant shadows, no visitors, labels or extra artworks."
+      }
+    ]
+  },
+  {
+    "id": "the-garden-postcard",
+    "title": "The garden postcard",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "Six handwritten Chinese lines sit within a delicate watercolor garden of roses, daisies and blue butterflies.",
+    "description": "A complete Chinese postcard, with carefully rendered handwriting and a softly illustrated garden border.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "一张细腻优雅的插画明信片，浅粉蔷薇、白色雏菊、蓝色蝴蝶和蜿蜒花园小路围绕奶油白纸面。纸面中央以清晰工整的中文手写字写：“花园来信”“今天的风，带着新开的花香。”“我把一整个春天，折进这张纸里。”“愿你忙碌的日子，也有片刻温柔。”“等花开好，我们再见。”“寄给远方的你”。六行文字完整正确，不添加其他文字。丰富细密的植物水彩，柔软自然光，成熟精致的信纸设计，完整画面。"
+  },
+  {
+    "id": "the-starlight-concert",
+    "title": "The starlight concert",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A Chinese concert poster pairs a grand piano with a silver moon and gold botanical linework.",
+    "description": "Five lines of Chinese concert typography integrated into an intricate nocturnal illustration.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "一张精美的音乐会海报，深蓝色星空与金色植物线描交织，一架黑色三角钢琴立在繁花和银色月光之间，键盘结构真实，琴盖打开并有支撑。画面中清晰排版五行文字：“星光音乐会”“让旋律，照亮平凡的夜晚”“钢琴与弦乐的温柔相遇”“周六晚七点半”“城市音乐厅”。文字完整正确，优雅现代中文字体，主标题大，其余文字形成清晰层级。复杂精致的夜色花园与电影感光影，无其他文字。"
+  },
+  {
+    "id": "after-the-rain-poster",
+    "title": "After the rain",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A lone woman with a transparent umbrella stands on a rain-soaked street in a Chinese film poster.",
+    "description": "Cinematic light, a detailed urban setting and four precisely rendered Chinese text blocks.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "一张细腻高级的电影海报：一个穿深绿色雨衣的成年女性背对镜头站在湿润老街，手中一把透明雨伞，街道尽头透出暖金色阳光，水面倒影与蓝灰建筑形成层次。没有其他人物。海报主标题“雨后见”，副标题“每一次告别，都藏着下一次相逢”，底部“一个关于等待与重逢的故事”“这个秋天，影院见”。四组文字清晰正确，现代中文电影排版，胶片质感、丰富精致的雨后街景，不加其他字。"
+  },
+  {
+    "id": "a-library-of-leaves",
+    "title": "A library of leaves",
+    "task": "Text & layout",
+    "width": 1152,
+    "height": 1152,
+    "alt": "An open book becomes a miniature garden beneath a Chinese reading-campaign headline.",
+    "description": "Readable Chinese typography and a sculptural garden share one tactile book design.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "一张精美的读书活动海报，层层叠叠的绿色叶片像翻开的书页，一本完整打开的古典书放在中央，书页里长出微缩的花园、弧形小桥、温室和石阶。书本与植物细节精致真实。标题“在书页间，看见世界”，其下三行文字“春日阅读计划”“读一本书，走一段路”“让好奇心，慢慢生长”。文字全部准确，奶油白底、深绿字体、少量暖橙色，成熟清新的编辑设计，无其他字。"
+  },
+  {
+    "id": "the-porcelain-orchard",
+    "title": "The porcelain orchard",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 1152,
+    "alt": "A porcelain plate contains a raised blue-and-white garden, an arched bridge and a single ceramic bird.",
+    "description": "An intricate miniature landscape rendered as one coherent ceramic relief.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "一张极其精美的博物馆艺术摄影，一只完整的白色瓷盘斜立在隐蔽支架上，盘内浮雕是一座微缩中国果园：小桥、溪流、花树、石阶与亭子，细密蓝色青花纹样覆盖白瓷建筑。所有景物都属于同一块瓷盘浮雕，盘边完整，最前方一只小巧青花瓷鸟停在枝头，只有一只鸟，身体与尾羽完整。柔和侧光，深灰背景，丰富细致而安静高级，无文字。"
+  },
+  {
+    "id": "the-tideglass-dress",
+    "title": "The tideglass dress",
+    "task": "Text to image",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A woman wears a translucent sea-green glass-petal dress with ivory lining beside a circular window.",
+    "description": "Material-rich couture with natural anatomy, connected garment construction and controlled window light.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "An editorial full-length photograph of one adult woman wearing an extraordinary couture dress made of overlapping translucent sea-green glass-like petals over a clearly opaque ivory lining. The sculptural skirt flows into a coherent hem, the bodice and sleeves are connected, and the material catches soft blue light. She stands naturally in a pale stone room, both arms gently at her sides, her face and hands anatomically realistic. A single round window casts an oval of sunlight across the floor. Elegant fashion-magazine photography, rich material detail, complete head-to-toe framing, no lettering."
+  },
+  {
+    "id": "the-botanical-type-foundry",
+    "title": "The botanical type foundry",
+    "task": "Text & layout",
+    "width": 1408,
+    "height": 1024,
+    "alt": "The word GROW is carved in pale stone, with ferns and white blossoms emerging from its cracks.",
+    "description": "Readable sculptural typography combines stone, living plants and precise material detail.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "A sophisticated sculpture photograph of the word GROW formed by four large freestanding letters carved from pale stone. Fresh ferns, white blossoms and tiny trailing leaves emerge from narrow cracks in the stone while the complete letter shapes remain perfectly readable. G, R, O and W stand in that order on one long dark slate plinth. The letters cast coherent shadows in soft morning light; microscopic stone grain and delicate botanical detail, refined gallery atmosphere, sage green and ivory palette, no other text."
+  },
+  {
+    "id": "the-coral-courtyard",
+    "title": "The coral courtyard",
+    "task": "Text to image",
+    "width": 1408,
+    "height": 1024,
+    "alt": "A pink ceramic courtyard model surrounds a reflecting pool, with coral-like branches and tiny planters.",
+    "description": "A coherent architectural miniature with intricate material texture and delicate pastel colour.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "An exquisitely detailed architectural model of a small courtyard house grown from pale pink coral-like ceramic. Rounded arches, coherent colonnades and one central reflecting pool form a connected building, viewed from above at a three-quarter angle. Delicate ivory branching forms decorate the exterior without blocking doors. Tiny terracotta planters with emerald foliage punctuate the courtyard. The complete model stands on one rectangular cream stone base, with soft shadows and a pale-blue backdrop. Refined design-museum photography, intricate craftsmanship, no people or text."
+  },
+  {
+    "id": "the-paper-night-market",
+    "title": "The paper night market",
+    "task": "Text to image",
+    "width": 1408,
+    "height": 1024,
+    "alt": "A miniature paper night market glows with red lanterns, folded parasols and stalls beside an indigo river.",
+    "description": "A densely crafted paper environment with layered roofs, warm translucent lanterns and tiny market details.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "An intricate miniature night market made entirely from cut and folded paper. A winding cobbled street connects stalls with red lanterns, a tiny tea house and a gracefully curved footbridge over a narrow indigo river. Paper fruit baskets, folded parasols, tiny stacked bowls and richly layered roof tiles add delicate complexity. No people. Every object visibly has cut edges and paper thickness, with warm lantern light passing through translucent paper. Sophisticated theatrical macro photography, red, indigo and pale gold, no signs or lettering."
+  },
+  {
+    "id": "the-moonstone-perfume",
+    "title": "The moonstone perfume",
+    "task": "Text & layout",
+    "width": 1024,
+    "height": 1408,
+    "alt": "A moonstone-capped perfume bottle stands among orchids and silver ribbon against deep blue fabric.",
+    "description": "A refined product advertisement with legible English copy, transparent glass and layered materials.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "一张高级香水广告：一只完整的椭圆透明玻璃香水瓶，内部淡金色液体，顶部一个白色月光石球形瓶盖。瓶身标签只有“LUNE”。瓶子立在浅色石台上，白色兰花、银色丝带与柔软的月光环绕，背景是精细起伏的深蓝织物。下方清晰排版“A quiet kind of radiance.”和“EAU DE PARFUM”。物理结构正确、材质真实、构图复杂精致，三组英文完全准确，没有其他字。"
+  },
+  {
+    "id": "the-cut-paper-koi",
+    "title": "The cut-paper koi",
+    "task": "Text to image",
+    "width": 1152,
+    "height": 1152,
+    "alt": "An orange-and-white koi and a black-and-white koi curve through a circular layered-paper pond.",
+    "description": "Two distinct fish, delicate scales and a sculptural paper water surface in one complete shadow box.",
+    "preserveLayout": true,
+    "featured": false,
+    "prompt": "A refined paper sculpture inside one deep circular shadow box, viewed directly from the front. Exactly two koi, one orange-white and one black-white, curve around each other without touching. Each fish has one head, one continuous body, one forked tail and attached fins. Layers of cut indigo paper form swirling water beneath pale green lotus leaves and one pink flower. Every component has visible layered paper edges, coherent delicate shadows, extremely intricate craftsmanship, no text."
   }
 ]

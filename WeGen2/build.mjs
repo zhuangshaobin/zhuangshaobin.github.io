@@ -20,7 +20,7 @@ ${read("editorial.css")}\n</style>`
 const gallery = JSON.parse(read("gallery.json"));
 const scroll = JSON.parse(read("scroll.json"));
 const byId = new Map(gallery.map((item) => [item.id, item]));
-if (scroll.some((group) => ![4, 7].includes(group.length))) throw new Error("Each artwork group needs four or seven cases");
+if (scroll.some((group) => ![4, 7, 10].includes(group.length))) throw new Error("Each artwork group needs four, seven or ten cases");
 const scrollIds = scroll.flat();
 if (new Set(scrollIds).size !== scrollIds.length || scrollIds.some((id) => !byId.has(id))) {
   throw new Error("Artwork cases must be unique and present in the gallery");
@@ -50,25 +50,31 @@ const scrollCards = (clone) =>
     .map((group, index) => {
       const ratios = group.map((id) => byId.get(id).width / byId.get(id).height);
       const compact = group.length === 4;
+      const dense = group.length === 10;
+      const featurePositions = compact ? [0, 2] : dense ? [0, 4, 7] : [0, 4];
+      const leftPositions = dense ? [2, 5, 8] : [2, 5];
+      const rightPositions = dense ? [3, 6, 9] : [3, 6];
+      const stackHeight = (positions) => positions.reduce((sum, position) => sum + 1 / ratios[position], 0);
       // Fit two complete-image stacks and one wide image to a common height.
       // The widths follow the artwork ratios, so no tile needs to be cropped.
-      const leftPair = compact ? 0 : 1 / (1 / ratios[2] + 1 / ratios[5]);
-      const rightPair = compact ? 0 : 1 / (1 / ratios[3] + 1 / ratios[6]);
+      const leftPair = compact ? 0 : 1 / stackHeight(leftPositions);
+      const rightPair = compact ? 0 : 1 / stackHeight(rightPositions);
       const pairRatio = leftPair + rightPair;
       const dimensions = compact
-        ? `--feature-stack:${1 / ratios[0] + 1 / ratios[2]};--cluster-stack:${1 / ratios[1] + 1 / ratios[3]};--cluster-gaps:1`
-        : `--feature-stack:${1 / ratios[0] + 1 / ratios[4]};--cluster-stack:${1 / ratios[1] + 1 / pairRatio};--cluster-gaps:${2 - 1 / pairRatio};--pair-share:${leftPair / pairRatio}`;
+        ? `--feature-stack:${stackHeight(featurePositions)};--feature-gaps:1;--cluster-stack:${1 / ratios[1] + 1 / ratios[3]};--cluster-gaps:1`
+        : `--feature-stack:${stackHeight(featurePositions)};--feature-gaps:${featurePositions.length - 1};--cluster-stack:${1 / ratios[1] + 1 / pairRatio};--cluster-gaps:${leftPositions.length - 1 / pairRatio};--pair-share:${leftPair / pairRatio}`;
       const cards = group.map((id, position) => {
         const item = byId.get(id);
         if (!item) throw new Error(`Missing scroll case: ${id}`);
         const asset = escapeHtml(item.asset || item.id);
         const eager = !clone && index === 0;
         const contain = item.preserveLayout || ["Text & layout", "Multi-panel generation"].includes(item.task);
-        const factor = (compact ? [0, 2] : [0, 4]).includes(position)
-          ? 1 / (1 / ratios[0] + 1 / ratios[compact ? 2 : 4])
+        const factor = featurePositions.includes(position)
+          ? 1 / stackHeight(featurePositions)
           : compact
             ? 1 / (1 / ratios[1] + 1 / ratios[3])
-            : (1 / (1 / ratios[1] + 1 / pairRatio)) * (position === 1 ? 1 : [2, 5].includes(position) ? leftPair / pairRatio : rightPair / pairRatio);
+            : (1 / (1 / ratios[1] + 1 / pairRatio)) *
+              (position === 1 ? 1 : leftPositions.includes(position) ? leftPair / pairRatio : rightPair / pairRatio);
         const sizes = `(max-width: 760px) ${(328 * factor).toFixed(2)}px, (min-width: 1700px) ${(416 * factor).toFixed(2)}px, clamp(${(330 * factor).toFixed(2)}px, ${(26.5 * factor).toFixed(3)}vw, ${(400 * factor).toFixed(2)}px)`;
         return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.task === "Text & layout" || item.preserveLayout ? " text-rich" : ""}" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
   <img ${eager ? "src" : "data-src"}="${preview(item, 320)}" ${eager ? "srcset" : "data-srcset"}="${responsive(item)}" sizes="${sizes}" width="${item.width}" height="${item.height}" decoding="async" ${eager && position === 0 ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
@@ -76,8 +82,8 @@ const scrollCards = (clone) =>
       });
       const mosaic = compact
         ? `<div class="art-scroll-feature">${cards[0]}${cards[2]}</div><div class="art-scroll-cluster">${cards[1]}${cards[3]}</div>`
-        : `<div class="art-scroll-feature">${cards[0]}${cards[4]}</div><div class="art-scroll-cluster">${cards[1]}<div class="art-scroll-pairs"><div>${cards[2]}${cards[5]}</div><div>${cards[3]}${cards[6]}</div></div></div>`;
-      return `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}" style="${dimensions}"><div class="art-scroll-mosaic">${mosaic}</div></div>`;
+        : `<div class="art-scroll-feature">${featurePositions.map((p) => cards[p]).join("")}</div><div class="art-scroll-cluster">${cards[1]}<div class="art-scroll-pairs"><div>${leftPositions.map((p) => cards[p]).join("")}</div><div>${rightPositions.map((p) => cards[p]).join("")}</div></div></div>`;
+      return `<div class="art-scroll-group ${index % 2 ? "is-reversed" : ""}${dense ? " is-dense" : ""}" style="${dimensions}"><div class="art-scroll-mosaic">${mosaic}</div></div>`;
     })
     .join("");
 replaceBlock(
