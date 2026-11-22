@@ -69,7 +69,7 @@ const scrollCards = (clone) =>
           : compact
             ? 1 / (1 / ratios[1] + 1 / ratios[3])
             : (1 / (1 / ratios[1] + 1 / pairRatio)) * (position === 1 ? 1 : [2, 5].includes(position) ? leftPair / pairRatio : rightPair / pairRatio);
-        const sizes = `(max-width: 760px) ${(348 * factor).toFixed(2)}px, (min-width: 1700px) ${(450 * factor).toFixed(2)}px, clamp(${(360 * factor).toFixed(2)}px, ${(29 * factor).toFixed(3)}vw, ${(432 * factor).toFixed(2)}px)`;
+        const sizes = `(max-width: 760px) ${(328 * factor).toFixed(2)}px, (min-width: 1700px) ${(416 * factor).toFixed(2)}px, clamp(${(330 * factor).toFixed(2)}px, ${(26.5 * factor).toFixed(3)}vw, ${(400 * factor).toFixed(2)}px)`;
         return `<button class="art-scroll-card tile-${position}${contain ? " preserve-layout" : ""}${item.task === "Text & layout" || item.preserveLayout ? " text-rich" : ""}" style="aspect-ratio:${item.width}/${item.height}" type="button" data-artwork="${escapeHtml(id)}" aria-label="Explore ${escapeHtml(item.title)}"${clone ? ' tabindex="-1"' : ""}>
   <img ${eager ? "src" : "data-src"}="${preview(item, 320)}" ${eager ? "srcset" : "data-srcset"}="${responsive(item)}" sizes="${sizes}" width="${item.width}" height="${item.height}" decoding="async" ${eager && position === 0 ? 'fetchpriority="high"' : ""} alt="${escapeHtml(item.alt)}" draggable="false" />
   <span class="art-scroll-caption"><span>${escapeHtml(item.title)}</span><small>${escapeHtml(item.task)}</small></span></button>`;
