@@ -1,0 +1,12 @@
+{
+  "id": "the-coral-red-scooter",
+  "title": "The coral-red scooter",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A coral-red scooter carries a cream helmet and a basket of lemons outside a turquoise pottery studio.",
+  "description": "Coherent vehicle construction, layered product styling and complementary colour in a complete editorial scene.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A complete vintage coral-red motor scooter parked outside a small seaside ceramic studio. Both wheels and their connection to the body are clearly visible, the front fork supports the front wheel, one black seat and one coherent handlebar assembly. The scooter carries a cream helmet on the seat and a wicker basket of lemons on the rear rack. Open studio shelves of blue pottery, textured turquoise door, dappled Mediterranean light, detailed editorial product photograph, no signage or readable text."
+}

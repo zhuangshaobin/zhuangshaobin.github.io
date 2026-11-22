@@ -1,0 +1,12 @@
+{
+  "id": "the-copper-rain-chain",
+  "title": "The copper rain chain",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A copper rain chain pours into a dark stone basin in a lush Japanese garden.",
+  "description": "A rainy architectural detail with continuous cup links, flowing water and textured greenery.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A precise architectural detail photograph of a Japanese garden in rainfall. A vertical copper rain chain made of connected cup-shaped links descends from a roof gutter into a round dark stone basin. Water visibly flows down through the open cups and splashes into the basin; moss, wet fern fronds, gravel and a timber wall fill the layered scene. Entire chain from gutter outlet to basin is visible, realistic reflections and gravity, sophisticated subdued green and copper colour, no people or text."
+}

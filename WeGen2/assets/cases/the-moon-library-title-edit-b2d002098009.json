@@ -1,0 +1,31 @@
+{
+  "id": "the-moon-library-title-edit",
+  "title": "A new name for the moon library",
+  "task": "Image editing",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A new Chinese title replaces the original while retaining the other five lines and the illustrated library scene.",
+  "description": "A new Chinese title replaces the original while retaining the other five lines and the illustrated library scene.",
+  "preserveLayout": true,
+  "featured": false,
+  "frames": [
+    {
+      "asset": "the-moon-library-title-edit-reference-01",
+      "label": "Generated input",
+      "role": "input",
+      "width": 1024,
+      "height": 1408,
+      "alt": "A new Chinese title replaces the original while retaining the other five lines and the illustrated library scene. — input",
+      "prompt": "一张精美复杂的中文童话书宣传海报，弯弯的月亮被设计成一座立体图书馆，温暖的书架、木楼梯、圆窗与阅读灯沿月牙内缘排布，月牙悬在深蓝色云海上。一位穿黄色外套的小女孩坐在月牙下端读书，一只白猫依偎在她身边。精美手绘动画电影质感，复杂建筑细节，柔和金光，中文标题在星空中，几行文案沿云层自然排布。 图片中用清楚、准确、优美的字体写以下文字：“月亮上的图书馆”“今晚，和故事一起远行。”“有一盏灯，为每个好奇的你亮着。”“有一本书，等你翻开新的世界。”“把梦装进口袋，把星光带回家。”“给所有爱读故事的人”。这些文字全部完整呈现，大小有层次，图文紧密结合，字与字不重叠，不增加其他文字。"
+    },
+    {
+      "asset": "the-moon-library-title-edit",
+      "label": "Result",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "A new Chinese title replaces the original while retaining the other five lines and the illustrated library scene. — Result",
+      "prompt": "只把图片的大标题“月亮上的图书馆”改成“月光书店”。新标题沿用原来的字体、颜色和位置。其他所有文字逐字保持不变，月牙图书馆、女孩、白猫、书架、楼梯、云海和整体构图全部保持原样，不添加其他内容。"
+    }
+  ]
+}

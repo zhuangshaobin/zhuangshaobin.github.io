@@ -1,0 +1,11 @@
+{
+  "id": "the-watchmakers-desk",
+  "title": "The watchmaker’s desk",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 768,
+  "alt": "A watchmaker uses fine tweezers to place a small gear into an open pocket watch.",
+  "description": "Precise hands, tool contact and miniature mechanical detail in an intimate macro photograph.",
+  "prompt": "An exquisite close editorial photograph of an adult watchmaker repairing an open mechanical pocket watch on dark-green felt. One hand holds fine tweezers placing a tiny brass gear into the exposed mechanism; the other hand steadies the watch at its edge. Coherent five-finger anatomy and real tool contact, beautifully detailed balance wheel, jewels and engraved metal. A detached plain case back, small orderly trays of screws and a loupe remain separate on the desk. Soft warm task light and cool window fill, immaculate tactile precision, mature documentary composition, no readable lettering or logos.",
+  "featured": false
+}

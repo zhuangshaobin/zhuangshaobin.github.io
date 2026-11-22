@@ -1,0 +1,12 @@
+{
+  "id": "the-fox-astronomer",
+  "title": "The fox astronomer",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A red fox in brass glasses observes through a telescope in a moonlit rooftop observatory.",
+  "description": "A richly layered character scene with precise paw contact, an astronomical instrument and warm workshop lighting.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly detailed animated-film illustration of an anthropomorphic red fox astronomer inside a cozy rooftop observatory. The fox wears a navy waistcoat and round brass glasses, has one fluffy attached tail, and looks through the eyepiece of a complete brass telescope mounted on a stable wooden tripod. One paw steadies the telescope, the other rests naturally on a small star-chart table. Shelves of books, rolled blank charts, a moonlit circular window and a glowing green lamp form a layered set. Beautiful fur, coherent character anatomy and telescope construction, sophisticated warm-and-cool cinematic light, no text."
+}

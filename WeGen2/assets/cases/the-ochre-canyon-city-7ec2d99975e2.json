@@ -1,0 +1,12 @@
+{
+  "id": "the-ochre-canyon-city",
+  "title": "The ochre canyon city",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "An ochre city descends through sandstone cliffs toward a turquoise river.",
+  "description": "A cinematic canyon environment with connected terraces, stairways and a stone bridge.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An expansive cinematic fantasy city carved into layered ochre sandstone cliffs. Dense terraced homes, shaded courtyards, elegant stone bridges and winding stairways descend toward a narrow turquoise river. Hanging gardens soften the geometric architecture, tiny cloth awnings cast detailed shadows, and distant cliffs fade into blue atmospheric perspective. High-end game environment concept art, connected coherent buildings, no readable text."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "the-dyers-courtyard",
+  "title": "The dyers’ courtyard",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 768,
+  "alt": "People hold a long wet cloth above a dye vat in a layered architectural courtyard.",
+  "description": "Several people interact with one continuous fabric amid a richly detailed working environment.",
+  "prompt": "A breathtaking cinematic documentary photograph of a traditional textile-dyeing courtyard. Long lengths of indigo, saffron and coral cloth hang from overhead wooden poles, casting colored shadows across weathered pale stone. Adult artisans move naturally among large round ceramic dye vats, lifting wet fabric that drapes with believable weight. Each person remains separate, with coherent limbs and real grips; the wet cloth belongs to the vat beneath it. Rich architecture, stairs and carved balconies surround the courtyard. Elegant high-angle composition, extraordinary fabric texture, controlled sunbeams, deep natural colors, no lettering or logos.",
+  "featured": false
+}

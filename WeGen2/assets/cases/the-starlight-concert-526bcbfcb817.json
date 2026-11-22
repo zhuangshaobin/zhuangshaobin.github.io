@@ -1,0 +1,12 @@
+{
+  "id": "the-starlight-concert",
+  "title": "The starlight concert",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A Chinese concert poster pairs a grand piano with a silver moon and gold botanical linework.",
+  "description": "Five lines of Chinese concert typography integrated into an intricate nocturnal illustration.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "一张精美的音乐会海报，深蓝色星空与金色植物线描交织，一架黑色三角钢琴立在繁花和银色月光之间，键盘结构真实，琴盖打开并有支撑。画面中清晰排版五行文字：“星光音乐会”“让旋律，照亮平凡的夜晚”“钢琴与弦乐的温柔相遇”“周六晚七点半”“城市音乐厅”。文字完整正确，优雅现代中文字体，主标题大，其余文字形成清晰层级。复杂精致的夜色花园与电影感光影，无其他文字。"
+}

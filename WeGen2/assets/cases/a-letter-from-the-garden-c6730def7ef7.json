@@ -1,0 +1,12 @@
+{
+  "id": "a-letter-from-the-garden",
+  "title": "A letter from the garden",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "Camellias and engraved gold foliage frame an eleven-part Chinese exhibition programme.",
+  "description": "Camellias and engraved gold foliage frame an eleven-part Chinese exhibition programme.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "精美的中文文化展览手册，一圈细腻的绿色叶片、白色山茶花与金色植物纹样环绕蜿蜒的奶油白纸面。精致铜版画纹理、优雅留白、丰富而克制的细节。完整文案以清楚的中文排在中央，三个小节区分清楚，文字和插画组成一个完整的设计。\nRender only the following complete text, with correct clear lettering and natural line breaks: “花园来信” “放慢脚步，看见身边的美” “一场关于植物与日常的展览” “看见一片叶” “沿着细细的纹路，认识生长的方向。” “记住一朵花” “从花苞到盛放，收藏温柔的时间。” “带走一份好奇” “把今天的发现，写进明天的故事。” “植物与生活艺术展” “周末十点至十八点”. No additional words or tiny pseudo-text. The finished artwork fills the image."
+}

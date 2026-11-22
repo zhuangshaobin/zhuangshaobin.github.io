@@ -1,0 +1,11 @@
+{
+  "id": "the-sunlit-souk",
+  "title": "The sunlit souk",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 768,
+  "alt": "People browse a richly stocked market beneath layered balconies and awnings.",
+  "description": "A dense architectural scene with coherent people, merchandise and warm patterned light.",
+  "prompt": "An exquisitely detailed panoramic gouache illustration of a lively sunlit market in an imaginary North African city. Narrow connected streets pass under terracotta arches, alongside stalls displaying woven baskets, patterned rugs, glazed ceramics, fruit and hanging brass lamps. Tiny distinct adult shoppers and merchants interact naturally with the stalls, without merged bodies or repeated faces. Layered balconies, small rooftop gardens and cloth awnings create rich depth. Sophisticated coral, indigo, saffron and mint colors, crisp painted edges, mature editorial illustration, no signs or writing.",
+  "featured": false
+}

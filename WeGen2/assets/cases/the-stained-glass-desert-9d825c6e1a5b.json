@@ -1,0 +1,12 @@
+{
+  "id": "the-stained-glass-desert",
+  "title": "The stained-glass desert",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "An arched stained-glass window turns dunes, an oasis and a palm tree into a luminous desert landscape.",
+  "description": "Precise spatial composition and intricate glass craftsmanship, with coloured light falling onto stone.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A complete large stained-glass window depicting a fantastical desert landscape: ochre dunes flow into a deep-blue oasis, a dark green date palm rises at the left, a luminous ivory moon hangs above, and a small terracotta settlement occupies the lower right. Hundreds of translucent glass pieces separated by fine connected lead seams, richly varied glass texture, warm sunlight projected onto a pale stone floor. Symmetrical arched outer frame, view straight on, exquisitely crafted architectural photograph, no text."
+}

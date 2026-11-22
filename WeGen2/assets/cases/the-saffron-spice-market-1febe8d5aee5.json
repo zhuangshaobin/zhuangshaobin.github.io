@@ -1,0 +1,12 @@
+{
+  "id": "the-saffron-spice-market",
+  "title": "The saffron spice market",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Saffron and coral spices fill a richly painted Moroccan market.",
+  "description": "Layered oil painting with brass bowls, patterned textiles and a sunlit market street.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly textured oil painting of a Moroccan spice market, saffron-yellow and coral-red spice mounds in brass bowls, woven baskets, elaborate patterned textiles, shadowed arched stalls and warm shafts of sun. Tiny distant shoppers remain secondary to the detailed still-life foreground. Confident painterly impasto, warm ochre with turquoise accents, believable bowls and market architecture, no readable writing."
+}

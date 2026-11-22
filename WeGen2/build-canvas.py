@@ -63,7 +63,7 @@ for kind, ids, widths in groups:
         row_height = max(row_height, h + padding * 2)
         sheet_width = max(sheet_width, x)
     sheet_height = y + row_height
-    paths = []
+    paths, avif_paths = [], []
     for scale, quality in [(1, 80), (2, 88)]:
         sheet = Image.new("RGB", (sheet_width * scale, sheet_height * scale), "white")
         for tile in tiles:
@@ -85,7 +85,13 @@ for kind, ids, widths in groups:
         filename = f"{key}-{scale}x-{hashlib.sha256(payload).hexdigest()[:10]}.webp"
         (OUT / filename).write_bytes(payload)
         paths.append(f"assets/canvas-atlas/{filename}")
-    manifest["groups"].append({"id": key, "preview": paths[0], "detail": paths[1], "width": sheet_width, "height": sheet_height, "cases": ids})
+        data = io.BytesIO()
+        sheet.save(data, "AVIF", quality=60 if scale == 1 else 75, speed=3, subsampling="4:4:4", max_threads=2)
+        payload = data.getvalue()
+        filename = f"{key}-{scale}x-{hashlib.sha256(payload).hexdigest()[:10]}.avif"
+        (OUT / filename).write_bytes(payload)
+        avif_paths.append(f"assets/canvas-atlas/{filename}")
+    manifest["groups"].append({"id": key, "preview": paths[0], "detail": paths[1], "previewAvif": avif_paths[0], "detailAvif": avif_paths[1], "width": sheet_width, "height": sheet_height, "cases": ids})
     for tile in tiles:
         manifest["items"][tile.pop("id")] = {"group": key, **tile}
 (ROOT / "canvas-atlas.json").write_text(json.dumps(manifest, indent=2) + "\n")

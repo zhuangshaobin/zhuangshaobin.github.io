@@ -1,0 +1,12 @@
+{
+  "id": "the-orange-orchard-picnic",
+  "title": "The orange orchard picnic",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "An embroidered picnic table beneath orange trees with bread, citrus and glassware.",
+  "description": "A layered summer still life with visible embroidery and natural dappled light.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A refined magazine photograph of a picnic still life beneath orange trees: embroidered white linen, a blue glazed platter of sliced citrus, crusty bread, a glass carafe of water and small ceramic cups. Dappled sunlight falls across the richly textured arrangement, orange fruit and green leaves fill the upper frame, coherent separate objects and realistic glass refraction. Sophisticated warm summer palette, no people, no writing."
+}

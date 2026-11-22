@@ -1,0 +1,12 @@
+{
+  "id": "the-azulejo-courtyard",
+  "title": "The azulejo courtyard",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A Portuguese courtyard with blue-and-white tiled sailing-boat murals and orange trees.",
+  "description": "Intricate azulejo surfaces, open shutters and a sunlit stone fountain.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An elaborate Portuguese courtyard in summer, blue-and-white azulejo murals covering the walls, a small stone fountain surrounded by terracotta pots and orange trees, sunlit limestone paving, open wooden shutters and delicate iron balconies. The ceramic murals depict coherent leafy vines and sailing boats. Architectural editorial photography, refined cobalt, ivory and orange, rich layered detail and realistic perspective. No readable writing."
+}

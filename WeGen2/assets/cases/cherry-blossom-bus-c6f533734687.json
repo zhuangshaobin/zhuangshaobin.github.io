@@ -1,0 +1,11 @@
+{
+  "id": "cherry-blossom-bus",
+  "title": "The blossom route",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 768,
+  "alt": "A pastel bus with visible passengers follows a spring road beneath cherry blossoms.",
+  "description": "A detailed gouache scene balancing passengers, vehicle structure, architecture and a light spring palette.",
+  "prompt": "A beautifully detailed gouache illustration of a small cream-and-coral vintage bus driving along a narrow countryside road beside a flowering cherry orchard. The bus has exactly four wheels, two visible on the near side, coherent windows and one driver seated inside. Several passengers with distinct silhouettes sit behind the windows; flower baskets are tied securely to the roof rack. The road curves smoothly toward a distant village, with a stone bridge over a stream and carefully layered hills. Fresh pink, sage and sky-blue palette, fine hand-painted texture, believable perspective and scale, no lettering or logos.",
+  "featured": false
+}

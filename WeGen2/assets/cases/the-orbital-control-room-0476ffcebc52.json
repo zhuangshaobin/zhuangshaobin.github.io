@@ -1,0 +1,12 @@
+{
+  "id": "the-orbital-control-room",
+  "title": "The orbital control room",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Rows of operators face blue consoles and a large Earth display in a curved mission-control hall.",
+  "description": "A densely populated interior with repeated workstations, layered perspective and coherent illumination.",
+  "prompt": "一幅真实而震撼的航天指挥中心纪实摄影。宽大的弧形大厅内，多排操作台沿阶梯向前延伸，穿深色衬衫的工作人员坐在各自座位上面对屏幕，人物彼此独立，手臂与座椅结构自然。大厅最前方的大屏幕显示蓝色地球和环绕地球的橙色轨迹线，两侧屏幕以纯粹的图形显示曲线与星图，不需要任何文字或数字。冷蓝屏幕光与温暖顶灯结合，极有秩序的精密空间，层次丰富，电影级摄影，所有文字省略。",
+  "preserveLayout": true,
+  "featured": false
+}

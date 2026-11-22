@@ -1,0 +1,40 @@
+{
+  "id": "a-new-note-of-amber",
+  "title": "A new note of amber",
+  "task": "Multi-turn editing",
+  "width": 1024,
+  "height": 1408,
+  "alt": "Two successive edits change the glass and cap materials, then replace the title while retaining the other campaign copy.",
+  "description": "Two successive edits change the glass and cap materials, then replace the title while retaining the other campaign copy.",
+  "preserveLayout": true,
+  "featured": true,
+  "frames": [
+    {
+      "asset": "a-new-note-of-amber-reference-01",
+      "label": "Generated input",
+      "role": "input",
+      "width": 1024,
+      "height": 1408,
+      "alt": "Two successive edits change the glass and cap materials, then replace the title while retaining the other campaign copy. — input",
+      "prompt": "一张极具设计感的复杂香水广告：优雅的透明香水瓶里是一座微缩山林，玻璃折射出树林、流瀑和雾气，瓶子周围有苔藓、雪松枝、清澈水滴与黑色岩石。瓶盖和瓶身真实连接，材质精致，墨绿、冰蓝和银白，克制而丰富的商业摄影，品牌文字与山林形态和谐相融。 海报上全部文字为：“山间回声”“把一片森林，留在呼吸之间。”“清冷木香，缓慢而自由。”“自然香氛 · 森林系列”。中文字体清楚准确，文字与图像共同构成精美的设计，不写其他文字。"
+    },
+    {
+      "asset": "a-new-note-of-amber-frame-01",
+      "label": "Amber glass",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "Two successive edits change the glass and cap materials, then replace the title while retaining the other campaign copy. — Amber glass",
+      "prompt": "把图中的香水瓶材质从透明青绿色玻璃改为透明琥珀色玻璃，瓶盖改成玫瑰金。保留瓶内的微缩山林和瀑布、周围水滴、苔藓、岩石、枝叶以及画面的所有中文文案，一个字都不改变。保持原来的构图和物体位置。"
+    },
+    {
+      "asset": "a-new-note-of-amber",
+      "label": "New title",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "Two successive edits change the glass and cap materials, then replace the title while retaining the other campaign copy. — New title",
+      "prompt": "在这张香水广告中，将大标题“山间回声”改为“山林私语”，保持标题字体、大小和位置。全部其余文案逐字保持不变，香水瓶、瓶盖、瓶内山林与瀑布、水滴、枝叶、岩石和整体构图不变。"
+    }
+  ]
+}

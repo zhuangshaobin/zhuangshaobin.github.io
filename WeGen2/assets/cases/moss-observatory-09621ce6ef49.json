@@ -1,0 +1,12 @@
+{
+  "id": "moss-observatory",
+  "title": "The moss observatory",
+  "task": "Text to image",
+  "width": 896,
+  "height": 1152,
+  "alt": "A tiny library and telescope inside a glass terrarium with a winding wooden staircase.",
+  "description": "An illustrated cutaway connects a tiny library, a spiral stair and a glass observatory.",
+  "prompt": "An exquisite cutaway architectural illustration of a tiny astronomical observatory built inside a huge weathered pear-shaped terrarium. A copper telescope sits beneath a movable glass dome at the top; winding wooden stairs lead down past a library of miniature books, a botanical laboratory, a warm kitchen and a moss garden at the bottom. Clear plausible stair connections, detailed furniture and little amber lamps; all rooms are visible in one coherent sectional view. Hand-painted gouache and delicate pencil, luminous sage, apricot, deep teal and warm ivory. The terrarium rests on a stone ledge with tiny ferns around it. Intricate, enchanting, beautifully designed, no people and no text.",
+  "preserveLayout": false,
+  "featured": false
+}

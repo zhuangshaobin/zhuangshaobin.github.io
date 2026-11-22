@@ -1,0 +1,12 @@
+{
+  "id": "the-marble-book-wave",
+  "title": "The marble book wave",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "The pages of an open marble book rise into a curling stone wave traced with gold.",
+  "description": "A sculptural transformation preserves the book structure while extending its pages into a carved wave.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An extraordinary monumental sculpture carved from pale marble: one open book whose pages rise into a flowing wave of finely separated stone sheets. The book has a continuous spine, clearly layered pages and a solid lower cover resting on a dark rectangular plinth. Delicate gold inlay traces subtle contour lines along the wave without forming letters. Full sculpture visible in a quiet modern gallery, tactile chisel marks and natural marble veins, exquisite raking light, no people or writing."
+}

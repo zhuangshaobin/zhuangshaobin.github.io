@@ -1,0 +1,12 @@
+{
+  "id": "the-snowbound-orchard",
+  "title": "The snowbound orchard",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A snowbound orchard and warm timber barn beneath a lavender sky.",
+  "description": "A softly painted winter landscape with intricate branches and a winding trail of footprints.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A poetic wide oil painting of an orchard in fresh snow, dark twisting apple-tree branches holding a few small red apples, a weathered timber barn with a warmly lit window, winding footprints along a narrow path, distant misty hills and a pale lavender winter sky. Rich painterly surface, intricate branches, subtle warm-cool contrast, quiet cinematic composition, no people or lettering."
+}

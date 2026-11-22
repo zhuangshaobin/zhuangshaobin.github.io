@@ -1,0 +1,12 @@
+{
+  "id": "an-invitation-to-the-stars",
+  "title": "An invitation to the stars",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "Layered paper astronomy illustrates an exhibition programme containing eleven Chinese text blocks.",
+  "description": "Layered paper astronomy illustrates an exhibition programme containing eleven Chinese text blocks.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly designed Chinese astronomy exhibition programme. Exquisite layered paper sculptures of deep-blue galaxies, gold orbit rings, a copper telescope, a small observatory dome and cream stars form an elaborate frame around a clean central ivory field. Restrained midnight blue, pale gold and coral, realistic paper edges and soft shadows, mature elegant museum design. The text sits inside the illustrated orbital composition and stays large and readable. A large title and three clearly separated paragraphs use crisp Chinese lettering in the clean central space. The surrounding illustration and typography form one integrated finished design.\nThe complete text on the page reads: “寄给星空的信” “让好奇，带我们走得更远” “一场关于宇宙与想象的展览” “抬头看见远方” “那些微小的光，来自漫长的旅程。” “低头记录发现” “把一个问题，写成新的出发点。” “与未知相遇” “每一次观察，都让世界更大一点。” “天文与艺术特别展” “周末十点至十八点”. Render only this quoted copy, with natural line breaks and clear, correct lettering. No extra words."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "the-textile-confectioner",
+  "title": "The textile confectioner",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A miniature bakery made from felt, linen and stitched pastry toys fills a pale wooden display box.",
+  "description": "A tactile craft scene carries a consistent textile material through architecture, furnishings and tiny food props.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An exquisitely detailed miniature bakery shop in a complete pale wooden open-front display box. The walls, counters, striped awnings and quilted floor are sewn from linen and felt. Every loaf, croissant and pastry is unmistakably a small stuffed felt toy: visible blanket stitches, soft fuzzy wool surfaces and simple sewn seams, never realistic baked crust. Woven textile baskets and tiny button handles complete the shop. Refined handmade dollhouse photography, warm daylight, coherent construction, no people, signs or writing."
+}

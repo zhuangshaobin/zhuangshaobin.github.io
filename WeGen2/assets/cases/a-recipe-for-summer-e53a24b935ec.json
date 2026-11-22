@@ -1,0 +1,12 @@
+{
+  "id": "a-recipe-for-summer",
+  "title": "A recipe for summer",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1024,
+  "alt": "A lemon-tea recipe spread with a detailed drink photograph and complete Chinese ingredients and preparation steps.",
+  "description": "A food-editorial spread combines translucent glass, lemons and ice with a complete Chinese ingredients list and preparation instructions.",
+  "prompt": "一张精美的饮品制作指南，正方形杂志内页设计。左半边是一幅写实摄影，透明玻璃壶盛着琥珀色柠檬茶，旁边有切开的柠檬、透明冰块、薄荷、茶叶和蓝色杯垫，桌面干净精致，光线柔和，物品层次丰富。右半边是一整块平整的浅米白色文字栏，完全没有纹理，整齐左对齐的深绿色中号黑体，行距舒展，清晰印刷字形。右侧顶部大标题“夏日柠檬茶”，副标题“把清凉装进杯子里”。下面依次排列四个完整段落：“材料：柠檬半个、红茶一包、冰块适量。”“泡茶：热水泡茶三分钟，放凉备用。”“切片：柠檬切片，轻轻压出果汁。”“调配：加入茶汤和冰块，搅拌均匀。”最后一行“慢慢享用，一杯清爽的夏天。”所有文字都放在右侧，字形完整、清晰、正确，没有其他文字。视觉精致优雅。",
+  "preserveLayout": true,
+  "featured": false
+}

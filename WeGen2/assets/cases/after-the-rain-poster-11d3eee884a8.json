@@ -1,0 +1,12 @@
+{
+  "id": "after-the-rain-poster",
+  "title": "After the rain",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A lone woman with a transparent umbrella stands on a rain-soaked street in a Chinese film poster.",
+  "description": "Cinematic light, a detailed urban setting and four precisely rendered Chinese text blocks.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "一张细腻高级的电影海报：一个穿深绿色雨衣的成年女性背对镜头站在湿润老街，手中一把透明雨伞，街道尽头透出暖金色阳光，水面倒影与蓝灰建筑形成层次。没有其他人物。海报主标题“雨后见”，副标题“每一次告别，都藏着下一次相逢”，底部“一个关于等待与重逢的故事”“这个秋天，影院见”。四组文字清晰正确，现代中文电影排版，胶片质感、丰富精致的雨后街景，不加其他字。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "the-jade-forest-pool",
+  "title": "The jade forest pool",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 1152,
+  "alt": "An intricate jade forest surrounds a shallow pool and a small frog on a dark wooden plinth.",
+  "description": "A complete openwork sculpture explores translucent stone, connected botanical forms and precise miniature detail.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A magnificent complete carved jade sculpture of a tropical forest on a dark walnut plinth. Broad leaves, arching roots, curling fern fronds and a shallow pool form one continuous translucent pale-green stone landscape. One small jade frog sits naturally on a low rock at the edge of the pool, with a coherent head, body and four attached limbs. Every openwork leaf connects to a branch or stem. Fine carved detail, luminous thin jade edges, refined museum object photography, the whole sculpture and plinth visible, no writing."
+}

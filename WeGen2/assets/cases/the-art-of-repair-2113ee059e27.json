@@ -1,0 +1,12 @@
+{
+  "id": "the-art-of-repair",
+  "title": "The art of repair",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A kintsugi bowl, red thread and stitched patch in a workshop poster.",
+  "description": "A tactile repair still life with clean editorial typography.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A beautifully composed poster about repair. A cream ceramic bowl repaired with fine gold kintsugi seams sits on dark indigo linen; beside it are a wooden spool of red thread, a neatly stitched fabric patch and a small open tin of gold powder. The bowl is one coherent object with continuous repaired seams, realistic ceramic thickness and delicate reflected light. Detailed still-life photography with refined editorial typography. The only visible text is exactly: \"THE ART OF REPAIR\"; \"Small acts. Lasting things.\"; \"MEND / RESTORE / REIMAGINE\"; \"A WEEKEND WORKSHOP\". Clear elegant typography, natural line breaks, no additional writing or pseudo-letters."
+}

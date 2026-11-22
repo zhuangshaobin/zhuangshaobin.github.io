@@ -1,0 +1,12 @@
+{
+  "id": "the-tortoise-library",
+  "title": "The tortoise library",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A gentle tortoise carries a miniature wooden library across a flowering watercolor meadow.",
+  "description": "Fantasy architecture follows a natural animal form in a finely detailed illustrated landscape.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly designed original fantasy illustration of a large gentle tortoise walking through a flowering meadow. A tiny wooden traveling library is built securely on top of its shell, with curved bookcases, an arched door and a small porch that follow the shell shape. The tortoise has one natural head, four attached legs and a small tail; its shell remains visible beneath the library. Intricate plants, butterflies and distant rolling hills, refined watercolor and soft cinematic light, complete animal visible, no text or people."
+}

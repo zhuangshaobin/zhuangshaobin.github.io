@@ -1,0 +1,40 @@
+{
+  "id": "the-couture-exhibition",
+  "title": "The couture exhibition",
+  "task": "Reference composition",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Two women wear a blue folded-paper coat and a sea-green glass-petal gown in one gallery.",
+  "description": "Two references are brought into a shared exhibition while retaining their distinct identities, garments and materials.",
+  "preserveLayout": true,
+  "featured": false,
+  "frames": [
+    {
+      "asset": "the-couture-exhibition-reference-01",
+      "label": "Input 1",
+      "role": "input",
+      "width": 1024,
+      "height": 1408,
+      "alt": "A woman wears a cobalt folded-paper coat and holds an ivory clutch beside a curved staircase.",
+      "prompt": "A remarkable high-fashion editorial portrait of one adult East Asian woman with short black hair, shown from head to mid-calf in an elaborate cobalt-blue sculptural coat made from layered folded paper. The coat has a tailored ivory bodice, two attached sleeves, overlapping fan pleats and a sweeping asymmetric hem; crisp paper edges cast fine coherent shadows. Her right hand rests naturally at her waist while her left hand holds one small ivory paper clutch. A monumental curved white staircase and subtle blue shadows form the architectural studio background. Exquisitely natural face and hands, calm confident expression, couture craft and tactile paper fibres, no text."
+    },
+    {
+      "asset": "the-couture-exhibition-reference-02",
+      "label": "Input 2",
+      "role": "input",
+      "width": 1024,
+      "height": 1408,
+      "alt": "A woman wears a translucent sea-green glass-petal dress with ivory lining beside a circular window.",
+      "prompt": "An editorial full-length photograph of one adult woman wearing an extraordinary couture dress made of overlapping translucent sea-green glass-like petals over a clearly opaque ivory lining. The sculptural skirt flows into a coherent hem, the bodice and sleeves are connected, and the material catches soft blue light. She stands naturally in a pale stone room, both arms gently at her sides, her face and hands anatomically realistic. A single round window casts an oval of sunlight across the floor. Elegant fashion-magazine photography, rich material detail, complete head-to-toe framing, no lettering."
+    },
+    {
+      "asset": "the-couture-exhibition",
+      "label": "Result",
+      "role": "output",
+      "width": 1408,
+      "height": 1024,
+      "alt": "Two women wear a blue folded-paper coat and a sea-green glass-petal gown in one gallery.",
+      "prompt": "Create one high-end fashion exhibition photograph with TWO different adult women standing side by side, both fully visible. On the LEFT preserve the woman, face, short black hair and intricate blue folded-paper coat from the first reference, including her ivory clutch. On the RIGHT preserve the woman and sea-green glass-petal gown with ivory lining from the second reference. Keep their distinct garments, materials and identities. They stand in one coherent pale stone gallery with gentle window light, natural anatomy, no overlap, no text."
+    }
+  ]
+}

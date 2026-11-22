@@ -1,0 +1,12 @@
+{
+  "id": "the-river-pottery-school",
+  "title": "The river pottery school",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "An open-air pottery school stretches along a narrow river in warm afternoon light.",
+  "description": "A coherent architectural visualization arranges workspaces, ceramic objects and a riverside garden.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A detailed architectural visualization of an open-air pottery school beside a narrow river. One long timber roof supported by dark columns shelters a continuous row of pottery workbenches; clay vessels, shelves and several empty stools are arranged coherently. A low stone wall separates the terrace from the water, and a small footbridge connects to a planted garden on the opposite bank. Soft late-afternoon light, rich natural wood and ceramic textures, no people or writing."
+}

@@ -12,8 +12,7 @@
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   let offset = 0,
     period = 1,
-    frame = 0,
-    last = 0;
+    animations = [];
   let visible = false,
     hovered = false,
     focused = false,
@@ -27,6 +26,17 @@
   let detailTimer = 0,
     detailRequests = 0;
   const wantsDetail = () => devicePixelRatio > 1.25 && !navigator.connection?.saveData;
+  function showSheet(img, sheet) {
+    const source = img.parentElement.querySelector("source");
+    if (source) {
+      const avif = !sheet.avifFailed && !(sheet.detailReady && sheet.detailAvifFailed);
+      if (avif) source.srcset = sheet.detailReady ? sheet.detailAvif : sheet.previewAvif;
+      else source.removeAttribute("srcset");
+      delete source.dataset.srcset;
+    }
+    img.src = sheet.detailReady ? sheet.detail : sheet.preview;
+    delete img.dataset.src;
+  }
   function scheduleDetails() {
     clearTimeout(detailTimer);
     detailTimer = setTimeout(loadDetails, 200);
@@ -50,7 +60,7 @@
           await image.decode();
           sheet.detailReady = true;
           root.querySelectorAll(`img[data-atlas="${id}"]`).forEach((img) => {
-            if (img.hasAttribute("src")) img.src = sheet.detail;
+            if (img.hasAttribute("src")) showSheet(img, sheet);
           });
         } catch {
           // Keep the complete preview if a detail image cannot be decoded.
@@ -60,33 +70,60 @@
         }
       };
       image.onerror = () => {
+        if (sheet.avif && !sheet.detailAvifFailed) {
+          sheet.detailAvifFailed = true;
+          image.src = sheet.detail;
+          return;
+        }
         detailRequests--;
         scheduleDetails();
       };
-      image.src = sheet.detail;
+      image.src = sheet.avif ? sheet.detailAvif : sheet.detail;
     }
   }
   function loadPreview(img) {
     const id = img.dataset.atlas;
     let sheet = sheets.get(id);
     if (!sheet) {
-      sheet = { preview: img.dataset.src || img.getAttribute("src"), detail: img.dataset.detail };
+      const source = img.parentElement.querySelector("source");
+      sheet = {
+        preview: img.dataset.src || img.getAttribute("src"),
+        detail: img.dataset.detail,
+        previewAvif: source?.dataset.srcset || source?.getAttribute("srcset"),
+        detailAvif: source?.dataset.detail,
+      };
       sheets.set(id, sheet);
     }
-    img.src = sheet.detailReady ? sheet.detail : sheet.preview;
-    delete img.dataset.src;
-    if (sheet.started) return;
+    if (sheet.started) {
+      showSheet(img, sheet);
+      return;
+    }
     sheet.started = true;
-    const image = new Image();
-    image.decoding = "async";
-    image.onload = () => {
+    const cleanup = () => {
+      img.removeEventListener("load", ready);
+      img.removeEventListener("error", failed);
+    };
+    const ready = () => {
+      cleanup();
       sheet.ready = true;
+      sheet.avif = img.currentSrc.endsWith(".avif");
       scheduleDetails();
     };
-    image.onerror = () => {
+    const failed = () => {
+      if (sheet.previewAvif && !sheet.avifFailed) {
+        sheet.avifFailed = true;
+        root.querySelectorAll(`img[data-atlas="${id}"]`).forEach((other) => {
+          if (other.hasAttribute("src")) showSheet(other, sheet);
+        });
+        return;
+      }
+      cleanup();
       sheet.started = false;
     };
-    image.src = sheet.preview;
+    img.addEventListener("load", ready);
+    img.addEventListener("error", failed);
+    showSheet(img, sheet);
+    if (img.complete && img.naturalWidth) ready();
   }
   const loader = new IntersectionObserver(
     (entries) => {
@@ -107,11 +144,19 @@
   observeImages(track);
   observeImages(upperTrack);
 
+  function sampleOffset() {
+    if (animations[0]) offset = modulo((animations[0].currentTime || 0) * 0.024);
+  }
   function paint() {
-    track.style.transform = `translate3d(${-offset}px,0,0)`;
-    upperTrack.style.transform = `translate3d(${-(offset / period) * upperPeriod}px,0,0)`;
+    if (animations.length) {
+      for (const animation of animations) animation.currentTime = offset / 0.024;
+    } else {
+      track.style.transform = `translate3d(${-offset}px,0,0)`;
+      upperTrack.style.transform = `translate3d(${-(offset / period) * upperPeriod}px,0,0)`;
+    }
   }
   function resize() {
+    sampleOffset();
     const old = period;
     const measured = cycle.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0);
     if (!measured) return;
@@ -140,29 +185,45 @@
       upperTrack.append(clone);
       observeImages(clone);
     }
+    // Let the compositor move both ribbons; JavaScript runs only on interaction
+    // or a layout change, rather than rewriting styles on every animation frame.
+    for (const animation of animations) animation.cancel();
+    animations = [track, upperTrack].map((element, index) => {
+      const distance = index === 0 ? period : upperPeriod;
+      const animation = element.animate([{ transform: "translate3d(0,0,0)" }, { transform: `translate3d(${-distance}px,0,0)` }], {
+        duration: period / 0.024,
+        iterations: Infinity,
+        easing: "linear",
+      });
+      animation.pause();
+      return animation;
+    });
     paint();
+    update();
   }
   function canMove() {
     return visible && !document.hidden && !paused && !hovered && !focused && !pointer && !document.body.classList.contains("artwork-open");
   }
-  function tick(now) {
-    frame = 0;
-    if (!canMove()) return;
-    if (last) offset = modulo(offset + Math.min(now - last, 64) * 0.024);
-    last = now;
-    paint();
-    frame = requestAnimationFrame(tick);
-  }
   function update() {
-    cancelAnimationFrame(frame);
-    frame = 0;
-    last = 0;
-    root.dataset.playing = String(canMove());
+    sampleOffset();
+    const moving = canMove();
+    root.dataset.playing = String(moving);
     toggle.setAttribute("aria-pressed", String(paused));
     toggle.setAttribute("aria-label", paused ? "Play artwork motion" : "Pause artwork motion");
     toggle.querySelector("span").textContent = paused ? "Play" : "Pause";
     scheduleDetails();
-    if (canMove()) frame = requestAnimationFrame(tick);
+    const time = offset / 0.024;
+    for (const animation of animations) {
+      if (moving) {
+        if (animation.playState !== "running") {
+          animation.currentTime = time;
+          animation.play();
+        }
+      } else {
+        animation.pause();
+        animation.currentTime = time;
+      }
+    }
   }
   toggle.addEventListener("click", () => {
     paused = !paused;
@@ -227,6 +288,7 @@
   });
   viewport.addEventListener("pointerdown", (e) => {
     if (e.button !== 0 || !e.isPrimary) return;
+    sampleOffset();
     const capture = e.target.closest("[data-artwork]") || viewport;
     pointer = { id: e.pointerId, x: e.clientX, y: e.clientY, start: offset, capture };
     capture.setPointerCapture(e.pointerId);

@@ -1,0 +1,12 @@
+{
+  "id": "snow-owl-at-dusk",
+  "title": "Snow owl at dusk",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A snowy owl flies toward the viewer between winter pines, with two broad feathered wings.",
+  "description": "Wildlife photography with forward flight, layered feathers and shallow depth of field.",
+  "prompt": "A magnificent wildlife photograph of one snowy owl flying toward the camera between dark winter pines at blue hour. Exactly two broad wings, one on each side of one coherent body; layered feathers follow the wing anatomy, two feet are tucked beneath the belly, and the single face looks forward. Snowflakes at varying depths, distant golden sunset and detailed tree branches frame the bird. Razor-sharp eyes and feathers with subtle motion at wing tips, sophisticated nature photography, no words.",
+  "preserveLayout": true,
+  "featured": false
+}

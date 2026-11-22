@@ -1,0 +1,12 @@
+{
+  "id": "the-rainbow-glass-stair",
+  "title": "The rainbow glass stair",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Translucent colored-glass stairs rise through a pale museum beneath a rectangular skylight.",
+  "description": "An architectural study combines continuous stair geometry, transparent rails and spectral light.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A refined architectural photograph inside a pale modern art museum. A single broad staircase of translucent coloured-glass treads rises continuously from left foreground to an upper-right landing. Each tread rests on visible brushed-steel stringers; clear balustrades connect neatly along both sides. Coloured light falls in a subtle spectrum across the white floor, with a tall rectangular skylight overhead. Complex realistic refraction, coherent tread spacing and supports, no people or text."
+}

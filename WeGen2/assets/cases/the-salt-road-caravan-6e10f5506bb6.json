@@ -1,0 +1,12 @@
+{
+  "id": "the-salt-road-caravan",
+  "title": "The salt-road caravan",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A loaded camel caravan follows a guide along a salt-lake track, reflected in shallow water.",
+  "description": "Travel imagery with a layered procession, textiles, natural animal forms and landscape reflections.",
+  "prompt": "一张壮丽、自然的旅行纪实摄影，夕阳下的盐湖边缘，一支骆驼商队沿着蜿蜒的小路缓缓前行。前景可见几头完整的驮载织物行李的骆驼和步行的牵驼人，动物腿部、绳索与人物身体结构合理，不重叠融合。浅水镜面映出天空和商队，远处赭红色山脉与雪白盐壳交错。空间开阔但细节丰富，真实材质，温暖琥珀与淡青色调，无文字，无品牌标志。",
+  "preserveLayout": true,
+  "featured": false
+}

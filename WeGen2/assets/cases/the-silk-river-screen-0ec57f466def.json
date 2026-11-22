@@ -1,0 +1,12 @@
+{
+  "id": "the-silk-river-screen",
+  "title": "The silk river screen",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "An embroidered silk landscape hangs from a wooden rail, with a blue river, layered mountains and red pavilions.",
+  "description": "A richly layered landscape rendered in silk thread, with coherent architecture and intricate tactile detail.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A breathtaking wide Chinese silk tapestry displayed as a complete wall hanging. A continuous blue-green river winds between layered mountains, terraced villages and delicate pine forests; tiny red-roofed pavilions, arched bridges and gold-thread clouds create intricate detail. Visible embroidered satin stitches, couched gold thread and subtle silk sheen; the scenery is fully made of thread, not printed. A slim dark wooden rail holds the top and a plain woven border surrounds the artwork. Refined museum photography, softly lit ivory wall, no people, no writing."
+}

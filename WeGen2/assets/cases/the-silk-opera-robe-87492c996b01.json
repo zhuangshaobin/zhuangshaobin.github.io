@@ -1,0 +1,12 @@
+{
+  "id": "the-silk-opera-robe",
+  "title": "The silk opera robe",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "An opera costume designer wears an elaborate teal silk robe in her workshop.",
+  "description": "A full-length portrait combining natural anatomy, draped silk and a rich textile setting.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A sophisticated full-length editorial portrait of an adult Chinese opera costume designer wearing an elaborate dark teal silk robe embroidered with gold clouds and peony flowers. The robe has naturally draped wide sleeves and a coherent tied waist. She stands calmly in a wooden theatre workshop filled with costume racks and fabric rolls, hands relaxed, natural face and anatomy. Rich textile detail, understated realistic photography, no readable text."
+}

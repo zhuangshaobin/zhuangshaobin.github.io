@@ -1,0 +1,12 @@
+{
+  "id": "the-dream-repair-shop",
+  "title": "The dream repair shop",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A fantasy film poster pairs a watchmaking workshop with six blocks of Chinese film copy.",
+  "description": "A fantasy film poster pairs a watchmaking workshop with six blocks of Chinese film copy.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly illustrated Chinese fantasy movie poster. A young adult woman watchmaker and an elderly man stand in an enormous dream-repair workshop filled with glass jars containing tiny moonlit landscapes, suspended clocks, botanical gears and a miniature train crossing the workbench. Elaborate believable architecture and enchanted practical lighting, hand-painted film-poster finish, indigo, brass and coral. Large Chinese title curls around the brass arch, a tagline beside the central characters, two cast names and a concise bottom story description and release line. Exceptionally detailed but organized composition. Render the following exact readable text, with deliberate typographic hierarchy and all words intact: “梦境修理铺” “有些遗憾，可以重新上发条。” “林夏 · 陈远山” “一间只在午夜开门的店，修补人们遗失的梦。” “带上你的故事，今晚开始营业。” “奇幻电影 · 冬日上映”. Integrate the lettering into the illustrated or photographed composition as described; varied scale, carefully aligned baselines, excellent legibility. No extra pseudo-text, no watermark, no unrelated filler. The result is the finished artwork, filling the whole image."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "the-indigo-dyer",
+  "title": "The indigo dyer",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A craftswoman lifts indigo botanical cloth from a dye vat, holding its two upper corners.",
+  "description": "Human-object interaction, wet textile and a richly detailed traditional workshop in one coherent photograph.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A vivid editorial photograph inside a traditional indigo-dye workshop. An older adult craftswoman lifts a wet patterned cotton cloth from a large circular dye vat, grasping the two top corners with her two hands. The fabric descends continuously into the vat and displays white botanical resist patterns against deep blue. Hanging dyed cloths, clay jars, timber rafters and a stone floor create a rich layered workshop. Natural face and hands, convincing wet textile and droplets, beautiful cool daylight, no visible writing."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "the-weather-archive",
+  "title": "The weather archive",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Three glass spheres hold cloudy green hills, a snowy forest and a red desert on separate stone pedestals.",
+  "description": "Distinct environments stay spatially bound inside their own transparent forms, with coherent light and material rendering.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A beautiful gallery installation of three large transparent glass spheres in a horizontal row, each on its own dark stone pedestal. The left sphere contains a miniature green landscape under floating white clouds; the middle contains a snowy pine forest with delicate snowflakes; the right contains a red desert dune with tiny suspended dust particles. Each landscape is fully contained inside its sphere, no objects crossing between spheres. Rich natural textures, elegant gallery lighting, precise glass reflections, no text or people."
+}

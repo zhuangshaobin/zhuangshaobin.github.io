@@ -1,0 +1,11 @@
+{
+  "id": "the-lacemaker",
+  "title": "The lacemaker",
+  "task": "Text to image",
+  "width": 768,
+  "height": 1152,
+  "alt": "A woman in an ivory jacket touches her lapel beneath an intricately structured black lace hat.",
+  "description": "Natural facial and hand anatomy alongside intricate transparent lace and tailored clothing.",
+  "prompt": "A stunning editorial fashion photograph of an adult woman wearing an intricately constructed black lace sculptural hat and a tailored ivory jacket. The hat forms a delicate continuous lattice of floral patterns around her head, leaving her recognizable eyes and face unobscured. Fine lace loops, embroidered edging and subtle silk sheen are sharply visible. Her natural hand lightly touches the jacket lapel, with anatomically coherent fingers. Rich charcoal background, softly illuminated skin, restrained dramatic light and exceptionally refined high-fashion composition, no lettering or jewelry logos.",
+  "featured": false
+}

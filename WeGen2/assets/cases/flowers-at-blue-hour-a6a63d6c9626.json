@@ -1,0 +1,12 @@
+{
+  "id": "flowers-at-blue-hour",
+  "title": "Flowers at blue hour",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A florist holds white hydrangeas in the warm doorway of a flower shop after rain.",
+  "description": "Cinematic blue-hour photography balances a detailed storefront, natural hand contact and wet reflections.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly detailed cinematic street photograph of a small flower shop at blue hour after rain. An adult female florist in a cream apron stands inside the open doorway, holding a terracotta pot of white hydrangeas naturally with both hands. The hands visibly grip and support the pot with plausible finger placement. Buckets of flowers, a tiled doorstep, a teal wooden door and warm hanging lamps form a layered storefront. Reflections in wet pavement, delicate petals, natural face and anatomy, realistic architectural proportions. Sophisticated cool-blue and amber colour, no legible signage or lettering."
+}

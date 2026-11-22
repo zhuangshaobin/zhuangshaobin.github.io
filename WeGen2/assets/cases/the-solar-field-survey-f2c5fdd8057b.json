@@ -1,0 +1,12 @@
+{
+  "id": "the-solar-field-survey",
+  "title": "The solar-field survey",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A worker checks a tablet beside a small maintenance vehicle among rows of desert solar panels.",
+  "description": "Aerial perspective, repeating industrial geometry and a small human action within a vast landscape.",
+  "prompt": "A breathtaking oblique aerial photograph of a vast desert solar farm at sunrise. Long orderly rows of dark photovoltaic panels follow the sandy terrain, with narrow access roads between rows. One small white maintenance vehicle is parked on an access road; a lone worker in orange stands beside it, holding a rectangular inspection tablet. A distant substation and transmission lines are connected to the array. Geometric repeating panels, believable desert scale and long shadows, naturally muted gold and indigo colours, no text.",
+  "preserveLayout": true,
+  "featured": false
+}

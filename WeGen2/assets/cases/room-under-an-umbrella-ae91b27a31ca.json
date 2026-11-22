@@ -1,0 +1,11 @@
+{
+  "id": "room-under-an-umbrella",
+  "title": "Room under an umbrella",
+  "task": "Text to image",
+  "width": 768,
+  "height": 1152,
+  "alt": "A fox in a yellow raincoat shelters a hedgehog beneath one red umbrella on a rainy lane.",
+  "description": "Two distinct characters share an umbrella and exchange a flower, with precise paw contact and layered watercolor detail.",
+  "prompt": "A richly detailed and beautifully designed picture-book cover illustration, with no lettering: a small orange fox in a mustard raincoat and a gray hedgehog in a navy scarf stand close together beneath one large scarlet umbrella on a rainy cobblestone lane. The fox holds the umbrella handle naturally in one paw, while the hedgehog offers a small white flower to the fox with one clearly attached arm. Their heads, limbs and species remain distinct; the umbrella canopy shelters both characters and its shaft connects to the handle. Glowing windows, tiny ivy leaves and puddle reflections form a layered background. Refined watercolor and colored-pencil texture, warm expressive faces, deep blue rain and red accents, mature editorial composition.",
+  "featured": false
+}

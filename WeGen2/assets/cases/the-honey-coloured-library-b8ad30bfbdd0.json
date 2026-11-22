@@ -1,0 +1,12 @@
+{
+  "id": "the-honey-coloured-library",
+  "title": "The honey-coloured library",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A circular brass lamp hangs over a long reading table inside a honey-colored stone chapel library.",
+  "description": "A detailed interior combines vaulted stone architecture, a curved mezzanine and warm reading light.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A richly detailed cinematic interior of a library inside a converted old honey-coloured stone chapel. Tall arched windows, timber bookshelves and a central long reading table create a coherent perspective. One large suspended circular brass lamp hangs from visible ceiling cables directly over the table, while a continuous curved mezzanine with a safe railing runs along the walls. Warm late-afternoon light, fine stone and paper texture, no people or readable writing."
+}

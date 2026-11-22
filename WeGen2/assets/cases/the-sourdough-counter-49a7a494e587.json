@@ -1,0 +1,12 @@
+{
+  "id": "the-sourdough-counter",
+  "title": "The sourdough counter",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Whole and halved sourdough loaves sit beside a serrated knife in a working bakery.",
+  "description": "Food photography with crust, open crumb, flour and layered natural materials.",
+  "prompt": "A beautiful food-editorial still life in a working bakery: one complete round sourdough loaf beside a second loaf cut cleanly in half, exposing irregular open crumb. A serrated bread knife rests flat on the board, separated from the bread. Flour dust, a linen towel, a proofing basket and a tray of baked loaves form a richly layered but orderly scene. Natural early-morning side light, crisp crust texture, believable food shapes, no hands, people or writing.",
+  "preserveLayout": true,
+  "featured": false
+}

@@ -1,0 +1,11 @@
+{
+  "id": "the-latticed-courtyard",
+  "title": "Through the lattice",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 768,
+  "alt": "Terracotta lattice screens cast repeating shadows beside an olive tree and a reflecting pool.",
+  "description": "Complex architectural layers, repeated geometry and carefully controlled light.",
+  "prompt": "An extraordinary architectural photograph of a quiet courtyard enclosed by intricate perforated terracotta screens. Late-afternoon sunlight passes through the same geometric screens, casting delicate repeating diamond-and-star light patterns onto pale limestone paving and a shallow reflecting pool. The screens have consistent thickness and coherent structural supports. A single mature olive tree rises beside the pool, its trunk and branches reflected naturally in the still water. Refined modern architecture, warm earth, silver-green leaves and cool blue reflections, elaborate but physically readable shadows, beautifully controlled exposure, no people or text.",
+  "featured": false
+}

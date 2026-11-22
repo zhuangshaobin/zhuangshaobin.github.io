@@ -1,0 +1,12 @@
+{
+  "id": "the-rainy-tram-window",
+  "title": "The rainy tram window",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A woman with a closed yellow book sits beside a rain-speckled tram window and a softly reflected city.",
+  "description": "A cinematic portrait combines natural hands, layered reflections and a richly lit transport interior.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A cinematic photograph from inside a vintage tram, looking diagonally through a rain-speckled window. In the foreground an adult woman with short hair sits in a green upholstered seat, holding a closed yellow book naturally in her lap. Outside, a richly detailed rainy city glows with warm storefront light and blurred red tail lights. Her subtle reflection is correctly aligned in the glass, the wooden window frame and brass handrail remain coherent, natural face and hands, no legible signs or lettering."
+}

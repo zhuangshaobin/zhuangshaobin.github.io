@@ -1,0 +1,12 @@
+{
+  "id": "the-lantern-maker-portrait",
+  "title": "The lantern maker",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "An experienced lantern maker brushes paste onto a partially covered bamboo lantern frame.",
+  "description": "An intimate craft portrait combines natural hand contact, fine paper detail and a richly layered workshop.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An intimate editorial photograph of an older adult East Asian lantern maker in a richly detailed workshop. She sits at a wooden table, holding a partially completed red paper lantern by its bamboo frame with one hand while the other applies paste with a small natural brush. The frame, paper strips and handle connect plausibly; hanging finished lanterns, bamboo slats and warm lamplight surround her. Natural face and hands, visible brush contact and detailed craft textures, no visible writing."
+}

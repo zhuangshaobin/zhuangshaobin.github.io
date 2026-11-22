@@ -1,0 +1,12 @@
+{
+  "id": "the-flying-fish-tram",
+  "title": "The flying fish tram",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A blue fish-shaped tram floats above green roof gardens and bridges in a canal city.",
+  "description": "A fantastical mechanical vehicle with articulated fins, passenger windows and richly layered urban surroundings.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An elaborate original animated-film concept illustration of a small tram designed like a fantastical blue flying fish, floating above a lush canal city. One streamlined metal fish-shaped body contains coherent rectangular passenger windows; two translucent fin-shaped wings attach at the sides, a single fan-like tail is connected at the rear, and a rounded head has a small forward headlamp. Decorative brass rivets, city bridges, terraces and hanging gardens create rich layered detail. Complete vehicle visible, clear connected mechanical design, no passengers or lettering."
+}

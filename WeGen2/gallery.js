@@ -9,6 +9,50 @@
   const frameList = modal.querySelector(".artwork-frames");
   const stage = modal.querySelector(".artwork-stage");
   const prompt = modal.querySelector(".artwork-prompt");
+  const detailRequests = new Map();
+  const detailReady = new Set(works.filter((work) => !work.detailUrl).map((work) => work.id));
+  const detailErrors = new Set();
+  const retry = document.createElement("button");
+  retry.type = "button";
+  retry.textContent = "Retry";
+  retry.hidden = true;
+  retry.dataset.promptRetry = "";
+  prompt.querySelector(".artwork-prompt-actions").append(retry);
+  function loadDetails(work) {
+    if (detailReady.has(work.id)) return Promise.resolve(work);
+    if (detailRequests.has(work.id)) return detailRequests.get(work.id);
+    detailErrors.delete(work.id);
+    const pending = fetch(work.detailUrl, { priority: "high" })
+      .then((response) => {
+        if (!response.ok) throw new Error("Artwork details unavailable");
+        return response.json();
+      })
+      .then((detail) => {
+        if (detail.id !== work.id) throw new Error("Artwork details do not match");
+        Object.assign(work, detail);
+        detailReady.add(work.id);
+        return work;
+      })
+      .catch((error) => {
+        detailRequests.delete(work.id);
+        detailErrors.add(work.id);
+        throw error;
+      });
+    detailRequests.set(work.id, pending);
+    return pending;
+  }
+  const framesFor = (work) =>
+    work.frames || [
+      {
+        asset: work.asset || work.id,
+        label: "Result",
+        role: "output",
+        width: work.width,
+        height: work.height,
+        alt: work.alt || work.title,
+        prompt: work.prompt,
+      },
+    ];
   // Browser-native lazy loading can fetch the entire next section during the
   // opening canvas. Only release these previews when visitors approach it.
   const previewObserver = new IntersectionObserver(
@@ -36,6 +80,53 @@
     origin,
     touch,
     loader;
+  function renderPrompt() {
+    const work = selection[current],
+      frame = frames[frameIndex];
+    const ready = detailReady.has(work.id),
+      failed = detailErrors.has(work.id);
+    prompt.hidden = ready && !frame.prompt;
+    prompt.querySelector("summary").textContent =
+      frame.role !== "input" && work.task === "Reference composition"
+        ? "Original composition prompt"
+        : frame.role !== "input" && frames.length > 1
+          ? "Original editing prompt"
+          : "Original generation prompt";
+    prompt.querySelector("p").textContent = ready
+      ? frame.prompt || ""
+      : failed
+        ? "The original prompt could not be loaded. Please retry."
+        : "Loading original prompt…";
+    prompt.open = !ready || Boolean(frame.prompt);
+    retry.hidden = ready || !failed;
+    modal.querySelector("[data-copy-prompt]").disabled = !ready || !frame.prompt;
+    modal.querySelector(".artwork-copy-state").textContent = "";
+  }
+  function hydrateCurrent(work) {
+    const pending = loadDetails(work);
+    renderPrompt();
+    pending
+      .then(() => {
+        if (!modal.open || selection[current].id !== work.id) return;
+        frames = framesFor(work);
+        image.alt = frames[frameIndex].alt || work.title;
+        modal.querySelector(".artwork-description").textContent = work.description || "";
+        renderPrompt();
+      })
+      .catch(() => {
+        if (modal.open && selection[current].id === work.id) renderPrompt();
+      });
+  }
+  retry.addEventListener("click", () => hydrateCurrent(selection[current]));
+  // Warm only the case a visitor is about to open, never the whole collection.
+  function warmDetails(event) {
+    const button = event.target.closest("[data-artwork]");
+    if (!button || button.contains(event.relatedTarget)) return;
+    const work = works.find((item) => item.id === button.dataset.artwork);
+    if (work) loadDetails(work).catch(() => {});
+  }
+  document.addEventListener("pointerover", warmDetails, { passive: true });
+  document.addEventListener("focusin", warmDetails);
   function renderFrame(index, focus = false) {
     frameIndex = (index + frames.length) % frames.length;
     const frame = frames[frameIndex],
@@ -48,7 +139,7 @@
     }
     const full = `assets/gallery/${frame.asset}.webp`;
     image.src = `assets/gallery/${frame.asset}-960.webp`;
-    image.alt = frame.alt;
+    image.alt = frame.alt || selection[current].title;
     image.width = frame.width;
     image.height = frame.height;
     frameList.querySelectorAll("button").forEach((button, i) => {
@@ -64,18 +155,8 @@
       }
     });
     modal.querySelector(".artwork-original").href = full;
-    prompt.hidden = !frame.prompt;
-    const task = selection[current].task || "";
-    prompt.querySelector("summary").textContent =
-      frame.role !== "input" && task === "Reference composition"
-        ? "Original composition prompt"
-        : frame.role !== "input" && frames.length > 1
-          ? "Original editing prompt"
-          : "Original generation prompt";
-    modal.querySelector(".artwork-copy-state").textContent = "";
+    renderPrompt();
     modal.querySelector(".artwork-size").textContent = `${frame.width.toLocaleString("en-US")} × ${frame.height.toLocaleString("en-US")}`;
-    prompt.querySelector("p").textContent = frame.prompt || "";
-    prompt.open = Boolean(frame.prompt);
     status.textContent = "Loading full image…";
     const original = new Image();
     loader = original;
@@ -96,9 +177,7 @@
     const work = selection[current];
     modal.scrollTop = 0;
     modal.querySelector(".artwork-caption").scrollTop = 0;
-    frames = work.frames || [
-      { asset: work.asset || work.id, label: "Result", role: "output", width: work.width, height: work.height, alt: work.alt, prompt: work.prompt },
-    ];
+    frames = framesFor(work);
     modal.querySelector("#artwork-title").textContent = work.title;
     modal.querySelector(".artwork-category").textContent = work.task || "Text to image";
     modal.querySelector(".artwork-description").textContent = work.description || "";
@@ -142,6 +221,7 @@
       });
     }
     renderFrame(frames.length - 1);
+    hydrateCurrent(work);
   }
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-artwork]");

@@ -1,0 +1,12 @@
+{
+  "id": "the-silver-birch-room",
+  "title": "The silver birch room",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A sleeping striped cat rests beside a sketchbook and blue jugs of birch branches in a sunlit room.",
+  "description": "A richly textured painted interior with natural animal anatomy, layered foliage and coherent perspective.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A meticulously painted interior in the style of an original contemporary oil painting. A sunlit room contains a pale wooden table, a blue ceramic jug of birch branches, an open sketchbook and one striped cat asleep in a wicker chair. A tall window frames a cool green garden. The cat has one continuous relaxed body, one head and one tail; delicate paws are naturally tucked beneath. Rich brushwork, balanced warm and cool colour, accurate interior perspective, no legible writing."
+}

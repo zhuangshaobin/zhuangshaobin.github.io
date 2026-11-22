@@ -1,0 +1,31 @@
+{
+  "id": "the-ruby-sunflower",
+  "title": "The ruby sunflower",
+  "task": "Image editing",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A glass sunflower changes to ruby petals and a clear stem while retaining its amber centre and sculpture shape.",
+  "description": "A selective color edit preserves the glass sculpture, attached leaves and optical highlights.",
+  "preserveLayout": true,
+  "featured": false,
+  "frames": [
+    {
+      "asset": "the-ruby-sunflower-reference-01",
+      "label": "Input",
+      "role": "input",
+      "width": 768,
+      "height": 1152,
+      "alt": "An amber glass sunflower with two green leaves casts colored light onto a dark stone surface.",
+      "prompt": "A spectacular museum photograph of a single life-size sunflower made entirely from transparent amber and pale-green cut glass. Exactly one circular central seed head is surrounded by a coherent radial ring of glass petals; one continuous green glass stem has exactly two broad serrated leaves and rises from a clear faceted geometric base. Fine internal bubbles and polished faceted edges, physically convincing refraction, a luminous amber caustic projected onto the dark gray stone beneath it. Restrained warm side light, no other flowers, exquisite precision and balanced vertical composition, no text."
+    },
+    {
+      "asset": "the-ruby-sunflower",
+      "label": "Result",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "A glass sunflower changes to ruby petals and a clear stem while retaining its amber centre and sculpture shape.",
+      "prompt": "Edit only the colours of the handblown glass sunflower sculpture. Change its yellow petals to deep translucent ruby-red glass, its green stem and leaves to smoky clear glass, and its central disk to warm amber. Preserve the exact petal count and shapes, two leaves, their attachment, the stem curve, whole object silhouette, background, framing and lighting. Keep all materials visibly glass with realistic refraction, no added objects or text."
+    }
+  ]
+}

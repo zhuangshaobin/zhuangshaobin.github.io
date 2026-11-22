@@ -1,0 +1,12 @@
+{
+  "id": "the-paper-night-market",
+  "title": "The paper night market",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A miniature paper night market glows with red lanterns, folded parasols and stalls beside an indigo river.",
+  "description": "A densely crafted paper environment with layered roofs, warm translucent lanterns and tiny market details.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An intricate miniature night market made entirely from cut and folded paper. A winding cobbled street connects stalls with red lanterns, a tiny tea house and a gracefully curved footbridge over a narrow indigo river. Paper fruit baskets, folded parasols, tiny stacked bowls and richly layered roof tiles add delicate complexity. No people. Every object visibly has cut edges and paper thickness, with warm lantern light passing through translucent paper. Sophisticated theatrical macro photography, red, indigo and pale gold, no signs or lettering."
+}

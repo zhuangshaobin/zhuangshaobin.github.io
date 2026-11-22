@@ -1,0 +1,12 @@
+{
+  "id": "the-coral-ballet-stage",
+  "title": "The scarlet rehearsal",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "Two dancers in scarlet and ivory balance on pointe opposite one another beside a grand piano.",
+  "description": "Paired human poses, coordinated costumes and theatrical stage lighting.",
+  "prompt": "A dramatic wide editorial photograph of an empty theatre during rehearsal. Exactly two adult ballet dancers in opaque scarlet and ivory costumes face each other on the stage, each balancing on one foot with the other leg extended behind. Their hands touch lightly between them without merging; both bodies, arms and legs remain complete and anatomically plausible. A grand piano sits far to the left, no other people. Warm spotlights, deep charcoal curtains, stage-floor reflections, controlled elegant motion, no words.",
+  "preserveLayout": true,
+  "featured": false
+}

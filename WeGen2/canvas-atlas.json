@@ -2,141 +2,144 @@
   "groups": [
     {
       "id": "upper-00",
-      "preview": "assets/canvas-atlas/upper-00-1x-66c9938453.webp",
-      "detail": "assets/canvas-atlas/upper-00-2x-82fed76aec.webp",
-      "width": 628,
+      "preview": "assets/canvas-atlas/upper-00-1x-5d07d04ce6.webp",
+      "detail": "assets/canvas-atlas/upper-00-2x-3630c6856f.webp",
+      "previewAvif": "assets/canvas-atlas/upper-00-1x-233fca9a2c.avif",
+      "detailAvif": "assets/canvas-atlas/upper-00-2x-6df01d858f.avif",
+      "width": 620,
       "height": 330,
-      "cases": ["a-fold-for-spring", "paper-portrait-study", "the-cloud-circus", "room-under-an-umbrella", "the-red-paper-city", "the-rain-dancer"]
+      "cases": ["a-fold-for-spring", "snow-owl-at-dusk", "room-under-an-umbrella", "the-red-paper-city", "the-rain-dancer", "a-dress-made-of-wind"]
     },
     {
       "id": "upper-01",
-      "preview": "assets/canvas-atlas/upper-01-1x-932c6757a1.webp",
-      "detail": "assets/canvas-atlas/upper-01-2x-c69957352d.webp",
-      "width": 597,
+      "preview": "assets/canvas-atlas/upper-01-1x-abae926233.webp",
+      "detail": "assets/canvas-atlas/upper-01-2x-879f3cb637.webp",
+      "previewAvif": "assets/canvas-atlas/upper-01-1x-44b671961f.avif",
+      "detailAvif": "assets/canvas-atlas/upper-01-2x-92dec62759.avif",
+      "width": 486,
       "height": 330,
       "cases": [
-        "a-dress-made-of-wind",
         "a-garden-after-the-machines",
         "the-city-that-weaves",
         "cherry-blossom-bus",
-        "lemon-riviera",
-        "the-garden-of-light"
+        "the-lighthouse-in-the-squall",
+        "the-garden-of-light",
+        "the-jade-rain-pavilion"
       ]
     },
     {
       "id": "upper-02",
-      "preview": "assets/canvas-atlas/upper-02-1x-1cbfdf14ea.webp",
-      "detail": "assets/canvas-atlas/upper-02-2x-2212c00b04.webp",
-      "width": 587,
-      "height": 329,
+      "preview": "assets/canvas-atlas/upper-02-1x-72c640368a.webp",
+      "detail": "assets/canvas-atlas/upper-02-2x-52c2b49acf.webp",
+      "previewAvif": "assets/canvas-atlas/upper-02-1x-02c8e5fc86.avif",
+      "detailAvif": "assets/canvas-atlas/upper-02-2x-7cf67c427e.avif",
+      "width": 466,
+      "height": 493,
       "cases": [
-        "the-jade-rain-pavilion",
         "the-orchard-airship",
         "the-woven-butterfly-garden",
         "the-snowbound-orchard",
         "the-lavender-coastal-train",
-        "the-copper-orchard"
+        "the-rainy-tram-window",
+        "the-azulejo-courtyard"
       ]
     },
     {
       "id": "upper-03",
-      "preview": "assets/canvas-atlas/upper-03-1x-caef01a59f.webp",
-      "detail": "assets/canvas-atlas/upper-03-2x-0ef74e61bc.webp",
+      "preview": "assets/canvas-atlas/upper-03-1x-16aada5648.webp",
+      "detail": "assets/canvas-atlas/upper-03-2x-1fa9c0545e.webp",
+      "previewAvif": "assets/canvas-atlas/upper-03-1x-0aa0115fd0.avif",
+      "detailAvif": "assets/canvas-atlas/upper-03-2x-37d7806f8e.avif",
       "width": 448,
       "height": 492,
       "cases": [
-        "the-malachite-perfume-studio",
-        "the-rainy-tram-window",
-        "the-azulejo-courtyard",
         "the-indigo-dyer",
         "the-silk-river-screen",
-        "the-moonlit-ceramic-roofs"
+        "the-prism-espresso-machine",
+        "the-marble-book-wave",
+        "the-ochre-canyon-city",
+        "the-knitted-satellite"
       ]
     },
     {
       "id": "upper-04",
-      "preview": "assets/canvas-atlas/upper-04-1x-b8aeadad3c.webp",
-      "detail": "assets/canvas-atlas/upper-04-2x-9e5f458d8f.webp",
-      "width": 448,
-      "height": 492,
-      "cases": [
-        "the-prism-espresso-machine",
-        "the-marble-book-wave",
-        "the-ochre-canyon-city",
-        "the-knitted-satellite",
-        "the-celestial-greenhouse",
-        "the-silver-birch-room"
-      ]
-    },
-    {
-      "id": "upper-05",
-      "preview": "assets/canvas-atlas/upper-05-1x-e87a61bdac.webp",
-      "detail": "assets/canvas-atlas/upper-05-2x-e5522da5c7.webp",
-      "width": 448,
+      "preview": "assets/canvas-atlas/upper-04-1x-f6209df382.webp",
+      "detail": "assets/canvas-atlas/upper-04-2x-e96502ce10.webp",
+      "previewAvif": "assets/canvas-atlas/upper-04-1x-dc30402b9f.avif",
+      "detailAvif": "assets/canvas-atlas/upper-04-2x-499341c478.avif",
+      "width": 224,
       "height": 164,
-      "cases": ["the-lantern-boat-festival", "the-celadon-airship"]
+      "cases": ["the-celestial-greenhouse"]
     },
     {
-      "id": "lower-06",
-      "preview": "assets/canvas-atlas/lower-06-1x-ac346e5b2b.webp",
-      "detail": "assets/canvas-atlas/lower-06-2x-b2bcb4d323.webp",
-      "width": 606,
-      "height": 492,
+      "id": "lower-05",
+      "preview": "assets/canvas-atlas/lower-05-1x-3ce365baad.webp",
+      "detail": "assets/canvas-atlas/lower-05-2x-008445e91d.webp",
+      "previewAvif": "assets/canvas-atlas/lower-05-1x-7e6608b18f.avif",
+      "detailAvif": "assets/canvas-atlas/lower-05-2x-ac413c46a0.avif",
+      "width": 610,
+      "height": 493,
       "cases": [
-        "the-river-pottery-school",
-        "the-orchid-railway",
+        "the-solar-field-survey",
+        "the-midnight-laundrette",
         "the-night-train-letter",
-        "the-terrazzo-greenhouse",
+        "the-mountain-radio-room",
         "the-indigo-night-kitchen",
         "the-rainbow-glass-stair",
         "the-couture-exhibition",
         "the-spring-flower-market",
-        "the-porcelain-tiger",
+        "the-polar-observation-camp",
         "shadow-theatre"
       ]
     },
     {
-      "id": "lower-07",
-      "preview": "assets/canvas-atlas/lower-07-1x-b0b13a84d6.webp",
-      "detail": "assets/canvas-atlas/lower-07-2x-07298bf25a.webp",
-      "width": 617,
-      "height": 313,
+      "id": "lower-06",
+      "preview": "assets/canvas-atlas/lower-06-1x-7f3d4c1503.webp",
+      "detail": "assets/canvas-atlas/lower-06-2x-91c19cf065.webp",
+      "previewAvif": "assets/canvas-atlas/lower-06-1x-621e1fdf8f.avif",
+      "detailAvif": "assets/canvas-atlas/lower-06-2x-1d8b56270d.avif",
+      "width": 580,
+      "height": 433,
       "cases": [
         "a-table-for-four-seasons",
         "letters-made-of-rain",
         "the-orange-orchard-picnic",
-        "the-glass-citrus-branch",
+        "costume-in-motion",
         "an-invitation-to-the-stars",
         "the-koi-mosaic-courtyard",
         "the-lantern-maker-portrait",
         "the-paper-night-market",
-        "the-moonlit-tailor",
+        "the-coastal-gallop",
         "the-copper-rain-chain"
       ]
     },
     {
-      "id": "lower-08",
-      "preview": "assets/canvas-atlas/lower-08-1x-0e949dd82c.webp",
-      "detail": "assets/canvas-atlas/lower-08-2x-3d1561a096.webp",
-      "width": 587,
-      "height": 451,
+      "id": "lower-07",
+      "preview": "assets/canvas-atlas/lower-07-1x-60efcc57df.webp",
+      "detail": "assets/canvas-atlas/lower-07-2x-4fb3f367c8.webp",
+      "previewAvif": "assets/canvas-atlas/lower-07-1x-dc874238cc.avif",
+      "detailAvif": "assets/canvas-atlas/lower-07-2x-b644d97095.avif",
+      "width": 561,
+      "height": 417,
       "cases": [
         "the-solarpunk-canal",
         "the-botanical-type-foundry",
-        "the-cobalt-ceramic-garden",
+        "the-moonlit-tailor",
         "the-sunflower-green-room",
         "letters-made-of-thread",
         "a-letter-from-the-garden",
-        "the-coral-courtyard",
+        "the-cloud-circus",
         "a-workshop-made-of-colour",
-        "the-peony-desk-lamp",
+        "the-checkup-club",
         "the-turquoise-courtyard-model"
       ]
     },
     {
-      "id": "lower-09",
-      "preview": "assets/canvas-atlas/lower-09-1x-4d0646b6e1.webp",
-      "detail": "assets/canvas-atlas/lower-09-2x-4c61f9bda0.webp",
+      "id": "lower-08",
+      "preview": "assets/canvas-atlas/lower-08-1x-31f266e08b.webp",
+      "detail": "assets/canvas-atlas/lower-08-2x-828ff791c7.webp",
+      "previewAvif": "assets/canvas-atlas/lower-08-1x-fb0a26bc6a.avif",
+      "detailAvif": "assets/canvas-atlas/lower-08-2x-d98dc2f51c.avif",
       "width": 619,
       "height": 352,
       "cases": [
@@ -148,16 +151,18 @@
         "the-bamboo-cloud-pavilion",
         "the-jade-forest-pool",
         "the-deep-sea-library",
-        "the-porcelain-monsoon",
+        "the-sourdough-counter",
         "the-dream-repair-shop"
       ]
     },
     {
-      "id": "lower-10",
-      "preview": "assets/canvas-atlas/lower-10-1x-ab7965b1ba.webp",
-      "detail": "assets/canvas-atlas/lower-10-2x-ac390bae13.webp",
-      "width": 546,
-      "height": 407,
+      "id": "lower-09",
+      "preview": "assets/canvas-atlas/lower-09-1x-de96e2c762.webp",
+      "detail": "assets/canvas-atlas/lower-09-2x-fd1b90d8ff.webp",
+      "previewAvif": "assets/canvas-atlas/lower-09-1x-cb6d551022.avif",
+      "detailAvif": "assets/canvas-atlas/lower-09-2x-aa8ac3bf69.avif",
+      "width": 555,
+      "height": 406,
       "cases": [
         "garden-after-dark",
         "the-sugar-glass-garden",
@@ -167,35 +172,39 @@
         "the-ruby-sunflower",
         "the-flying-fish-tram",
         "the-botanical-diving-bell",
-        "the-porcelain-orchard",
+        "the-coral-ballet-stage",
         "a-conversation-in-glass"
       ]
     },
     {
-      "id": "lower-11",
-      "preview": "assets/canvas-atlas/lower-11-1x-75aec845d8.webp",
-      "detail": "assets/canvas-atlas/lower-11-2x-7ad34dfc63.webp",
-      "width": 593,
-      "height": 425,
+      "id": "lower-10",
+      "preview": "assets/canvas-atlas/lower-10-1x-035029b649.webp",
+      "detail": "assets/canvas-atlas/lower-10-2x-722026b8b8.webp",
+      "previewAvif": "assets/canvas-atlas/lower-10-1x-542d7fb23f.avif",
+      "detailAvif": "assets/canvas-atlas/lower-10-2x-3807fdf1e5.avif",
+      "width": 601,
+      "height": 420,
       "cases": [
         "screenprint-to-woodblock",
-        "letters-made-of-roots",
+        "lemon-riviera",
         "the-iris-pocket-watch",
         "flowers-at-blue-hour",
         "a-library-of-leaves",
         "the-coral-red-scooter",
         "courier-wardrobe-composition",
         "the-art-of-repair",
-        "the-brass-star-theatre",
+        "the-orbital-control-room",
         "the-moon-library-title-edit"
       ]
     },
     {
-      "id": "lower-12",
-      "preview": "assets/canvas-atlas/lower-12-1x-9f3b57c5ec.webp",
-      "detail": "assets/canvas-atlas/lower-12-2x-f5fdc638f6.webp",
-      "width": 595,
-      "height": 351,
+      "id": "lower-11",
+      "preview": "assets/canvas-atlas/lower-11-1x-d758ca8e2e.webp",
+      "detail": "assets/canvas-atlas/lower-11-2x-0c2b214f56.webp",
+      "previewAvif": "assets/canvas-atlas/lower-11-1x-be74ea6e91.avif",
+      "detailAvif": "assets/canvas-atlas/lower-11-2x-0dd91c4f03.avif",
+      "width": 618,
+      "height": 363,
       "cases": [
         "the-saffron-spice-market",
         "the-ceramic-tide-pool",
@@ -205,16 +214,18 @@
         "four-materials-four-lights",
         "the-raincoat-photographer",
         "tomorrow-blackboard",
-        "costume-in-motion",
+        "the-tidal-container-port",
         "a-new-note-of-amber"
       ]
     },
     {
-      "id": "lower-13",
-      "preview": "assets/canvas-atlas/lower-13-1x-ab6d7a39b6.webp",
-      "detail": "assets/canvas-atlas/lower-13-2x-933780340f.webp",
-      "width": 573,
-      "height": 427,
+      "id": "lower-12",
+      "preview": "assets/canvas-atlas/lower-12-1x-14449dfb34.webp",
+      "detail": "assets/canvas-atlas/lower-12-2x-6764ed9d25.webp",
+      "previewAvif": "assets/canvas-atlas/lower-12-1x-593e7d3125.avif",
+      "detailAvif": "assets/canvas-atlas/lower-12-2x-f9e50b7d45.avif",
+      "width": 584,
+      "height": 426,
       "cases": [
         "the-embroidered-paper-portrait",
         "the-sunlit-souk",
@@ -224,45 +235,49 @@
         "a-room-for-chinese-craft",
         "the-saffron-harbour",
         "the-ice-blue-trench",
-        "the-cut-paper-koi",
+        "the-salt-road-caravan",
         "the-dyers-courtyard"
       ]
     },
     {
-      "id": "lower-14",
-      "preview": "assets/canvas-atlas/lower-14-1x-f75ce976b9.webp",
-      "detail": "assets/canvas-atlas/lower-14-2x-0761df9d5c.webp",
-      "width": 579,
-      "height": 344,
+      "id": "lower-13",
+      "preview": "assets/canvas-atlas/lower-13-1x-5ec51e4b33.webp",
+      "detail": "assets/canvas-atlas/lower-13-2x-55a5bfd638.webp",
+      "previewAvif": "assets/canvas-atlas/lower-13-1x-9470150a3c.avif",
+      "detailAvif": "assets/canvas-atlas/lower-13-2x-8e520ede71.avif",
+      "width": 578,
+      "height": 454,
       "cases": [
-        "the-garden-postcard",
+        "the-cut-paper-koi",
         "the-tortoise-library",
         "the-stained-glass-desert",
         "moss-observatory",
         "the-watchmakers-desk",
-        "porcelain-light",
-        "the-lacquered-dragon",
+        "the-porcelain-monsoon",
+        "the-silver-birch-room",
         "the-starlight-concert",
-        "glass-sunflower-study",
+        "the-lantern-boat-festival",
         "the-moonstone-perfume"
       ]
     },
     {
-      "id": "lower-15",
-      "preview": "assets/canvas-atlas/lower-15-1x-97db1bbece.webp",
-      "detail": "assets/canvas-atlas/lower-15-2x-ec1a1b330b.webp",
-      "width": 569,
-      "height": 475,
+      "id": "lower-14",
+      "preview": "assets/canvas-atlas/lower-14-1x-87ca7bf0a3.webp",
+      "detail": "assets/canvas-atlas/lower-14-2x-8f4084b5c3.webp",
+      "previewAvif": "assets/canvas-atlas/lower-14-1x-79d1ec6eff.avif",
+      "detailAvif": "assets/canvas-atlas/lower-14-2x-2cf9137e7f.avif",
+      "width": 623,
+      "height": 500,
       "cases": [
         "accordion-book",
         "the-latticed-courtyard",
         "ceramic-workshop",
         "woven-memory",
         "the-potter-at-dawn",
-        "the-paper-couture-portrait",
+        "the-brass-star-theatre",
         "sand-and-silver",
         "after-the-rain-poster",
-        "the-tideglass-dress",
+        "the-river-pottery-school",
         "the-lacemaker"
       ]
     }
@@ -276,26 +291,18 @@
       "width": 160,
       "height": 160
     },
-    "paper-portrait-study": {
+    "snow-owl-at-dusk": {
       "group": "upper-00",
-      "id": "paper-portrait-study",
+      "id": "snow-owl-at-dusk",
       "x": 166,
       "y": 2,
-      "width": 107,
+      "width": 220,
       "height": 160
-    },
-    "the-cloud-circus": {
-      "group": "upper-00",
-      "id": "the-cloud-circus",
-      "x": 277,
-      "y": 2,
-      "width": 117,
-      "height": 161
     },
     "room-under-an-umbrella": {
       "group": "upper-00",
       "id": "room-under-an-umbrella",
-      "x": 398,
+      "x": 390,
       "y": 2,
       "width": 107,
       "height": 160
@@ -303,7 +310,7 @@
     "the-red-paper-city": {
       "group": "upper-00",
       "id": "the-red-paper-city",
-      "x": 509,
+      "x": 501,
       "y": 2,
       "width": 117,
       "height": 161
@@ -317,17 +324,17 @@
       "height": 161
     },
     "a-dress-made-of-wind": {
-      "group": "upper-01",
+      "group": "upper-00",
       "id": "a-dress-made-of-wind",
-      "x": 2,
-      "y": 2,
+      "x": 131,
+      "y": 167,
       "width": 107,
       "height": 160
     },
     "a-garden-after-the-machines": {
       "group": "upper-01",
       "id": "a-garden-after-the-machines",
-      "x": 113,
+      "x": 2,
       "y": 2,
       "width": 117,
       "height": 161
@@ -335,7 +342,7 @@
     "the-city-that-weaves": {
       "group": "upper-01",
       "id": "the-city-that-weaves",
-      "x": 234,
+      "x": 123,
       "y": 2,
       "width": 117,
       "height": 161
@@ -343,39 +350,39 @@
     "cherry-blossom-bus": {
       "group": "upper-01",
       "id": "cherry-blossom-bus",
-      "x": 355,
+      "x": 244,
       "y": 2,
       "width": 240,
       "height": 160
     },
-    "lemon-riviera": {
+    "the-lighthouse-in-the-squall": {
       "group": "upper-01",
-      "id": "lemon-riviera",
+      "id": "the-lighthouse-in-the-squall",
       "x": 2,
       "y": 167,
-      "width": 240,
+      "width": 220,
       "height": 160
     },
     "the-garden-of-light": {
       "group": "upper-01",
       "id": "the-garden-of-light",
-      "x": 246,
+      "x": 226,
       "y": 167,
       "width": 117,
       "height": 161
     },
     "the-jade-rain-pavilion": {
-      "group": "upper-02",
+      "group": "upper-01",
       "id": "the-jade-rain-pavilion",
-      "x": 2,
-      "y": 2,
+      "x": 347,
+      "y": 167,
       "width": 117,
       "height": 161
     },
     "the-orchard-airship": {
       "group": "upper-02",
       "id": "the-orchard-airship",
-      "x": 123,
+      "x": 2,
       "y": 2,
       "width": 117,
       "height": 161
@@ -383,7 +390,7 @@
     "the-woven-butterfly-garden": {
       "group": "upper-02",
       "id": "the-woven-butterfly-garden",
-      "x": 244,
+      "x": 123,
       "y": 2,
       "width": 117,
       "height": 161
@@ -391,7 +398,7 @@
     "the-snowbound-orchard": {
       "group": "upper-02",
       "id": "the-snowbound-orchard",
-      "x": 365,
+      "x": 244,
       "y": 2,
       "width": 220,
       "height": 160
@@ -404,91 +411,67 @@
       "width": 220,
       "height": 160
     },
-    "the-copper-orchard": {
+    "the-rainy-tram-window": {
       "group": "upper-02",
-      "id": "the-copper-orchard",
+      "id": "the-rainy-tram-window",
       "x": 226,
       "y": 167,
       "width": 220,
       "height": 160
     },
-    "the-malachite-perfume-studio": {
-      "group": "upper-03",
-      "id": "the-malachite-perfume-studio",
-      "x": 2,
-      "y": 2,
-      "width": 220,
-      "height": 160
-    },
-    "the-rainy-tram-window": {
-      "group": "upper-03",
-      "id": "the-rainy-tram-window",
-      "x": 226,
-      "y": 2,
-      "width": 220,
-      "height": 160
-    },
     "the-azulejo-courtyard": {
-      "group": "upper-03",
+      "group": "upper-02",
       "id": "the-azulejo-courtyard",
       "x": 2,
-      "y": 166,
+      "y": 331,
       "width": 220,
       "height": 160
     },
     "the-indigo-dyer": {
       "group": "upper-03",
       "id": "the-indigo-dyer",
-      "x": 226,
-      "y": 166,
+      "x": 2,
+      "y": 2,
       "width": 220,
       "height": 160
     },
     "the-silk-river-screen": {
       "group": "upper-03",
       "id": "the-silk-river-screen",
-      "x": 2,
-      "y": 330,
-      "width": 220,
-      "height": 160
-    },
-    "the-moonlit-ceramic-roofs": {
-      "group": "upper-03",
-      "id": "the-moonlit-ceramic-roofs",
       "x": 226,
-      "y": 330,
+      "y": 2,
       "width": 220,
       "height": 160
     },
     "the-prism-espresso-machine": {
-      "group": "upper-04",
+      "group": "upper-03",
       "id": "the-prism-espresso-machine",
       "x": 2,
-      "y": 2,
+      "y": 166,
       "width": 220,
       "height": 160
     },
     "the-marble-book-wave": {
-      "group": "upper-04",
+      "group": "upper-03",
       "id": "the-marble-book-wave",
       "x": 226,
-      "y": 2,
+      "y": 166,
       "width": 220,
       "height": 160
     },
     "the-ochre-canyon-city": {
-      "group": "upper-04",
+      "group": "upper-03",
       "id": "the-ochre-canyon-city",
       "x": 2,
-      "y": 166,
+      "y": 330,
       "width": 220,
       "height": 160
     },
     "the-knitted-satellite": {
-      "group": "upper-04",
+      "group": "upper-03",
       "id": "the-knitted-satellite",
       "x": 226,
-      "y": 166,
+      "y": 330,
       "width": 220,
       "height": 160
     },
@@ -496,116 +479,92 @@
       "group": "upper-04",
       "id": "the-celestial-greenhouse",
       "x": 2,
-      "y": 330,
-      "width": 220,
-      "height": 160
-    },
-    "the-silver-birch-room": {
-      "group": "upper-04",
-      "id": "the-silver-birch-room",
-      "x": 226,
-      "y": 330,
-      "width": 220,
-      "height": 160
-    },
-    "the-lantern-boat-festival": {
-      "group": "upper-05",
-      "id": "the-lantern-boat-festival",
-      "x": 2,
       "y": 2,
       "width": 220,
       "height": 160
     },
-    "the-celadon-airship": {
-      "group": "upper-05",
-      "id": "the-celadon-airship",
-      "x": 226,
-      "y": 2,
-      "width": 220,
-      "height": 160
-    },
-    "the-river-pottery-school": {
-      "group": "lower-06",
-      "id": "the-river-pottery-school",
+    "the-solar-field-survey": {
+      "group": "lower-05",
+      "id": "the-solar-field-survey",
       "x": 2,
       "y": 2,
       "width": 148,
       "height": 108
     },
-    "the-orchid-railway": {
-      "group": "lower-06",
-      "id": "the-orchid-railway",
+    "the-midnight-laundrette": {
+      "group": "lower-05",
+      "id": "the-midnight-laundrette",
       "x": 154,
       "y": 2,
-      "width": 194,
-      "height": 141
+      "width": 195,
+      "height": 142
     },
     "the-night-train-letter": {
-      "group": "lower-06",
+      "group": "lower-05",
       "id": "the-night-train-letter",
-      "x": 352,
+      "x": 353,
       "y": 2,
-      "width": 96,
-      "height": 132
+      "width": 98,
+      "height": 135
     },
-    "the-terrazzo-greenhouse": {
-      "group": "lower-06",
-      "id": "the-terrazzo-greenhouse",
-      "x": 452,
+    "the-mountain-radio-room": {
+      "group": "lower-05",
+      "id": "the-mountain-radio-room",
+      "x": 455,
       "y": 2,
       "width": 98,
       "height": 71
     },
     "the-indigo-night-kitchen": {
-      "group": "lower-06",
+      "group": "lower-05",
       "id": "the-indigo-night-kitchen",
       "x": 2,
-      "y": 147,
+      "y": 148,
       "width": 148,
       "height": 108
     },
     "the-rainbow-glass-stair": {
-      "group": "lower-06",
+      "group": "lower-05",
       "id": "the-rainbow-glass-stair",
       "x": 154,
-      "y": 147,
-      "width": 96,
-      "height": 70
+      "y": 148,
+      "width": 98,
+      "height": 71
     },
     "the-couture-exhibition": {
-      "group": "lower-06",
+      "group": "lower-05",
       "id": "the-couture-exhibition",
-      "x": 254,
-      "y": 147,
+      "x": 256,
+      "y": 148,
       "width": 98,
       "height": 71
     },
     "the-spring-flower-market": {
-      "group": "lower-06",
+      "group": "lower-05",
       "id": "the-spring-flower-market",
-      "x": 356,
-      "y": 147,
+      "x": 358,
+      "y": 148,
       "width": 148,
       "height": 204
     },
-    "the-porcelain-tiger": {
-      "group": "lower-06",
-      "id": "the-porcelain-tiger",
-      "x": 508,
-      "y": 147,
-      "width": 96,
-      "height": 75
+    "the-polar-observation-camp": {
+      "group": "lower-05",
+      "id": "the-polar-observation-camp",
+      "x": 510,
+      "y": 148,
+      "width": 98,
+      "height": 71
     },
     "shadow-theatre": {
-      "group": "lower-06",
+      "group": "lower-05",
       "id": "shadow-theatre",
       "x": 2,
-      "y": 355,
+      "y": 356,
       "width": 98,
       "height": 135
     },
     "a-table-for-four-seasons": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "a-table-for-four-seasons",
       "x": 2,
       "y": 2,
@@ -613,79 +572,79 @@
       "height": 165
     },
     "letters-made-of-rain": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "letters-made-of-rain",
       "x": 126,
       "y": 2,
-      "width": 178,
-      "height": 129
+      "width": 192,
+      "height": 140
     },
     "the-orange-orchard-picnic": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "the-orange-orchard-picnic",
-      "x": 308,
+      "x": 322,
       "y": 2,
-      "width": 102,
-      "height": 74
+      "width": 127,
+      "height": 92
     },
-    "the-glass-citrus-branch": {
-      "group": "lower-07",
-      "id": "the-glass-citrus-branch",
-      "x": 414,
+    "costume-in-motion": {
+      "group": "lower-06",
+      "id": "costume-in-motion",
+      "x": 453,
       "y": 2,
-      "width": 77,
-      "height": 77
+      "width": 66,
+      "height": 99
     },
     "an-invitation-to-the-stars": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "an-invitation-to-the-stars",
-      "x": 495,
-      "y": 2,
+      "x": 2,
+      "y": 171,
       "width": 120,
       "height": 165
     },
     "the-koi-mosaic-courtyard": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "the-koi-mosaic-courtyard",
-      "x": 2,
+      "x": 126,
       "y": 171,
-      "width": 102,
-      "height": 74
+      "width": 127,
+      "height": 92
     },
     "the-lantern-maker-portrait": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "the-lantern-maker-portrait",
-      "x": 108,
+      "x": 257,
       "y": 171,
-      "width": 77,
-      "height": 106
+      "width": 66,
+      "height": 91
     },
     "the-paper-night-market": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "the-paper-night-market",
-      "x": 189,
+      "x": 327,
       "y": 171,
       "width": 120,
       "height": 87
     },
-    "the-moonlit-tailor": {
-      "group": "lower-07",
-      "id": "the-moonlit-tailor",
-      "x": 313,
+    "the-coastal-gallop": {
+      "group": "lower-06",
+      "id": "the-coastal-gallop",
+      "x": 451,
       "y": 171,
-      "width": 102,
-      "height": 140
+      "width": 127,
+      "height": 92
     },
     "the-copper-rain-chain": {
-      "group": "lower-07",
+      "group": "lower-06",
       "id": "the-copper-rain-chain",
-      "x": 419,
-      "y": 171,
-      "width": 77,
-      "height": 106
+      "x": 2,
+      "y": 340,
+      "width": 66,
+      "height": 91
     },
     "the-solarpunk-canal": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "the-solarpunk-canal",
       "x": 2,
       "y": 2,
@@ -693,79 +652,79 @@
       "height": 108
     },
     "the-botanical-type-foundry": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "the-botanical-type-foundry",
       "x": 154,
       "y": 2,
-      "width": 198,
-      "height": 144
+      "width": 173,
+      "height": 126
     },
-    "the-cobalt-ceramic-garden": {
-      "group": "lower-08",
-      "id": "the-cobalt-ceramic-garden",
-      "x": 356,
+    "the-moonlit-tailor": {
+      "group": "lower-07",
+      "id": "the-moonlit-tailor",
+      "x": 331,
       "y": 2,
-      "width": 73,
-      "height": 100
+      "width": 71,
+      "height": 98
     },
     "the-sunflower-green-room": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "the-sunflower-green-room",
-      "x": 433,
+      "x": 406,
       "y": 2,
-      "width": 125,
-      "height": 91
+      "width": 103,
+      "height": 75
     },
     "letters-made-of-thread": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "letters-made-of-thread",
       "x": 2,
-      "y": 150,
+      "y": 132,
       "width": 148,
       "height": 108
     },
     "a-letter-from-the-garden": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "a-letter-from-the-garden",
       "x": 154,
-      "y": 150,
-      "width": 73,
-      "height": 100
+      "y": 132,
+      "width": 71,
+      "height": 98
     },
-    "the-coral-courtyard": {
-      "group": "lower-08",
-      "id": "the-coral-courtyard",
-      "x": 231,
-      "y": 150,
-      "width": 125,
-      "height": 91
+    "the-cloud-circus": {
+      "group": "lower-07",
+      "id": "the-cloud-circus",
+      "x": 229,
+      "y": 132,
+      "width": 103,
+      "height": 142
     },
     "a-workshop-made-of-colour": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "a-workshop-made-of-colour",
-      "x": 360,
-      "y": 150,
+      "x": 336,
+      "y": 132,
       "width": 148,
       "height": 204
     },
-    "the-peony-desk-lamp": {
-      "group": "lower-08",
-      "id": "the-peony-desk-lamp",
-      "x": 512,
-      "y": 150,
-      "width": 73,
-      "height": 73
+    "the-checkup-club": {
+      "group": "lower-07",
+      "id": "the-checkup-club",
+      "x": 488,
+      "y": 132,
+      "width": 71,
+      "height": 98
     },
     "the-turquoise-courtyard-model": {
-      "group": "lower-08",
+      "group": "lower-07",
       "id": "the-turquoise-courtyard-model",
       "x": 2,
-      "y": 358,
-      "width": 125,
-      "height": 91
+      "y": 340,
+      "width": 103,
+      "height": 75
     },
     "the-textile-confectioner": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-textile-confectioner",
       "x": 2,
       "y": 2,
@@ -773,7 +732,7 @@
       "height": 87
     },
     "a-recipe-for-summer": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "a-recipe-for-summer",
       "x": 126,
       "y": 2,
@@ -781,7 +740,7 @@
       "height": 179
     },
     "the-fox-astronomer": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-fox-astronomer",
       "x": 309,
       "y": 2,
@@ -789,7 +748,7 @@
       "height": 79
     },
     "the-woven-helmet": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-woven-helmet",
       "x": 422,
       "y": 2,
@@ -797,7 +756,7 @@
       "height": 71
     },
     "the-orchid-jewellery-house": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-orchid-jewellery-house",
       "x": 497,
       "y": 2,
@@ -805,7 +764,7 @@
       "height": 165
     },
     "the-bamboo-cloud-pavilion": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-bamboo-cloud-pavilion",
       "x": 2,
       "y": 185,
@@ -813,7 +772,7 @@
       "height": 79
     },
     "the-jade-forest-pool": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-jade-forest-pool",
       "x": 115,
       "y": 185,
@@ -821,23 +780,23 @@
       "height": 71
     },
     "the-deep-sea-library": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-deep-sea-library",
       "x": 190,
       "y": 185,
       "width": 120,
       "height": 165
     },
-    "the-porcelain-monsoon": {
-      "group": "lower-09",
-      "id": "the-porcelain-monsoon",
+    "the-sourdough-counter": {
+      "group": "lower-08",
+      "id": "the-sourdough-counter",
       "x": 314,
       "y": 185,
       "width": 109,
       "height": 79
     },
     "the-dream-repair-shop": {
-      "group": "lower-09",
+      "group": "lower-08",
       "id": "the-dream-repair-shop",
       "x": 427,
       "y": 185,
@@ -845,7 +804,7 @@
       "height": 98
     },
     "garden-after-dark": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "garden-after-dark",
       "x": 2,
       "y": 2,
@@ -853,31 +812,31 @@
       "height": 186
     },
     "the-sugar-glass-garden": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "the-sugar-glass-garden",
       "x": 141,
       "y": 2,
-      "width": 178,
-      "height": 129
+      "width": 182,
+      "height": 132
     },
     "the-terracotta-weaver": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "the-terracotta-weaver",
-      "x": 323,
+      "x": 327,
       "y": 2,
-      "width": 77,
-      "height": 106
+      "width": 82,
+      "height": 113
     },
     "paper-garden-festival": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "paper-garden-festival",
-      "x": 404,
+      "x": 413,
       "y": 2,
-      "width": 102,
-      "height": 140
+      "width": 101,
+      "height": 139
     },
     "mountain-jasmine-tea": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "mountain-jasmine-tea",
       "x": 2,
       "y": 192,
@@ -885,127 +844,127 @@
       "height": 135
     },
     "the-ruby-sunflower": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "the-ruby-sunflower",
       "x": 141,
       "y": 192,
-      "width": 77,
-      "height": 106
+      "width": 82,
+      "height": 113
     },
     "the-flying-fish-tram": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "the-flying-fish-tram",
-      "x": 222,
+      "x": 227,
       "y": 192,
-      "width": 102,
-      "height": 74
+      "width": 101,
+      "height": 73
     },
     "the-botanical-diving-bell": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "the-botanical-diving-bell",
-      "x": 328,
+      "x": 332,
       "y": 192,
       "width": 135,
       "height": 98
     },
-    "the-porcelain-orchard": {
-      "group": "lower-10",
-      "id": "the-porcelain-orchard",
-      "x": 467,
+    "the-coral-ballet-stage": {
+      "group": "lower-09",
+      "id": "the-coral-ballet-stage",
+      "x": 471,
       "y": 192,
-      "width": 77,
-      "height": 77
+      "width": 82,
+      "height": 60
     },
     "a-conversation-in-glass": {
-      "group": "lower-10",
+      "group": "lower-09",
       "id": "a-conversation-in-glass",
       "x": 2,
       "y": 331,
-      "width": 102,
-      "height": 74
+      "width": 101,
+      "height": 73
     },
     "screenprint-to-woodblock": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "screenprint-to-woodblock",
       "x": 2,
       "y": 2,
       "width": 137,
       "height": 91
     },
-    "letters-made-of-roots": {
-      "group": "lower-11",
-      "id": "letters-made-of-roots",
+    "lemon-riviera": {
+      "group": "lower-10",
+      "id": "lemon-riviera",
       "x": 143,
       "y": 2,
-      "width": 183,
-      "height": 133
+      "width": 188,
+      "height": 125
     },
     "the-iris-pocket-watch": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "the-iris-pocket-watch",
-      "x": 330,
+      "x": 335,
       "y": 2,
-      "width": 116,
-      "height": 116
+      "width": 119,
+      "height": 119
     },
     "flowers-at-blue-hour": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "flowers-at-blue-hour",
-      "x": 450,
+      "x": 458,
       "y": 2,
-      "width": 67,
-      "height": 92
+      "width": 69,
+      "height": 95
     },
     "a-library-of-leaves": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "a-library-of-leaves",
       "x": 2,
-      "y": 139,
+      "y": 131,
       "width": 137,
       "height": 137
     },
     "the-coral-red-scooter": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "the-coral-red-scooter",
       "x": 143,
-      "y": 139,
-      "width": 116,
-      "height": 84
+      "y": 131,
+      "width": 119,
+      "height": 87
     },
     "courier-wardrobe-composition": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "courier-wardrobe-composition",
-      "x": 263,
-      "y": 139,
-      "width": 67,
-      "height": 100
+      "x": 266,
+      "y": 131,
+      "width": 69,
+      "height": 104
     },
     "the-art-of-repair": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "the-art-of-repair",
-      "x": 334,
-      "y": 139,
+      "x": 339,
+      "y": 131,
       "width": 137,
       "height": 188
     },
-    "the-brass-star-theatre": {
-      "group": "lower-11",
-      "id": "the-brass-star-theatre",
-      "x": 475,
-      "y": 139,
-      "width": 116,
-      "height": 84
+    "the-orbital-control-room": {
+      "group": "lower-10",
+      "id": "the-orbital-control-room",
+      "x": 480,
+      "y": 131,
+      "width": 119,
+      "height": 87
     },
     "the-moon-library-title-edit": {
-      "group": "lower-11",
+      "group": "lower-10",
       "id": "the-moon-library-title-edit",
       "x": 2,
-      "y": 331,
-      "width": 67,
-      "height": 92
+      "y": 323,
+      "width": 69,
+      "height": 95
     },
     "the-saffron-spice-market": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "the-saffron-spice-market",
       "x": 2,
       "y": 2,
@@ -1013,79 +972,79 @@
       "height": 108
     },
     "the-ceramic-tide-pool": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "the-ceramic-tide-pool",
       "x": 154,
       "y": 2,
-      "width": 139,
-      "height": 139
+      "width": 151,
+      "height": 151
     },
     "the-honey-coloured-library": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "the-honey-coloured-library",
-      "x": 297,
+      "x": 309,
       "y": 2,
-      "width": 72,
-      "height": 99
+      "width": 86,
+      "height": 118
     },
     "the-silk-opera-robe": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "the-silk-opera-robe",
-      "x": 373,
+      "x": 399,
       "y": 2,
-      "width": 68,
-      "height": 94
+      "width": 65,
+      "height": 89
     },
     "the-crystal-mailroom": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "the-crystal-mailroom",
-      "x": 445,
+      "x": 468,
       "y": 2,
       "width": 148,
       "height": 108
     },
     "four-materials-four-lights": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "four-materials-four-lights",
       "x": 2,
-      "y": 145,
-      "width": 72,
-      "height": 72
+      "y": 157,
+      "width": 86,
+      "height": 86
     },
     "the-raincoat-photographer": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "the-raincoat-photographer",
-      "x": 78,
-      "y": 145,
-      "width": 68,
-      "height": 94
+      "x": 92,
+      "y": 157,
+      "width": 65,
+      "height": 89
     },
     "tomorrow-blackboard": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "tomorrow-blackboard",
-      "x": 150,
-      "y": 145,
+      "x": 161,
+      "y": 157,
       "width": 148,
       "height": 204
     },
-    "costume-in-motion": {
-      "group": "lower-12",
-      "id": "costume-in-motion",
-      "x": 302,
-      "y": 145,
-      "width": 72,
-      "height": 108
+    "the-tidal-container-port": {
+      "group": "lower-11",
+      "id": "the-tidal-container-port",
+      "x": 313,
+      "y": 157,
+      "width": 86,
+      "height": 63
     },
     "a-new-note-of-amber": {
-      "group": "lower-12",
+      "group": "lower-11",
       "id": "a-new-note-of-amber",
-      "x": 378,
-      "y": 145,
-      "width": 68,
-      "height": 94
+      "x": 403,
+      "y": 157,
+      "width": 65,
+      "height": 89
     },
     "the-embroidered-paper-portrait": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-embroidered-paper-portrait",
       "x": 2,
       "y": 2,
@@ -1093,31 +1052,31 @@
       "height": 165
     },
     "the-sunlit-souk": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-sunlit-souk",
       "x": 126,
       "y": 2,
-      "width": 218,
-      "height": 145
+      "width": 224,
+      "height": 149
     },
     "the-snow-globe-orchestra": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-snow-globe-orchestra",
-      "x": 348,
+      "x": 354,
       "y": 2,
-      "width": 91,
-      "height": 91
+      "width": 98,
+      "height": 98
     },
     "the-weather-archive": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-weather-archive",
-      "x": 443,
+      "x": 456,
       "y": 2,
-      "width": 128,
-      "height": 93
+      "width": 126,
+      "height": 92
     },
     "the-greenhouse-after-rain": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-greenhouse-after-rain",
       "x": 2,
       "y": 171,
@@ -1125,127 +1084,127 @@
       "height": 87
     },
     "a-room-for-chinese-craft": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "a-room-for-chinese-craft",
       "x": 126,
       "y": 171,
-      "width": 91,
-      "height": 91
+      "width": 98,
+      "height": 98
     },
     "the-saffron-harbour": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-saffron-harbour",
-      "x": 221,
+      "x": 228,
       "y": 171,
-      "width": 128,
-      "height": 93
+      "width": 126,
+      "height": 92
     },
     "the-ice-blue-trench": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-ice-blue-trench",
-      "x": 353,
+      "x": 358,
       "y": 171,
       "width": 120,
       "height": 165
     },
-    "the-cut-paper-koi": {
-      "group": "lower-13",
-      "id": "the-cut-paper-koi",
-      "x": 477,
+    "the-salt-road-caravan": {
+      "group": "lower-12",
+      "id": "the-salt-road-caravan",
+      "x": 482,
       "y": 171,
-      "width": 91,
-      "height": 91
+      "width": 98,
+      "height": 71
     },
     "the-dyers-courtyard": {
-      "group": "lower-13",
+      "group": "lower-12",
       "id": "the-dyers-courtyard",
       "x": 2,
       "y": 340,
-      "width": 128,
-      "height": 85
+      "width": 126,
+      "height": 84
     },
-    "the-garden-postcard": {
-      "group": "lower-14",
-      "id": "the-garden-postcard",
+    "the-cut-paper-koi": {
+      "group": "lower-13",
+      "id": "the-cut-paper-koi",
       "x": 2,
       "y": 2,
-      "width": 122,
-      "height": 168
+      "width": 137,
+      "height": 137
     },
     "the-tortoise-library": {
-      "group": "lower-14",
+      "group": "lower-13",
       "id": "the-tortoise-library",
-      "x": 128,
+      "x": 143,
       "y": 2,
-      "width": 157,
-      "height": 114
+      "width": 184,
+      "height": 134
     },
     "the-stained-glass-desert": {
-      "group": "lower-14",
+      "group": "lower-13",
       "id": "the-stained-glass-desert",
-      "x": 289,
+      "x": 331,
       "y": 2,
-      "width": 70,
-      "height": 96
+      "width": 100,
+      "height": 138
     },
     "moss-observatory": {
-      "group": "lower-14",
+      "group": "lower-13",
       "id": "moss-observatory",
-      "x": 363,
+      "x": 435,
       "y": 2,
-      "width": 88,
-      "height": 113
+      "width": 84,
+      "height": 108
     },
     "the-watchmakers-desk": {
-      "group": "lower-14",
+      "group": "lower-13",
       "id": "the-watchmakers-desk",
-      "x": 455,
-      "y": 2,
-      "width": 122,
-      "height": 81
-    },
-    "porcelain-light": {
-      "group": "lower-14",
-      "id": "porcelain-light",
       "x": 2,
-      "y": 174,
-      "width": 70,
-      "height": 105
+      "y": 144,
+      "width": 137,
+      "height": 91
     },
-    "the-lacquered-dragon": {
-      "group": "lower-14",
-      "id": "the-lacquered-dragon",
-      "x": 76,
-      "y": 174,
-      "width": 88,
-      "height": 68
+    "the-porcelain-monsoon": {
+      "group": "lower-13",
+      "id": "the-porcelain-monsoon",
+      "x": 143,
+      "y": 144,
+      "width": 100,
+      "height": 73
+    },
+    "the-silver-birch-room": {
+      "group": "lower-13",
+      "id": "the-silver-birch-room",
+      "x": 247,
+      "y": 144,
+      "width": 84,
+      "height": 61
     },
     "the-starlight-concert": {
-      "group": "lower-14",
+      "group": "lower-13",
       "id": "the-starlight-concert",
-      "x": 168,
-      "y": 174,
-      "width": 122,
-      "height": 168
+      "x": 335,
+      "y": 144,
+      "width": 137,
+      "height": 188
     },
-    "glass-sunflower-study": {
-      "group": "lower-14",
-      "id": "glass-sunflower-study",
-      "x": 294,
-      "y": 174,
-      "width": 70,
-      "height": 105
+    "the-lantern-boat-festival": {
+      "group": "lower-13",
+      "id": "the-lantern-boat-festival",
+      "x": 476,
+      "y": 144,
+      "width": 100,
+      "height": 73
     },
     "the-moonstone-perfume": {
-      "group": "lower-14",
+      "group": "lower-13",
       "id": "the-moonstone-perfume",
-      "x": 368,
-      "y": 174,
-      "width": 88,
-      "height": 121
+      "x": 2,
+      "y": 336,
+      "width": 84,
+      "height": 116
     },
     "accordion-book": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "accordion-book",
       "x": 2,
       "y": 2,
@@ -1253,76 +1212,76 @@
       "height": 103
     },
     "the-latticed-courtyard": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "the-latticed-courtyard",
       "x": 160,
       "y": 2,
-      "width": 167,
-      "height": 111
+      "width": 191,
+      "height": 127
     },
     "ceramic-workshop": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "ceramic-workshop",
-      "x": 331,
+      "x": 355,
       "y": 2,
-      "width": 74,
-      "height": 102
+      "width": 103,
+      "height": 142
     },
     "woven-memory": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "woven-memory",
-      "x": 409,
+      "x": 462,
       "y": 2,
-      "width": 93,
-      "height": 72
+      "width": 89,
+      "height": 69
     },
     "the-potter-at-dawn": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "the-potter-at-dawn",
       "x": 2,
-      "y": 117,
+      "y": 148,
       "width": 154,
       "height": 103
     },
-    "the-paper-couture-portrait": {
-      "group": "lower-15",
-      "id": "the-paper-couture-portrait",
+    "the-brass-star-theatre": {
+      "group": "lower-14",
+      "id": "the-brass-star-theatre",
       "x": 160,
-      "y": 117,
-      "width": 74,
-      "height": 102
+      "y": 148,
+      "width": 103,
+      "height": 75
     },
     "sand-and-silver": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "sand-and-silver",
-      "x": 238,
-      "y": 117,
-      "width": 93,
-      "height": 93
+      "x": 267,
+      "y": 148,
+      "width": 89,
+      "height": 89
     },
     "after-the-rain-poster": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "after-the-rain-poster",
-      "x": 335,
-      "y": 117,
+      "x": 360,
+      "y": 148,
       "width": 154,
       "height": 212
     },
-    "the-tideglass-dress": {
-      "group": "lower-15",
-      "id": "the-tideglass-dress",
-      "x": 493,
-      "y": 117,
-      "width": 74,
-      "height": 102
+    "the-river-pottery-school": {
+      "group": "lower-14",
+      "id": "the-river-pottery-school",
+      "x": 518,
+      "y": 148,
+      "width": 103,
+      "height": 75
     },
     "the-lacemaker": {
-      "group": "lower-15",
+      "group": "lower-14",
       "id": "the-lacemaker",
       "x": 2,
-      "y": 333,
-      "width": 93,
-      "height": 140
+      "y": 364,
+      "width": 89,
+      "height": 134
     }
   }
 }

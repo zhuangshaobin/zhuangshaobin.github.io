@@ -1,0 +1,31 @@
+{
+  "id": "the-turquoise-courtyard-model",
+  "title": "The turquoise courtyard model",
+  "task": "Image editing",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A miniature ceramic courtyard changes from pink to glossy turquoise celadon around an unchanged water pool.",
+  "description": "A localized glaze edit retains the architectural model, surrounding plants and camera composition.",
+  "preserveLayout": true,
+  "featured": false,
+  "frames": [
+    {
+      "asset": "the-turquoise-courtyard-model-reference-01",
+      "label": "Input",
+      "role": "input",
+      "width": 1408,
+      "height": 1024,
+      "alt": "A pink ceramic courtyard model surrounds a reflecting pool, with coral-like branches and tiny planters.",
+      "prompt": "An exquisitely detailed architectural model of a small courtyard house grown from pale pink coral-like ceramic. Rounded arches, coherent colonnades and one central reflecting pool form a connected building, viewed from above at a three-quarter angle. Delicate ivory branching forms decorate the exterior without blocking doors. Tiny terracotta planters with emerald foliage punctuate the courtyard. The complete model stands on one rectangular cream stone base, with soft shadows and a pale-blue backdrop. Refined design-museum photography, intricate craftsmanship, no people or text."
+    },
+    {
+      "asset": "the-turquoise-courtyard-model",
+      "label": "Result",
+      "role": "output",
+      "width": 1408,
+      "height": 1024,
+      "alt": "A miniature ceramic courtyard changes from pink to glossy turquoise celadon around an unchanged water pool.",
+      "prompt": "Change only the ceramic glaze of this courtyard model from pink to a refined turquoise celadon glaze. Keep all architecture, arches, columns, branching decorations, the reflecting pool, plant pots, rectangular base, background, viewpoint and shadows exactly as in the input. The ceramic surface should have subtle fine crackle and realistic glossy highlights. Do not change the plants or turn the pool turquoise ceramic; the pool remains water. No text."
+    }
+  ]
+}

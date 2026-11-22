@@ -1,0 +1,12 @@
+{
+  "id": "the-terracotta-weaver",
+  "title": "The terracotta weaver",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1408,
+  "alt": "A craftswoman works at a wooden loom in a warm terracotta workshop.",
+  "description": "Documentary portraiture with natural hands, woven textiles and a detailed craft setting.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An intimate editorial portrait of an older woman weaving a patterned textile on a traditional wooden loom. Natural hands rest near the coherent stretched warp, terracotta walls, hanging finished cloths and baskets of coloured yarn surround her. Fine threads, realistic wooden joints and rich warm skin texture, daylight through a small window, thoughtful documentary composition, no readable writing."
+}

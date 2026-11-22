@@ -1,0 +1,12 @@
+{
+  "id": "the-midnight-laundrette",
+  "title": "The midnight laundrette",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A woman reading on a blue bench and a man drawing a sheet from a dryer in a rain-lit laundrette.",
+  "description": "Two-person photographic generation, with distinct actions, reflective surfaces and mixed lighting.",
+  "prompt": "An atmospheric cinematic still inside a neighbourhood laundrette after midnight. An adult woman in a red raincoat sits on a blue bench reading a small unmarked book; an adult man in a dark coat stands beside one open dryer, lifting a pale bedsheet from its circular door. Stainless circular machines, tiled floor, warm vending-machine glow, rain on the front window and reflections on the pavement outside. Both people fully coherent with natural faces and hands; the sheet connects to the open dryer, layered photographic lighting, no visible lettering.",
+  "preserveLayout": true,
+  "featured": false
+}

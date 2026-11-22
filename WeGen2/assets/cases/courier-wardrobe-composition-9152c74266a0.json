@@ -1,0 +1,48 @@
+{
+  "id": "courier-wardrobe-composition",
+  "title": "Three references, one look",
+  "task": "Reference composition",
+  "width": 768,
+  "height": 1152,
+  "alt": "A woman wears an orange technical jacket and navy crossbody satchel from separate references.",
+  "description": "Identity, garment construction and accessory details combined from three independent reference images.",
+  "frames": [
+    {
+      "asset": "courier-wardrobe-composition-reference-01",
+      "label": "Person",
+      "role": "input",
+      "width": 768,
+      "height": 1152,
+      "alt": "Three references, one look — Person",
+      "prompt": "A refined full-length studio portrait of an adult Black woman with short natural curls, warm brown skin, a small freckle near her left cheek and small silver hoop earrings. She wears a simple charcoal crew-neck T-shirt, straight dark trousers and plain white sneakers, standing with relaxed hands at her sides against a cool light-gray background. Natural anatomy, beautifully resolved face and fingers, even soft fashion lighting, no lettering."
+    },
+    {
+      "asset": "courier-wardrobe-composition-reference-02",
+      "label": "Jacket",
+      "role": "input",
+      "width": 1024,
+      "height": 1024,
+      "alt": "Three references, one look — Jacket",
+      "prompt": "A meticulous front-view product photograph of a burnt-orange technical courier jacket laid neatly on a warm light-gray background. The jacket has a dark navy shoulder yoke, exactly two large square chest pockets with black horizontal zippers, a high collar, one central black front zipper, elastic cuffs and a single cream horizontal reflective stripe across the lower torso. Clear fabric construction, accurate seams and symmetry, realistic matte nylon texture, no lettering or logos."
+    },
+    {
+      "asset": "courier-wardrobe-composition-reference-03",
+      "label": "Bag",
+      "role": "input",
+      "width": 1024,
+      "height": 1024,
+      "alt": "Three references, one look — Bag",
+      "prompt": "A meticulous three-quarter studio photograph of one compact navy canvas messenger satchel on pale gray. It has one large rectangular main flap secured by exactly two brass buckles, one small burnt-orange side pocket on its visible right side, and one continuous broad cream adjustable shoulder strap attached to the two sides of the bag. Realistic sturdy canvas seams, believable strap connections and brass hardware, beautifully resolved product photography, no lettering or logos."
+    },
+    {
+      "asset": "courier-wardrobe-composition",
+      "label": "Composition",
+      "role": "output",
+      "width": 768,
+      "height": 1152,
+      "alt": "Three references, one look — Composition",
+      "prompt": "Create a refined full-length studio portrait combining the three reference images. Keep the recognizable woman from image 1, including her face, short curls, freckles, skin tone and hoop earrings. Dress her in the burnt-orange jacket from image 2, preserving its navy collar and shoulder panels, two square zipped chest pockets, cream horizontal band and elastic cuffs. Add the navy satchel from image 3 with its broad cream crossbody strap, single large flap, two brass buckles and orange side pocket. The bag hangs naturally at one hip with a coherent continuous strap attached to the bag. Preserve her dark trousers and white sneakers. A relaxed comfortable standing pose in a cool-gray studio, natural hands and anatomy, beautiful clothing fit and realistic folds, no text."
+    }
+  ],
+  "featured": true
+}

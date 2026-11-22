@@ -1,0 +1,12 @@
+{
+  "id": "lemon-riviera",
+  "title": "A table by the sea",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 768,
+  "alt": "An amber pitcher, lemon water, figs and flowers on a blue tiled seaside table.",
+  "description": "A coastal still life built around glass, linen, glazed tiles and the warmth of afternoon light.",
+  "prompt": "A sophisticated summer still-life photograph for a design magazine, viewed obliquely over a blue-and-white tiled outdoor table on the Italian coast. A sculptural translucent amber pitcher, two clear ribbed glasses of lemon iced tea with believable ice, a folded pale blue linen napkin, sliced ripe lemons on a handmade ceramic plate, a tiny vase of white cosmos flowers and a basket of green figs form a richly layered yet composed still life. Sunlight through woven shade paints crisp organic shadows. In the background a quiet turquoise sea and pale pink coastal walls. Beautiful tactile imperfections, clean realistic glass reflections and refractions, soft film grain, precisely controlled exposure, light fresh art direction. No lettering or people.",
+  "preserveLayout": false,
+  "featured": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "letters-made-of-rain",
+  "title": "Letters made of rain",
+  "task": "Text & layout",
+  "width": 1408,
+  "height": 1024,
+  "alt": "The word RAIN appears as clear glass letters covered in droplets beside a wet window.",
+  "description": "Material-aware typography uses transparent glass, condensation and coherent reflections.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A sophisticated design photograph of the single word RAIN, spelled exactly with large separate three-dimensional capital letters made from clear sculpted glass holding small droplets and delicate condensation. The letters stand in correct order and are completely readable, without touching or merging. Arrange them on a slate-grey ledge beside a rain-streaked window; a green leaf and shallow puddles reflect the letters. Rich tactile detail, consistent refined product lighting, physically supported objects, careful magazine-quality art direction. No extra writing."
+}

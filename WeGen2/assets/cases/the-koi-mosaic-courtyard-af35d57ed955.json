@@ -1,0 +1,12 @@
+{
+  "id": "the-koi-mosaic-courtyard",
+  "title": "The koi mosaic courtyard",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A koi mosaic fills the centre of a sunlit arched courtyard.",
+  "description": "Flat mosaic fish, intricate tile surfaces and a richly detailed architectural setting.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A sophisticated architectural photograph of a sunlit courtyard whose entire floor is an intricate mosaic depicting orange koi among blue-green water lilies. The mosaic fish remain flat tiles, not living animals. Tall white plaster arches, a shaded carved wooden bench and leafy potted plants surround the artwork. Fine tesserae and grout visible, a complete central fish motif, deep shadows, balanced warm white and aquatic blue, no people or writing."
+}

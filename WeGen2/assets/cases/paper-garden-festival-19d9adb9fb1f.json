@@ -1,0 +1,11 @@
+{
+  "id": "paper-garden-festival",
+  "title": "A garden made of paper",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "Coral flowers, folded birds and miniature paper landscapes surround a Chinese exhibition programme.",
+  "description": "A complete exhibition programme integrated into dimensional paper art, with long Chinese copy and delicate material detail.",
+  "prompt": "A richly designed Chinese art exhibition poster. Elaborate folded-paper flowers, delicate paper birds and miniature books form a sculptural garden around the typography. Exquisite cut edges, soft layered shadows, coral orange, teal, pale green and ivory. A large title and three clearly separated paragraphs use crisp Chinese lettering.\nThe complete text on the page reads: “纸上花园” “让想象开出新的花” “一场关于纸张、色彩与手工的展览” “折出一片森林” “从一张纸开始，寻找形状之间的无限可能。” “收藏一束春天” “让花瓣、叶脉与光影，在指尖重新生长。” “写下一个故事” “把日常的小小发现，装进亲手制作的书。” “周末十点至十八点” “河岸艺术空间 · 欢迎慢慢参观”. Render only this quoted copy, with natural line breaks and clear, correct lettering. No extra words.",
+  "featured": false
+}

@@ -1,0 +1,11 @@
+{
+  "id": "sand-and-silver",
+  "title": "Sand and silver",
+  "task": "Text to image",
+  "width": 1024,
+  "height": 1024,
+  "alt": "An articulated silver cuff with an amber stone wraps around a wrist against pale sand.",
+  "description": "Intricate metalwork, natural anatomy and fine skin texture rendered with controlled editorial lighting.",
+  "prompt": "An exquisite high-end jewelry editorial photographed close up: an intricate articulated silver cuff wraps naturally around the wrist of one adult hand resting palm-down on pale desert sand. The cuff consists of overlapping small feather-like silver plates connected along a continuous curved spine, with a single amber cabochon near the top. Every plate casts a delicate coherent shadow on the next; the bracelet follows the wrist rather than intersecting it. The hand has five naturally posed fingers and realistic skin texture. Wind-sculpted sand ridges and a dark fabric edge complete the composition. Restrained silver, warm beige and deep charcoal, beautifully controlled sunlight, exceptional craft detail, no lettering.",
+  "featured": false
+}

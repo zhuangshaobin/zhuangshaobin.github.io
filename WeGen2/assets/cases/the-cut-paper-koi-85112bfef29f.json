@@ -1,0 +1,12 @@
+{
+  "id": "the-cut-paper-koi",
+  "title": "The cut-paper koi",
+  "task": "Text to image",
+  "width": 1152,
+  "height": 1152,
+  "alt": "An orange-and-white koi and a black-and-white koi curve through a circular layered-paper pond.",
+  "description": "Two distinct fish, delicate scales and a sculptural paper water surface in one complete shadow box.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A refined paper sculpture inside one deep circular shadow box, viewed directly from the front. Exactly two koi, one orange-white and one black-white, curve around each other without touching. Each fish has one head, one continuous body, one forked tail and attached fins. Layers of cut indigo paper form swirling water beneath pale green lotus leaves and one pink flower. Every component has visible layered paper edges, coherent delicate shadows, extremely intricate craftsmanship, no text."
+}

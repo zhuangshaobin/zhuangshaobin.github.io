@@ -1,0 +1,12 @@
+{
+  "id": "the-jade-rain-pavilion",
+  "title": "A courtyard in jade and rain",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "Rain, transparent jade-green glass and traditional courtyard architecture combine in a Chinese exhibition poster.",
+  "description": "Rain, transparent jade-green glass and traditional courtyard architecture combine in a Chinese exhibition poster.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "一张高级建筑艺术海报，雨中的江南庭院与透明翡翠玻璃建筑结合，竹影、石桥、水池、木格窗、细腻雨滴与温暖室内灯光共同构成复杂而优雅的空间。精美建筑摄影，深青绿、木色、银灰与暖金，文字融入有层次的画面。\nRender only the following complete text, with correct clear lettering and natural line breaks: “雨落庭间” “在光与影之间，安放日常。” “慢一点，听见生活的回声。” “东方庭院与当代建筑展”. No additional words or tiny pseudo-text. The finished artwork fills the image."
+}

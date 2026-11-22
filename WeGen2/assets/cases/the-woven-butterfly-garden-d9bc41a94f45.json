@@ -1,0 +1,12 @@
+{
+  "id": "the-woven-butterfly-garden",
+  "title": "A garden in silk",
+  "task": "Text & layout",
+  "width": 1024,
+  "height": 1408,
+  "alt": "Silk flowers, butterflies and flowing gold-thread curves form a detailed textile exhibition campaign.",
+  "description": "Silk flowers, butterflies and flowing gold-thread curves form a detailed textile exhibition campaign.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "一张高级织物艺术展海报，复杂的丝线刺绣花园，盛开的花朵与叶片、蝴蝶和流动的曲线组成优雅的立体图案。织物底纹、丝线反光和金线细节清楚，孔雀蓝、珊瑚红、米白与金色，精致手工艺微距摄影和现代编辑设计融合。\nRender only the following complete text, with correct clear lettering and natural line breaks: “花开有声” “一针一线，留下温柔的时间。” “把眼前的美，织进长久的记忆。” “丝线与自然艺术展”. No additional words or tiny pseudo-text. The finished artwork fills the image."
+}
