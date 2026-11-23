@@ -8,14 +8,7 @@
       "detailAvif": "assets/canvas-atlas/upper-00-2x-6df01d858f.avif",
       "width": 620,
       "height": 330,
-      "cases": [
-        "a-fold-for-spring",
-        "snow-owl-at-dusk",
-        "room-under-an-umbrella",
-        "the-red-paper-city",
-        "the-rain-dancer",
-        "a-dress-made-of-wind"
-      ]
+      "cases": ["a-fold-for-spring", "snow-owl-at-dusk", "room-under-an-umbrella", "the-red-paper-city", "the-rain-dancer", "a-dress-made-of-wind"]
     },
     {
       "id": "upper-01",
@@ -76,9 +69,7 @@
       "detailAvif": "assets/canvas-atlas/upper-04-2x-499341c478.avif",
       "width": 224,
       "height": 164,
-      "cases": [
-        "the-celestial-greenhouse"
-      ]
+      "cases": ["the-celestial-greenhouse"]
     },
     {
       "id": "lower-05",
