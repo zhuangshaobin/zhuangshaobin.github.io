@@ -1052,14 +1052,35 @@
   {
     "id": "the-iris-pocket-watch",
     "title": "The iris pocket watch",
-    "task": "Text to image",
+    "task": "Image editing",
     "width": 1152,
     "height": 1152,
-    "alt": "An antique gold pocket watch with a blue iris enamel lid.",
-    "description": "A connected hinged object with enamel botanical decoration and an unnumbered dial.",
+    "alt": "An open gold pocket watch and its clasp are visible together on black velvet in a wider view.",
+    "description": "Pull back from the close-up to reveal the chain while preserving the painted iris, hands and dial.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A complete antique pocket watch with its decorated lid opened to the left and connected by a visible hinge. The circular face has a ring of simple evenly spaced marks and two hands connected at the centre, without numerals. The lid contains a delicate enamel iris flower with indigo petals and green leaves on ivory. A fine gold chain attaches to the top loop and coils naturally on dark velvet. Precise goldwork, believable watch thickness, exquisite macro photograph, no lettering."
+    "prompt": "Pull the camera back for a square museum catalogue photograph on the same black velvet. Keep this exact open pocket watch, its gold case, iris-painted lid, two hands and unnumbered dial. Show its entire gold chain: attached to the bow, lying in a loose oval on the velvet above the watch, with a small clasp at the end. The watch, chain and clasp must all be inside the frame. Keep the same finely detailed close-up product photography and soft light. No text.",
+    "frames": [
+      {
+        "asset": "the-iris-pocket-watch",
+        "label": "Input",
+        "role": "input",
+        "width": 1152,
+        "height": 1152,
+        "alt": "An antique gold pocket watch with a blue iris enamel lid.",
+        "prompt": "A complete antique pocket watch with its decorated lid opened to the left and connected by a visible hinge. The circular face has a ring of simple evenly spaced marks and two hands connected at the centre, without numerals. The lid contains a delicate enamel iris flower with indigo petals and green leaves on ivory. A fine gold chain attaches to the top loop and coils naturally on dark velvet. Precise goldwork, believable watch thickness, exquisite macro photograph, no lettering."
+      },
+      {
+        "asset": "the-iris-pocket-watch-3baa79f79",
+        "label": "Wider view",
+        "role": "output",
+        "width": 1152,
+        "height": 1152,
+        "alt": "An open gold pocket watch and its clasp are visible together on black velvet in a wider view.",
+        "prompt": "Pull the camera back for a square museum catalogue photograph on the same black velvet. Keep this exact open pocket watch, its gold case, iris-painted lid, two hands and unnumbered dial. Show its entire gold chain: attached to the bow, lying in a loose oval on the velvet above the watch, with a small clasp at the end. The watch, chain and clasp must all be inside the frame. Keep the same finely detailed close-up product photography and soft light. No text."
+      }
+    ],
+    "asset": "the-iris-pocket-watch-3baa79f79"
   },
   {
     "id": "the-lantern-boat-festival",
@@ -1704,11 +1725,12 @@
     "task": "Text to image",
     "width": 1408,
     "height": 1024,
-    "alt": "Two dancers in scarlet and ivory balance on pointe opposite one another beside a grand piano.",
-    "description": "Paired human poses, coordinated costumes and theatrical stage lighting.",
-    "prompt": "A dramatic wide editorial photograph of an empty theatre during rehearsal. Exactly two adult ballet dancers in opaque scarlet and ivory costumes face each other on the stage, each balancing on one foot with the other leg extended behind. Their hands touch lightly between them without merging; both bodies, arms and legs remain complete and anatomically plausible. A grand piano sits far to the left, no other people. Warm spotlights, deep charcoal curtains, stage-floor reflections, controlled elegant motion, no words.",
+    "alt": "A dancer stretches at a wooden barre as a pianist plays a grand piano behind her.",
+    "description": "A scarlet rehearsal dress and warm window light connect two distinct figures in a working studio.",
+    "prompt": "A candid fashion-editorial photograph inside a ballet rehearsal studio just after dark. An adult dancer in a deep scarlet skirt stretches at a wooden barre in the right foreground. In the left background, an older pianist in a cream shirt plays an open black grand piano. Their hands are engaged with their own objects. The piano lid is held open by its prop, and the glossy wooden floor catches warm pools of light from the studio windows. Frame both people, the piano and the dancer’s slippers in one balanced composition. No mirrors, text or other people.",
     "preserveLayout": true,
-    "featured": false
+    "featured": false,
+    "asset": "the-coral-ballet-stage-3d36c81be"
   },
   {
     "id": "the-polar-observation-camp",

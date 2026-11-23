@@ -137,12 +137,6 @@
     "sizes": "(max-width: 760px) 60vw, 240px",
     "full": "assets/robot-04.webp"
   },
-  "tryon-output.webp": {
-    "src": "assets/previews/tryon-output-480.webp",
-    "srcset": "assets/previews/tryon-output-480.webp 480w, assets/previews/tryon-output-960.webp 960w",
-    "sizes": "(max-width: 760px) 90vw, 70vw",
-    "full": "assets/tryon-output.webp"
-  },
   "tryon-person.webp": {
     "src": "assets/previews/tryon-person-480.webp",
     "srcset": "assets/previews/tryon-person-480.webp 480w, assets/previews/tryon-person-832.webp 832w",
@@ -203,10 +197,16 @@
     "sizes": "(max-width: 760px) 92vw, 56vw",
     "full": "assets/changan-night.webp"
   },
-  "creation-studio.webp": {
-    "src": "assets/previews/creation-studio-640.webp",
-    "srcset": "assets/previews/creation-studio-640.webp 640w, assets/previews/creation-studio-960.webp 960w, assets/previews/creation-studio-1024.webp 1024w",
+  "creation-studio-4be47d8af.webp": {
+    "src": "assets/previews/creation-studio-4be47d8af-640.webp",
+    "srcset": "assets/previews/creation-studio-4be47d8af-640.webp 640w, assets/previews/creation-studio-4be47d8af-960.webp 960w, assets/previews/creation-studio-4be47d8af-1024.webp 1024w",
     "sizes": "(max-width: 760px) 92vw, 56vw",
-    "full": "assets/creation-studio.webp"
+    "full": "assets/creation-studio-4be47d8af.webp"
+  },
+  "tryon-output-0a7c02d7e.webp": {
+    "src": "assets/previews/tryon-output-0a7c02d7e-480.webp",
+    "srcset": "assets/previews/tryon-output-0a7c02d7e-480.webp 480w, assets/previews/tryon-output-0a7c02d7e-960.webp 960w",
+    "sizes": "(max-width: 760px) 90vw, 70vw",
+    "full": "assets/tryon-output-0a7c02d7e.webp"
   }
 }

@@ -277,7 +277,7 @@ function selectReference(id) {
   }
   referenceStatus.textContent = item.enabled
     ? `${String(id).padStart(2, "0")} / ${item.label} — visible correspondence in the generated outfit.`
-    : "07 / Dark glasses — shown as a reference; the generated frame shape differs.";
+    : "No region is highlighted for this reference.";
   drawReference();
 }
 referenceButtons.forEach((b) => b.addEventListener("click", () => selectReference(Number(b.dataset.reference))));

@@ -3396,3 +3396,18 @@ body.artwork-open {
     height: calc(var(--hero-overlap) + 9px);
   }
 }
+.case-prompt {
+  margin-top: 6px;
+  text-align: left;
+  font: 400 0.8125rem/1.6 var(--sans);
+  text-transform: none;
+  letter-spacing: normal;
+}
+.case-prompt summary {
+  width: fit-content;
+  cursor: pointer;
+}
+.case-prompt p {
+  margin: 6px 0 12px;
+  line-height: 1.7;
+}

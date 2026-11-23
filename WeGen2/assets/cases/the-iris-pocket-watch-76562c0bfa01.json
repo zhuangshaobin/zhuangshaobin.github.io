@@ -1,0 +1,33 @@
+{
+  "id": "the-iris-pocket-watch",
+  "title": "The iris pocket watch",
+  "task": "Image editing",
+  "width": 1152,
+  "height": 1152,
+  "alt": "An open gold pocket watch and its clasp are visible together on black velvet in a wider view.",
+  "description": "Pull back from the close-up to reveal the chain while preserving the painted iris, hands and dial.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "Pull the camera back for a square museum catalogue photograph on the same black velvet. Keep this exact open pocket watch, its gold case, iris-painted lid, two hands and unnumbered dial. Show its entire gold chain: attached to the bow, lying in a loose oval on the velvet above the watch, with a small clasp at the end. The watch, chain and clasp must all be inside the frame. Keep the same finely detailed close-up product photography and soft light. No text.",
+  "frames": [
+    {
+      "asset": "the-iris-pocket-watch",
+      "label": "Input",
+      "role": "input",
+      "width": 1152,
+      "height": 1152,
+      "alt": "An antique gold pocket watch with a blue iris enamel lid.",
+      "prompt": "A complete antique pocket watch with its decorated lid opened to the left and connected by a visible hinge. The circular face has a ring of simple evenly spaced marks and two hands connected at the centre, without numerals. The lid contains a delicate enamel iris flower with indigo petals and green leaves on ivory. A fine gold chain attaches to the top loop and coils naturally on dark velvet. Precise goldwork, believable watch thickness, exquisite macro photograph, no lettering."
+    },
+    {
+      "asset": "the-iris-pocket-watch-3baa79f79",
+      "label": "Wider view",
+      "role": "output",
+      "width": 1152,
+      "height": 1152,
+      "alt": "An open gold pocket watch and its clasp are visible together on black velvet in a wider view.",
+      "prompt": "Pull the camera back for a square museum catalogue photograph on the same black velvet. Keep this exact open pocket watch, its gold case, iris-painted lid, two hands and unnumbered dial. Show its entire gold chain: attached to the bow, lying in a loose oval on the velvet above the watch, with a small clasp at the end. The watch, chain and clasp must all be inside the frame. Keep the same finely detailed close-up product photography and soft light. No text."
+    }
+  ],
+  "asset": "the-iris-pocket-watch-3baa79f79"
+}
