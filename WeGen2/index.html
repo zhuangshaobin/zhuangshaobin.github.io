@@ -5479,8 +5479,7 @@
         color: #087c4d;
         border-bottom-color: currentColor;
       }
-      .release-design .byline-names a:focus-visible,
-      .release-design .byline-notes summary:focus-visible {
+      .release-design .byline-names a:focus-visible {
         outline: 2px solid #087c4d;
         outline-offset: 4px;
       }
@@ -5505,14 +5504,9 @@
         font: 400 0.8125rem/1.65 var(--sans);
         color: var(--muted);
       }
-      .release-design .byline-notes summary {
-        display: list-item;
-        width: fit-content;
-        margin: 0 auto;
-        cursor: pointer;
-      }
-      .release-design .byline-notes p {
-        margin: 8px 0 0;
+      .release-design .byline-notes > span {
+        display: inline-block;
+        margin: 0 3px;
       }
       @media (max-width: 600px) {
         .release-design .research-byline {
@@ -5691,10 +5685,7 @@
               <span><sup>2</sup> MMLab @ SIAT</span>
               <span><sup>3</sup> WeChat Vision, Tencent Inc.</span>
             </p>
-            <details class="byline-notes">
-              <summary>Author notes</summary>
-              <p>* Equal contribution. † Project leader. ‡ Corresponding authors.</p>
-            </details>
+            <p class="byline-notes"><span>* Equal contribution.</span> <span>† Project leader.</span> <span>‡ Corresponding authors.</span></p>
           </section>
         </div>
         <!-- INLINE_SCROLL_START -->

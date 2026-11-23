@@ -2057,8 +2057,7 @@
   color: #087c4d;
   border-bottom-color: currentColor;
 }
-.release-design .byline-names a:focus-visible,
-.release-design .byline-notes summary:focus-visible {
+.release-design .byline-names a:focus-visible {
   outline: 2px solid #087c4d;
   outline-offset: 4px;
 }
@@ -2083,14 +2082,9 @@
   font: 400 0.8125rem/1.65 var(--sans);
   color: var(--muted);
 }
-.release-design .byline-notes summary {
-  display: list-item;
-  width: fit-content;
-  margin: 0 auto;
-  cursor: pointer;
-}
-.release-design .byline-notes p {
-  margin: 8px 0 0;
+.release-design .byline-notes > span {
+  display: inline-block;
+  margin: 0 3px;
 }
 @media (max-width: 600px) {
   .release-design .research-byline {
