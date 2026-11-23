@@ -5534,6 +5534,60 @@
         margin: 6px 0 12px;
         line-height: 1.7;
       }
+      .release-design .byline-notes {
+        color: var(--body);
+      }
+      .release-design .byline-notes > span {
+        display: block;
+      }
+      .visitor-atlas {
+        display: grid;
+        grid-template-columns: minmax(12rem, 1fr) minmax(0, 2fr);
+        align-items: center;
+        gap: clamp(1rem, 5vw, 5rem);
+        padding-block: clamp(2.5rem, 6vw, 5rem);
+        border-top: 1px solid #ced8d0;
+      }
+      .visitor-atlas h2 {
+        margin: 0;
+        font: 500 clamp(1.8rem, 4vw, 3.3rem)/1.1 var(--serif);
+      }
+      .visitor-counter {
+        display: inline-flex;
+        margin-top: 1.2rem;
+      }
+      .visitor-counter img {
+        display: block;
+        width: auto;
+        height: 56px;
+      }
+      .visitor-atlas figure {
+        margin: 0;
+      }
+      .visitor-atlas svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .visitor-atlas p,
+      .visitor-atlas figcaption {
+        margin: 0.5rem 0 0;
+        font: 400 0.84rem/1.5 var(--sans);
+        color: var(--body);
+      }
+      .visitor-atlas figcaption,
+      #visitor-map-status {
+        text-align: center;
+      }
+      #visitor-map-status:empty {
+        display: none;
+      }
+      @media (max-width: 640px) {
+        .visitor-atlas {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
     </style>
     <!-- INLINE_STYLE_END -->
     <link as="font" crossorigin="" href="assets/fonts/geist-latin-variable.woff2" rel="preload" type="font/woff2" />
@@ -5700,7 +5754,11 @@
               <span><sup>2</sup> MMLab @ SIAT</span>
               <span><sup>3</sup> WeChat Vision, Tencent Inc.</span>
             </p>
-            <p class="byline-notes"><span>* Equal contribution.</span> <span>† Project leader.</span> <span>‡ Corresponding authors.</span></p>
+            <p class="byline-notes">
+              <span>* Joint first authors — Shaobin Zhuang and Zhipeng Huang</span>
+              <span>† Project leader — Canmiao Fu</span>
+              <span>‡ Co-corresponding authors — Chen Li and Yali Wang</span>
+            </p>
           </section>
         </div>
         <!-- INLINE_SCROLL_START -->
@@ -10298,6 +10356,33 @@ next_image.save("paper-world-night.png")</code></pre>
           <p aria-live="polite" id="copy-status" role="status"></p>
         </div>
       </section>
+      <section class="visitor-atlas wrap" id="visitors" aria-labelledby="visitors-title">
+        <div class="visitor-copy">
+          <h2 id="visitors-title">Visitor map</h2>
+          <a class="visitor-counter" href="https://www.stats4u.net/en/live/1034861267" aria-label="View visitor statistics on Stats4U">
+            <img
+              id="visitor-count"
+              src="https://www.stats4u.net/c/1034861267-950.png?form=minimal&amp;c1=163e32&amp;c2=163e32&amp;m=uniq&amp;plang=en"
+              alt="Total visitors · view statistics"
+              width="112"
+              height="56"
+              decoding="async"
+              fetchpriority="low"
+              referrerpolicy="origin"
+            />
+          </a>
+          <p>Stats4U counts visitors once per day. A return on another day counts again.</p>
+        </div>
+        <figure>
+          <svg viewBox="0 0 720 290" role="img" aria-labelledby="visitor-map-caption">
+            <image href="assets/visitor-world.svg" width="720" height="290"></image>
+            <g id="visitor-dots" fill="#b52f39" stroke="#fff" stroke-width="1"></g>
+          </svg>
+          <figcaption id="visitor-map-caption">Each red dot marks a country or region estimated from visitor IP addresses.</figcaption>
+          <p id="visitor-map-status" role="status"></p>
+        </figure>
+      </section>
+      <script src="visitors.js" defer></script>
       <dialog aria-labelledby="artwork-title" class="gallery-dialog">
         <header class="artwork-toolbar">
           <p class="artwork-collection">WeGen2 <span>Collection</span></p>
