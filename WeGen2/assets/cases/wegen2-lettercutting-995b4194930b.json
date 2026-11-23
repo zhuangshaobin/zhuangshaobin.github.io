@@ -1,0 +1,12 @@
+{
+  "id": "wegen2-lettercutting",
+  "title": "A garden inscription",
+  "task": "Text & layout",
+  "width": 1408,
+  "height": 1024,
+  "alt": "WeGen2 cut into weathered grey stone, with orange lichen along a crack beneath the letters.",
+  "description": "A band of daylight falls across the incised letters on a garden lintel. Lichen traces the fracture beneath the word.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "An architectural detail photographed in the shade of an old garden wall. A long dark-grey basalt lintel bears one hand-hewn inscription, “WeGen2”, in the exact mixed case. The word is recessed deep into the same weathered stone; the strokes catch thin lines of daylight. Moss and tiny rusty lichens follow a single natural fracture below the lettering. Dry mineral grain, softly blurred garden greenery at the far edge. Restrained editorial photograph, nearly frontal, the large inscription is fully legible. No other text."
+}

@@ -758,16 +758,16 @@
     "prompt": "一张精美的读书活动海报，层层叠叠的绿色叶片像翻开的书页，一本完整打开的古典书放在中央，书页里长出微缩的花园、弧形小桥、温室和石阶。书本与植物细节精致真实。标题“在书页间，看见世界”，其下三行文字“春日阅读计划”“读一本书，走一段路”“让好奇心，慢慢生长”。文字全部准确，奶油白底、深绿字体、少量暖橙色，成熟清新的编辑设计，无其他字。"
   },
   {
-    "id": "wegen2-in-stone",
-    "title": "WeGen2 in stone",
+    "id": "wegen2-lettercutting",
+    "title": "A garden inscription",
     "task": "Text & layout",
     "width": 1408,
     "height": 1024,
-    "alt": "WeGen2 spelled in pale carved stone with greenery around the base.",
-    "description": "Stone lettering and living plants share a plinth. The mixed-case wordmark reads WeGen2.",
+    "alt": "WeGen2 cut into weathered grey stone, with orange lichen along a crack beneath the letters.",
+    "description": "A band of daylight falls across the incised letters on a garden lintel. Lichen traces the fracture beneath the word.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "Photograph the word “WeGen2” as a single monumental sculpture in pale travertine. Match the mixed-case lettering exactly: WeGen2. Rounded stone letterforms seen straight on, with clean open counters, even spacing and clear silhouettes. Sparse ferns cluster around the base of the sculpture on a charcoal plinth. Soft green shadows, tactile pores and warm side lighting. Editorial product photography, whole sculpture visible, no additional text."
+    "prompt": "An architectural detail photographed in the shade of an old garden wall. A long dark-grey basalt lintel bears one hand-hewn inscription, “WeGen2”, in the exact mixed case. The word is recessed deep into the same weathered stone; the strokes catch thin lines of daylight. Moss and tiny rusty lichens follow a single natural fracture below the lettering. Dry mineral grain, softly blurred garden greenery at the far edge. Restrained editorial photograph, nearly frontal, the large inscription is fully legible. No other text."
   },
   {
     "id": "the-paper-night-market",

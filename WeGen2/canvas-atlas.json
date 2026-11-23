@@ -115,15 +115,15 @@
     },
     {
       "id": "lower-07",
-      "preview": "assets/canvas-atlas/lower-07-1x-65b4777f0a.webp",
-      "detail": "assets/canvas-atlas/lower-07-2x-39c07617e2.webp",
-      "previewAvif": "assets/canvas-atlas/lower-07-1x-fa1132aa51.avif",
-      "detailAvif": "assets/canvas-atlas/lower-07-2x-5bda9349fc.avif",
+      "preview": "assets/canvas-atlas/lower-07-1x-cac2a55448.webp",
+      "detail": "assets/canvas-atlas/lower-07-2x-798fc77560.webp",
+      "previewAvif": "assets/canvas-atlas/lower-07-1x-1cad72d609.avif",
+      "detailAvif": "assets/canvas-atlas/lower-07-2x-971be13710.avif",
       "width": 561,
       "height": 417,
       "cases": [
         "the-solarpunk-canal",
-        "wegen2-in-stone",
+        "wegen2-lettercutting",
         "the-moonlit-tailor",
         "the-sunflower-green-room",
         "letters-made-of-thread",
@@ -1275,9 +1275,9 @@
       "width": 89,
       "height": 134
     },
-    "wegen2-in-stone": {
+    "wegen2-lettercutting": {
       "group": "lower-07",
-      "id": "wegen2-in-stone",
+      "id": "wegen2-lettercutting",
       "x": 154,
       "y": 2,
       "width": 173,
