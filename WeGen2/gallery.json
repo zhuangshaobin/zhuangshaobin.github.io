@@ -758,16 +758,16 @@
     "prompt": "一张精美的读书活动海报，层层叠叠的绿色叶片像翻开的书页，一本完整打开的古典书放在中央，书页里长出微缩的花园、弧形小桥、温室和石阶。书本与植物细节精致真实。标题“在书页间，看见世界”，其下三行文字“春日阅读计划”“读一本书，走一段路”“让好奇心，慢慢生长”。文字全部准确，奶油白底、深绿字体、少量暖橙色，成熟清新的编辑设计，无其他字。"
   },
   {
-    "id": "the-botanical-type-foundry",
-    "title": "The botanical type foundry",
+    "id": "wegen2-in-stone",
+    "title": "WeGen2 in stone",
     "task": "Text & layout",
     "width": 1408,
     "height": 1024,
-    "alt": "The word GROW is carved in pale stone, with ferns and white blossoms emerging from its cracks.",
-    "description": "Readable sculptural typography combines stone, living plants and precise material detail.",
+    "alt": "WeGen2 spelled in pale carved stone with greenery around the base.",
+    "description": "Stone lettering and living plants share a plinth. The mixed-case wordmark reads WeGen2.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A sophisticated sculpture photograph of the word GROW formed by four large freestanding letters carved from pale stone. Fresh ferns, white blossoms and tiny trailing leaves emerge from narrow cracks in the stone while the complete letter shapes remain perfectly readable. G, R, O and W stand in that order on one long dark slate plinth. The letters cast coherent shadows in soft morning light; microscopic stone grain and delicate botanical detail, refined gallery atmosphere, sage green and ivory palette, no other text."
+    "prompt": "Photograph the word “WeGen2” as a single monumental sculpture in pale travertine. Match the mixed-case lettering exactly: WeGen2. Rounded stone letterforms seen straight on, with clean open counters, even spacing and clear silhouettes. Sparse ferns cluster around the base of the sculpture on a charcoal plinth. Soft green shadows, tactile pores and warm side lighting. Editorial product photography, whole sculpture visible, no additional text."
   },
   {
     "id": "the-paper-night-market",

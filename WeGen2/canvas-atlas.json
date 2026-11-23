@@ -8,7 +8,14 @@
       "detailAvif": "assets/canvas-atlas/upper-00-2x-6df01d858f.avif",
       "width": 620,
       "height": 330,
-      "cases": ["a-fold-for-spring", "snow-owl-at-dusk", "room-under-an-umbrella", "the-red-paper-city", "the-rain-dancer", "a-dress-made-of-wind"]
+      "cases": [
+        "a-fold-for-spring",
+        "snow-owl-at-dusk",
+        "room-under-an-umbrella",
+        "the-red-paper-city",
+        "the-rain-dancer",
+        "a-dress-made-of-wind"
+      ]
     },
     {
       "id": "upper-01",
@@ -69,7 +76,9 @@
       "detailAvif": "assets/canvas-atlas/upper-04-2x-499341c478.avif",
       "width": 224,
       "height": 164,
-      "cases": ["the-celestial-greenhouse"]
+      "cases": [
+        "the-celestial-greenhouse"
+      ]
     },
     {
       "id": "lower-05",
@@ -115,15 +124,15 @@
     },
     {
       "id": "lower-07",
-      "preview": "assets/canvas-atlas/lower-07-1x-60efcc57df.webp",
-      "detail": "assets/canvas-atlas/lower-07-2x-4fb3f367c8.webp",
-      "previewAvif": "assets/canvas-atlas/lower-07-1x-dc874238cc.avif",
-      "detailAvif": "assets/canvas-atlas/lower-07-2x-b644d97095.avif",
+      "preview": "assets/canvas-atlas/lower-07-1x-65b4777f0a.webp",
+      "detail": "assets/canvas-atlas/lower-07-2x-39c07617e2.webp",
+      "previewAvif": "assets/canvas-atlas/lower-07-1x-fa1132aa51.avif",
+      "detailAvif": "assets/canvas-atlas/lower-07-2x-5bda9349fc.avif",
       "width": 561,
       "height": 417,
       "cases": [
         "the-solarpunk-canal",
-        "the-botanical-type-foundry",
+        "wegen2-in-stone",
         "the-moonlit-tailor",
         "the-sunflower-green-room",
         "letters-made-of-thread",
@@ -650,14 +659,6 @@
       "y": 2,
       "width": 148,
       "height": 108
-    },
-    "the-botanical-type-foundry": {
-      "group": "lower-07",
-      "id": "the-botanical-type-foundry",
-      "x": 154,
-      "y": 2,
-      "width": 173,
-      "height": 126
     },
     "the-moonlit-tailor": {
       "group": "lower-07",
@@ -1282,6 +1283,14 @@
       "y": 364,
       "width": 89,
       "height": 134
+    },
+    "wegen2-in-stone": {
+      "group": "lower-07",
+      "id": "wegen2-in-stone",
+      "x": 154,
+      "y": 2,
+      "width": 173,
+      "height": 126
     }
   }
 }
