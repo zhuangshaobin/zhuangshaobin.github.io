@@ -1,0 +1,13 @@
+{
+  "id": "letters-made-of-rain",
+  "title": "Letters made of rain",
+  "task": "Text & layout",
+  "width": 1408,
+  "height": 1024,
+  "alt": "The word RAIN appears as clear glass letters covered in droplets beside a wet window.",
+  "description": "Material-aware typography uses transparent glass, condensation and coherent reflections.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "A close still life on a rain-soaked slate sill. Four large free-standing blocks of cast transparent glass spell “RAIN” in capitals. The letters stand in four distinct positions along a line, leaving clear dark slivers of background between them. Minute water droplets, a single fallen leaf and splintered reflections in shallow puddles. Cool natural light from a rainy window. Only the four letters, complete in frame, no punctuation or caption.",
+  "asset": "letters-made-of-rain-9767e9c61"
+}

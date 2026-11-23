@@ -1,0 +1,13 @@
+{
+  "id": "the-koi-mosaic-courtyard",
+  "title": "The koi mosaic courtyard",
+  "task": "Text to image",
+  "width": 1408,
+  "height": 1024,
+  "alt": "A wall-to-wall koi mosaic covers the tiled floor of a sunlit courtyard.",
+  "description": "Flat mosaic fish, intricate tile surfaces and a richly detailed architectural setting.",
+  "preserveLayout": true,
+  "featured": false,
+  "prompt": "Architectural photograph in a cloister looking obliquely down over a floor-to-floor artwork. Orange koi, blue ripples and floating lily pads extend from wall to wall across the whole courtyard in thousands of flat ceramic mosaic tiles. Tesserae follow the curves of each complete fish. A single carved bench stands in a shaded arcade, potted citrus trees flank a white stone arch, and sunlight grazes the mosaic, picking out the grout. Sophisticated cobalt, terracotta and cream, no people or lettering.",
+  "asset": "the-koi-mosaic-courtyard-ff9f3c7f0"
+}

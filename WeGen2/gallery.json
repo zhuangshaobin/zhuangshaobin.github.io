@@ -298,7 +298,8 @@
     "description": "A fantasy film poster pairs a watchmaking workshop with six blocks of Chinese film copy.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A richly illustrated Chinese fantasy movie poster. A young adult woman watchmaker and an elderly man stand in an enormous dream-repair workshop filled with glass jars containing tiny moonlit landscapes, suspended clocks, botanical gears and a miniature train crossing the workbench. Elaborate believable architecture and enchanted practical lighting, hand-painted film-poster finish, indigo, brass and coral. Large Chinese title curls around the brass arch, a tagline beside the central characters, two cast names and a concise bottom story description and release line. Exceptionally detailed but organized composition. Render the following exact readable text, with deliberate typographic hierarchy and all words intact: “梦境修理铺” “有些遗憾，可以重新上发条。” “林夏 · 陈远山” “一间只在午夜开门的店，修补人们遗失的梦。” “带上你的故事，今晚开始营业。” “奇幻电影 · 冬日上映”. Integrate the lettering into the illustrated or photographed composition as described; varied scale, carefully aligned baselines, excellent legibility. No extra pseudo-text, no watermark, no unrelated filler. The result is the finished artwork, filling the whole image."
+    "prompt": "一张设计成熟的奇幻电影海报。黄铜齿轮和拱门环绕一间修理梦境的钟表铺。青年女钟表匠和白发老人一起校准一台小小的发条列车，身旁的玻璃罩里收藏着月下的城市。电影片名“梦境修理铺”用清晰的大字排在画面上方，标题下小字“有些遗憾，可以重新上发条。”底部放演职员“林夏 · 陈远山”，其下放“一间只在午夜开门的店，修补人们遗失的梦。”以及“带上你的故事，今晚开始营业。”最下方“奇幻电影 · 冬日上映”。画面饱满、铜金与深靛蓝对比，所有文案清楚如专业电影海报的印刷字体，除引号里的内容外没有其他文字。",
+    "asset": "the-dream-repair-shop-332767ca2"
   },
   {
     "id": "the-moonlit-tailor",
@@ -445,11 +446,12 @@
     "task": "Text & layout",
     "width": 1024,
     "height": 1408,
-    "alt": "Sculptural paper food, foliage and porcelain surround an eleven-part Chinese exhibition programme.",
-    "description": "Sculptural paper food, foliage and porcelain surround an eleven-part Chinese exhibition programme.",
+    "alt": "Eleven groups of Chinese exhibition copy sit between a strawberry tart, citrus fruit and blue-and-white porcelain.",
+    "description": "A food exhibition programme features eleven groups of Chinese copy on cream printed cards.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A richly designed Chinese food-culture exhibition programme. Beautiful sculptural paper still lifes of a citrus branch, tea leaves, a ripe strawberry tart, steaming soup and intricate blue-and-white porcelain dishes frame an airy ivory central tablecloth. Elaborate paper layers, finely cut edges and realistic soft shadows; fresh green, strawberry red, lemon yellow and cream. The illustrations curve naturally around the central readable programme. A large title and three clearly separated paragraphs use crisp Chinese lettering in the clean central space. The surrounding illustration and typography form one integrated finished design.\nThe complete text on the page reads: “把四季端上餐桌” “一日三餐，也有值得收藏的风景” “一场关于食物与生活的展览” “寻找新鲜” “沿着季节的脚步，发现今天的味道。” “认真烹调” “把简单的食材，变成温暖的一餐。” “慢慢分享” “留一点时间，和喜欢的人坐在一起。” “食物文化与设计展” “周末十点至十八点”. Render only this quoted copy, with natural line breaks and clear, correct lettering. No extra words."
+    "prompt": "纸雕美食文化展海报。用层层叠起的彩色纸张做出草莓塔、热汤、橙子树枝、茶叶和青花餐具，摆在米白底纸四周。中央有三段清晰展签，一行一句地排字。文本必须精确为“把四季端上餐桌”“一日三餐，也有值得收藏的风景”“一场关于食物与生活的展览”“寻找新鲜”“沿着季节的脚步，发现今天的味道。”“认真烹调”“把简单的食材，变成温暖的一餐。”“慢慢分享”“留一点时间，和喜欢的人坐在一起。”“食物文化与设计展”“周末十点至十八点”。自然的纸条阴影，精心控制字距和留白，清晰印刷体，除了引号里的内容没有其他字。",
+    "asset": "a-table-for-four-seasons-6979004ff"
   },
   {
     "id": "the-jade-rain-pavilion",
@@ -597,14 +599,15 @@
   },
   {
     "id": "room-under-an-umbrella",
-    "title": "Room under an umbrella",
+    "title": "The woodland post office",
     "task": "Text to image",
     "width": 768,
     "height": 1152,
-    "alt": "A fox in a yellow raincoat shelters a hedgehog beneath one red umbrella on a rainy lane.",
-    "description": "Two distinct characters share an umbrella and exchange a flower, with precise paw contact and layered watercolor detail.",
-    "prompt": "A richly detailed and beautifully designed picture-book cover illustration, with no lettering: a small orange fox in a mustard raincoat and a gray hedgehog in a navy scarf stand close together beneath one large scarlet umbrella on a rainy cobblestone lane. The fox holds the umbrella handle naturally in one paw, while the hedgehog offers a small white flower to the fox with one clearly attached arm. Their heads, limbs and species remain distinct; the umbrella canopy shelters both characters and its shaft connects to the handle. Glowing windows, tiny ivy leaves and puddle reflections form a layered background. Refined watercolor and colored-pencil texture, warm expressive faces, deep blue rain and red accents, mature editorial composition.",
-    "featured": false
+    "alt": "A bespectacled hedgehog seals an envelope as a fox courier waits by the oak counter.",
+    "description": "Pencil and watercolor distinguish the postmaster, courier and wax seal inside a hollow tree.",
+    "prompt": "Watercolor picture-book illustration of a tiny hedgehog postmaster behind an oak counter inside the hollow trunk of a tree. The hedgehog wears little round spectacles and presses a red wax seal onto a cream envelope. A rust-coloured fox in a moss-green cape waits on the other side of the counter with a blue canvas mailbag. Pigeonholes cut into the curved wood hold folded letters, autumn leaves frame a round window, warm morning light, detailed pencil linework. The two animals have distinct bodies and expressions. No writing or human characters.",
+    "featured": false,
+    "asset": "room-under-an-umbrella-0cfc19d2c"
   },
   {
     "id": "a-dress-made-of-wind",
@@ -967,11 +970,12 @@
     "task": "Text to image",
     "width": 1408,
     "height": 1024,
-    "alt": "A woman with a closed yellow book sits beside a rain-speckled tram window and a softly reflected city.",
+    "alt": "A tram passenger holding a yellow book looks into her reflection in a rain-streaked window.",
     "description": "A cinematic portrait combines natural hands, layered reflections and a richly lit transport interior.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A cinematic photograph from inside a vintage tram, looking diagonally through a rain-speckled window. In the foreground an adult woman with short hair sits in a green upholstered seat, holding a closed yellow book naturally in her lap. Outside, a richly detailed rainy city glows with warm storefront light and blurred red tail lights. Her subtle reflection is correctly aligned in the glass, the wooden window frame and brass handrail remain coherent, natural face and hands, no legible signs or lettering."
+    "prompt": "Film still shot inside a vintage green tram at night. A woman in a dark wool coat holds a closed mustard-yellow book in her lap, looking out through a rain-streaked window. Her face and its faint reflection appear face-to-face on opposite sides of the vertical edge of the window. Outside are blurred red lights and wet shops. Warm brass handrail, real wet glass, soft tungsten interior. Natural subdued portrait with both the seated passenger and her reflection visible. No lettering.",
+    "asset": "the-rainy-tram-window-84030d5b0"
   },
   {
     "id": "the-botanical-diving-bell",
@@ -1111,11 +1115,12 @@
     "task": "Text to image",
     "width": 1408,
     "height": 1024,
-    "alt": "A koi mosaic fills the centre of a sunlit arched courtyard.",
+    "alt": "A wall-to-wall koi mosaic covers the tiled floor of a sunlit courtyard.",
     "description": "Flat mosaic fish, intricate tile surfaces and a richly detailed architectural setting.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A sophisticated architectural photograph of a sunlit courtyard whose entire floor is an intricate mosaic depicting orange koi among blue-green water lilies. The mosaic fish remain flat tiles, not living animals. Tall white plaster arches, a shaded carved wooden bench and leafy potted plants surround the artwork. Fine tesserae and grout visible, a complete central fish motif, deep shadows, balanced warm white and aquatic blue, no people or writing."
+    "prompt": "Architectural photograph in a cloister looking obliquely down over a floor-to-floor artwork. Orange koi, blue ripples and floating lily pads extend from wall to wall across the whole courtyard in thousands of flat ceramic mosaic tiles. Tesserae follow the curves of each complete fish. A single carved bench stands in a shaded arcade, potted citrus trees flank a white stone arch, and sunlight grazes the mosaic, picking out the grout. Sophisticated cobalt, terracotta and cream, no people or lettering.",
+    "asset": "the-koi-mosaic-courtyard-ff9f3c7f0"
   },
   {
     "id": "the-ochre-canyon-city",
@@ -1319,7 +1324,8 @@
     "description": "A symmetrical architectural scene joins warm metal, velvet seating and a constellation ceiling.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A sumptuous original Art Deco theatre interior seen from a central aisle. Deep-burgundy velvet seats fill curved rows on both sides of a broad stepped aisle, which reaches an elevated display holding one elaborate brass armillary sphere. Concentric gold rings surround a small central globe, with clear physical supports and a stable circular stand. Illuminated abstract star lines decorate the dark domed ceiling. Brass handrails follow the stairs and ribbed wall lights cast warm accents. Coherent architecture, rich fabric and brushed metal, no audience or readable text."
+    "prompt": "A sumptuous original Art Deco theatre interior seen from a central aisle. Deep-burgundy velvet seats fill curved rows on both sides of a broad stepped aisle, which reaches an elevated display holding one elaborate brass armillary sphere. Concentric gold rings surround a small central globe, with clear physical supports and a stable circular stand. Illuminated abstract star lines decorate the dark domed ceiling. Brass handrails follow the stairs and ribbed wall lights cast warm accents. Coherent architecture, rich fabric and brushed metal, no audience or readable text.",
+    "asset": "the-brass-star-theatre-678f9affb"
   },
   {
     "id": "the-textile-confectioner",
@@ -1343,7 +1349,8 @@
     "description": "Material-aware typography uses transparent glass, condensation and coherent reflections.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A sophisticated design photograph of the single word RAIN, spelled exactly with large separate three-dimensional capital letters made from clear sculpted glass holding small droplets and delicate condensation. The letters stand in correct order and are completely readable, without touching or merging. Arrange them on a slate-grey ledge beside a rain-streaked window; a green leaf and shallow puddles reflect the letters. Rich tactile detail, consistent refined product lighting, physically supported objects, careful magazine-quality art direction. No extra writing."
+    "prompt": "A close still life on a rain-soaked slate sill. Four large free-standing blocks of cast transparent glass spell “RAIN” in capitals. The letters stand in four distinct positions along a line, leaving clear dark slivers of background between them. Minute water droplets, a single fallen leaf and splintered reflections in shallow puddles. Cool natural light from a rainy window. Only the four letters, complete in frame, no punctuation or caption.",
+    "asset": "letters-made-of-rain-9767e9c61"
   },
   {
     "id": "letters-made-of-thread",
@@ -1355,7 +1362,8 @@
     "description": "Readable typography combines fabric edges, visible stitches and a carefully arranged textile still life.",
     "preserveLayout": true,
     "featured": false,
-    "prompt": "A sophisticated design photograph of the single word THREAD, spelled exactly with large separate three-dimensional capital letters made from thick woven cotton and silk, with visible stitches, folded edges and rich coral, indigo and ivory fibres. The letters stand in correct order and are completely readable, without touching or merging. Arrange them on a cream linen worktable with neat thread spools and small fabric swatches. Rich tactile detail, consistent refined product lighting, physically supported objects, careful magazine-quality art direction. No extra writing."
+    "prompt": "A sophisticated design photograph of the single word THREAD, spelled exactly with large separate three-dimensional capital letters made from thick woven cotton and silk, with visible stitches, folded edges and rich coral, indigo and ivory fibres. The letters stand in correct order and are completely readable, without touching or merging. Arrange them on a cream linen worktable with neat thread spools and small fabric swatches. Rich tactile detail, consistent refined product lighting, physically supported objects, careful magazine-quality art direction. No extra writing.",
+    "asset": "letters-made-of-thread-bc5f2dc8c"
   },
   {
     "id": "the-marble-book-wave",
@@ -1675,7 +1683,8 @@
     "description": "Character illustration and English typography in a warm community-event poster.",
     "prompt": "A fresh, cheerful illustrated poster for a fictional community pet event. Three separate animals sit on a light-blue waiting-room bench: a golden dog at left, a grey cat in the middle, and a white rabbit at right. The rabbit has exactly two long ears; each animal has a coherent single head, body and naturally placed limbs. On the wall are small playful pet silhouettes, a round clock and carefully composed event typography. Warm sunlight, expressive sophisticated gouache illustration, pastel blue and coral colours. The only visible text is exactly: \"THE CHECKUP CLUB\"; \"A FRIENDLY DAY FOR LITTLE COMPANIONS\"; \"SUNDAY / 10:00—16:00\"; \"DOGS • CATS • RABBITS\". Make every word legible and correctly spelled, with natural line breaks. No other lettering or pseudo-text.",
     "preserveLayout": true,
-    "featured": false
+    "featured": false,
+    "asset": "the-checkup-club-f7fd0b3de"
   },
   {
     "id": "the-mountain-radio-room",

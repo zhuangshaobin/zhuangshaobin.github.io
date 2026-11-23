@@ -2,10 +2,10 @@
   "groups": [
     {
       "id": "upper-00",
-      "preview": "assets/canvas-atlas/upper-00-1x-5d07d04ce6.webp",
-      "detail": "assets/canvas-atlas/upper-00-2x-3630c6856f.webp",
-      "previewAvif": "assets/canvas-atlas/upper-00-1x-233fca9a2c.avif",
-      "detailAvif": "assets/canvas-atlas/upper-00-2x-6df01d858f.avif",
+      "preview": "assets/canvas-atlas/upper-00-1x-e6118d7329.webp",
+      "detail": "assets/canvas-atlas/upper-00-2x-602b4aae8f.webp",
+      "previewAvif": "assets/canvas-atlas/upper-00-1x-cef95dcdfb.avif",
+      "detailAvif": "assets/canvas-atlas/upper-00-2x-6abe026d12.avif",
       "width": 620,
       "height": 330,
       "cases": ["a-fold-for-spring", "snow-owl-at-dusk", "room-under-an-umbrella", "the-red-paper-city", "the-rain-dancer", "a-dress-made-of-wind"]
@@ -29,10 +29,10 @@
     },
     {
       "id": "upper-02",
-      "preview": "assets/canvas-atlas/upper-02-1x-72c640368a.webp",
-      "detail": "assets/canvas-atlas/upper-02-2x-52c2b49acf.webp",
-      "previewAvif": "assets/canvas-atlas/upper-02-1x-02c8e5fc86.avif",
-      "detailAvif": "assets/canvas-atlas/upper-02-2x-7cf67c427e.avif",
+      "preview": "assets/canvas-atlas/upper-02-1x-7391308ceb.webp",
+      "detail": "assets/canvas-atlas/upper-02-2x-cbb689d708.webp",
+      "previewAvif": "assets/canvas-atlas/upper-02-1x-54257bda25.avif",
+      "detailAvif": "assets/canvas-atlas/upper-02-2x-c3a72f3651.avif",
       "width": 466,
       "height": 493,
       "cases": [
@@ -94,10 +94,10 @@
     },
     {
       "id": "lower-06",
-      "preview": "assets/canvas-atlas/lower-06-1x-7f3d4c1503.webp",
-      "detail": "assets/canvas-atlas/lower-06-2x-91c19cf065.webp",
-      "previewAvif": "assets/canvas-atlas/lower-06-1x-621e1fdf8f.avif",
-      "detailAvif": "assets/canvas-atlas/lower-06-2x-1d8b56270d.avif",
+      "preview": "assets/canvas-atlas/lower-06-1x-12b8bd9a72.webp",
+      "detail": "assets/canvas-atlas/lower-06-2x-215990f5a2.webp",
+      "previewAvif": "assets/canvas-atlas/lower-06-1x-9dccac70f3.avif",
+      "detailAvif": "assets/canvas-atlas/lower-06-2x-7b14e5b760.avif",
       "width": 580,
       "height": 433,
       "cases": [
@@ -115,10 +115,10 @@
     },
     {
       "id": "lower-07",
-      "preview": "assets/canvas-atlas/lower-07-1x-cac2a55448.webp",
-      "detail": "assets/canvas-atlas/lower-07-2x-798fc77560.webp",
-      "previewAvif": "assets/canvas-atlas/lower-07-1x-1cad72d609.avif",
-      "detailAvif": "assets/canvas-atlas/lower-07-2x-971be13710.avif",
+      "preview": "assets/canvas-atlas/lower-07-1x-9e7159d196.webp",
+      "detail": "assets/canvas-atlas/lower-07-2x-9f86309f41.webp",
+      "previewAvif": "assets/canvas-atlas/lower-07-1x-19c2349177.avif",
+      "detailAvif": "assets/canvas-atlas/lower-07-2x-6ba522a1bb.avif",
       "width": 561,
       "height": 417,
       "cases": [
@@ -136,10 +136,10 @@
     },
     {
       "id": "lower-08",
-      "preview": "assets/canvas-atlas/lower-08-1x-31f266e08b.webp",
-      "detail": "assets/canvas-atlas/lower-08-2x-828ff791c7.webp",
-      "previewAvif": "assets/canvas-atlas/lower-08-1x-fb0a26bc6a.avif",
-      "detailAvif": "assets/canvas-atlas/lower-08-2x-d98dc2f51c.avif",
+      "preview": "assets/canvas-atlas/lower-08-1x-7d053fafd5.webp",
+      "detail": "assets/canvas-atlas/lower-08-2x-2fd4c6eebb.webp",
+      "previewAvif": "assets/canvas-atlas/lower-08-1x-565183e333.avif",
+      "detailAvif": "assets/canvas-atlas/lower-08-2x-0d1066bff9.avif",
       "width": 619,
       "height": 352,
       "cases": [
@@ -262,10 +262,10 @@
     },
     {
       "id": "lower-14",
-      "preview": "assets/canvas-atlas/lower-14-1x-87ca7bf0a3.webp",
-      "detail": "assets/canvas-atlas/lower-14-2x-8f4084b5c3.webp",
-      "previewAvif": "assets/canvas-atlas/lower-14-1x-79d1ec6eff.avif",
-      "detailAvif": "assets/canvas-atlas/lower-14-2x-2cf9137e7f.avif",
+      "preview": "assets/canvas-atlas/lower-14-1x-0e6def0600.webp",
+      "detail": "assets/canvas-atlas/lower-14-2x-30b2eab8bc.webp",
+      "previewAvif": "assets/canvas-atlas/lower-14-1x-d278ce8e78.avif",
+      "detailAvif": "assets/canvas-atlas/lower-14-2x-152c920ae5.avif",
       "width": 623,
       "height": 500,
       "cases": [
