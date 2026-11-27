@@ -1,0 +1,49 @@
+{
+  "id": "the-jade-bird-programme",
+  "title": "The Jade Bird",
+  "task": "Multi-turn editing",
+  "width": 1024,
+  "height": 1408,
+  "alt": "An Art Nouveau playbill goes through three edits. A white peacock replaces the phoenix, a new title and subtitle fill the upper cartouche, and a ticket panel adds the venue and performance time.",
+  "description": "An Art Nouveau playbill goes through three edits. A white peacock replaces the phoenix, a new title and subtitle fill the upper cartouche, and a ticket panel adds the venue and performance time.",
+  "preserveLayout": true,
+  "featured": true,
+  "frames": [
+    {
+      "asset": "the-jade-bird-programme-original",
+      "label": "Generated input",
+      "role": "input",
+      "width": 1024,
+      "height": 1408,
+      "alt": "An Art Nouveau playbill shows an orange phoenix under the title FIRE BIRD.",
+      "prompt": "A stunning Art Nouveau theatre playbill, flat vertical print filling the frame, cobalt and gold. A single orange phoenix perches on a curving branch beneath a golden disc, its fiery feathers curling through white lilies. At the top a wide ivory cartouche bears the meticulously typeset dark headline \"FIRE BIRD\"; at the very bottom a narrow navy ribbon says \"ACT I\". Only these two inscriptions. Distinct, perfectly legible lettering, crisp rich handmade mosaic pieces and strong composition."
+    },
+    {
+      "asset": "the-jade-bird-programme-first-edit",
+      "label": "White peacock",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "A white peacock with an emerald train replaces the phoenix. FIRE BIRD and ACT I stay in print.",
+      "prompt": "Replace the orange phoenix illustration with a white peacock with a long emerald train and a delicate white crest on the same branch. Keep the lilies, gold disc, artwork style, and both printed inscriptions FIRE BIRD and ACT I exactly as they are."
+    },
+    {
+      "asset": "the-jade-bird-programme-second-edit",
+      "label": "Title and subtitle",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "The new title THE JADE BIRD sits above the italic subtitle A BALLET IN TWO ACTS.",
+      "prompt": "On the upper ivory cartouche replace FIRE BIRD with “THE JADE BIRD”. Set the subtitle “A BALLET IN TWO ACTS” on a smaller line immediately beneath the title. Keep the white peacock, emerald train, gilded border and ACT I footer."
+    },
+    {
+      "asset": "the-jade-bird-programme",
+      "label": "Venue and time",
+      "role": "output",
+      "width": 1024,
+      "height": 1408,
+      "alt": "An ivory ticket panel reads RIVER HALL and FRIDAY 18 JUNE AT 8 PM beneath the peacock.",
+      "prompt": "Make the bottom ACT I cartouche a two-line ivory ticket. Print “RIVER HALL” in small caps and “FRIDAY 18 JUNE AT 8 PM” below it. Keep the rest of the playbill exactly as printed."
+    }
+  ]
+}

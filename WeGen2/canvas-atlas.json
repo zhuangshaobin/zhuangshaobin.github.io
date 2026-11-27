@@ -8,7 +8,14 @@
       "detailAvif": "assets/canvas-atlas/upper-00-2x-6abe026d12.avif",
       "width": 620,
       "height": 330,
-      "cases": ["a-fold-for-spring", "snow-owl-at-dusk", "room-under-an-umbrella", "the-red-paper-city", "the-rain-dancer", "a-dress-made-of-wind"]
+      "cases": [
+        "a-fold-for-spring",
+        "snow-owl-at-dusk",
+        "room-under-an-umbrella",
+        "the-red-paper-city",
+        "the-rain-dancer",
+        "a-dress-made-of-wind"
+      ]
     },
     {
       "id": "upper-01",
@@ -69,7 +76,9 @@
       "detailAvif": "assets/canvas-atlas/upper-04-2x-499341c478.avif",
       "width": 224,
       "height": 164,
-      "cases": ["the-celestial-greenhouse"]
+      "cases": [
+        "the-celestial-greenhouse"
+      ]
     },
     {
       "id": "lower-05",
@@ -199,10 +208,10 @@
     },
     {
       "id": "lower-11",
-      "preview": "assets/canvas-atlas/lower-11-1x-d758ca8e2e.webp",
-      "detail": "assets/canvas-atlas/lower-11-2x-0c2b214f56.webp",
-      "previewAvif": "assets/canvas-atlas/lower-11-1x-be74ea6e91.avif",
-      "detailAvif": "assets/canvas-atlas/lower-11-2x-0dd91c4f03.avif",
+      "preview": "assets/canvas-atlas/lower-11-1x-ebbe08a69a.webp",
+      "detail": "assets/canvas-atlas/lower-11-2x-24b27c187a.webp",
+      "previewAvif": "assets/canvas-atlas/lower-11-1x-92081a1bd9.avif",
+      "detailAvif": "assets/canvas-atlas/lower-11-2x-befe96c428.avif",
       "width": 618,
       "height": 363,
       "cases": [
@@ -215,7 +224,7 @@
         "the-raincoat-photographer",
         "tomorrow-blackboard",
         "the-tidal-container-port",
-        "a-new-note-of-amber"
+        "the-jade-bird-programme"
       ]
     },
     {
@@ -1027,14 +1036,6 @@
       "width": 86,
       "height": 63
     },
-    "a-new-note-of-amber": {
-      "group": "lower-11",
-      "id": "a-new-note-of-amber",
-      "x": 403,
-      "y": 157,
-      "width": 65,
-      "height": 89
-    },
     "the-embroidered-paper-portrait": {
       "group": "lower-12",
       "id": "the-embroidered-paper-portrait",
@@ -1282,6 +1283,14 @@
       "y": 2,
       "width": 173,
       "height": 126
+    },
+    "the-jade-bird-programme": {
+      "group": "lower-11",
+      "id": "the-jade-bird-programme",
+      "x": 403,
+      "y": 157,
+      "width": 65,
+      "height": 89
     }
   }
 }
